@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../images/logo.png'
 
 const Navbar = ({ children }) => {
     const [dark, setDark] = useState(false);
@@ -11,7 +10,7 @@ const Navbar = ({ children }) => {
             <div className="drawer-content flex flex-col">
 
                 {/* <!-- Navbar --> */}
-                <div className="w-full navbar bg-primary shadow-lg px-20 text-base-100">
+                <div className="w-full navbar bg-neutral shadow-lg px-20 text-primary">
                     <div className="flex-1 text-2xl"><Link to='/'>BlueMax</Link></div>
                     <div className="flex-none lg:hidden">
                         <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
