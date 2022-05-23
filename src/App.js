@@ -4,6 +4,10 @@ import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute';
 import About from './pages/About/About';
 import DashBoard from './pages/Dashboard/Dashboard';
+import AddReview from './pages/Dashboard/User/AddReview/AddReview';
+import Orders from './pages/Dashboard/User/Orders/Orders';
+import Profile from './pages/Dashboard/User/Profile/Profile';
+import UpdateProfile from './pages/Dashboard/User/Profile/UpdateProfile';
 
 import Home from './pages/Home/Home';
 import NotFound from './pages/NotFound/NotFound';
@@ -27,7 +31,12 @@ function App() {
           </PrivateRoute>} />
           <Route path='/dashboard' element={<PrivateRoute>
             <DashBoard />
-          </PrivateRoute>} />
+          </PrivateRoute>}>
+            <Route index element={<Orders />} />
+            <Route path='profile' element={<Profile />} />
+            <Route path='review' element={<AddReview />} />
+            <Route path='updateProfile' element={<UpdateProfile />}></Route>
+          </Route>
           <Route path='*' element={<NotFound />} />
         </Routes>
 

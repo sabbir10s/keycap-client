@@ -1,12 +1,14 @@
 import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import auth from '../firebase.init';
 import { BiChevronsDown } from 'react-icons/bi';
+import { BiMenuAltLeft } from 'react-icons/bi';
 
 const Navbar = ({ children }) => {
     const [dark, setDark] = useState(false);
+    const { pathname } = useLocation()
     const [user] = useAuthState(auth);
 
     return (
@@ -16,10 +18,15 @@ const Navbar = ({ children }) => {
 
                 {/* <!-- Navbar --> */}
                 <div className="w-full navbar bg-base-100 shadow-lg px-20 text-primary">
-                    <div className="flex-1 text-2xl font-bold"><Link to='/'>NEXIQ</Link></div>
+                    {
+                        pathname.includes('dashboard') && (<label for="my-drawer-2" class=" drawer-button lg:hidden">
+                            <span className='text-3xl'><BiMenuAltLeft /></span>
+                        </label>)
+                    }
+                    <div className="flex-1 text-2xl font-bold justify-center lg:justify-start"><Link to='/'>NEXIQ</Link></div>
                     <div className="flex-none lg:hidden">
                         <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-7 h-7 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                         </label>
                     </div>
 
