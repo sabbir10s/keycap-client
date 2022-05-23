@@ -1,7 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ProductCard = ({ product }) => {
-    const { name, image, description, minOrder, quantity, price } = product;
+    const { _id, name, image, description, price } = product;
+    const navigate = useNavigate()
+    const handlePurchase = () => {
+        navigate(`/purchase/${_id}`)
+    }
     return (
         <div className='border border-primary hover:shadow-xl hover:bg-neutral flex flex-col justify-between h-[400px]'>
             <div><img className='w-[300px] px-5 pt-5' src={image} alt="" /></div>
@@ -13,7 +18,7 @@ const ProductCard = ({ product }) => {
                 <p>Available Quantity: {quantity}</p> */}
                 <p>Price: <span className='text-primary font-bold'>{price}</span></p>
             </div>
-            <button className='w-full btn btn-primary rounded-none'>Book Now</button>
+            <button onClick={() => handlePurchase(_id)} className='w-full btn btn-primary rounded-none'>Book Now</button>
         </div>
     );
 };

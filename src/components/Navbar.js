@@ -7,7 +7,7 @@ import { BiChevronsDown } from 'react-icons/bi';
 
 const Navbar = ({ children }) => {
     const [dark, setDark] = useState(false);
-    const [user, loading, error] = useAuthState(auth);
+    const [user] = useAuthState(auth);
 
     return (
         <div className="drawer drawer-end">
@@ -15,7 +15,7 @@ const Navbar = ({ children }) => {
             <div className="drawer-content flex flex-col">
 
                 {/* <!-- Navbar --> */}
-                <div className="w-full navbar bg-neutral shadow-lg px-20 text-primary">
+                <div className="w-full navbar bg-base-100 shadow-lg px-20 text-primary">
                     <div className="flex-1 text-2xl font-bold"><Link to='/'>NEXIQ</Link></div>
                     <div className="flex-none lg:hidden">
                         <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
@@ -48,9 +48,12 @@ const Navbar = ({ children }) => {
 
                                             {
                                                 user ?
-                                                    <li className='text-error' onClick={() => signOut(auth)}>
-                                                        <button>Sign out</button>
-                                                    </li>
+                                                    <>
+                                                        <li> <NavLink className='rounded-lg' to='/dashboard'>Dashboard</NavLink></li>
+                                                        <li className='text-error' onClick={() => signOut(auth)}>
+                                                            <button>Sign out</button>
+                                                        </li>
+                                                    </>
                                                     :
                                                     ''
                                             }
