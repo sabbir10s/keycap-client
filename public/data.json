@@ -1,56 +1,50 @@
 [
     {
-      "_id": "6289b82c58e51442822ad8c1",
       "name": "Katrina Strickland",
       "image": "https://pimdata.irimo.com/media/sub846/16a7b20fc8ed6e3f.png",
       "description": "Tempor labore tempor culpa incididunt non proident culpa minim est ut voluptate consectetur. Quis culpa aute consectetur aliqua enim ex esse aliquip pariatur. Officia Lorem ut eu est sunt nostrud sunt. Veniam ullamco labore velit quis laborum. Dolor labore aute ex laborum ex velit pariatur incididunt dolor culpa laborum proident nostrud cupidatat. Enim irure aliqua officia proident minim irure sunt amet.\r\n",
       "minOrder": 261,
       "quantity": 2438,
-      "price": "$1,232.20"
+      "price": 1232
     },
     {
-      "_id": "6289b82c5600296305aaecbd",
       "name": "Alyce Martin",
       "image": "https://pimdata.irimo.com/media/sub381/179e5767541d8c3f.png",
       "description": "Proident dolor ullamco non ad laborum nisi veniam ut est do ut quis amet. Lorem laboris voluptate officia nostrud elit eu. Aliqua anim tempor sit consectetur. Voluptate in officia est irure aliqua occaecat reprehenderit elit elit non nostrud do pariatur est. Exercitation reprehenderit veniam dolor irure id et deserunt tempor cupidatat sint fugiat qui sunt.\r\n",
       "minOrder": 289,
       "quantity": 4401,
-      "price": "$532.54"
+      "price": 532
     },
     {
-      "_id": "6289b82c58e51442822ad8c1",
       "name": "Katrina Strickland",
       "image": "https://pimdata.irimo.com/media/sub846/16a7b20fc8ed6e3f.png",
       "description": "Tempor labore tempor culpa incididunt non proident culpa minim est ut voluptate consectetur. Quis culpa aute consectetur aliqua enim ex esse aliquip pariatur. Officia Lorem ut eu est sunt nostrud sunt. Veniam ullamco labore velit quis laborum. Dolor labore aute ex laborum ex velit pariatur incididunt dolor culpa laborum proident nostrud cupidatat. Enim irure aliqua officia proident minim irure sunt amet.\r\n",
       "minOrder": 261,
       "quantity": 2438,
-      "price": "$1,232.20"
+      "price": 1232
     },
     {
-      "_id": "6289b82c5600296305aaecbd",
       "name": "Alyce Martin",
       "image": "https://pimdata.irimo.com/media/sub381/179e5767541d8c3f.png",
       "description": "Proident dolor ullamco non ad laborum nisi veniam ut est do ut quis amet. Lorem laboris voluptate officia nostrud elit eu. Aliqua anim tempor sit consectetur. Voluptate in officia est irure aliqua occaecat reprehenderit elit elit non nostrud do pariatur est. Exercitation reprehenderit veniam dolor irure id et deserunt tempor cupidatat sint fugiat qui sunt.\r\n",
       "minOrder": 289,
       "quantity": 4401,
-      "price": "$532.54"
+      "price": 533
     },
     {
-      "_id": "6289b82c58e51442822ad8c1",
       "name": "Katrina Strickland",
       "image": "https://pimdata.irimo.com/media/sub846/16a7b20fc8ed6e3f.png",
       "description": "Tempor labore tempor culpa incididunt non proident culpa minim est ut voluptate consectetur. Quis culpa aute consectetur aliqua enim ex esse aliquip pariatur. Officia Lorem ut eu est sunt nostrud sunt. Veniam ullamco labore velit quis laborum. Dolor labore aute ex laborum ex velit pariatur incididunt dolor culpa laborum proident nostrud cupidatat. Enim irure aliqua officia proident minim irure sunt amet.\r\n",
       "minOrder": 261,
       "quantity": 2438,
-      "price": "$1,232.20"
+      "price": 1232
     },
     {
-      "_id": "6289b82c5600296305aaecbd",
       "name": "Alyce Martin",
       "image": "https://pimdata.irimo.com/media/sub381/179e5767541d8c3f.png",
       "description": "Proident dolor ullamco non ad laborum nisi veniam ut est do ut quis amet. Lorem laboris voluptate officia nostrud elit eu. Aliqua anim tempor sit consectetur. Voluptate in officia est irure aliqua occaecat reprehenderit elit elit non nostrud do pariatur est. Exercitation reprehenderit veniam dolor irure id et deserunt tempor cupidatat sint fugiat qui sunt.\r\n",
       "minOrder": 289,
       "quantity": 4401,
-      "price": "$532.54"
+      "price": 532
     }
   ]

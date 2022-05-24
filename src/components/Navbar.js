@@ -19,7 +19,7 @@ const Navbar = ({ children }) => {
                 {/* <!-- Navbar --> */}
                 <div className="w-full navbar bg-base-100 shadow-lg px-20 text-primary">
                     {
-                        pathname.includes('dashboard') && (<label for="my-drawer-2" class=" drawer-button lg:hidden">
+                        pathname.includes('dashboard') && (<label for="my-drawer-2" className=" drawer-button lg:hidden">
                             <span className='text-3xl'><BiMenuAltLeft /></span>
                         </label>)
                     }

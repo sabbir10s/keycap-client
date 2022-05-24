@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 // import useToken from '../../Hooks/useToken';
 import Loading from '../../components/Loading';
+import useToken from '../../hooks/useToken';
 
 
 const SignUp = () => {
@@ -20,7 +21,9 @@ const SignUp = () => {
     ] = useCreateUserWithEmailAndPassword(auth);
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-    // const [token] = useToken(user || gUser)
+
+    const [token] = useToken(user || gUser)
+
     const navigate = useNavigate()
     let signInError;
 
@@ -30,9 +33,9 @@ const SignUp = () => {
     if (error || gError || updateError) {
         signInError = <p className='text-red-500 pb-4'><small>{error?.message || gError?.message || updateError?.message}</small></p>
     }
-    // if (token) {
-    //     navigate('/appointment')
-    // }
+    if (token) {
+        navigate('/')
+    }
 
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);

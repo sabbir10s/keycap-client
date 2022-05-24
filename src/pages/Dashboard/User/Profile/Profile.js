@@ -1,26 +1,62 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../../../../components/Loading';
+import PrimaryButton from '../../../../components/PrimaryButton';
 import auth from '../../../../firebase.init';
 
 const Profile = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate()
+
+    const { isLoading, data: userData } = useQuery('product', () =>
+        fetch(`http://localhost:5000/user/${user.email}`, {
+            method: "GET",
+            headers: {
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            },
+        }).then(res => res.json()
+        )
+    )
+    console.log(userData);
+    if (isLoading) {
+        return <Loading />
+    }
+
+    const { name, email, education, phone, city, linkedin } = userData;
+
     return (
-        <div className='ml-5'>
+        <div className='mx-10'>
             <p className='text-xl  mt-5 font-bold'>My Profile</p>
-            <div class="divider"></div>
-            <div className='grid grid-cols-2'>
-                <div className='flex flex-col justify-center items-center'>
-                    <div><img className='rounded-full' src={user?.photoURL} alt="" /></div>
-                    <button onClick={() => navigate('/dashboard/updateProfile')} className='bg-primary text-white px-7 py-2 rounded-full mt-5'>Edit Profile</button>
+            <div className="divider"></div>
+            <div className=''>
+                <div className='mb-3'>
+                    <p className='font-bold text-sm text-base-300'>Name</p>
+                    <p>{name}</p>
                 </div>
-                <div>
-                    <small className='font-bold'>Name</small>
-                    <p>{user.displayName}</p>
-                    <small className='font-bold'>Email</small>
-                    <p>{user.email}</p>
+                <div className='mb-3'>
+                    <p className='font-bold text-sm text-base-300'>Email</p>
+                    <p>{email}</p>
                 </div>
+                <div className='mb-3'>
+                    <p className='font-bold text-sm text-base-300'>Education</p>
+                    <p>{education}</p>
+                </div>
+                <div className='mb-3'>
+                    <p className='font-bold text-sm text-base-300'>phone</p>
+                    <p>{phone}</p>
+                </div>
+                <div className='mb-3'>
+                    <p className='font-bold text-sm text-base-300'>City</p>
+                    <p>{city}</p>
+                </div>
+                <div className='mb-3'>
+                    <p className='font-bold text-sm text-base-300'>LinkedIn Profile</p>
+                    <p className='link'>{linkedin}</p>
+                </div>
+                <button onClick={() => navigate('/dashboard/updateProfile')} className='bg-primary text-base-100 px-7 py-2 rounded'>Update Profile</button>
             </div>
         </div>
     );

@@ -15,11 +15,15 @@ import Purchase from './pages/Purchase/Purchase';
 import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
   return (
     <div className="App">
 
       <Navbar>
+        <ToastContainer />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/home' element={<Home />} />

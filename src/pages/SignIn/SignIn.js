@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../../components/Loading';
+import useToken from '../../hooks/useToken';
 // import useToken from '../../Hooks/useToken';
 
 const SignIn = () => {
@@ -17,13 +18,14 @@ const SignIn = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    // const [token] = useToken(user || gUser)
-    const [token] = useState(user || gUser)
+
+    const [token] = useToken(user || gUser)
 
 
     let signInError;
     const navigate = useNavigate();
     const location = useLocation();
+
     let from = location?.state?.from?.pathname || "/";
 
     useEffect(() => {

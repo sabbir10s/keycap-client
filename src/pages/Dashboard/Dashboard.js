@@ -8,15 +8,15 @@ const DashBoard = () => {
     const [user] = useAuthState(auth);
     return (
         <div className='px-12 bg-base-200'>
-            <div class="drawer drawer-mobile">
-                <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-                <div class="mr-7 mt-5 drawer-content bg-base-100 rounded-lg">
-                    <p className='text-primary text-center text-2xl uppercase pt-5 font-bold'>Dashboard</p>
+            <div className="drawer drawer-mobile">
+                <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+                <div className="mr-7 my-5 drawer-content bg-base-100 rounded-lg">
+                    <p className='text-primary text-center text-2xl uppercase pt-4 font-bold'>Dashboard</p>
                     <Outlet />
                 </div>
-                <div class="drawer-side ">
-                    <label for="my-drawer-2" class="drawer-overlay"></label>
-                    <ul class="mx-7 mt-5 menu p-4 overflow-y-auto w-80 bg-base-100 rounded-lg text-base-content">
+                <div className="drawer-side ">
+                    <label for="my-drawer-2" className="drawer-overlay"></label>
+                    <ul className="mx-7 my-5 menu p-4 overflow-y-auto w-80 bg-base-100 rounded-lg text-base-content">
                         {/* <!-- Sidebar content here --> */}
                         <li><Link to='/dashboard/profile'>Profile</Link></li>
                         {
