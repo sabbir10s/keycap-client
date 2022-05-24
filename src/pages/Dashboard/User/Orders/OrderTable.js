@@ -12,7 +12,7 @@ const OrderTable = ({ order, index, setCancelOrder }) => {
             <td>{quantity}</td>
             <td>{totalPrice}</td>
             <td>
-                <label onClick={() => setCancelOrder(order)} for="delete-confirm-modal" className='text-error' >open modal</label>
+                <label onClick={() => setCancelOrder(order)} for="delete-confirm-modal" className='btn btn-error btn-sm' >Cancel Order</label>
 
             </td>
         </tr>
