@@ -3,7 +3,6 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../../../../components/Loading';
-import PrimaryButton from '../../../../components/PrimaryButton';
 import auth from '../../../../firebase.init';
 
 const Profile = () => {
@@ -33,27 +32,27 @@ const Profile = () => {
             <div className="divider"></div>
             <div className=''>
                 <div className='mb-3'>
-                    <p className='font-bold text-sm text-base-300'>Name</p>
+                    <p className='text-sm text-base-300'>Name</p>
                     <p>{name}</p>
                 </div>
                 <div className='mb-3'>
-                    <p className='font-bold text-sm text-base-300'>Email</p>
+                    <p className='text-sm text-base-300'>Email</p>
                     <p>{email}</p>
                 </div>
                 <div className='mb-3'>
-                    <p className='font-bold text-sm text-base-300'>Education</p>
+                    <p className='text-sm text-base-300'>Education</p>
                     <p>{education}</p>
                 </div>
                 <div className='mb-3'>
-                    <p className='font-bold text-sm text-base-300'>phone</p>
+                    <p className='text-sm text-base-300'>phone</p>
                     <p>{phone}</p>
                 </div>
                 <div className='mb-3'>
-                    <p className='font-bold text-sm text-base-300'>City</p>
+                    <p className='text-sm text-base-300'>City</p>
                     <p>{city}</p>
                 </div>
                 <div className='mb-3'>
-                    <p className='font-bold text-sm text-base-300'>LinkedIn Profile</p>
+                    <p className='text-sm text-base-300'>LinkedIn Profile</p>
                     <p className='link'>{linkedin}</p>
                 </div>
                 <button onClick={() => navigate('/dashboard/updateProfile')} className='bg-primary text-base-100 px-7 py-2 rounded'>Update Profile</button>

@@ -37,15 +37,17 @@ const Purchase = () => {
         const email = event.target.email.value;
         const phone = event.target.phone.value;
         const address = event.target.address.value;
+        const productName = product.name;
         const quantity = event.target.quantity.value;
-        const costAmount = parseInt(quantity) * product?.price;
-        const bookingInfo = { name, email, phone, address, quantity, costAmount };
+        const price = event.target.price.value;
+        const totalPrice = parseInt(quantity) * product?.price;
+        const orderInfo = { name, email, phone, address, productName, price, quantity, totalPrice };
 
-        const url = `http://localhost:5000/booking`;
+        const url = `http://localhost:5000/order`;
 
         fetch(url, {
             method: 'POST',
-            body: JSON.stringify(bookingInfo),
+            body: JSON.stringify(orderInfo),
             headers: {
                 'content-type': 'application/json',
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -60,7 +62,7 @@ const Purchase = () => {
 
     const { name, image, description, minOrder, quantity, price } = product;
     return (
-        <div className='bg-base-200 py-10'>
+        <div className='bg-base-200 py-5 lg:h-screen'>
             <div className=' mx-12  grid grid-cols-1 lg:grid-cols-3 gap-10'>
                 <div className='col-span-2 bg-base-100 rounded-xl p-10'>
                     <div className=' grid grid-cols-2 gap-5'>
@@ -82,27 +84,32 @@ const Purchase = () => {
                     </div>
                 </div>
                 <div className='bg-base-100 rounded-xl col-span-1 p-5'>
-                    <h3 className='text-2xl'>Your Details</h3>
+                    <h3 className='text-2xl'>Booking Details</h3>
                     <div className='mt-3'>
-                        <form onSubmit={handlePlaceOrder}>
+                        <form onSubmit={handlePlaceOrder} className='text-md'>
                             <div>
-                                <small className='text-base-300 block'>Name</small>
-                                <input className='border border-primary pl-2 py-1 rounded-md w-full mt-1' type="text" name="name" value={user.displayName} disabled id="" />
+                                <input className='border border-primary pl-3 py-2 rounded-md w-full mt-1' type="text" name="name" value={user.displayName} disabled id="" />
                             </div>
                             <div className='mt-3'>
-                                <small className='text-base-300 block'>email</small>
-                                <input className='border border-primary pl-2 py-1 rounded-md w-full mt-1' type="email" name="email" value={user.email} disabled id="" />
+
+                                <input className='border border-primary pl-3 py-2 rounded-md w-full mt-1' type="email" name="email" value={user.email} disabled id="" />
                             </div>
                             <div className='mt-3'>
-                                <small className='text-base-300 block'>Phone Number</small>
-                                <input className='border border-primary pl-2 py-1 rounded-md w-full mt-1' type="phone" name="phone" placeholder='Phone' required id="" />
+
+                                <input className='border border-primary pl-3 py-2 rounded-md w-full mt-1' type="number" name="phone" placeholder='Phone' required id="" />
                             </div>
                             <div className='mt-3'>
-                                <small className='text-base-300 block'>Address</small>
-                                <textarea className='border border-primary pl-2 py-1 rounded-md w-full mt-1' name="address" placeholder='Address' id="" cols="10" rows="2" required></textarea>
+
+                                <textarea className='border border-primary pl-3 py-2 rounded-md w-full mt-1' name="address" placeholder='Address' id="" cols="10" rows="3" required></textarea>
                             </div>
 
-                            <span className='text-secondary block font-bold mt-3'>Add Your Quantity</span>
+                            <div className='mt-3 text-secondary'>
+                                <span>Price: $<input type="number" name="price" value={price} disabled id="" />
+                                </span>
+
+                            </div>
+
+                            <span className='text-secondary mr-4'>Quantity</span>
                             <input onChange={orderQuantity} className='text-center border border-primary text-secondary rounded-md mt-3 py-2' type="number" name="quantity" id="" required />
 
                             <button type='submit' disabled={newQuantity.quantity < minOrder || newQuantity.quantity > quantity} className='btn btn-primary block mt-3'>Place Your Booking</button>
