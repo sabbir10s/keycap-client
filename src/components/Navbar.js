@@ -36,6 +36,7 @@ const Navbar = ({ children }) => {
                             {/* <!-- Navbar menu content here --> */}
                             <li><NavLink to='/home' className='rounded-lg'>Home</NavLink></li>
                             <li><NavLink to='/about' className='rounded-lg'>About</NavLink></li>
+                            <li><NavLink to='/blog' className='rounded-lg'>Blogs</NavLink></li>
                             {
                                 user ?
                                     <li className="dropdown dropdown-hover dropdown-end">
