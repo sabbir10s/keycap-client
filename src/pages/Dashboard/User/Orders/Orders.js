@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom';
 import Loading from '../../../../components/Loading';
 import auth from '../../../../firebase.init';
 import DeleteConfirmModal from './DeleteConfirmModal';
-import OrderTable from './OrderTable';
 
 const Orders = () => {
 
@@ -44,17 +44,27 @@ const Orders = () => {
                             <th>Quantity</th>
                             <th>Total Price</th>
                             <th>Action</th>
+                            <th>payment</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            orders.map((order, index) =>
-                                < OrderTable key={order._id}
-                                    setCancelOrder={setCancelOrder}
-                                    refetch={refetch}
-                                    order={order}
-                                    index={index}>
-                                </OrderTable>)
+                            orders.map((order, index) => <tr>
+                                <th>{index + 1}</th>
+                                <td>{order.productName}</td>
+                                <td>{order.price}</td>
+                                <td>{order.quantity}</td>
+                                <td>{order.totalPrice}</td>
+                                <td>
+                                    {!order.paid && <label onClick={() => setCancelOrder(order)} for="delete-confirm-modal" className='btn font-medium text-base-100 btn-error btn-xs' >Cancel Order</label>}
+
+                                </td>
+
+                                <td>
+                                    {(order.totalPrice && !order.paid) && <Link to={`/dashboard/payment/${order._id}`} className='btn btn-success btn-xs'>Payment</Link>}
+                                    {(order.totalPrice && order.paid) && <span className='text-success'>Paid</span>}
+                                </td>
+                            </tr>)
                         }
 
                     </tbody>

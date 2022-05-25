@@ -8,7 +8,7 @@ const Download = () => {
                 <div className='grid grid-cols-2 col-span-2 items-center'>
                     <img className='w-[300px] rounded-md' src={catalog} alt="" />
                     <div className=''>
-                        <h2 className='text-2xl font-bold'>Download Catalogue</h2>
+                        <h2 className='text-2xl font-bold uppercase'>Download Catalogue</h2>
                         <small className='block my-5'>A selection of printed materials. You can consult directly on-line.</small>
                         <PrimaryButton>Got to Download</PrimaryButton>
                     </div>

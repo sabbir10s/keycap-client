@@ -29,7 +29,7 @@ const Newsletter = () => {
                                 <input type="text" placeholder="Last Name" class="input input-bordered w-full" />
                             </div>
                         </div>
-                        <p className='text-base-100 max-10 mt-5'>
+                        <p className='text-base-100 max-10 mt-5 text-sm'>
                             By providing your email address and cliking on "submit", you accept to receive by email our updates about Irimo products and SNA EUROPE other innovations and events.
                         </p>
                         <div class="form-control mt-6">
