@@ -18,7 +18,7 @@ const DashBoard = () => {
                     <label for="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="mx-7 my-5 menu p-4 overflow-y-auto w-80 bg-base-100 rounded-lg text-base-content">
                         {/* <!-- Sidebar content here --> */}
-                        <li><Link to='/dashboard/profile'>Profile</Link></li>
+
                         {
                             user ?
                                 <>
@@ -27,7 +27,7 @@ const DashBoard = () => {
                                 </>
                                 :
                                 ''
-                        }
+                        }<li><Link to='/dashboard/profile'>Profile</Link></li>
                     </ul>
 
                 </div>

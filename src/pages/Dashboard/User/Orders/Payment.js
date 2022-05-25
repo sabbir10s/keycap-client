@@ -13,7 +13,7 @@ const Payment = () => {
     const { id } = useParams();
     const url = `http://localhost:5000/order/email/${id}`;
 
-    const { isLoading, data: order, refetch } = useQuery(['order', id], () =>
+    const { isLoading, data: order } = useQuery(['order', id], () =>
         fetch(url, {
             headers: {
                 'content-type': 'application/json',
