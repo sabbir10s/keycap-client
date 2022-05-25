@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Loading from '../../components/Loading';
 import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
+import { signOut } from 'firebase/auth';
 
 const Purchase = () => {
     const [user] = useAuthState(auth);
-
+    const navigate = useNavigate();
     const { id } = useParams()
     const { isLoading, data: product } = useQuery('product', () =>
         fetch(`http://localhost:5000/product/${id}`).then(res =>
@@ -53,7 +54,14 @@ const Purchase = () => {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             },
         })
-            .then((res) => res.json())
+            .then((res) => {
+                if (res.status === 401 || res.status === 403) {
+                    signOut(auth);
+                    localStorage.removeItem('accessToken');
+                    navigate('/')
+                }
+                return res.json()
+            })
             .then((data) => {
                 event.target.reset();
                 toast.success("Your Booking Successful")

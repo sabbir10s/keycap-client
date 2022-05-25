@@ -1,3 +1,4 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
@@ -16,7 +17,14 @@ const Profile = () => {
                 'content-type': 'application/json',
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             },
-        }).then(res => res.json()
+        }).then(res => {
+            if (res.status === 401 || res.status === 403) {
+                signOut(auth);
+                localStorage.removeItem('accessToken');
+                navigate('/')
+            }
+            return res.json()
+        }
         )
     )
     console.log(userData);

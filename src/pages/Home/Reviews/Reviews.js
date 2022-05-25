@@ -14,7 +14,7 @@ const Reviews = () => {
 
             <div className='grid grid-cols-1 md:grid-cols-3 gap-16 content-center m-7'>
                 {
-                    reviews.map(review => <ReviewCard key={review.id} review={review}></ReviewCard>)
+                    reviews.map(review => <ReviewCard key={review._id} review={review}></ReviewCard>)
                 }
             </div>
         </div>

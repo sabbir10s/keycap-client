@@ -1,7 +1,8 @@
+import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Loading from '../../../../components/Loading';
 import auth from '../../../../firebase.init';
 import DeleteConfirmModal from './DeleteConfirmModal';
@@ -9,6 +10,7 @@ import DeleteConfirmModal from './DeleteConfirmModal';
 const Orders = () => {
 
     const [user] = useAuthState(auth);
+    const navigate = useNavigate();
 
     const [cancelOrder, setCancelOrder] = useState(null)
 
@@ -20,8 +22,15 @@ const Orders = () => {
                 'content-type': 'application/json',
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             },
-        }).then(res => res.json()
-        )
+        }).then(res => {
+            console.log('res form order', res);
+            if (res.status === 401 || res.status === 403) {
+                signOut(auth);
+                localStorage.removeItem('accessToken');
+                navigate('/')
+            }
+            return res.json()
+        })
     )
     if (isLoading) {
         return <Loading />

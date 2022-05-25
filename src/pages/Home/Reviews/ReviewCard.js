@@ -3,7 +3,6 @@ import React from 'react';
 const ReviewCard = ({ review }) => {
     // console.log(review);
     const { rating, comment, userName, userImage } = review;
-    console.log(userImage);
     return (
         <div className='min-w-[300px] border p-3 shadow-lg rounded-xl'>
             <div className='flex items-center justify-center mt-[-45px]'>
