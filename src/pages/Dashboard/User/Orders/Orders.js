@@ -23,7 +23,6 @@ const Orders = () => {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             },
         }).then(res => {
-            console.log('res form order', res);
             if (res.status === 401 || res.status === 403) {
                 signOut(auth);
                 localStorage.removeItem('accessToken');
@@ -43,8 +42,8 @@ const Orders = () => {
             <p className='text-xl  mt-5 font-bold'>My Orders</p>
             <div className="divider"></div>
 
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th></th>
@@ -58,7 +57,7 @@ const Orders = () => {
                     </thead>
                     <tbody>
                         {
-                            orders.map((order, index) => <tr>
+                            orders.map((order, index) => <tr key={order._id}>
                                 <th>{index + 1}</th>
                                 <td>{order.productName}</td>
                                 <td>{order.price}</td>

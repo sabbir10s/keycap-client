@@ -20,6 +20,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Blogs from './pages/Blogs/Blogs';
 import Payment from './pages/Dashboard/User/Orders/Payment';
 import Portfolio from './pages/Portfolio/Portfolio';
+import AllUsers from './pages/Dashboard/Admin/AllUsers';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           </PrivateRoute>} />
           <Route path='/dashboard' element={<PrivateRoute> <DashBoard /> </PrivateRoute>}>
             <Route index element={<Orders />} />
+            <Route path='user' element={<AllUsers />} />
             <Route path='payment/:id' element={<Payment />} />
             <Route path='profile' element={<Profile />} />
             <Route path='review' element={<AddReview />} />

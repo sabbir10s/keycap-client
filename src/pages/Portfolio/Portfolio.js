@@ -24,20 +24,20 @@ const Portfolio = () => {
                             <h2 className='text-2xl text-primary font-bold'>Skills</h2>
                             <div className='mt-3'>
                                 <p>Javascript</p>
-                                <progress class="progress progress-success w-56 bg-base-200 " value="80" max="100"></progress>
+                                <progress className="progress progress-success w-56 bg-base-200 " value="80" max="100"></progress>
                                 <p>React.js</p>
-                                <progress class="progress progress-success w-56 bg-base-200 " value="70" max="100"></progress>
+                                <progress className="progress progress-success w-56 bg-base-200 " value="70" max="100"></progress>
 
                                 <p>HTML and CSS</p>
-                                <progress class="progress progress-success w-56 bg-base-200 " value="85" max="100"></progress>
+                                <progress className="progress progress-success w-56 bg-base-200 " value="85" max="100"></progress>
                                 <p>Bootstrap</p>
-                                <progress class="progress progress-success w-56 bg-base-200 " value="95" max="100"></progress>
+                                <progress className="progress progress-success w-56 bg-base-200 " value="95" max="100"></progress>
                                 <p>tailwindcss</p>
-                                <progress class="progress progress-success w-56 bg-base-200 " value="95" max="100"></progress>
+                                <progress className="progress progress-success w-56 bg-base-200 " value="95" max="100"></progress>
                                 <p>Firebase</p>
-                                <progress class="progress progress-success w-56 bg-base-200 " value="90" max="100"></progress>
+                                <progress className="progress progress-success w-56 bg-base-200 " value="90" max="100"></progress>
                                 <p>MongoDB</p>
-                                <progress class="progress progress-success w-56 bg-base-200 " value="65" max="100"></progress>
+                                <progress className="progress progress-success w-56 bg-base-200 " value="65" max="100"></progress>
                             </div>
                         </div>
 
@@ -45,9 +45,9 @@ const Portfolio = () => {
                             <h2 className='text-2xl text-primary font-bold'>Languages</h2>
                             <div className='mt-3'>
                                 <p>Bangla</p>
-                                <progress class="progress progress-success w-56 bg-base-200 " value="100" max="100"></progress>
+                                <progress className="progress progress-success w-56 bg-base-200 " value="100" max="100"></progress>
                                 <p>English</p>
-                                <progress class="progress progress-success w-56 bg-base-200 " value="70" max="100"></progress>
+                                <progress className="progress progress-success w-56 bg-base-200 " value="70" max="100"></progress>
 
                             </div>
                         </div>
@@ -87,7 +87,7 @@ const Portfolio = () => {
                         <p className='text-success font-bold my-1'>2014 - 2015</p>
                         <h3 className='text-medium text-base-300'>Comilla Polytechnic Institute</h3>
                     </div>
-                    <div class="divider"></div>
+                    <div className="divider"></div>
                     <div className='mt-3'>
                         <h3 className='text-xl'>Secondary School Certificate</h3>
                         <p className='text-success font-bold my-1'>2013 - 2014</p>

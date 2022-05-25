@@ -27,7 +27,6 @@ const Profile = () => {
         }
         )
     )
-    console.log(userData);
     if (isLoading) {
         return <Loading />
     }
