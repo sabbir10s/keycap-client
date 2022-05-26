@@ -1,8 +1,8 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import PrimaryButton from '../../../../components/PrimaryButton';
 import { toast } from 'react-toastify';
-import auth from '../../../../firebase.init';
+import PrimaryButton from '../../../components/PrimaryButton';
+import auth from '../../../firebase.init';
 
 const UpdateProfile = () => {
 

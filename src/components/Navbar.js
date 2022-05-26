@@ -36,7 +36,6 @@ const Navbar = ({ children }) => {
                             {/* <!-- Navbar menu content here --> */}
                             <li><NavLink to='/home' className='rounded-lg'>Home</NavLink></li>
                             <li><NavLink to='/portfolio' className='rounded-lg'>My Portfolio</NavLink></li>
-                            <li><NavLink to='/about' className='rounded-lg'>About</NavLink></li>
                             <li><NavLink to='/blog' className='rounded-lg'>Blogs</NavLink></li>
                             {
                                 user ?

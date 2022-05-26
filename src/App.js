@@ -2,12 +2,10 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute';
-import About from './pages/About/About';
 import DashBoard from './pages/Dashboard/Dashboard';
 import AddReview from './pages/Dashboard/User/AddReview/AddReview';
 import Orders from './pages/Dashboard/User/Orders/Orders';
-import Profile from './pages/Dashboard/User/Profile/Profile';
-import UpdateProfile from './pages/Dashboard/User/Profile/UpdateProfile';
+import UpdateProfile from './pages/Dashboard/Profile/UpdateProfile';
 
 import Home from './pages/Home/Home';
 import NotFound from './pages/NotFound/NotFound';
@@ -25,6 +23,8 @@ import RequireAdmin from './components/RequireAdmin';
 import AddNewProduct from './pages/Dashboard/Admin/AddNewProduct/AddNewProduct';
 import MenageProducts from './pages/Dashboard/Admin/MenageProducts/MenageProducts';
 import AllUsers from './pages/Dashboard/Admin/MenageUsers/AllUsers';
+import RequireUser from './components/RequireUser';
+import Profile from './pages/Dashboard/Profile/Profile';
 
 function App() {
   return (
@@ -35,7 +35,6 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/home' element={<Home />} />
-          <Route path='/about' element={<About />} />
           <Route path='/signIn' element={<SignIn />} />
           <Route path='/signUp' element={<SignUp />} />
           <Route path='/portfolio' element={<Portfolio />} />
@@ -50,7 +49,8 @@ function App() {
             <Route index element={<Orders />} />
             <Route path='payment/:id' element={<Payment />} />
             <Route path='profile' element={<Profile />} />
-            <Route path='review' element={<AddReview />} />
+            <Route path='review' element={<RequireUser><AddReview /></RequireUser>} />
+
             <Route path='updateProfile' element={<UpdateProfile />}></Route>
           </Route>
           <Route path='*' element={<NotFound />} />
