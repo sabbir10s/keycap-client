@@ -21,6 +21,8 @@ import Blogs from './pages/Blogs/Blogs';
 import Payment from './pages/Dashboard/User/Orders/Payment';
 import Portfolio from './pages/Portfolio/Portfolio';
 import AllUsers from './pages/Dashboard/Admin/AllUsers';
+import RequireAdmin from './components/RequireAdmin';
+import AddNewProduct from './pages/Dashboard/Admin/AddNewProduct/AddNewProduct';
 
 function App() {
   return (
@@ -40,8 +42,9 @@ function App() {
             <Purchase />
           </PrivateRoute>} />
           <Route path='/dashboard' element={<PrivateRoute> <DashBoard /> </PrivateRoute>}>
+            <Route path='user' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
+            <Route path='addNewProduct' element={<RequireAdmin><AddNewProduct /></RequireAdmin>} />
             <Route index element={<Orders />} />
-            <Route path='user' element={<AllUsers />} />
             <Route path='payment/:id' element={<Payment />} />
             <Route path='profile' element={<Profile />} />
             <Route path='review' element={<AddReview />} />
