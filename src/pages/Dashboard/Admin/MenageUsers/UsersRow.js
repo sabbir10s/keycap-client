@@ -9,7 +9,7 @@ const UsersRow = ({ user, refetch, index }) => {
     const navigate = useNavigate();
 
     const handleMakeAdmin = () => {
-        const url = `http://localhost:5000/user/admin/${email}`;
+        const url = `https://quiet-fjord-62553.herokuapp.com/user/admin/${email}`;
 
         fetch(url, {
             method: 'PUT',
@@ -38,7 +38,7 @@ const UsersRow = ({ user, refetch, index }) => {
 
 
     const handleDelete = () => {
-        const url = `http://localhost:5000/user/${_id}`;
+        const url = `https://quiet-fjord-62553.herokuapp.com/user/${_id}`;
         fetch(url, {
             method: "DELETE",
             headers: {

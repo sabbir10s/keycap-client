@@ -15,7 +15,7 @@ const AddReview = () => {
         const userImage = user?.photoURL;
         const reviewInfo = { rating, comment, userName, userImage };
 
-        const url = `http://localhost:5000/review`;
+        const url = `https://quiet-fjord-62553.herokuapp.com/review`;
 
         fetch(url, {
             method: 'POST',

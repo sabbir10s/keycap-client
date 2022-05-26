@@ -33,7 +33,7 @@ const UpdateProfile = () => {
 
         const userInfo = { name, email, education, city, phone, linkedin };
 
-        const url = `http://localhost:5000/user/${email}`;
+        const url = `https://quiet-fjord-62553.herokuapp.com/user/${email}`;
 
         fetch(url, {
             method: 'PUT',
@@ -59,29 +59,28 @@ const UpdateProfile = () => {
                 <form onSubmit={submitUserData}>
                     <div>
                         <p className='text-base-300 text-sm block'>Name</p>
-                        <input className='border border-primary text-sm pl-2 py-1 rounded-md w-full mt-1' type="text" name="name" value={user.displayName} disabled id="" />
+                        <input required className='border border-primary text-sm pl-2 py-1 rounded-md w-full mt-1' type="text" name="name" id="" />
                     </div>
                     <div className='mt-3'>
                         <p className='text-base-300 text-sm block'>Email</p>
-                        <input className='border border-primary text-sm pl-2 py-1 rounded-md w-full mt-1' type="email" name="email" value={user.email} disabled id="" />
+                        <input className='border border-primary text-sm pl-2 py-1 rounded-md w-full mt-1' type="email" name="email" value={user.email} id="" />
                     </div>
                     <div className='mt-3'>
                         <p className='text-base-300 text-sm block'>Eduction</p>
-                        <input className='border border-primary text-sm pl-2 py-1 rounded-md w-full mt-1' type="text" name="education" placeholder='eduction' id="" />
+                        <input required className='border border-primary text-sm pl-2 py-1 rounded-md w-full mt-1' type="text" name="education" placeholder='eduction' id="" />
                     </div>
                     <div className='mt-3'>
                         <p className='text-base-300 text-sm block'>City</p>
-                        <input className='border border-primary text-sm pl-2 py-1 rounded-md w-full mt-1' type="text" name="city" placeholder='city' id="" />
+                        <input required className='border border-primary text-sm pl-2 py-1 rounded-md w-full mt-1' type="text" name="city" placeholder='city' id="" />
                     </div>
                     <div className='mt-3'>
                         <p className='text-base-300 text-sm block'>Phone</p>
-                        <input className='border border-primary text-sm pl-2 py-1 rounded-md w-full mt-1' type="phone" name="phone" placeholder='phone' id="" />
+                        <input required className='border border-primary text-sm pl-2 py-1 rounded-md w-full mt-1' type="phone" name="phone" placeholder='phone' id="" />
                     </div>
                     <div className='mt-3 mb-5'>
                         <p className='text-base-300 text-sm block'>LinkedIn</p>
-                        <input className='border border-primary text-sm pl-2 py-1 rounded-md w-full mt-1' type="text" name="linkedin" placeholder='LinkedIn profile link' id="" />
+                        <input required className='border border-primary text-sm pl-2 py-1 rounded-md w-full mt-1' type="text" name="linkedin" placeholder='LinkedIn profile link' id="" />
                     </div>
-                    {/* <input className='btn btn-primary' type="submit" value='SUBMIT' /> */}
                     <PrimaryButton type='submit'>Save Change</PrimaryButton>
                 </form>
             </div>

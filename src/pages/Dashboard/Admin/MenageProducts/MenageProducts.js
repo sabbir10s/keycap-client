@@ -10,7 +10,7 @@ import ProductRow from './ProductRow';
 
 const MenageProducts = () => {
     const navigate = useNavigate();
-    const { data: products, isLoading, refetch } = useQuery('product', () => fetch('http://localhost:5000/product', {
+    const { data: products, isLoading, refetch } = useQuery('product', () => fetch('https://quiet-fjord-62553.herokuapp.com/product', {
         method: 'GET',
         headers: {
             'content-type': 'application/json',

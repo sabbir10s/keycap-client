@@ -6,7 +6,7 @@ const ProductRow = ({ product, refetch, index }) => {
     const { name, price, quantity, _id } = product;
 
     const handleDelete = () => {
-        const url = `http://localhost:5000/product/${_id}`;
+        const url = `https://quiet-fjord-62553.herokuapp.com/product/${_id}`;
         fetch(url, {
             method: "DELETE",
             headers: {

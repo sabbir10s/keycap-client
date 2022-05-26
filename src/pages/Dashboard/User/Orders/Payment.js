@@ -11,7 +11,7 @@ const stripePromise = loadStripe('pk_test_51L17CjFVPM1NcC4wk5HSCO097ADOKg2eQAOM7
 const Payment = () => {
 
     const { id } = useParams();
-    const url = `http://localhost:5000/order/email/${id}`;
+    const url = `https://quiet-fjord-62553.herokuapp.com/order/email/${id}`;
 
     const { isLoading, data: order } = useQuery(['order', id], () =>
         fetch(url, {
