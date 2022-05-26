@@ -7,7 +7,7 @@ import Footer from '../../components/Footer';
 
 const Portfolio = () => {
     return (
-        <div className='bg-base-200 pt-5 pb-10 px-10'>
+        <div className='bg-base-200 pt-5 pb-10 lg:px-10'>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
                 <div className='bg-base-100 rounded-xl shadow-lg'>
                     <div className='bg-gray-300 rounded-t-xl'>
