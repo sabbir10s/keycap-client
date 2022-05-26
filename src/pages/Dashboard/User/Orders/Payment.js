@@ -28,27 +28,13 @@ const Payment = () => {
     }
 
     return (
-        <div className="hero">
-            <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="text-center lg:text-left">
-                    <div className="card w-96 bg-base-100 shadow-xl">
-                        <div className="card-body">
-                            <h2 className="card-title">Please Pay for <span className='text-success'>{order.productName}</span></h2>
-                            <p>If a dog chews shoes whose shoes does he choose?</p>
-                            <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <div className="card w-96 bg-base-100 shadow-xl">
-                        <div className="card-body">
-                            <Elements stripe={stripePromise}>
-                                <CheckoutForm order={order} />
-                            </Elements>
-                        </div>
-                    </div>
+        <div className="mt-10 flex justify-center">
+            <div className="card bg-base-100 border border-success shadow-xl">
+                <div className="card-body">
+                    <h2 className="card-title mb-7">Please Pay for <span className='text-success'>{order.productName}</span></h2>
+                    <Elements stripe={stripePromise}>
+                        <CheckoutForm order={order} />
+                    </Elements>
                 </div>
             </div>
         </div>

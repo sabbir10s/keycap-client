@@ -28,9 +28,9 @@ const AddNewProduct = () => {
                     const img = result.data.url;
                     const product = {
                         name: data.name,
-                        price: data.price,
-                        quantity: data.quantity,
-                        minOrder: data.minOrder,
+                        price: parseInt(data.price),
+                        quantity: parseInt(data.quantity),
+                        minOrder: parseInt(data.minOrder),
                         description: data.description,
                         image: img
                     }

@@ -9,7 +9,7 @@ const CheckoutForm = ({ order }) => {
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
-    const { _id, totalPrice, name, email } = order
+    const { _id, totalPrice, name, email } = order;
     useEffect(() => {
         fetch('https://quiet-fjord-62553.herokuapp.com/create-payment-intent', {
             method: "POST",

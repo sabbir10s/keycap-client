@@ -8,20 +8,6 @@ const UpdateProfile = () => {
 
     const [user] = useAuthState(auth);
 
-    // const [updateUser, setUpdateUser] = useState({
-    //     name: "sakib"
-    // })
-
-
-    // const handleUpdateUser = event => {
-    //     const { name, ...rest } = updateUser;
-    //     const newName = event.target.value;
-    //     const update = { displayName: newName, ...rest };
-    //     setUpdateUser(update);
-    //     console.log(updateUser);
-    // };
-
-
     const submitUserData = event => {
         event.preventDefault()
         const name = event.target.name.value;

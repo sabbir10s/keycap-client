@@ -61,7 +61,12 @@ const Profile = () => {
                 </div>
                 <div className='mb-3'>
                     <p className='text-sm text-base-300'>LinkedIn Profile</p>
-                    <p className='link'>{linkedin}</p>
+                    {
+                        userData.linkedin ?
+                            <a className='link text-error' href={linkedin} target="_blank" >Your LinkedIn Profile Link </a>
+                            :
+                            ''
+                    }
                 </div>
                 <button onClick={() => navigate('/dashboard/updateProfile')} className='bg-primary text-base-100 px-7 py-2 rounded'>Update Profile</button>
             </div>

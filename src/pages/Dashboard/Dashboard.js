@@ -22,7 +22,7 @@ const DashBoard = () => {
 
                         {
                             !admin && <>
-                                <li><Link to='/dashboard'>My Orders</Link></li>
+                                <li><Link to='/dashboard/myOrder'>My Orders</Link></li>
                                 <li><Link to='/dashboard/review'>Give Review</Link></li>
                             </>
 
@@ -33,7 +33,7 @@ const DashBoard = () => {
                             <li><Link to='/dashboard/addNewProduct'>Add New Product</Link></li>
                             <li><Link to='/dashboard/menageProducts'>Menage Products</Link></li>
                         </>}
-                        <li><Link to='/dashboard/profile'>Profile</Link></li>
+                        <li><Link to='/dashboard'>Profile</Link></li>
                     </ul>
 
                 </div>

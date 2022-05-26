@@ -67,7 +67,7 @@ const Portfolio = () => {
                                 </a>
                             </div>
                             <div className='flex justify-center items-center'>
-                                <a href="https://625da356e76dcd0436c2ea6b--zippy-gnome-d20fcd.netlify.app/home" target="_blank">
+                                <a href="https://home-flavor-6e5a5.web.app/" target="_blank">
                                     <div className='border-2 border-success'>
                                         <img className='w-[300px]  h-[200px]' src={projectTwo} alt="BikePro Project" />
                                         <p className='text-xl text-center bg-success text-base-100 py-2'>Project Home Flavor</p>

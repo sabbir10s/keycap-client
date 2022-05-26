@@ -68,6 +68,7 @@ const Purchase = () => {
             });
     }
 
+    console.log(product);
     const { name, image, description, minOrder, quantity, price } = product;
     return (
         <div className='bg-base-200 py-5 lg:h-screen'>
@@ -75,7 +76,7 @@ const Purchase = () => {
                 <div className='col-span-2 bg-base-100 rounded-xl p-10'>
                     <div className=' grid grid-cols-2 gap-5'>
                         <div className='h-[200px] flex justify-center items-center'>
-                            <img className='w-[300px]' src={image} alt="" />
+                            <img className='w-[300px] h-[190px]' src={image} alt="" />
                         </div>
                         <div>
                             <p className='text-3xl mb-5'>{name} </p>
