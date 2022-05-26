@@ -17,7 +17,7 @@ const Navbar = ({ children }) => {
             <div className="drawer-content flex flex-col">
 
                 {/* <!-- Navbar --> */}
-                <div className="w-full navbar bg-base-100 shadow-lg px-20 text-primary">
+                <div className="w-full navbar bg-base-100 shadow-lg lg:px-10 text-primary">
                     {
                         pathname.includes('dashboard') && (<label for="my-drawer-2" className=" drawer-button lg:hidden">
                             <span className='text-3xl'><BiMenuAltLeft /></span>
@@ -31,9 +31,8 @@ const Navbar = ({ children }) => {
                     </div>
 
                     <div className="flex-none hidden lg:block">
-                        <ul className="menu menu-horizontal gap-x-5">
 
-                            {/* <!-- Navbar menu content here --> */}
+                        <ul className="menu menu-horizontal gap-x-5">
                             <li><NavLink to='/home' className='rounded-lg'>Home</NavLink></li>
                             <li><NavLink to='/portfolio' className='rounded-lg'>My Portfolio</NavLink></li>
                             <li><NavLink to='/blog' className='rounded-lg'>Blogs</NavLink></li>
@@ -95,7 +94,44 @@ const Navbar = ({ children }) => {
                 <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
                 <ul className="menu p-4 overflow-y-auto w-80 bg-base-100">
 
-                    {/* <!-- Sidebar content here --> */}
+                    <li><NavLink to='/home' className='rounded-lg'>Home</NavLink></li>
+                    <li><NavLink to='/portfolio' className='rounded-lg'>My Portfolio</NavLink></li>
+                    <li><NavLink to='/blog' className='rounded-lg'>Blogs</NavLink></li>
+
+                    {
+                        user ?
+                            <>
+                                <li> <NavLink className='rounded-lg' to='/dashboard'>Dashboard</NavLink></li>
+                                <li> {
+                                    user ?
+                                        <div className='flex gap-1'>
+                                            <span>User: {user?.displayName
+                                            }</span>
+                                        </div>
+                                        :
+                                        ''
+                                }</li>
+                                <li className='text-error ml-4' onClick={() => signOut(auth)}>
+                                    Sign out
+                                </li>
+                            </>
+                            :
+                            ''
+                    }
+                    {
+                        user ?
+                            <li className="dropdown dropdown-hover dropdown-end">
+                                <label tabIndex="0" className="rounded-lg">
+
+                                </label>
+
+                            </li>
+                            :
+                            <>
+                                <li> <NavLink className='rounded-lg' to='/SignIn'>Sign in</NavLink></li>
+                                <li> <NavLink className='rounded-lg' to='/signUp'>Sign up</NavLink></li>
+                            </>
+                    }
 
                 </ul>
 

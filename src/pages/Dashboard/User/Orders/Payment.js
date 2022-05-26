@@ -29,7 +29,7 @@ const Payment = () => {
 
     return (
         <div className="mt-10 flex justify-center">
-            <div className="card bg-base-100 border border-success shadow-xl">
+            <div className="card w-96 bg-base-100 border border-success shadow-xl">
                 <div className="card-body">
                     <h2 className="card-title mb-7">Please Pay for <span className='text-success'>{order.productName}</span></h2>
                     <Elements stripe={stripePromise}>

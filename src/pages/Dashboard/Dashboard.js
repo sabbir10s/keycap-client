@@ -8,16 +8,16 @@ const DashBoard = () => {
     const [user] = useAuthState(auth);
     const [admin] = useAdmin(user);
     return (
-        <div className='px-12 bg-base-200'>
+        <div className='px-2 lg:px-12 bg-base-200'>
             <div className="drawer drawer-mobile">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="mr-7 my-5 drawer-content bg-base-100 rounded-lg">
+                <div className="my-5 drawer-content bg-base-100 rounded-lg">
                     <p className='text-primary text-center text-2xl uppercase pt-4 font-bold'>Dashboard</p>
                     <Outlet />
                 </div>
                 <div className="drawer-side ">
                     <label for="my-drawer-2" className="drawer-overlay"></label>
-                    <ul className="mx-7 my-5 menu p-4 overflow-y-auto w-80 bg-base-100 rounded-lg text-base-content">
+                    <ul className="lg:mx-7 my-5 menu p-4 overflow-y-auto w-80 bg-base-100 rounded-lg text-base-content">
                         {/* <!-- Sidebar content here --> */}
 
                         {
@@ -29,7 +29,7 @@ const DashBoard = () => {
 
                         }
                         {admin && <>
-                            <li><Link to='/dashboard/user'>Users</Link></li>
+                            <li><Link to='/dashboard/user'>Menage Users</Link></li>
                             <li><Link to='/dashboard/addNewProduct'>Add New Product</Link></li>
                             <li><Link to='/dashboard/menageProducts'>Menage Products</Link></li>
                         </>}

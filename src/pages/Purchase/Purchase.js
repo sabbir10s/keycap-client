@@ -72,7 +72,7 @@ const Purchase = () => {
     const { name, image, description, minOrder, quantity, price } = product;
     return (
         <div className='bg-base-200 py-5 lg:h-screen'>
-            <div className=' mx-12  grid grid-cols-1 lg:grid-cols-3 gap-10'>
+            <div className=' lg:mx-12  grid grid-cols-1 lg:grid-cols-3 gap-10'>
                 <div className='col-span-2 bg-base-100 rounded-xl p-10'>
                     <div className=' grid grid-cols-2 gap-5'>
                         <div className='h-[200px] flex justify-center items-center'>

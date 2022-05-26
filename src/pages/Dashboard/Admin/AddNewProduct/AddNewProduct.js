@@ -62,7 +62,7 @@ const AddNewProduct = () => {
     //     return <Loading />
     // }
     return (
-        <div className='mx-5 max-w-md'>
+        <div className='mx-10 max-w-md'>
             <p className='text-2xl'>Add a new Product</p>
 
             <form onSubmit={handleSubmit(onSubmit)}>
