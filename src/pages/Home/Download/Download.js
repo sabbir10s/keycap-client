@@ -4,8 +4,8 @@ import catalog from '../../../images/catalog.jpg'
 const Download = () => {
     return (
         <div className='m-12'>
-            <div className='grid grid-cols-3 gap-20 items-center'>
-                <div className='grid grid-cols-2 col-span-2 items-center'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-20 items-center'>
+                <div className='grid grid-cols-1 lg:grid-cols-2 col-span-2 items-center'>
                     <img className='w-[300px] rounded-md' src={catalog} alt="" />
                     <div className=''>
                         <h2 className='text-2xl font-bold uppercase'>Download Catalogue</h2>

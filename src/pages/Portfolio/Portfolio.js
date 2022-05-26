@@ -3,13 +3,14 @@ import profile from '../../../src/images/profile.png'
 import projectOne from '../../../src/images/project-1.png'
 import projectTwo from '../../../src/images/project-2.png'
 import projectThree from '../../../src/images/project-3.png'
+import Footer from '../../components/Footer';
 
 const Portfolio = () => {
     return (
         <div className='bg-base-200 pt-5 pb-10 px-10'>
-            <div className='grid grid-cols-3 gap-5'>
-                <div className='bg-base-100 '>
-                    <div className='bg-accent '>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
+                <div className='bg-base-100 rounded-xl shadow-lg'>
+                    <div className='bg-gray-300 rounded-t-xl'>
                         <img className='w-[350px] mx-auto' src={profile} alt="" />
                     </div>
                     <div className='px-5 pt-5'>
@@ -53,32 +54,34 @@ const Portfolio = () => {
                         </div>
                     </div>
                 </div>
-                <div className=' col-span-2 bg-base-100 p-5'>
-                    <h2 className='text-2xl font-bold text-primary uppercase'>My Projects</h2>
-                    <div className='grid grid-cols-3 gap-10 mt-5'>
-                        <div className='flex justify-center items-center'>
-                            <a href="https://bike-pro-d5b3f.web.app/" target="_blank">
-                                <div className='border-2 border-success'>
-                                    <img className='w-[300px]' src={projectOne} alt="BikePro Project" />
-                                    <p className='text-xl text-center bg-success text-base-100 py-2'>Project BikePro</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div className='flex justify-center items-center'>
-                            <a href="https://625da356e76dcd0436c2ea6b--zippy-gnome-d20fcd.netlify.app/home" target="_blank">
-                                <div className='border-2 border-success'>
-                                    <img className='w-[300px]  h-[200px]' src={projectTwo} alt="BikePro Project" />
-                                    <p className='text-xl text-center bg-success text-base-100 py-2'>Project Home Flavor</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div className='flex justify-center items-center'>
-                            <a href="https://624b3170a2a95710c75994a5--capable-donut-009996.netlify.app/" target="_blank">
-                                <div className='border-2 border-success'>
-                                    <img className='w-[300px] h-[200px]' src={projectThree} alt="BikePro Project" />
-                                    <p className='text-xl text-center bg-success text-base-100 py-2'>Project TimeO</p>
-                                </div>
-                            </a>
+                <div className=' col-span-2 bg-base-100 p-7 rounded-xl shadow-lg'>
+                    <div>
+                        <h2 className='text-2xl font-bold text-primary uppercase'>My Projects</h2>
+                        <div className='grid grid-cols-1 lg:grid-cols-3 gap-10 mt-5'>
+                            <div className='flex justify-center items-center'>
+                                <a href="https://bike-pro-d5b3f.web.app/" target="_blank">
+                                    <div className='border-2 border-success'>
+                                        <img className='w-[300px]' src={projectOne} alt="BikePro Project" />
+                                        <p className='text-xl text-center bg-success text-base-100 py-2'>Project BikePro</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div className='flex justify-center items-center'>
+                                <a href="https://625da356e76dcd0436c2ea6b--zippy-gnome-d20fcd.netlify.app/home" target="_blank">
+                                    <div className='border-2 border-success'>
+                                        <img className='w-[300px]  h-[200px]' src={projectTwo} alt="BikePro Project" />
+                                        <p className='text-xl text-center bg-success text-base-100 py-2'>Project Home Flavor</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div className='flex justify-center items-center'>
+                                <a href="https://624b3170a2a95710c75994a5--capable-donut-009996.netlify.app/" target="_blank">
+                                    <div className='border-2 border-success'>
+                                        <img className='w-[300px] h-[200px]' src={projectThree} alt="BikePro Project" />
+                                        <p className='text-xl text-center bg-success text-base-100 py-2'>Project TimeO</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <h2 className='text-2xl font-bold text-primary uppercase mt-10'>Education</h2>
@@ -101,6 +104,7 @@ const Portfolio = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };

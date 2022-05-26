@@ -1,4 +1,29 @@
-# Getting Started with Create React App
+# Project Name: NEXIQ
+
+## [Live Link](https://nexiq-1199a.web.app/)
+
+## Project Overview
+
+NEXIQ is a metal & wood working tools manufacture.Through this website, they will manage their client orders, payments etc.Here is some information about this project.
+
+- First of all This is a `Full-Stack Website`.
+- Here I have create two different roles one user, other one is admin
+- A user can see her oder history, menage her order, give review and be able to pay for his order.
+- An admin can upload new product, see all user, create admin and delete user.
+- Here i implement an email/ password (login/Register) based login system
+- This project completely responsive, you can use this website form any device.
+
+## List of technologies
+
+- JavaScript
+- ReactJS
+- React Router
+- Firebase Authentication
+- MongoDB
+- Express JS
+- Stripe Payment System
+
+### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
