@@ -5,8 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import auth from '../../../../firebase.init';
 
 const UsersRow = ({ user, refetch, index }) => {
-    const { name, email, role } = user;
+    const { name, email, role, _id } = user;
     const navigate = useNavigate();
+
     const handleMakeAdmin = () => {
         const url = `http://localhost:5000/user/admin/${email}`;
 
@@ -34,6 +35,26 @@ const UsersRow = ({ user, refetch, index }) => {
                 }
             })
     }
+
+
+    const handleDelete = () => {
+        const url = `http://localhost:5000/user/${_id}`;
+        fetch(url, {
+            method: "DELETE",
+            headers: {
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            },
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount) {
+                    toast.success('Successfully Deleted');
+                    refetch();
+                }
+            })
+    }
+
     return (
 
         <tr>
@@ -42,7 +63,7 @@ const UsersRow = ({ user, refetch, index }) => {
             <td>{email}</td>
             <td>{role !== 'admin' && <button onClick={handleMakeAdmin} className='btn btn-xs btn-success'>Make Admin</button>}</td>
             <td>
-                {role !== 'admin' && <button className='btn btn-xs btn-error'>Delete</button>}
+                {role !== 'admin' && <button onClick={() => handleDelete(_id)} className='btn btn-xs btn-error'>Delete</button>}
             </td>
         </tr>
 
