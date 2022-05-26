@@ -2,9 +2,8 @@ import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-
-import Loading from '../../../components/Loading';
-import auth from '../../../firebase.init';
+import Loading from '../../../../components/Loading';
+import auth from '../../../../firebase.init';
 import UsersRow from './UsersRow';
 
 const AllUsers = () => {

@@ -1,8 +1,8 @@
 import React from 'react';
 import { toast } from 'react-toastify';
-import auth from '../../../firebase.init';
 import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import auth from '../../../../firebase.init';
 
 const UsersRow = ({ user, refetch, index }) => {
     const { name, email, role } = user;
