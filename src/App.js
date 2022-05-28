@@ -2,7 +2,6 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute';
-import DashBoard from './pages/Dashboard/Dashboard';
 import AddReview from './pages/Dashboard/User/AddReview/AddReview';
 import Orders from './pages/Dashboard/User/Orders/Orders';
 import UpdateProfile from './pages/Dashboard/Profile/UpdateProfile';
@@ -26,6 +25,7 @@ import AllUsers from './pages/Dashboard/Admin/MenageUsers/AllUsers';
 import RequireUser from './components/RequireUser';
 import Profile from './pages/Dashboard/Profile/Profile';
 import MenageOrders from './pages/Dashboard/Admin/MenageOrders/MenageOrders';
+import DashBoard from './pages/Dashboard/Dashboard/Dashboard';
 
 
 

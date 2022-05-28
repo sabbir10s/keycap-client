@@ -30,6 +30,9 @@ const AllUsers = () => {
 
     return (
         <div className="overflow-x-auto mx-5 mt-5">
+            <p className='text-2xl font-bold text-primary'>Menage All Users</p>
+            <div className="divider mt-3"></div>
+
             <table className="table w-full">
 
                 <thead>

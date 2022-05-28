@@ -39,8 +39,8 @@ const UpdateProfile = () => {
 
     return (
         <div className='mx-10'>
-            <p className='text-xl  mt-3 font-bold'>Update Profile</p>
-            <div className="divider my-2"></div>
+            <p className='text-2xl font-bold text-primary mt-7'><span className='text-secondary'>"{user.displayName}"</span> Update your profile</p>
+            <div className="divider mt-3"></div>
             <div className='max-w-sm'>
                 <form onSubmit={submitUserData}>
                     <div>

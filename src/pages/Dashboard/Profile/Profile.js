@@ -36,8 +36,8 @@ const Profile = () => {
 
     return (
         <div className='mx-10'>
-            <p className='text-xl  mt-5 font-bold'>My Profile</p>
-            <div className="divider"></div>
+            <p className='text-2xl font-bold text-primary mt-7'>Your Profile</p>
+            <div className="divider mt-3"></div>
             <div className=''>
                 <div className='mb-3'>
                     <p className='text-sm text-base-300'>Name</p>
