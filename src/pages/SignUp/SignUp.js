@@ -44,7 +44,7 @@ const SignUp = () => {
     };
 
     return (
-        <section className='hero min-h-screen bg-base-200'>
+        <section className=' h-[90vh] flex justify-center items-center bg-base-200'>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
 

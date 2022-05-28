@@ -46,7 +46,7 @@ const SignIn = () => {
     };
 
     return (
-        <section className='hero min-h-screen bg-base-200'>
+        <section className='lg:h-[90vh] md:h-[90vh] h-[80vh] lg:bg-base-200 md:bg-base-200 flex justify-center items-center'>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <form onSubmit={handleSubmit(onSubmit)}>

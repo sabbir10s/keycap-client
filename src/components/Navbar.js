@@ -5,6 +5,7 @@ import auth from '../firebase.init';
 import { BiChevronsDown } from 'react-icons/bi';
 import { BiMenuAltLeft } from 'react-icons/bi';
 import CustomLink from '../hooks/CustomLink';
+import DashLink from '../hooks/DashLink';
 // import { CustomLink } from '../hooks/CustomLink'
 
 const Navbar = ({ children }) => {
@@ -93,47 +94,56 @@ const Navbar = ({ children }) => {
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
-                <ul className="menu p-4 overflow-y-auto w-80 bg-base-100">
+                <ul className="menu p-5 overflow-y-auto flex flex-col gap-5 w-64 bg-base-100">
 
-                    <p><CustomLink to='/home' className='rounded-lg'>Home</CustomLink></p>
-                    <p><CustomLink to='/portfolio' className='rounded-lg'>My Portfolio</CustomLink></p>
-                    <p><CustomLink to='/blog' className='rounded-lg'>Blogs</CustomLink></p>
-
+                    <p><DashLink to='/home'>Home</DashLink></p>
                     {
-                        user ?
-                            <>
-                                <p> <CustomLink className='rounded-lg' to='/dashboard'>Dashboard</CustomLink></p>
-                                <p> {
-                                    user ?
-                                        <div className='flex gap-1'>
-                                            <span>User: {user?.displayName
-                                            }</span>
-                                        </div>
-                                        :
-                                        ''
-                                }</p>
-                                <p className='text-error ml-4' onClick={() => signOut(auth)}>
-                                    Sign out
-                                </p>
-                            </>
+                        user ? <p> <CustomLink to='/dashboard'>Dashboard</CustomLink></p>
                             :
-                            ''
+                            ' '
                     }
+                    <p><DashLink to='/portfolio'>My Portfolio</DashLink></p>
+                    <p><DashLink to='/blog'>Blogs</DashLink></p>
                     {
                         user ?
-                            <p className="dropdown dropdown-hover dropdown-end">
-                                <label tabIndex="0" className="rounded-lg">
+                            <p className="dropdown dropdown-click  dropdown-start">
+                                <label tabIndex="0">
 
+                                    {
+                                        user && user.photoURL ?
+                                            <div className='flex items-center cursor-pointer text-2xl'>
+                                                <img className='rounded-full w-10' src={user?.photoURL} alt="" />
+
+                                            </div>
+                                            :
+                                            <div className='flex items-center cursor-pointer'>
+                                                <svg className='w-[30px]' xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
+                                                </svg>
+                                                <BiChevronsDown />
+                                            </div>
+                                    }
                                 </label>
+                                <p tabIndex="0" className="dropdown-content menu w-32">
 
+                                    {
+                                        user ?
+                                            <>
+                                                <p onClick={() => signOut(auth)}>
+                                                    <p className='text-center cursor-pointer bg-error text-base-100 rounded-lg py-1 mt-5'>Sign out</p>
+                                                </p>
+                                            </>
+                                            :
+                                            ''
+                                    }
+                                </p>
                             </p>
                             :
                             <>
-                                <p> <CustomLink className='rounded-lg' to='/SignIn'>Sign in</CustomLink></p>
-                                <p> <CustomLink className='rounded-lg' to='/signUp'>Sign up</CustomLink></p>
+                                <p> <DashLink to='/SignIn'>Sign in</DashLink></p>
+                                <p> <DashLink to='/signUp'>Sign up</DashLink></p>
                             </>
                     }
-
                 </ul>
 
             </div>

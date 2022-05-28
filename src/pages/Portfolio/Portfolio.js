@@ -7,9 +7,9 @@ import Footer from '../../components/Footer';
 
 const Portfolio = () => {
     return (
-        <div className='bg-base-200 pt-5 pb-10 lg:px-10'>
-            <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
-                <div className='bg-base-100 rounded-xl shadow-lg'>
+        <div className='bg-base-100 lg:mt-7 lg:px-10'>
+            <div className='grid grid-cols-1 pb-10 lg:grid-cols-3 lg:gap-5'>
+                <div className='bg-base-100 pb-5 rounded-xl shadow-xl'>
                     <div className='bg-gray-300 rounded-t-xl'>
                         <img className='w-[350px] mx-auto' src={profile} alt="" />
                     </div>
@@ -54,7 +54,7 @@ const Portfolio = () => {
                         </div>
                     </div>
                 </div>
-                <div className=' col-span-2 bg-base-100 p-7 rounded-xl shadow-lg'>
+                <div className=' col-span-2 bg-base-100 p-7 rounded-xl shadow-xl'>
                     <div>
                         <h2 className='text-2xl font-bold text-primary uppercase'>My Projects</h2>
                         <div className='grid grid-cols-1 lg:grid-cols-3 gap-10 mt-5'>

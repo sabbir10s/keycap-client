@@ -71,28 +71,28 @@ const Purchase = () => {
     console.log(product);
     const { name, image, description, minOrder, quantity, price } = product;
     return (
-        <div className='bg-base-200 py-5 lg:h-screen'>
-            <div className=' lg:mx-12  grid grid-cols-1 lg:grid-cols-3 gap-10'>
-                <div className='col-span-2 bg-base-100 rounded-xl p-10'>
-                    <div className=' grid grid-cols-2 gap-5'>
-                        <div className='h-[200px] flex justify-center items-center'>
-                            <img className='w-[300px] h-[190px]' src={image} alt="" />
+        <div className='bg-base-200 lg:py-5 md:py-5 lg:h-screen'>
+            <div className=' lg:mx-12  grid grid-cols-1 lg:grid-cols-3 md:gap-10'>
+                <div className='col-span-2 bg-base-100 rounded-xl shadow-xl lg:p-10 p-5'>
+                    <div className=' grid md:grid-cols-2 gap-5'>
+                        <div className='min:h-[300px] flex justify-center items-center'>
+                            <img className='' src={image} alt="" />
                         </div>
                         <div>
                             <p className='text-3xl mb-5'>{name} </p>
                             <p className='text-primary text-xl font-bold'>Price: {price} </p>
-                            <p className='text-base-300'>Available Stock: {quantity} </p>
-                            <p className='text-base-300'>Minimum Order: {minOrder} </p>
+                            <p className='text-secondary'>Available Stock: {quantity} </p>
+                            <p className='text-secondary'>Minimum Order: {minOrder} </p>
 
                         </div>
 
                     </div>
                     <div>
-                        <p className='font-bold'>Product Description</p>
+                        <p className='font-bold mt-5'>Product Description</p>
                         <p className='text-base-300'>{description} </p>
                     </div>
                 </div>
-                <div className='bg-base-100 rounded-xl col-span-1 p-5'>
+                <div className='bg-base-100 shadow-xl rounded-xl col-span-1 p-5'>
                     <h3 className='text-2xl'>Booking Details</h3>
                     <div className='mt-3'>
                         <form onSubmit={handlePlaceOrder} className='text-md'>
