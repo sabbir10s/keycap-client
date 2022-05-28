@@ -2,7 +2,7 @@ import React from 'react';
 import { toast } from 'react-toastify';
 
 
-const ProductRow = ({ product, refetch, index }) => {
+const ProductRow = ({ product, setIsReload, reload, index }) => {
     const { name, price, quantity, _id } = product;
 
     const handleDelete = () => {
@@ -17,8 +17,9 @@ const ProductRow = ({ product, refetch, index }) => {
             .then(res => res.json())
             .then(data => {
                 if (data.deletedCount) {
-                    toast.success('Successfully Deleted');
-                    refetch();
+                    toast.success('Successfully Deleted')
+                    setIsReload(!reload)
+
                 }
             })
     }

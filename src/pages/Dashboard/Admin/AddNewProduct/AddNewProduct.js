@@ -1,15 +1,11 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-// import { useQuery } from 'react-query';
 import { toast } from 'react-toastify';
-// import Loading from '../../../../components/Loading';
+
 
 
 const AddNewProduct = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
-
-    // const { data: product, isLoading } = useQuery('services', () => fetch('https://calm-badlands-36890.herokuapp.com/service').then(res => res.json()))
-
     const imageStorageKey = '46852d765f11248a385285a8456eb942'
 
     const onSubmit = async data => {
@@ -58,11 +54,9 @@ const AddNewProduct = () => {
             })
     };
 
-    // if (isLoading) {
-    //     return <Loading />
-    // }
+
     return (
-        <div className='mx-10 max-w-md'>
+        <div className='lg:mx-10 max-w-md'>
             <p className='text-2xl'>Add a new Product</p>
 
             <form onSubmit={handleSubmit(onSubmit)}>

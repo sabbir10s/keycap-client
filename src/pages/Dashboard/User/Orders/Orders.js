@@ -31,6 +31,7 @@ const Orders = () => {
             return res.json()
         })
     )
+
     if (isLoading) {
         return <Loading />
     }
@@ -48,11 +49,11 @@ const Orders = () => {
                         <tr>
                             <th></th>
                             <th>Product Name</th>
-                            <th>Price</th>
                             <th>Quantity</th>
                             <th>Total Price</th>
-                            <th>Action</th>
                             <th>payment</th>
+                            <th>transaction id</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,17 +61,23 @@ const Orders = () => {
                             orders.map((order, index) => <tr key={order._id}>
                                 <th>{index + 1}</th>
                                 <td>{order.productName}</td>
-                                <td>{order.price}</td>
                                 <td>{order.quantity}</td>
                                 <td>{order.totalPrice}</td>
-                                <td>
-                                    {!order.paid && <label onClick={() => setCancelOrder(order)} for="delete-confirm-modal" className='btn font-medium text-base-100 btn-error btn-xs' >Cancel Order</label>}
 
-                                </td>
 
                                 <td>
                                     {(order.totalPrice && !order.paid) && <Link to={`/dashboard/payment/${order._id}`} className='btn btn-success btn-xs'>Payment</Link>}
                                     {(order.totalPrice && order.paid) && <span className='text-success'>Paid</span>}
+                                </td>
+
+                                <td>{
+                                    order.paid ? <p className='text-success'>{order.transactionId}</p>
+                                        :
+                                        <p className='text-error'>Not Paid Yet !</p>
+                                }</td>
+                                <td>
+                                    {!order.paid && <label onClick={() => setCancelOrder(order)} for="delete-confirm-modal" className='btn font-medium text-base-100 btn-error btn-xs' >Cancel Order</label>}
+
                                 </td>
                             </tr>)
                         }

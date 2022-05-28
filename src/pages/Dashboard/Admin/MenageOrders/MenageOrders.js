@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import ProductRow from './ProductRow';
+import MenageOrderRow from './MenageOrderRow';
 
 
 
-const MenageProducts = () => {
+const MenageOrders = () => {
 
-    const [products, setProducts] = useState([]);
+    const [orders, setOrders] = useState([]);
     const [reload, setIsReload] = useState(true)
+
+
     console.log(reload);
     useEffect(() => {
-        const url = 'https://quiet-fjord-62553.herokuapp.com/product';
+        const url = 'https://quiet-fjord-62553.herokuapp.com/order';
         fetch(url, {
             method: 'GET',
             headers: {
@@ -19,7 +21,7 @@ const MenageProducts = () => {
         })
             .then(res => res.json())
             .then(data => {
-                setProducts(data);
+                setOrders(data);
             })
 
     }, [reload])
@@ -31,16 +33,19 @@ const MenageProducts = () => {
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Name</th>
+                        <th>User Name</th>
+                        <th>Product Name</th>
                         <th>Price</th>
                         <th>Quantity</th>
+                        <th>Payment</th>
+                        <th>Shipment Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
 
                     {
-                        products.map((product, index) => <ProductRow product={product} setIsReload={setIsReload} reload={reload} index={index} key={product._id} ></ProductRow>)
+                        orders.map((order, index) => <MenageOrderRow order={order} setIsReload={setIsReload} reload={reload} index={index} key={order._id} ></MenageOrderRow>)
                     }
 
 
@@ -50,4 +55,4 @@ const MenageProducts = () => {
     );
 };
 
-export default MenageProducts;
+export default MenageOrders;

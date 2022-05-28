@@ -69,7 +69,7 @@ const CheckoutForm = ({ order }) => {
 
             // Store Info on database
             const payment = {
-                appointment: _id,
+                orderId: _id,
                 transactionId: paymentIntent.id,
             }
             fetch(`https://quiet-fjord-62553.herokuapp.com/order/email/${_id}`, {

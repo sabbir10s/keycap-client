@@ -25,8 +25,13 @@ import MenageProducts from './pages/Dashboard/Admin/MenageProducts/MenageProduct
 import AllUsers from './pages/Dashboard/Admin/MenageUsers/AllUsers';
 import RequireUser from './components/RequireUser';
 import Profile from './pages/Dashboard/Profile/Profile';
+import MenageOrders from './pages/Dashboard/Admin/MenageOrders/MenageOrders';
+
+
+
 
 function App() {
+
   return (
     <div className="App">
 
@@ -45,12 +50,19 @@ function App() {
           <Route path='/dashboard' element={<PrivateRoute> <DashBoard /> </PrivateRoute>}>
             <Route path='user' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
             <Route path='addNewProduct' element={<RequireAdmin><AddNewProduct /></RequireAdmin>} />
-            <Route path='menageProducts' element={<RequireAdmin><MenageProducts /></RequireAdmin>} />
+            <Route path='menageOrders' element={<RequireAdmin><MenageOrders /></RequireAdmin>} />
+
+            <Route path='menageProducts' element={<RequireAdmin>
+              <MenageProducts />
+            </RequireAdmin>} />
+
+
             <Route path='myOrder' element={<Orders />} />
             <Route path='payment/:id' element={<Payment />} />
-            <Route index element={<Profile />} />
-            <Route path='review' element={<RequireUser><AddReview /></RequireUser>} />
 
+            <Route index element={<Profile />} />
+
+            <Route path='review' element={<RequireUser><AddReview /></RequireUser>} />
             <Route path='updateProfile' element={<UpdateProfile />}></Route>
           </Route>
           <Route path='*' element={<NotFound />} />
