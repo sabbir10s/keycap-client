@@ -99,7 +99,7 @@ const Portfolio = () => {
                                 </a>
                             </div>
                             <div className='flex justify-center items-center'>
-                                <a href="https://624b3170a2a95710c75994a5--capable-donut-009996.netlify.app/" target="_blank">
+                                <a href="https://melodic-mochi-157db8.netlify.app/" target="_blank">
                                     <div className='border-2 border-success'>
                                         <img className='w-[300px] h-[200px]' src={projectThree} alt="BikePro Project" />
                                         <p className='text-xl text-center bg-success text-base-100 py-2'>Project TimeO</p>

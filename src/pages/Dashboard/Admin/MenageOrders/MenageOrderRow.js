@@ -33,7 +33,6 @@ const MenageOrderRow = ({ order, setIsReload, reload, index }) => {
                 }
             })
 
-
     }
 
     const handleStatus = id => {
