@@ -1,21 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import PrimaryButton from '../../../../components/PrimaryButton';
 import auth from '../../../../firebase.init';
+import { FaStar } from 'react-icons/fa';
+import './AddReview.css'
 
 const AddReview = () => {
     const [user] = useAuthState(auth);
+    const [starRating, setStarRating] = useState(null);
+    const [hover, setHover] = useState(null);
 
     const submitUserReview = event => {
         event.preventDefault()
-        const rating = event.target.rating.value;
+        const rating = starRating
         const comment = event.target.comment.value;
         const userName = user?.displayName;
         const userImage = user?.photoURL;
         const reviewInfo = { rating, comment, userName, userImage };
 
-        const url = `https://quiet-fjord-62553.herokuapp.com/review`;
+        const url = `https://nexiq-server.onrender.com/review`;
 
         fetch(url, {
             method: 'POST',
@@ -39,15 +43,29 @@ const AddReview = () => {
             <div className='max-w-sm'>
                 <form onSubmit={submitUserReview}>
                     <div>
-                        <div className='flex items-center'>
-                            <p className='text-base-300'>Give Your Rating: </p>
-                            <select className='text-secondary text-xl' name="rating">
-                                <option value="5">5</option>
-                                <option value="4">4</option>
-                                <option value="3">3</option>
-                                <option value="2">2</option>
-                                <option value="1">1</option>
-                            </select>
+                        <div className="mt-4 flex gap-1">
+                            {[...Array(5)]?.map((star, i) => {
+                                const ratingValue = i + 1;
+                                return (
+                                    <label>
+                                        <input
+                                            type="radio"
+                                            name="rating"
+                                            value={ratingValue}
+                                            onClick={() => setStarRating(ratingValue)}
+                                        />
+                                        <FaStar
+                                            className="cursor-pointer duration-300"
+                                            color={
+                                                ratingValue <= (hover || starRating) ? "#ffc107" : "#e4e5e9"
+                                            }
+                                            size={30}
+                                            onMouseEnter={() => setHover(ratingValue)}
+                                            onMouseLeave={() => setHover(null)}
+                                        />
+                                    </label>
+                                );
+                            })}
                         </div>
                         <div className='my-3'>
                             <p className='text-base-300 block'>Review</p>

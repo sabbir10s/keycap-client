@@ -11,7 +11,7 @@ const MenageOrders = () => {
 
     console.log(reload);
     useEffect(() => {
-        const url = 'https://quiet-fjord-62553.herokuapp.com/order';
+        const url = 'https://nexiq-server.onrender.com/order';
         fetch(url, {
             method: 'GET',
             headers: {

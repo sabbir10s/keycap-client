@@ -16,7 +16,7 @@ const MenageOrderRow = ({ order, setIsReload, reload, index }) => {
 
 
     const handleDelete = () => {
-        const url = `https://quiet-fjord-62553.herokuapp.com/order/${_id}`;
+        const url = `https://nexiq-server.onrender.com/order/${_id}`;
         fetch(url, {
             method: "DELETE",
             headers: {
@@ -36,7 +36,7 @@ const MenageOrderRow = ({ order, setIsReload, reload, index }) => {
     }
 
     const handleStatus = id => {
-        const url = `https://quiet-fjord-62553.herokuapp.com/order/${id}`;
+        const url = `https://nexiq-server.onrender.com/order/${id}`;
 
         fetch(url, {
             method: 'PUT',

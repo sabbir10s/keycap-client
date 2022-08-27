@@ -19,7 +19,7 @@ const UpdateProfile = () => {
 
         const userInfo = { name, email, education, city, phone, linkedin };
 
-        const url = `https://quiet-fjord-62553.herokuapp.com/user/${email}`;
+        const url = `https://nexiq-server.onrender.com/user/${email}`;
 
         fetch(url, {
             method: 'PUT',

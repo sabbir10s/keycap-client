@@ -8,7 +8,7 @@ import UsersRow from './UsersRow';
 
 const AllUsers = () => {
     const navigate = useNavigate();
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://quiet-fjord-62553.herokuapp.com/user', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://nexiq-server.onrender.com/user', {
         method: 'GET',
         headers: {
             'content-type': 'application/json',

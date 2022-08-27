@@ -12,7 +12,7 @@ const Purchase = () => {
     const navigate = useNavigate();
     const { id } = useParams()
     const { isLoading, data: product } = useQuery('product', () =>
-        fetch(`https://quiet-fjord-62553.herokuapp.com/product/${id}`).then(res =>
+        fetch(`https://nexiq-server.onrender.com/product/${id}`).then(res =>
             res.json()
         )
     )
@@ -44,7 +44,7 @@ const Purchase = () => {
         const totalPrice = parseInt(quantity) * product?.price;
         const orderInfo = { name, email, phone, address, productName, price, quantity, totalPrice };
 
-        const url = `https://quiet-fjord-62553.herokuapp.com/order`;
+        const url = `https://nexiq-server.onrender.com/order`;
 
         fetch(url, {
             method: 'POST',

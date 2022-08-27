@@ -11,7 +11,7 @@ const CheckoutForm = ({ order }) => {
     const [clientSecret, setClientSecret] = useState('');
     const { _id, totalPrice, name, email } = order;
     useEffect(() => {
-        fetch('https://quiet-fjord-62553.herokuapp.com/create-payment-intent', {
+        fetch('https://nexiq-server.onrender.com/create-payment-intent', {
             method: "POST",
             headers: {
                 'content-type': 'application/json',
@@ -72,7 +72,7 @@ const CheckoutForm = ({ order }) => {
                 orderId: _id,
                 transactionId: paymentIntent.id,
             }
-            fetch(`https://quiet-fjord-62553.herokuapp.com/order/email/${_id}`, {
+            fetch(`https://nexiq-server.onrender.com/order/email/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

@@ -5,7 +5,7 @@ const Products = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('https://quiet-fjord-62553.herokuapp.com/product')
+        fetch('https://nexiq-server.onrender.com/product')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])

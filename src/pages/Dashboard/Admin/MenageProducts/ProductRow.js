@@ -6,7 +6,7 @@ const ProductRow = ({ product, setIsReload, reload, index }) => {
     const { name, price, quantity, _id } = product;
 
     const handleDelete = () => {
-        const url = `https://quiet-fjord-62553.herokuapp.com/product/${_id}`;
+        const url = `https://nexiq-server.onrender.com/product/${_id}`;
         fetch(url, {
             method: "DELETE",
             headers: {

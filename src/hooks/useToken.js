@@ -7,7 +7,7 @@ const useToken = (user) => {
         const currentUser = { email: email }
 
         if (user) {
-            fetch(`https://quiet-fjord-62553.herokuapp.com/user/${email}`, {
+            fetch(`https://nexiq-server.onrender.com/user/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

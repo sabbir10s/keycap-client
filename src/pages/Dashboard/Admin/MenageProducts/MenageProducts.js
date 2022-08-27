@@ -9,7 +9,7 @@ const MenageProducts = () => {
     const [reload, setIsReload] = useState(true)
     console.log(reload);
     useEffect(() => {
-        const url = 'https://quiet-fjord-62553.herokuapp.com/product';
+        const url = 'https://nexiq-server.onrender.com/product';
         fetch(url, {
             method: 'GET',
             headers: {

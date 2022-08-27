@@ -5,7 +5,7 @@ const DeleteConfirmModal = ({ refetch, cancelOrder, setCancelOrder }) => {
 
     const { _id } = cancelOrder;
     const handleCancelOrder = () => {
-        const url = `https://quiet-fjord-62553.herokuapp.com/order/email/${_id}`;
+        const url = `https://nexiq-server.onrender.com/order/email/${_id}`;
         fetch(url, {
             method: "DELETE",
             headers: {

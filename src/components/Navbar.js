@@ -6,10 +6,8 @@ import { BiChevronsDown } from 'react-icons/bi';
 import { BiMenuAltLeft } from 'react-icons/bi';
 import CustomLink from '../hooks/CustomLink';
 import DashLink from '../hooks/DashLink';
-// import { CustomLink } from '../hooks/CustomLink'
 
 const Navbar = ({ children }) => {
-
     const { pathname } = useLocation()
     const [user] = useAuthState(auth);
     console.log(user);
@@ -39,10 +37,8 @@ const Navbar = ({ children }) => {
                             {
                                 user ? <p> <CustomLink to='/dashboard'>Dashboard</CustomLink></p>
                                     :
-                                    ' '
+                                    <></>
                             }
-                            <p><CustomLink to='/portfolio'>My Portfolio</CustomLink></p>
-                            <p><CustomLink to='/blog'>Blogs</CustomLink></p>
 
                             {
                                 user ?
@@ -73,7 +69,7 @@ const Navbar = ({ children }) => {
                                                         </p>
                                                     </>
                                                     :
-                                                    ''
+                                                    <></>
                                             }
                                         </p>
                                     </p>
@@ -100,10 +96,9 @@ const Navbar = ({ children }) => {
                     {
                         user ? <p> <CustomLink to='/dashboard'>Dashboard</CustomLink></p>
                             :
-                            ' '
+                            <></>
                     }
-                    <p><DashLink to='/portfolio'>My Portfolio</DashLink></p>
-                    <p><DashLink to='/blog'>Blogs</DashLink></p>
+
                     {
                         user ?
                             <p className="dropdown dropdown-click  dropdown-start">
@@ -134,7 +129,7 @@ const Navbar = ({ children }) => {
                                                 </p>
                                             </>
                                             :
-                                            ''
+                                            <></>
                                     }
                                 </p>
                             </p>

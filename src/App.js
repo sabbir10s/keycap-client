@@ -14,9 +14,7 @@ import SignUp from './pages/SignUp/SignUp';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Blogs from './pages/Blogs/Blogs';
 import Payment from './pages/Dashboard/User/Orders/Payment';
-import Portfolio from './pages/Portfolio/Portfolio';
 
 import RequireAdmin from './components/RequireAdmin';
 import AddNewProduct from './pages/Dashboard/Admin/AddNewProduct/AddNewProduct';
@@ -42,8 +40,6 @@ function App() {
           <Route path='/home' element={<Home />} />
           <Route path='/signIn' element={<SignIn />} />
           <Route path='/signUp' element={<SignUp />} />
-          <Route path='/portfolio' element={<Portfolio />} />
-          <Route path='/blog' element={<Blogs />} />
           <Route path='/purchase/:id' element={<PrivateRoute>
             <Purchase />
           </PrivateRoute>} />

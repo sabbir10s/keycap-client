@@ -12,7 +12,7 @@ const Profile = () => {
     const navigate = useNavigate()
 
     const { isLoading, data: userData } = useQuery('product', () =>
-        fetch(`https://quiet-fjord-62553.herokuapp.com/user/${user.email}`, {
+        fetch(`https://nexiq-server.onrender.com/user/${user.email}`, {
             method: "GET",
             headers: {
                 'content-type': 'application/json',

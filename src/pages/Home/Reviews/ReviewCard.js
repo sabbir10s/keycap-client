@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactStars from "react-stars";
 import userIcon from '../../../images/1946429.png'
 const ReviewCard = ({ review }) => {
     const { rating, comment, userName, userImage } = review;
@@ -14,7 +15,11 @@ const ReviewCard = ({ review }) => {
             </div>
             <div className='flex gap-3 mt-5'>
                 <p className='font-bold '>{userName} </p>
-                <p className='text-amber-600'> Rating {rating} out of 5 </p>
+                <ReactStars
+                    size={20}
+                    value={rating}
+                    edit={false}
+                ></ReactStars>
             </div>
             <p><small>{comment}</small></p>
         </div>

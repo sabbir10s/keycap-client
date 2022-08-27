@@ -31,7 +31,7 @@ const AddNewProduct = () => {
                         image: img
                     }
                     // send to your database.
-                    fetch('https://quiet-fjord-62553.herokuapp.com/product', {
+                    fetch('https://nexiq-server.onrender.com/product', {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json',

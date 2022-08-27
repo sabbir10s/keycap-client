@@ -14,7 +14,7 @@ const Orders = () => {
 
     const [cancelOrder, setCancelOrder] = useState(null)
 
-    const url = `https://quiet-fjord-62553.herokuapp.com/order/${user.email}`;
+    const url = `https://nexiq-server.onrender.com/order/${user.email}`;
 
     const { isLoading, data: orders, refetch } = useQuery('order', () =>
         fetch(url, {
