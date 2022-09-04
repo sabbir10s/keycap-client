@@ -2,10 +2,10 @@ import { signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useLocation } from 'react-router-dom';
 import auth from '../firebase.init';
-import { BiChevronsDown } from 'react-icons/bi';
 import { BiMenuAltLeft } from 'react-icons/bi';
 import CustomLink from '../hooks/CustomLink';
 import DashLink from '../hooks/DashLink';
+import { MdOutlineArrowDropDown } from 'react-icons/md';
 
 const Navbar = ({ children }) => {
     const { pathname } = useLocation()
@@ -32,12 +32,11 @@ const Navbar = ({ children }) => {
 
                     <div className="flex-none hidden lg:block">
 
-                        <ul className="menu menu-horizontal gap-x-10 flex items-center ">
+                        <ul className="menu menu-horizontal gap-x-5 flex items-center ">
                             <p><CustomLink to='/home' >Home</CustomLink></p>
                             {
-                                user ? <p> <CustomLink to='/dashboard'>Dashboard</CustomLink></p>
-                                    :
-                                    <></>
+                                user && <p> <CustomLink to='/dashboard'>Dashboard</CustomLink></p>
+
                             }
 
                             {
@@ -45,33 +44,32 @@ const Navbar = ({ children }) => {
                                     <p className="dropdown dropdown-click  dropdown-end">
                                         <label tabIndex="0">
                                             {
-                                                user && user.photoURL ?
-                                                    <div className='flex items-center cursor-pointer text-2xl'>
-                                                        <img className='rounded-full w-10' src={user?.photoURL} alt="" />
-
+                                                user &&
+                                                <div className='flex items-center cursor-pointer gap-2'>
+                                                    <div className='text-primary text-lg border border-primary w-8 h-8 rounded-full flex justify-center items-center'>{user.displayName.slice(0, 1)} </div>
+                                                    <div className='flex justify-center items-center'>
+                                                        <span>Account</span> <MdOutlineArrowDropDown />
                                                     </div>
-                                                    :
-                                                    <div className='flex items-center cursor-pointer'>
-                                                        <svg className='w-[30px]' xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
-                                                        </svg>
-                                                        <BiChevronsDown />
-                                                    </div>
+                                                </div>
                                             }
                                         </label>
-                                        <p tabIndex="0" className="dropdown-content menu w-32">
-
+                                        <div tabIndex="0" class="dropdown-content menu p-5 shadow bg-base-100 rounded-box w-52">
                                             {
                                                 user ?
-                                                    <>
-                                                        <p onClick={() => signOut(auth)}>
-                                                            <p className='text-center cursor-pointer bg-error text-base-100 rounded-lg py-1 mt-2'>Sign out</p>
-                                                        </p>
-                                                    </>
+                                                    <div className='flex flex-col gap-4'>
+                                                        <Link to='/profile'>
+                                                            <p >Account Settings</p>
+                                                        </Link>
+                                                        <button className='text-left text-error' onClick={() => signOut(auth)}>
+                                                            Sign out
+                                                        </button>
+
+
+                                                    </div>
                                                     :
                                                     <></>
                                             }
-                                        </p>
+                                        </div>
                                     </p>
                                     :
                                     <>
@@ -105,18 +103,13 @@ const Navbar = ({ children }) => {
                                 <label tabIndex="0">
 
                                     {
-                                        user && user.photoURL ?
-                                            <div className='flex items-center cursor-pointer text-2xl'>
-                                                <img className='rounded-full w-10' src={user?.photoURL} alt="" />
-
+                                        user &&
+                                        <div className='flex items-center cursor-pointer gap-2'>
+                                            <div className='text-primary text-lg border border-primary w-8 h-8 rounded-full flex justify-center items-center'>{user.displayName.slice(0, 1)} </div>
+                                            <div className='flex justify-center items-center'>
+                                                <span>Account</span> <MdOutlineArrowDropDown />
                                             </div>
-                                            :
-                                            <div className='flex items-center cursor-pointer'>
-                                                <svg className='w-[30px]' xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
-                                                </svg>
-                                                <BiChevronsDown />
-                                            </div>
+                                        </div>
                                     }
                                 </label>
                                 <p tabIndex="0" className="dropdown-content menu w-32">
