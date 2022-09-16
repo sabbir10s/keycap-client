@@ -68,7 +68,7 @@ const Profile = () => {
                             ''
                     }
                 </div>
-                <button onClick={() => navigate('/dashboard/updateProfile')} className='bg-primary text-base-100 px-7 py-2 rounded'>Update Profile</button>
+                <button onClick={() => navigate('/updateProfile')} className='bg-primary text-base-100 px-7 py-2 rounded'>Update Profile</button>
             </div>
         </div>
     );

@@ -22,21 +22,19 @@ const DashBoard = () => {
 
                         {
                             !admin && <>
-                                <p className='p-3'><DashLink to='/dashboard/myOrder'>My Orders</DashLink></p>
+                                <p className='p-3'><DashLink to='/dashboard'>My Orders</DashLink></p>
                                 <p className='p-3'><DashLink to='/dashboard/review'>Give Review</DashLink></p>
                             </>
 
 
                         }
                         {admin && <>
-                            <p className='p-3'><DashLink to='/dashboard/user'>Menage Users</DashLink></p>
+                            <p className='p-3'><DashLink to='/dashboard'>Menage Users</DashLink></p>
                             <p className='p-3'><DashLink to='/dashboard/menageOrders'>Menage Orders</DashLink></p>
                             <p className='p-3'><DashLink to='/dashboard/menageProducts'>Menage Products</DashLink></p>
                             <p className='p-3'><DashLink to='/dashboard/addNewProduct'>Add New Product</DashLink></p>
 
                         </>}
-
-                        <p className='p-3'><DashLink to='/dashboard'>Profile</DashLink></p>
                     </ul>
 
                 </div>

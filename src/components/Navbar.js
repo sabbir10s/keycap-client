@@ -17,7 +17,7 @@ const Navbar = ({ children }) => {
             <div className="drawer-content flex flex-col">
 
                 {/* <!-- Navbar --> */}
-                <div className="w-full navbar bg-base-100 border-b border-primary shadow-lg lg:px-10 text-primary">
+                <div className=" sticky top-0 z-50 w-full navbar bg-base-100 border-b border-primary shadow-lg lg:px-10 text-primary">
                     {
                         pathname.includes('dashboard') && (<label for="my-drawer-2" className=" drawer-button lg:hidden">
                             <span className='text-3xl'><BiMenuAltLeft /></span>

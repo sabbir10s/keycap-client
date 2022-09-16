@@ -8,8 +8,10 @@ const ProductCard = ({ product }) => {
         navigate(`/purchase/${_id}`)
     }
     return (
-        <div className='border border-primary hover:shadow-xl hover:bg-neutral flex flex-col justify-between min:h-[400px]'>
-            <div className='flex justify-center items-center'><img className=' px-5 pt-5' src={image} alt="" /></div>
+        <div className='border border-primary hover:shadow-xl hover:bg-neutral flex flex-col justify-between'>
+            <div className='flex justify-center items-center w-[300px] h-300px'>
+                <img className=' px-5 pt-5 cover' src={image} alt="" />
+            </div>
             <div className='p-5'>
 
                 <p className='text-2xl font-bold'>{name}</p>
