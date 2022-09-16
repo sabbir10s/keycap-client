@@ -5,7 +5,8 @@ import auth from '../firebase.init';
 import { BiMenuAltLeft } from 'react-icons/bi';
 import CustomLink from '../hooks/CustomLink';
 import DashLink from '../hooks/DashLink';
-import { MdOutlineArrowDropDown } from 'react-icons/md';
+import { MdLogout, MdOutlineArrowDropDown } from 'react-icons/md';
+import { FaUserAlt } from 'react-icons/fa';
 
 const Navbar = ({ children }) => {
     const { pathname } = useLocation()
@@ -53,15 +54,15 @@ const Navbar = ({ children }) => {
                                                 </div>
                                             }
                                         </label>
-                                        <div tabIndex="0" class="dropdown-content menu p-5 shadow bg-base-100 rounded-box w-52">
+                                        <div tabIndex="0" class="dropdown-content menu shadow-lg bg-base-100 border rounded-box w-52 mt-2">
                                             {
                                                 user ?
-                                                    <div className='flex flex-col gap-4'>
-                                                        <Link to='/profile'>
-                                                            <p >Account Settings</p>
-                                                        </Link>
-                                                        <button className='text-left text-error' onClick={() => signOut(auth)}>
-                                                            Sign out
+                                                    <div className='flex flex-col gap-5'>
+                                                        <DashLink to='/profile'>
+                                                            <div className='hover:text-error pt-5 px-5  flex items-center gap-2' ><FaUserAlt /> <span>Account Settings</span></div>
+                                                        </DashLink>
+                                                        <button className='hover:text-error py-5 px-5 border-t border-base-200 flex items-center gap-2 text-left' onClick={() => signOut(auth)}>
+                                                            <MdLogout /> <span>Sign out</span>
                                                         </button>
 
 
