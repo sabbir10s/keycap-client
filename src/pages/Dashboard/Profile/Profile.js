@@ -48,7 +48,7 @@ const Profile = () => {
 
     // console.log(userData);
     const { name, education, phone, city, linkedin } = userData;
-
+    const linkedInLink = `https://www.linkedin.com/in/${linkedin}`
 
     const handleProfile = (event) => {
         event.preventDefault();
@@ -156,15 +156,18 @@ const Profile = () => {
                         </div>
 
                         <div>
-                            <p className='text-sm text-base-300'>LinkedIn Link</p>
+                            <p className='text-sm text-base-300'>LinkedIn User Name</p>
                             {
                                 !click
                                     ?
-                                    <a className='link text-error py-1' href={linkedin} target="_blank" >
+                                    <a className='link text-error py-1' href={linkedInLink} target="_blank" >
                                         https://www.linkedin.com/in/{linkedin}
                                     </a>
                                     :
-                                    <input className='border-b border-gray-400 text-lg w-full py-1 focus:outline-0' type="text" ref={getLinkedIn} defaultValue={linkedin} />
+                                    <div className='flex items-center border-b border-gray-400'>
+                                        <p className='text-error'>https://www.linkedin.com/in/</p>
+                                        <input className=' text-lg w-full py-1 focus:outline-0' type="text" ref={getLinkedIn} defaultValue={linkedin} />
+                                    </div>
                             }
 
                         </div>
