@@ -11,7 +11,6 @@ import { FaUserAlt } from 'react-icons/fa';
 const Navbar = ({ children }) => {
     const { pathname } = useLocation()
     const [user] = useAuthState(auth);
-    console.log(user);
     return (
         <div className="drawer drawer-end">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -54,7 +53,7 @@ const Navbar = ({ children }) => {
                                                 </div>
                                             }
                                         </label>
-                                        <div tabIndex="0" class="dropdown-content menu shadow-lg bg-base-100 border rounded-box w-52 mt-2">
+                                        <div tabIndex="0" className="dropdown-content menu shadow-lg bg-base-100 border rounded-box w-52 mt-2">
                                             {
                                                 user ?
                                                     <div className='flex flex-col gap-5'>

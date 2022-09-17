@@ -4,8 +4,6 @@ import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute';
 import AddReview from './pages/Dashboard/User/AddReview/AddReview';
 import Orders from './pages/Dashboard/User/Orders/Orders';
-import UpdateProfile from './pages/Dashboard/Profile/UpdateProfile';
-
 import Home from './pages/Home/Home';
 import NotFound from './pages/NotFound/NotFound';
 import Purchase from './pages/Purchase/Purchase';
@@ -73,8 +71,7 @@ function App() {
               </Route>
           }
 
-          <Route path='/profile' element={<RequireUser><Profile /></RequireUser>} />
-          <Route path='/updateProfile' element={<RequireUser><UpdateProfile /></RequireUser>}></Route>
+          <Route path='/profile' element={<Profile />} />
 
           <Route path='*' element={<NotFound />} />
         </Routes>
