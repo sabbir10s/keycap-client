@@ -11,8 +11,8 @@ const Products = () => {
     }, [])
     return (
         <div>
-            <h2 className='text-primary text-center text-3xl font-bold pt-14 uppercase'>Product Collection</h2>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 mx-5 lg:mx-12 mt-12'>
+            <h2 id='products' className='text-primary text-center text-3xl font-bold pt-14 lg:pt-24 uppercase'>Product Collection</h2>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 mt-12'>
 
                 {
                     products.map(product => <ProductCard

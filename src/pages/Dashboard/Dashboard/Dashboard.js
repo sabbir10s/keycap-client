@@ -10,8 +10,8 @@ const DashBoard = () => {
     const [admin] = useAdmin(user);
 
     return (
-        <div className='md:px-10 bg-base-200'>
-            <div className="drawer drawer-mobile">
+        <div className='bg-base-200'>
+            <div className="drawer drawer-mobile  max-w-[1400px] mx-auto md:px-20">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="lg:my-5 drawer-content bg-base-100 shadow-xl rounded-lg">
                     <Outlet />

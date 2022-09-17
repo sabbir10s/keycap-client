@@ -9,12 +9,14 @@ import Summary from './Summary/Summary';
 
 const Home = () => {
     return (
-        <div className='mt-5'>
-            <Banner />
-            <Summary />
-            <Products />
-            <Reviews />
-            <Download />
+        <div >
+            <div className='mt-5 max-w-[1400px] mx-auto lg:px-20 px-2'>
+                <Banner />
+                <Summary />
+                <Products />
+                <Reviews />
+                <Download />
+            </div>
             <Newsletter />
             <Footer />
         </div>

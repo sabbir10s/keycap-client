@@ -3,7 +3,7 @@ import { GiStarsStack } from 'react-icons/gi';
 
 const Summary = () => {
     return (
-        <div className="stats shadow flex mx-12 my-12">
+        <div className="stats shadow flex  my-12">
 
             <div className="stat">
                 <div className="stat-figure text-success">
