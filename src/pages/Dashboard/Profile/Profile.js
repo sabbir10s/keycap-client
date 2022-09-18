@@ -18,7 +18,7 @@ const Profile = () => {
     const [click, setClick] = useState(false)
     const navigate = useNavigate()
     const email = user?.email
-    console.log(email);
+
     const { isLoading, data: userData } = useQuery(['user', email, reload], () =>
         fetch(`https://nexiq-server.onrender.com/user/${email}`, {
             method: "GET",
@@ -30,7 +30,7 @@ const Profile = () => {
             if (res.status === 401 || res.status === 403) {
                 signOut(auth);
                 localStorage.removeItem('accessToken');
-                navigate('/')
+                navigate('/signIn')
             }
             return res.json()
         }
