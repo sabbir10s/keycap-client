@@ -19,17 +19,19 @@ const AddNewProduct = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result);
+                // console.log(result);
                 if (result.success) {
                     const img = result.data.url;
                     const product = {
                         name: data.name,
+                        category: data.category,
                         price: parseInt(data.price),
                         quantity: parseInt(data.quantity),
                         minOrder: parseInt(data.minOrder),
                         description: data.description,
                         image: img
                     }
+                    console.log(product);
                     // send to your database.
                     fetch('https://nexiq-server.onrender.com/product', {
                         method: "POST",
@@ -56,7 +58,7 @@ const AddNewProduct = () => {
 
 
     return (
-        <div className='lg:mx-10 '>
+        <div className=''>
             <p className='text-2xl font-bold text-primary text-center my-5'>Add New Product</p>
             <div className='flex justify-center items-center w-full mb-5'>
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -78,6 +80,28 @@ const AddNewProduct = () => {
                         />
                         <label className="label pt-0">
                             {errors.name?.type === 'required' && <span className="label-text-alt text-error">{errors.name.message}</span>}
+                        </label>
+                    </div>
+                    <div className="form-control w-full">
+                        <label className="label pt-0">
+                            <span className="label-text">Category</span>
+                        </label>
+
+                        <select className="input input-bordered border-primary w-full"
+                            {...register("category", {
+                                required: {
+                                    value: true,
+                                    message: "Product Category is Required"
+                                }
+                            })}
+                        >
+                            <option value="pc">PC Gadget</option>
+                            <option value="mobile">Mobile Gadget</option>
+                            <option value="smart">Smart Gadget</option>
+                        </select>
+
+                        <label className="label pt-0">
+                            {errors.category?.type === 'required' && <span className="label-text-alt text-error">{errors.category?.message}</span>}
                         </label>
                     </div>
 
