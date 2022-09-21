@@ -11,14 +11,14 @@ const DashBoard = () => {
 
     return (
         <div className='bg-base-200'>
-            <div className="drawer drawer-mobile  max-w-[1400px] mx-auto md:px-20">
+            <div className="drawer drawer-mobile  max-w-[1400px] mx-auto lg:px-20">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="lg:my-5 drawer-content bg-base-100 shadow-xl rounded-lg">
                     <Outlet />
                 </div>
                 <div className="drawer-side">
                     <label for="my-drawer-2" className="drawer-overlay"></label>
-                    <ul className="lg:mr-5 md:my-5 menu p-4 overflow-y-auto w-80 lg:w-56 bg-base-100 shadow-xl rounded-lg text-base-content">
+                    <ul className="lg:mr-5 lg:my-5 menu p-4 overflow-y-auto w-56 bg-base-100 shadow-xl rounded-lg text-base-content">
 
                         {
                             !admin && <>
