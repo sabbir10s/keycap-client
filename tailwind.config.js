@@ -5,7 +5,7 @@ module.exports = {
       {
         mytheme: {
 
-          "primary": "#3860BE",
+          "primary": "#008081",
 
           "secondary": "#D98C00",
 
@@ -31,4 +31,5 @@ module.exports = {
     ],
   },
   plugins: [require("daisyui")],
+
 };

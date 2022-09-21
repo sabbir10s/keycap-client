@@ -30,7 +30,7 @@ const Profile = () => {
             if (res.status === 401 || res.status === 403) {
                 signOut(auth);
                 localStorage.removeItem('accessToken');
-                navigate('/signIn')
+                navigate('/')
             }
             return res.json()
         }
@@ -41,6 +41,7 @@ const Profile = () => {
     const getMobile = useRef(null)
     const getAddress = useRef(null)
     const getLinkedIn = useRef(null)
+
     if (isLoading || loading) {
         return <Loading />
     }
@@ -93,7 +94,7 @@ const Profile = () => {
 
 
     return (
-        <div className='w-1/3 mx-auto mt-6'>
+        <div className='lg:w-1/3 mx-auto mt-6 px-2'>
             <div>
 
                 <div className='flex justify-between items-center'>

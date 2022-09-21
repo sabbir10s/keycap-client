@@ -7,20 +7,11 @@ import CustomLink from '../hooks/CustomLink';
 import DashLink from '../hooks/DashLink';
 import { MdLogout, MdOutlineArrowDropDown } from 'react-icons/md';
 import { FaUserAlt } from 'react-icons/fa';
-import GetUserInfo from '../hooks/GetUserInfo';
 
 const Navbar = ({ children }) => {
     const { pathname } = useLocation()
-    const [user, loading] = useAuthState(auth);
-    const email = user?.email
-    const { userInfo, isLoading } = GetUserInfo(email);
-    if (loading || isLoading) {
-        return <div className='hidden'>Loading</div>
-    }
+    const [user] = useAuthState(auth);
 
-    console.log(userInfo);
-    const { name } = userInfo
-    const userName = name.slice(0, 1) || user.displayName.slice(0, 1)
 
     return (
         <div className="drawer drawer-end">
@@ -56,7 +47,7 @@ const Navbar = ({ children }) => {
                                         <p className="dropdown dropdown-click  dropdown-end">
                                             <label tabIndex="0">
                                                 <div className='flex items-center cursor-pointer gap-2'>
-                                                    <div className='text-primary text-lg border border-primary w-8 h-8 rounded-full flex justify-center items-center'>{userName} </div>
+                                                    <div className='text-primary text-lg border border-primary w-8 h-8 rounded-full flex justify-center items-center'>{user?.displayName.slice(0, 1)} </div>
                                                     <div className='flex justify-center items-center'>
                                                         <span>Account</span> <MdOutlineArrowDropDown />
                                                     </div>
@@ -109,37 +100,37 @@ const Navbar = ({ children }) => {
 
                     {
                         user ?
-                            <p className="dropdown dropdown-click  dropdown-end">
+                            <p className="dropdown dropdown-click  dropdown-start">
                                 <label tabIndex="0">
-                                    <div className='flex items-center cursor-pointer gap-2'>
-                                        <div className='text-primary text-lg border border-primary w-8 h-8 rounded-full flex justify-center items-center'>{userName} </div>
-                                        <div className='flex justify-center items-center'>
-                                            <span>Account</span> <MdOutlineArrowDropDown />
+
+                                    {
+                                        user &&
+                                        <div className='flex items-center cursor-pointer gap-2'>
+                                            <div className='text-primary text-lg border border-primary w-8 h-8 rounded-full flex justify-center items-center'>{user.displayName.slice(0, 1)} </div>
+                                            <div className='flex justify-center items-center'>
+                                                <span>Account</span> <MdOutlineArrowDropDown />
+                                            </div>
                                         </div>
-                                    </div>
+                                    }
                                 </label>
-                                <div tabIndex="0" className="dropdown-content menu shadow-lg bg-base-100 border rounded-box w-52 mt-2">
+                                <p tabIndex="0" className="dropdown-content menu w-32">
+
                                     {
                                         user ?
-                                            <div className='flex flex-col gap-5'>
-                                                <DashLink to='/profile'>
-                                                    <div className='hover:text-error pt-5 px-5  flex items-center gap-2' ><FaUserAlt /> <span>Account Settings</span></div>
-                                                </DashLink>
-                                                <button className='hover:text-error py-5 px-5 border-t border-base-200 flex items-center gap-2 text-left' onClick={() => signOut(auth)}>
-                                                    <MdLogout /> <span>Sign out</span>
-                                                </button>
-
-
-                                            </div>
+                                            <>
+                                                <p onClick={() => signOut(auth)}>
+                                                    <p className='text-center cursor-pointer bg-error text-base-100 rounded-lg py-1 mt-5'>Sign out</p>
+                                                </p>
+                                            </>
                                             :
                                             <></>
                                     }
-                                </div>
+                                </p>
                             </p>
                             :
                             <>
-                                <p> <CustomLink to='/SignIn'>Sign in</CustomLink></p>
-                                <p> <CustomLink to='/signUp'>Sign up</CustomLink></p>
+                                <p> <DashLink to='/SignIn'>Sign in</DashLink></p>
+                                <p> <DashLink to='/signUp'>Sign up</DashLink></p>
                             </>
                     }
                 </ul>

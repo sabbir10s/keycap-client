@@ -1,0 +1,14 @@
+.bgImg {
+  background-image: url("../../../images/hero img.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media only screen and (max-width: 600px) {
+  .bgImg {
+    background-image: none;
+    background-color: #eaeced;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
