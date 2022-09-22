@@ -12,11 +12,13 @@ const Home = () => {
     return (
         <div >
             <Banner />
+            <OurService />
             <div className='mt-5 max-w-[1400px] mx-auto lg:px-20 px-2'>
-                <Summary />
+
                 <Products />
+                {/* <Summary /> */}
                 <Reviews />
-                <OurService />
+
             </div>
 
             <ContactFrom />
