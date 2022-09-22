@@ -5,7 +5,6 @@ import ContactFrom from './ContactFrom/ContactFrom';
 import OurService from './OurService/OurService';
 import Products from './Products/Products';
 import Reviews from './Reviews/Reviews';
-import Summary from './Summary/Summary';
 
 const Home = () => {
 
@@ -14,11 +13,8 @@ const Home = () => {
             <Banner />
             <OurService />
             <div className='mt-5 max-w-[1400px] mx-auto lg:px-20 px-2'>
-
                 <Products />
-                {/* <Summary /> */}
                 <Reviews />
-
             </div>
 
             <ContactFrom />

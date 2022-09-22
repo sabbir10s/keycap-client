@@ -78,18 +78,29 @@ const Purchase = () => {
                         <div className='min:h-[300px] flex justify-center items-center'>
                             <img className='' src={image} alt="" />
                         </div>
-                        <div>
-                            <p className='text-3xl mb-5'>{name} </p>
-                            <p className='text-primary text-xl font-bold'>Price: {price} </p>
-                            <p className='text-secondary'>Available Stock: {quantity} </p>
-                            <p className='text-secondary'>Minimum Order: {minOrder} </p>
+                        <div className='flex items-center'>
+                            <div>
+                                <p className='text-2xl font-bold text-primary'>{name} </p>
+                                <p className='text-secondary text-2xl font-bold py-3'>${price} </p>
+
+                                <table>
+                                    <tr>
+                                        <td className='border border-primary px-2 py-1 text-sm font-medium'>Available Stock</td>
+                                        <td className='border border-primary px-2 py-1 text-sm font-medium'>Minimum Order</td>
+                                    </tr>
+                                    <tr>
+                                        <td className='border border-primary px-2 py-1 text-secondary text-sm'>{quantity}</td>
+                                        <td className='border border-primary px-2 py-1 text-secondary text-sm'>{minOrder}</td>
+                                    </tr>
+                                </table>
+                            </div>
 
                         </div>
 
                     </div>
                     <div>
-                        <p className='font-bold mt-5'>Product Description</p>
-                        <p className='text-base-300'>{description} </p>
+                        <p className='font-bold mt-4'>Product Description</p>
+                        <p className='text-base-300 text-sm'>{description} </p>
                     </div>
                 </div>
                 <div className='bg-base-100 shadow-xl rounded-xl col-span-1 p-5'>

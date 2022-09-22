@@ -32,13 +32,13 @@ import useAdmin from './hooks/useAdmin';
 function App() {
 
   const [user, loading] = useAuthState(auth)
-  const [admin, adminLoading] = useAdmin(user)
+  const [admin] = useAdmin(user)
 
-  if (loading, adminLoading) {
+  if (loading) {
     return <div className='hidden'>Loading...</div>
   }
   return (
-    <div className="App">
+    <div>
 
       <Navbar>
         <ToastContainer />

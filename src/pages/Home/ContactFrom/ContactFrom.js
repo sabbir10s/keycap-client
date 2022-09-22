@@ -7,6 +7,7 @@ const ContactFrom = () => {
         const name = event.target.name.value
         if (name) {
             toast.success('Success Full');
+            event.target.reset()
         }
 
     }

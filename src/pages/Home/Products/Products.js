@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CustomLink from '../../../hooks/CustomLink';
 import ProductCard from './ProductCard';
-
 const Products = () => {
     const [products, setProducts] = useState([]);
     const [category, setCategory] = useState({ type: "new" })
@@ -13,7 +12,6 @@ const Products = () => {
     const mobile = products.filter(product => product.category === 'mobile')
     const pc = products.filter(product => product.category === 'pc')
     const smart = products.filter(product => product.category === 'smart')
-    console.log(products);
     const { type } = category
     return (
         <div>
