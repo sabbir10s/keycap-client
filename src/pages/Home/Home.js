@@ -1,10 +1,9 @@
 import React from 'react';
 import { Fade } from 'react-reveal';
-import { Zoom } from 'react-toastify';
 import Footer from '../../components/Footer';
 import Banner from './Banner/Banner';
+import ContactFrom from './ContactFrom/ContactFrom';
 import Download from './Download/Download';
-import Newsletter from './Newsletter/Newsletter';
 import Products from './Products/Products';
 import Reviews from './Reviews/Reviews';
 import Summary from './Summary/Summary';
@@ -23,7 +22,7 @@ const Home = () => {
                 <Download />
             </div>
 
-            <Newsletter />
+            <ContactFrom />
             <Footer />
         </div>
     );

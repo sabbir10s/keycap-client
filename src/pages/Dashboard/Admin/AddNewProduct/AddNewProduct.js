@@ -194,15 +194,15 @@ const AddNewProduct = () => {
 
 
                     <div className='flex flex-col lg:flex-row items-center gap-4'>
-                        <div className="form-control w-full">
-                            <div className='flex items-center justify-center gap-2 border border-primary bg-slate-100 rounded-lg py-1 mt-2'>
-                                <label className="label pt-0" htmlFor='image'>
+                        <div className="form-control w-full cursor-pointer">
+                            <div className=' cursor-pointer flex items-center justify-center gap-2 border border-primary bg-slate-100 rounded-lg py-1 mt-2'>
+                                <label className="label cursor-pointer pt-0" htmlFor='image'>
                                     <span className="text-4xl text-base-300"><RiImageAddFill /></span>
                                 </label>
                                 <input
                                     type="file"
                                     id="image"
-                                    className="text-base-300 lg:w-[250px]"
+                                    className="text-base-300 lg:w-[250px] cursor-pointer"
                                     {...register("image", {
                                         required: {
                                             value: true,
