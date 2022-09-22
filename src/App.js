@@ -31,9 +31,12 @@ import useAdmin from './hooks/useAdmin';
 
 function App() {
 
-  const [user] = useAuthState(auth)
-  const [admin] = useAdmin(user)
+  const [user, loading] = useAuthState(auth)
+  const [admin, adminLoading] = useAdmin(user)
 
+  if (loading, adminLoading) {
+    return <div className='hidden'>Loading...</div>
+  }
   return (
     <div className="App">
 

@@ -3,7 +3,7 @@ import { Fade } from 'react-reveal';
 import Footer from '../../components/Footer';
 import Banner from './Banner/Banner';
 import ContactFrom from './ContactFrom/ContactFrom';
-import Download from './Download/Download';
+import OurService from './OurService/OurService';
 import Products from './Products/Products';
 import Reviews from './Reviews/Reviews';
 import Summary from './Summary/Summary';
@@ -19,7 +19,7 @@ const Home = () => {
                     <Products />
                 </Fade>
                 <Reviews />
-                <Download />
+                <OurService />
             </div>
 
             <ContactFrom />
