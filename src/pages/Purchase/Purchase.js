@@ -132,7 +132,7 @@ const Purchase = () => {
                             <span className='text-secondary mr-4'>Quantity</span>
                             <input onChange={orderQuantity} className='text-center border border-primary text-secondary rounded-md mt-3 py-2' type="number" name="quantity" id="" required />
 
-                            <button type='submit' disabled={newQuantity.quantity < minOrder || newQuantity.quantity > quantity} className='btn btn-primary block mt-3'>Place Your Booking</button>
+                            <button type='submit' disabled={newQuantity.quantity < minOrder || newQuantity.quantity > quantity} className='bg-primary/90 text-base-100 px-5 py-3 shadow-md shadow-secondary hover:bg-primary duration-300 rounded-lg block mt-3 disabled:bg-gray-300 disabled:shadow-none'>Place Your Booking</button>
                         </form>
                     </div>
                 </div>

@@ -74,7 +74,7 @@ const Navbar = ({ children }) => {
                                         :
                                         <>
                                             <p> <CustomLink to='/SignIn'>Sign in</CustomLink></p>
-                                            <p> <CustomLink to='/signUp'>Sign up</CustomLink></p>
+
                                         </>
                                 }
 

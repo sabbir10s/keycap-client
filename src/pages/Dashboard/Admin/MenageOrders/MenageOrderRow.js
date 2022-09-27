@@ -12,8 +12,6 @@ const MenageOrderRow = ({ order, setIsReload, reload, index }) => {
 
     const { name, productName, price, quantity, paid, status, _id } = order;
 
-    console.log(order);
-
 
     const handleDelete = () => {
         const url = `https://nexiq-server.onrender.com/order/${_id}`;

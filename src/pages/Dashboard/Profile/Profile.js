@@ -14,12 +14,11 @@ import { toast } from 'react-toastify';
 
 const Profile = () => {
     const [user, loading] = useAuthState(auth);
-    const [reload, setReload] = useState(true)
     const [click, setClick] = useState(false)
     const navigate = useNavigate()
     const email = user?.email
 
-    const { isLoading, data: userData } = useQuery(['user', email, reload], () =>
+    const { isLoading, data: userData, refetch } = useQuery(['user', email], () =>
         fetch(`https://nexiq-server.onrender.com/user/${email}`, {
             method: "GET",
             headers: {
@@ -80,7 +79,7 @@ const Profile = () => {
             .then((data) => {
                 if (data.result.acknowledged) {
                     toast.success("Profile Update")
-                    setReload(!reload)
+                    refetch()
                     setClick(false)
                 }
                 else {

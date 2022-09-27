@@ -55,8 +55,8 @@ function App() {
           {
             admin ?
               <Route path='dashboard' element={<PrivateRoute> <DashBoard /> </PrivateRoute>}>
-                <Route index element={<RequireAdmin><AllUsers /></RequireAdmin>} />
-                <Route path='addNewProduct' element={<RequireAdmin><AddNewProduct /></RequireAdmin>} />
+                <Route path='menageUsers' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
+                <Route index element={<RequireAdmin><AddNewProduct /></RequireAdmin>} />
                 <Route path='menageOrders' element={<RequireAdmin><MenageOrders /></RequireAdmin>} />
 
                 <Route path='menageProducts' element={<RequireAdmin>

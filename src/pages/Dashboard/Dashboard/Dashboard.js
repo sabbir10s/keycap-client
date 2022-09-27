@@ -29,10 +29,10 @@ const DashBoard = () => {
 
                         }
                         {admin && <>
-                            <p className='p-3'><DashLink to='/dashboard'>Menage Users</DashLink></p>
-                            <p className='p-3'><DashLink to='/dashboard/menageOrders'>Menage Orders</DashLink></p>
+                            <p className='p-3'><DashLink to='/dashboard'>Add New Product</DashLink></p>
                             <p className='p-3'><DashLink to='/dashboard/menageProducts'>Menage Products</DashLink></p>
-                            <p className='p-3'><DashLink to='/dashboard/addNewProduct'>Add New Product</DashLink></p>
+                            <p className='p-3'><DashLink to='/dashboard/menageOrders'>Menage Orders</DashLink></p>
+                            <p className='p-3'><DashLink to='/dashboard/menageUsers'>Menage Users</DashLink></p>
 
                         </>}
                     </ul>
