@@ -1,7 +1,9 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const CheckoutForm = ({ order }) => {
+    const navigate = useNavigate()
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
@@ -120,6 +122,7 @@ const CheckoutForm = ({ order }) => {
                 success && <div className='text-green-500'>
                     <p>{success}</p>
                     <p>Your transaction id: <span className='text-orange-600 font-bold'>{transactionId}</span></p>
+                    <button className='bg-primary w-full py-1 mt-2 text-base-100 rounded' onClick={() => navigate('/dashboard')}>Go Forward</button>
                 </div>
             }
         </>

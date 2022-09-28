@@ -1,4 +1,4 @@
-import React, { useEffect, useId } from 'react';
+import React, { useEffect } from 'react';
 import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
@@ -6,7 +6,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../../components/Loading';
 import useToken from '../../hooks/useToken';
 import { useState } from 'react';
-// import useToken from '../../Hooks/useToken';
 
 const SignIn = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -52,9 +51,10 @@ const SignIn = () => {
         <section className='lg:h-[90vh] md:h-[90vh] h-[80vh] lg:bg-base-200 md:bg-base-200 flex justify-center items-center'>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
-                    <div className='flex items-center justify-between mb-2'>
-                        <button onClick={() => setUserId('user@gmail.com')} className={userId === 'user@gmail.com' ? 'bg-secondary text-sm text-white py-1 px-3 rounded-lg shadow-md' : 'bg-base-300 text-sm text-white py-1 px-3 rounded-lg shadow-md'}>Login as a user</button>
-                        <button onClick={() => setUserId('admin@gmail.com')} className={userId === 'admin@gmail.com' ? 'bg-secondary text-sm text-white py-1 px-3 rounded-lg shadow-md' : 'bg-base-300 text-sm text-white py-1 px-3 rounded-lg shadow-md'}>Login as a admin</button>
+                    <div className='mb-2 text-secondary'>
+                        <p className='text-sm'>Note: To check admin functionality please fill up</p>
+                        <p className='text-sm'>Email: <span className='text-gray-500'>admin@gmail.com</span> Password: <span className='text-gray-500'>123456</span></p>
+                        <p></p>
                     </div>
 
                     <form onSubmit={handleSubmit(onSubmit)}>
@@ -69,7 +69,8 @@ const SignIn = () => {
                                 type="email"
                                 placeholder="Your Email"
                                 className="input input-bordered w-full max-w-xs"
-                                defaultValue={userId}
+                                defaultValue='user@gmail.com'
+                                autoFocus={true}
                                 {...register("email", {
                                     required: {
                                         value: true,

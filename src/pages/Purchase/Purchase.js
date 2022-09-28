@@ -34,6 +34,7 @@ const Purchase = () => {
 
     const handlePlaceOrder = event => {
         event.preventDefault();
+        const image = product.image
         const name = event.target.name.value;
         const email = event.target.email.value;
         const phone = event.target.phone.value;
@@ -42,7 +43,7 @@ const Purchase = () => {
         const quantity = event.target.quantity.value;
         const price = event.target.price.value;
         const totalPrice = parseInt(quantity) * product?.price;
-        const orderInfo = { name, email, phone, address, productName, price, quantity, totalPrice };
+        const orderInfo = { name, image, email, phone, address, productName, price, quantity, totalPrice };
 
         const url = `https://nexiq-server.onrender.com/order`;
 
@@ -65,6 +66,7 @@ const Purchase = () => {
             .then((data) => {
                 event.target.reset();
                 toast.success("Your Booking Successful")
+                navigate('/dashboard')
             });
     }
 
