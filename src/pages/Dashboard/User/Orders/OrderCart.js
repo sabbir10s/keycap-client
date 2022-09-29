@@ -36,7 +36,7 @@ const OrderCart = ({ order, refetch }) => {
                             <Link to={`/dashboard/payment/${order._id}`} className='bg-primary text-white px-3 py-1.5 rounded-full shadow-md'>Please Pay</Link>
                             <div>Or</div>
                             <div>
-                                <label onClick={() => setCancelOrder(order)} for="delete-confirm-modal" className='bg-error text-white px-3 py-1.5 rounded-full shadow-md cursor-pointer' >Cancel Order</label>
+                                <label onClick={() => setCancelOrder(order)} htmlFor="my-modal-4" className='bg-error text-white px-3 py-1.5 rounded-full shadow-md cursor-pointer'>Cancel Order</label>
                             </div>
                         </div>
                             :
