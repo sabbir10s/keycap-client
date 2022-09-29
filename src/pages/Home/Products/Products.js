@@ -1,18 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { useQuery } from 'react-query';
+import Loading from '../../../components/Loading';
 import CustomLink from '../../../hooks/CustomLink';
 import ProductCard from './ProductCard';
 const Products = () => {
-    const [products, setProducts] = useState([]);
+    const {
+        data: products,
+        isLoading,
+    } = useQuery(["products"], () =>
+        fetch("https://nexiq-server.onrender.com/product", {
+            method: "GET"
+        }).then(res => res.json())
+    );
     const [category, setCategory] = useState({ type: "new" })
-    useEffect(() => {
-        fetch('https://nexiq-server.onrender.com/product')
-            .then(res => res.json())
-            .then(data => setProducts(data))
-    }, [])
+
+    if (isLoading) {
+        return <Loading />
+    }
+
+
     const mobile = products.filter(product => product.category === 'mobile')
     const pc = products.filter(product => product.category === 'pc')
     const smart = products.filter(product => product.category === 'smart')
     const { type } = category
+
+
     return (
         <div>
             <h2 id='products' className='text-primary text-center text-3xl font-bold pt-14 pb-8 lg:pt-24 uppercase'>Product Collection</h2>
@@ -25,16 +37,17 @@ const Products = () => {
             </div>
 
             <div className='text-secondary p-1 bg-base-200/50 rounded-t mb-4 capitalize'>{type} Gadgets</div>
-            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-14'>
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-10'>
 
                 {
                     type === "new" && products.map(product => <ProductCard id='#new'
                         key={product._id}
                         product={product}
+                        products={products}
                     ></ProductCard>)
                 }
             </div>
-            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-14'>
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-10'>
                 {
                     type === "mobile" && mobile.map(product => <ProductCard id='#mobile'
                         key={product._id}
@@ -42,7 +55,7 @@ const Products = () => {
                     ></ProductCard>)
                 }
             </div>
-            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-14'>
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-10'>
                 {
                     type === "computer" && pc.map(product => <ProductCard
                         key={product._id}
@@ -50,7 +63,7 @@ const Products = () => {
                     ></ProductCard>)
                 }
             </div>
-            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-14'>
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-10'>
                 {
                     type === "smart" && smart.map(product => <ProductCard
                         key={product._id}

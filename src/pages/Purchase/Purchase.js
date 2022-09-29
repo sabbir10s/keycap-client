@@ -100,10 +100,6 @@ const Purchase = () => {
                         </div>
 
                     </div>
-                    <div>
-                        <p className='font-bold mt-4'>Product Description</p>
-                        <p className='text-base-300 text-sm'>{description} </p>
-                    </div>
                 </div>
                 <div className='bg-base-100 shadow-xl rounded-xl col-span-1 p-5'>
                     <h3 className='text-2xl'>Booking Details</h3>

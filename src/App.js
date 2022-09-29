@@ -25,6 +25,7 @@ import DashBoard from './pages/Dashboard/Dashboard/Dashboard';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
 import useAdmin from './hooks/useAdmin';
+import ProductDetails from './pages/Home/Products/ProductDetails';
 
 
 
@@ -47,11 +48,10 @@ function App() {
           <Route path='/home' element={<Home />} />
           <Route path='/signIn' element={<SignIn />} />
           <Route path='/signUp' element={<SignUp />} />
+          <Route path='/product/:productId' element={<ProductDetails />} />
           <Route path='/purchase/:id' element={<PrivateRoute>
             <Purchase />
           </PrivateRoute>} />
-
-
           {
             admin ?
               <Route path='dashboard' element={<PrivateRoute> <DashBoard /> </PrivateRoute>}>
