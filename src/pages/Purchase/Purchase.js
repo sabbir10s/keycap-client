@@ -41,7 +41,7 @@ const Purchase = () => {
         const address = event.target.address.value;
         const productName = product.name;
         const quantity = event.target.quantity.value;
-        const price = event.target.price.value;
+        const price = product.price;
         const totalPrice = parseInt(quantity) * product?.price;
         const orderInfo = { name, image, email, phone, address, productName, price, quantity, totalPrice };
 
@@ -71,66 +71,72 @@ const Purchase = () => {
     }
 
     console.log(product);
-    const { name, image, description, minOrder, quantity, price } = product;
+    const { name, image, minOrder, quantity, price } = product;
     return (
-        <div className='bg-base-200 lg:py-5 md:py-5 lg:h-screen'>
-            <div className=' max-w-[1400px] mx-auto lg:px-20 px-2 grid grid-cols-1 lg:grid-cols-3 md:gap-10'>
-                <div className='col-span-2 bg-base-100 rounded-xl shadow-xl lg:p-10 p-5'>
-                    <div className=' grid md:grid-cols-2 gap-5'>
-                        <div className='min:h-[300px] flex justify-center items-center'>
-                            <img className='' src={image} alt="" />
+        <div className='bg-base-200 md:py-5 h-screen'>
+            <div className=' max-w-[1400px] mx-auto lg:px-20 flex justify-center'>
+                <div className='bg-base-100 shadow-xl md:rounded-xl col-span-1 p-5 lg:w-1/2'>
+                    <h3 className='text-2xl'>Order Details</h3>
+                    <div className='flex flex-row gap-2 justify-between mt-5'>
+                        <div className=' hidden md:block'>
+                            <img className='w-[100px]' src={image} alt="" />
                         </div>
-                        <div className='flex items-center'>
-                            <div>
-                                <p className='text-2xl font-bold text-primary'>{name} </p>
-                                <p className='text-secondary text-2xl font-bold py-3'>${price} </p>
 
-                                <table>
-                                    <tr>
-                                        <td className='border border-primary px-2 py-1 text-sm font-medium'>Available Stock</td>
-                                        <td className='border border-primary px-2 py-1 text-sm font-medium'>Minimum Order</td>
-                                    </tr>
-                                    <tr>
-                                        <td className='border border-primary px-2 py-1 text-secondary text-sm'>{quantity}</td>
-                                        <td className='border border-primary px-2 py-1 text-secondary text-sm'>{minOrder}</td>
-                                    </tr>
-                                </table>
-                            </div>
-
+                        <div className='flex flex-col justify-center font-semibold'>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <span className='text-primary'>{name} </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p className='text-base-300'>Price:  <span className='text-secondary'>${price} </span></p>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
+
+                        <table className='text-xs'>
+                            <tr>
+                                <td className='border border-primary px-2 py-1'>Available Stock</td>
+                                <td className='border border-primary px-2 py-1'>Minimum Order</td>
+                            </tr>
+                            <tr>
+                                <td className='border border-primary px-2 py-1 text-secondary'>{quantity}</td>
+                                <td className='border border-primary px-2 py-1 text-secondary'>{minOrder}</td>
+                            </tr>
+                        </table>
 
                     </div>
-                </div>
-                <div className='bg-base-100 shadow-xl rounded-xl col-span-1 p-5'>
-                    <h3 className='text-2xl'>Booking Details</h3>
-                    <div className='mt-3'>
-                        <form onSubmit={handlePlaceOrder} className='text-md'>
-                            <div>
-                                <input className='border border-primary pl-3 py-2 rounded-md w-full mt-1' type="text" name="name" value={user.displayName} disabled id="" />
+                    <div className='mt-3 w-full'>
+                        <form onSubmit={handlePlaceOrder}>
+                            <div className='flex flex-col lg:flex-row gap-4'>
+                                <div className='w-full'>
+                                    <label htmlFor="name" className='text-sm'>Name</label>
+                                    <input className='border pl-3 py-2 rounded-md w-full mt-1' type="text" name="name" value={user.displayName} disabled id="name" />
+                                </div>
+                                <div className='w-full'>
+                                    <label htmlFor="email" className='text-sm'>Email</label>
+                                    <input className='border pl-3 py-2 rounded-md w-full mt-1' type="email" name="email" value={user.email} disabled id="email" />
+                                </div>
                             </div>
                             <div className='mt-3'>
-
-                                <input className='border border-primary pl-3 py-2 rounded-md w-full mt-1' type="email" name="email" value={user.email} disabled id="" />
+                                <label htmlFor="phone" className='text-sm'>Phone</label>
+                                <input className='border pl-3 py-2 rounded-md w-full mt-1' type="number" name="phone" placeholder='Phone' required id="phone" />
                             </div>
                             <div className='mt-3'>
-
-                                <input className='border border-primary pl-3 py-2 rounded-md w-full mt-1' type="number" name="phone" placeholder='Phone' required id="" />
+                                <label htmlFor="address" className='text-sm'>Address</label>
+                                <textarea className='border pl-3 py-2 rounded-md w-full mt-1' name="address" placeholder='Address' id="address" cols="10" rows="1" required></textarea>
                             </div>
+
                             <div className='mt-3'>
-
-                                <textarea className='border border-primary pl-3 py-2 rounded-md w-full mt-1' name="address" placeholder='Address' id="" cols="10" rows="3" required></textarea>
+                                <label className='text-sm'>Quantity</label>
+                                <div className='flex justify-between flex-col lg:flex-row gap-5 mt-1'>
+                                    <input onChange={orderQuantity} className='border border-primary pl-3 py-2 rounded-md w-full' type="number" name="quantity" id="" required />
+                                    <button type='submit' disabled={newQuantity.quantity < minOrder || newQuantity.quantity > quantity} className='bg-primary/90 text-base-100 px-5 py-3 shadow-md shadow-secondary hover:bg-primary duration-300 rounded-lg block disabled:bg-gray-300 disabled:shadow-none w-full'>Place Order</button>
+                                </div>
                             </div>
-
-                            <div className='mt-3 text-secondary'>
-                                <span>Price: $<input type="number" name="price" value={price} disabled id="" />
-                                </span>
-
-                            </div>
-
-                            <span className='text-secondary mr-4'>Quantity</span>
-                            <input onChange={orderQuantity} className='text-center border border-primary text-secondary rounded-md mt-3 py-2' type="number" name="quantity" id="" required />
-
-                            <button type='submit' disabled={newQuantity.quantity < minOrder || newQuantity.quantity > quantity} className='bg-primary/90 text-base-100 px-5 py-3 shadow-md shadow-secondary hover:bg-primary duration-300 rounded-lg block mt-3 disabled:bg-gray-300 disabled:shadow-none'>Place Your Booking</button>
                         </form>
                     </div>
                 </div>
