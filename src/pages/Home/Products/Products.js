@@ -29,11 +29,13 @@ const Products = () => {
         <div>
             <h2 id='products' className='text-primary text-center text-3xl font-bold pt-14 pb-8 lg:pt-24 uppercase'>Product Collection</h2>
 
-            <div className='flex gap-10 pb-5'>
-                <CustomLink to='#new' className='text-primary hover:text-secondary border border-primary px-3 py-1 rounded' onClick={() => setCategory({ type: "new" })}> <button>New</button> </CustomLink>
-                <CustomLink to='#mobile' className='text-primary hover:text-secondary border border-primary px-3 py-1 rounded' onClick={() => setCategory({ type: "mobile" })}>Mobile</CustomLink>
-                <CustomLink to='#computer' className='text-primary hover:text-secondary border border-primary px-3 py-1 rounded' onClick={() => setCategory({ type: "computer" })}>Computer</CustomLink>
-                <CustomLink to='#smart' className='text-primary hover:text-secondary border border-primary px-3 py-1 rounded' onClick={() => setCategory({ type: "smart" })}>Smart</CustomLink>
+            <div className='flex justify-center'>
+                <div className='flex justify-center gap-10 border-b border-primary pb-2 w-1/2'>
+                    <CustomLink to='#new' className='text-primary hover:text-secondary border border-primary px-3 py-1 rounded' onClick={() => setCategory({ type: "new" })}> <button>New</button> </CustomLink>
+                    <CustomLink to='#mobile' className='text-primary hover:text-secondary border border-primary px-3 py-1 rounded' onClick={() => setCategory({ type: "mobile" })}>Mobile</CustomLink>
+                    <CustomLink to='#computer' className='text-primary hover:text-secondary border border-primary px-3 py-1 rounded' onClick={() => setCategory({ type: "computer" })}>Computer</CustomLink>
+                    <CustomLink to='#smart' className='text-primary hover:text-secondary border border-primary px-3 py-1 rounded' onClick={() => setCategory({ type: "smart" })}>Smart</CustomLink>
+                </div>
             </div>
 
             <div className='text-secondary p-1 bg-base-200/50 rounded-t mb-4 capitalize'>{type} Gadgets</div>
