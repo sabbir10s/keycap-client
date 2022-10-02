@@ -4,9 +4,9 @@ import icon1 from '../../../images/cons/icon2.png'
 import icon2 from '../../../images/cons/icon3.png'
 const OurService = () => {
     return (
-        <div className=''>
-            <div className='max-w-[1400px] mx-auto lg:px-20 px-2 bg-primary py-20'>
-                <h2 className='text-base-100 text-center text-3xl font-bold uppercase pb-10'>what we provide</h2>
+        <div className='bg-primary py-20'>
+            <div className='max-w-[1400px] mx-auto lg:px-20 px-2 '>
+                <h2 className='text-base-100 text-center text-2xl font-bold uppercase pb-10'>what we provide</h2>
                 <div className='flex flex-col md:flex-row justify-center items-center gap-5'>
                     <div className='border w-[300px] h-[200px] p-5 bg-base-100 rounded-lg flex justify-center items-center'>
                         <div className='text-center'>

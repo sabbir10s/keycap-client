@@ -9,13 +9,13 @@ const images = [
 
 const Slider = () => {
     return (
-        <div>
+        <div className='flex items-start'>
             <SimpleImageSlider
                 bgColor='#0000'
                 width={440}
                 height={440}
                 images={images}
-                showBullets={false}
+                showBullets={true}
                 showNavs={false}
                 autoPlay={true}
             />

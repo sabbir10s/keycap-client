@@ -46,8 +46,8 @@ const Profile = () => {
     }
 
 
-    // console.log(userData);
-    const { name, education, phone, city, linkedin } = userData;
+    console.log(userData);
+    const { name, education, mobile, address, linkedin } = userData;
     const linkedInLink = `https://www.linkedin.com/in/${linkedin}`
 
     const handleProfile = (event) => {
@@ -137,9 +137,9 @@ const Profile = () => {
                             {
                                 !click
                                     ?
-                                    <div className='text-lg w-full py-1'> {phone}</div>
+                                    <div className='text-lg w-full py-1'> {mobile}</div>
                                     :
-                                    <input className='border-b border-gray-400 text-lg w-full py-1 focus:outline-0' type="number" ref={getMobile} defaultValue={phone} />
+                                    <input className='border-b border-gray-400 text-lg w-full py-1 focus:outline-0' type="number" ref={getMobile} defaultValue={mobile} />
                             }
 
                         </div>
@@ -148,9 +148,9 @@ const Profile = () => {
                             {
                                 !click
                                     ?
-                                    <div className='text-lg w-full py-1'> {city}</div>
+                                    <div className='text-lg w-full py-1'> {address}</div>
                                     :
-                                    <input className='border-b border-gray-400 text-lg w-full py-1 focus:outline-0' type="text" ref={getAddress} defaultValue={city} />
+                                    <input className='border-b border-gray-400 text-lg w-full py-1 focus:outline-0' type="address" ref={getAddress} defaultValue={address} />
                             }
 
                         </div>

@@ -14,7 +14,7 @@ const ContactFrom = () => {
     return (
         <div className='   bgImage'>
             <div className='bg-primary/90 py-10 md:py-20'>
-                <h1 className='text-3xl text-center text-base-100 uppercase md:py-4'>Contact With Us</h1>
+                <h1 className='text-2xl text-center text-base-100 uppercase md:py-4'>Contact With Us</h1>
 
                 <div className='flex justify-center'>
                     <div className="card w-full max-w-lg">

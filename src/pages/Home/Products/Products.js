@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../../../components/Loading';
-import CustomLink from '../../../hooks/CustomLink';
 import ProductCard from './ProductCard';
 const Products = () => {
     const {
@@ -25,22 +24,21 @@ const Products = () => {
     const { type } = category
 
 
-    return (
-        <div>
-            <h2 id='products' className='text-primary text-center text-3xl font-bold pt-14 pb-8 lg:pt-24 uppercase'>Product Collection</h2>
 
-            <div className='flex justify-center'>
-                <div className='flex justify-center gap-10 border-b border-primary pb-2 w-1/2'>
-                    <CustomLink to='#new' className='text-primary hover:text-secondary border border-primary px-3 py-1 rounded' onClick={() => setCategory({ type: "new" })}> <button>New</button> </CustomLink>
-                    <CustomLink to='#mobile' className='text-primary hover:text-secondary border border-primary px-3 py-1 rounded' onClick={() => setCategory({ type: "mobile" })}>Mobile</CustomLink>
-                    <CustomLink to='#computer' className='text-primary hover:text-secondary border border-primary px-3 py-1 rounded' onClick={() => setCategory({ type: "computer" })}>Computer</CustomLink>
-                    <CustomLink to='#smart' className='text-primary hover:text-secondary border border-primary px-3 py-1 rounded' onClick={() => setCategory({ type: "smart" })}>Smart</CustomLink>
+    return (
+        <div className='pt-8 pb-20'>
+            <h2 id='products' className='text-primary text-center text-2xl font-bold py-8 uppercase'>Product Collection</h2>
+
+            <div className='flex justify-center mb-10'>
+                <div className='flex justify-center gap-5 md:gap-10  w-full md:w-1/2'>
+                    <button className={type === 'new' ? 'text-secondary border-b border-secondary' : 'text-primary border-b border-white'} onClick={() => setCategory({ type: "new" })}>New Product</button>
+                    <button className={type === 'mobile' ? 'text-secondary border-b border-secondary' : 'text-primary border-b border-white'} onClick={() => setCategory({ type: "mobile" })}>Mobile</button>
+                    <button className={type === 'computer' ? 'text-secondary border-b border-secondary' : 'text-primary border-b border-white'} onClick={() => setCategory({ type: "computer" })}>Computer</button>
+                    <button className={type === 'smart' ? 'text-secondary border-b border-secondary' : 'text-primary border-b border-white'} onClick={() => setCategory({ type: "smart" })}>Smart</button>
                 </div>
             </div>
 
-            <div className='text-secondary p-1 bg-base-200/50 rounded-t mb-4 capitalize'>{type} Gadgets</div>
             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-10'>
-
                 {
                     type === "new" && products.map(product => <ProductCard id='#new'
                         key={product._id}
