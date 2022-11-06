@@ -9,7 +9,7 @@ const images = [
 
 const Slider = () => {
     return (
-        <div className='flex items-start'>
+        <div>
             <SimpleImageSlider
                 bgColor='#0000'
                 width={440}

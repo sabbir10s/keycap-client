@@ -93,18 +93,20 @@ const Profile = () => {
 
 
     return (
-        <div className='lg:w-1/3 mx-auto mt-6 px-2'>
+        <div className='w-full lg:w-1/3 mx-auto mt-6 px-2'>
             <div>
 
                 <div className='flex justify-between items-center'>
-                    <p className='text-2xl font-bold text-primary'>Menage Your Profile</p>
-                    {
-                        !click
-                            ?
-                            <button onClick={() => setClick(true)} className='text-xl text-error flex items-center gap-2'> <AiOutlineEdit /> <span className='text-sm'>Edit</span> </button>
-                            :
-                            <button onClick={() => setClick(false)} className='text-error border border-error px-4 py-1 rounded-lg'>Cancel</button>
-                    }
+                    <p className='text-lg md:text-2xl font-bold text-primary'>Menage Your Profile</p>
+                    <div>
+                        {
+                            !click
+                                ?
+                                <button onClick={() => setClick(true)} className='text-xl text-error flex items-center gap-2'> <AiOutlineEdit /> <span className='text-sm'>Edit</span> </button>
+                                :
+                                <button onClick={() => setClick(false)} className='text-error border border-error px-2 md:px-4 py-1 rounded-lg'>Cancel</button>
+                        }
+                    </div>
                 </div>
                 <form onSubmit={handleProfile}>
                     <div className='flex flex-col gap-5 mt-3'>
