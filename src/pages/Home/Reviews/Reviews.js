@@ -1,14 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useQuery } from 'react-query';
+import Loading from '../../../components/Loading';
 import ReviewCard from './ReviewCard';
 
 const Reviews = () => {
-    const [reviews, setReviews] = useState([]);
+    const {
+        data: reviews,
+        isLoading,
+    } = useQuery(["reviews"], () =>
+        fetch("https://nexiq-server.onrender.com/review", {
+            method: "GET"
+        }).then(res => res.json())
+    );
 
-    useEffect(() => {
-        fetch('https://nexiq-server.onrender.com/review')
-            .then(res => res.json())
-            .then(data => setReviews(data))
-    }, [])
+    if (isLoading) {
+        return <Loading />
+    }
     return (
         <div className='py-24'>
             <h2 className='text-primary text-center text-2xl font-bold uppercase pb-4'>Customers Reviews</h2>

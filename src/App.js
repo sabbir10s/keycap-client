@@ -1,4 +1,7 @@
+import { ToastContainer } from 'react-toastify';
 import { Route, Routes } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute';
@@ -9,23 +12,18 @@ import NotFound from './pages/NotFound/NotFound';
 import Purchase from './pages/Purchase/Purchase';
 import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
-
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import Payment from './pages/Dashboard/User/Orders/Payment';
-
 import RequireAdmin from './components/RequireAdmin';
 import AddNewProduct from './pages/Dashboard/Admin/AddNewProduct/AddNewProduct';
-import MenageProducts from './pages/Dashboard/Admin/MenageProducts/MenageProducts';
-import AllUsers from './pages/Dashboard/Admin/MenageUsers/AllUsers';
+import AllUsers from './pages/Dashboard/Admin/MangeUsers/AllUsers';
 import RequireUser from './components/RequireUser';
 import Profile from './pages/Dashboard/Profile/Profile';
-import MenageOrders from './pages/Dashboard/Admin/MenageOrders/MenageOrders';
 import DashBoard from './pages/Dashboard/Dashboard/Dashboard';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
 import useAdmin from './hooks/useAdmin';
 import ProductDetails from './pages/Home/Products/ProductDetails';
+import MangeOrders from './pages/Dashboard/Admin/MangeOrders/MangeOrders';
+import MangeProducts from './pages/Dashboard/Admin/MangeProducts/MangeProducts';
 
 
 
@@ -55,12 +53,12 @@ function App() {
           {
             admin ?
               <Route path='dashboard' element={<PrivateRoute> <DashBoard /> </PrivateRoute>}>
-                <Route path='menageUsers' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
+                <Route path='mangeUsers' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
                 <Route index element={<RequireAdmin><AddNewProduct /></RequireAdmin>} />
-                <Route path='menageOrders' element={<RequireAdmin><MenageOrders /></RequireAdmin>} />
+                <Route path='mangeOrders' element={<RequireAdmin><MangeOrders /></RequireAdmin>} />
 
-                <Route path='menageProducts' element={<RequireAdmin>
-                  <MenageProducts />
+                <Route path='mangeProducts' element={<RequireAdmin>
+                  <MangeProducts />
                 </RequireAdmin>} />
               </Route>
 

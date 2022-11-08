@@ -71,7 +71,7 @@ const Purchase = () => {
     }
 
     console.log(product);
-    const { name, image, minOrder, quantity, price } = product;
+    const { name, image, quantity, price } = product;
     return (
         <div className='bg-base-200 md:py-5 h-screen'>
             <div className=' max-w-[1400px] mx-auto lg:px-20 flex justify-center'>
@@ -97,14 +97,12 @@ const Purchase = () => {
                             </table>
                         </div>
 
-                        <table className='text-xs'>
+                        <table className='text-sm'>
                             <tr>
                                 <td className='border border-primary px-2 py-1'>Available Stock</td>
-                                <td className='border border-primary px-2 py-1'>Minimum Order</td>
                             </tr>
                             <tr>
                                 <td className='border border-primary px-2 py-1 text-secondary'>{quantity}</td>
-                                <td className='border border-primary px-2 py-1 text-secondary'>{minOrder}</td>
                             </tr>
                         </table>
 
@@ -134,7 +132,7 @@ const Purchase = () => {
                                 <label className='text-sm'>Quantity</label>
                                 <div className='flex justify-between flex-col lg:flex-row gap-5 mt-1'>
                                     <input onChange={orderQuantity} className='border border-primary pl-3 py-2 rounded-md w-full' type="number" name="quantity" id="" required />
-                                    <button type='submit' disabled={newQuantity.quantity < minOrder || newQuantity.quantity > quantity} className='bg-primary/90 text-base-100 px-5 py-3 shadow-md shadow-secondary hover:bg-primary duration-300 rounded-lg block disabled:bg-gray-300 disabled:shadow-none w-full'>Place Order</button>
+                                    <button type='submit' disabled={newQuantity.quantity < 1 || newQuantity.quantity > quantity} className='bg-primary/90 text-base-100 px-5 py-3 shadow-md shadow-secondary hover:bg-primary duration-300 rounded-lg block disabled:bg-gray-300 disabled:shadow-none w-full'>Place Order</button>
                                 </div>
                             </div>
                         </form>

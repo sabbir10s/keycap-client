@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import MenageOrderRow from './MenageOrderRow';
+import MangeOrderRow from './MangeOrderRow';
 
-
-
-const MenageOrders = () => {
+const MangeOrders = () => {
 
     const [orders, setOrders] = useState([]);
     const [reload, setIsReload] = useState(true)
@@ -48,14 +46,14 @@ const MenageOrders = () => {
                 <tbody>
 
                     {
-                        orders.map((order, index) => <MenageOrderRow order={order} setIsReload={setIsReload} reload={reload} index={index} key={order._id} ></MenageOrderRow>)
+                        orders.map((order, index) => <MangeOrderRow order={order} setIsReload={setIsReload} reload={reload} index={index} key={order._id} />)
                     }
 
 
                 </tbody>
             </table>
-        </div>
+        </div >
     );
 };
 
-export default MenageOrders;
+export default MangeOrders;

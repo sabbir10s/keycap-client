@@ -6,7 +6,7 @@ import auth from '../../../../firebase.init';
 
 
 
-const MenageOrderRow = ({ order, setIsReload, reload, index }) => {
+const MangeOrderRow = ({ order, setIsReload, reload, index }) => {
 
     const navigate = useNavigate()
 
@@ -97,4 +97,4 @@ const MenageOrderRow = ({ order, setIsReload, reload, index }) => {
     );
 };
 
-export default MenageOrderRow;
+export default MangeOrderRow;

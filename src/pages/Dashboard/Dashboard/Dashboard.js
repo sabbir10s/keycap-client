@@ -30,9 +30,9 @@ const DashBoard = () => {
                         }
                         {admin && <>
                             <p className='p-3'><DashLink to='/dashboard'>Add New Product</DashLink></p>
-                            <p className='p-3'><DashLink to='/dashboard/menageProducts'>Menage Products</DashLink></p>
-                            <p className='p-3'><DashLink to='/dashboard/menageOrders'>Menage Orders</DashLink></p>
-                            <p className='p-3'><DashLink to='/dashboard/menageUsers'>Menage Users</DashLink></p>
+                            <p className='p-3'><DashLink to='/dashboard/mangeProducts'>Mange Products</DashLink></p>
+                            <p className='p-3'><DashLink to='/dashboard/mangeOrders'>Mange Orders</DashLink></p>
+                            <p className='p-3'><DashLink to='/dashboard/mangeUsers'>Mange Users</DashLink></p>
 
                         </>}
                     </ul>

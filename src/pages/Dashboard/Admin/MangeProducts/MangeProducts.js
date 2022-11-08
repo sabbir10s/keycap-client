@@ -3,7 +3,7 @@ import ProductRow from './ProductRow';
 
 
 
-const MenageProducts = () => {
+const MangeProducts = () => {
 
     const [products, setProducts] = useState([]);
     const [reload, setIsReload] = useState(true)
@@ -53,4 +53,4 @@ const MenageProducts = () => {
     );
 };
 
-export default MenageProducts;
+export default MangeProducts;
