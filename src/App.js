@@ -24,6 +24,8 @@ import useAdmin from './hooks/useAdmin';
 import ProductDetails from './pages/Home/Products/ProductDetails';
 import MangeOrders from './pages/Dashboard/Admin/MangeOrders/MangeOrders';
 import MangeProducts from './pages/Dashboard/Admin/MangeProducts/MangeProducts';
+import Blogs from './pages/Blogs/Blogs';
+import BlogDetails from './pages/Blogs/BlogDetails';
 
 
 
@@ -46,6 +48,9 @@ function App() {
           <Route path='/home' element={<Home />} />
           <Route path='/signIn' element={<SignIn />} />
           <Route path='/signUp' element={<SignUp />} />
+          <Route path='/blogs' element={<Blogs />} />
+          <Route path='/blog/:blogID' element={<BlogDetails />} />
+
           <Route path='/product/:productId' element={<ProductDetails />} />
           <Route path='/purchase/:id' element={<PrivateRoute>
             <Purchase />
@@ -56,7 +61,6 @@ function App() {
                 <Route path='mangeUsers' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
                 <Route index element={<RequireAdmin><AddNewProduct /></RequireAdmin>} />
                 <Route path='mangeOrders' element={<RequireAdmin><MangeOrders /></RequireAdmin>} />
-
                 <Route path='mangeProducts' element={<RequireAdmin>
                   <MangeProducts />
                 </RequireAdmin>} />
