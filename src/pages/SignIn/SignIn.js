@@ -5,13 +5,11 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../../components/Loading';
 import useToken from '../../hooks/useToken';
-import { useState } from 'react';
+import { FcGoogle } from 'react-icons/fc';
 
 const SignIn = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-
-    const [userId, setUserId] = useState('')
 
     const [
         signInWithEmailAndPassword,
@@ -125,7 +123,7 @@ const SignIn = () => {
                     </form>
                     <p className='text-sm' >New to Doctors Portal? <Link to="/signUp" className='text-error hover:link'>Sign Up</Link></p>
                     <div className="divider">OR</div>
-                    <button onClick={() => signInWithGoogle()} className="btn btn-accent border-primary ">CONTINUE WITH GOOGLE</button>
+                    <button onClick={() => signInWithGoogle()} className="btn btn-accent border-primary "><FcGoogle className='text-3xl mr-2' /> CONTINUE WITH GOOGLE</button>
 
                 </div>
             </div>

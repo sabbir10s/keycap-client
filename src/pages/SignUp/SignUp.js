@@ -1,9 +1,8 @@
 import auth from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
-
 import { Link, useNavigate } from 'react-router-dom';
-// import useToken from '../../Hooks/useToken';
+import { FcGoogle } from 'react-icons/fc';
 import Loading from '../../components/Loading';
 import useToken from '../../hooks/useToken';
 
@@ -131,7 +130,7 @@ const SignUp = () => {
                     </form>
                     <p className='text-sm' >Already have an account? <Link to="/signIn" className='text-error hover:link'>Please Sign in</Link></p>
                     <div className="divider">OR</div>
-                    <button onClick={() => signInWithGoogle()} className="btn btn-accent border-primary ">CONTINUE WITH GOOGLE</button>
+                    <button onClick={() => signInWithGoogle()} className="btn btn-accent border-primary "><FcGoogle className='text-3xl mr-2' /> CONTINUE WITH GOOGLE</button>
 
                 </div>
             </div>

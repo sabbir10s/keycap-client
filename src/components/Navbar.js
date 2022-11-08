@@ -129,7 +129,7 @@ const Navbar = ({ children }) => {
                             </p>
                             :
                             <>
-                                <p> <CustomLink to='/SignIn'>Sign in</CustomLink></p>
+                                <p> <DashLink to='/SignIn'>Sign in</DashLink></p>
                             </>
                     }
                 </ul>
