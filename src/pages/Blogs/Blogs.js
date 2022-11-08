@@ -9,7 +9,7 @@ const Blogs = () => {
         data: blogs,
         isLoading,
     } = useQuery(["blogs"], () =>
-        fetch("https://raw.githubusercontent.com/sabbir10s/server/main/bikeProBlogs.json", {
+        fetch("blogs.json", {
             method: "GET"
         }).then(res => res.json())
     );
@@ -24,7 +24,7 @@ const Blogs = () => {
                 </div>
                 <div className='flex flex-col md:flex-row lg:flex-col'>
                     {
-                        blogs.slice(0, 3).map(blog => <RecentBlog key={blog._id} blog={blog} />)
+                        blogs.slice(0, 3).reverse().map(blog => <RecentBlog key={blog._id} blog={blog} />)
                     }
                 </div>
             </div>
