@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../../../components/Loading';
-import ProductCard from './ProductCard';
+import BestProductsCard from './BestProductsCard';
+
 const Products = () => {
     const {
         data: products,
@@ -26,7 +27,9 @@ const Products = () => {
 
 
     return (
+
         <div className='pt-8 pb-20'>
+
             <h2 id='products' className='text-primary text-center text-2xl font-bold py-8 uppercase'>Product Collection</h2>
 
             <div className='flex justify-center mb-10'>
@@ -37,38 +40,37 @@ const Products = () => {
                     <button className={type === 'smart' ? 'text-secondary border-b border-secondary' : 'text-primary border-b border-white'} onClick={() => setCategory({ type: "smart" })}>Smart</button>
                 </div>
             </div>
-
             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-10'>
                 {
-                    type === "new" && products.map(product => <ProductCard id='#new'
+                    type === "new" && products.map(product => <BestProductsCard id='#new'
                         key={product._id}
                         product={product}
                         products={products}
-                    ></ProductCard>)
+                    ></BestProductsCard>)
                 }
             </div>
             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-10'>
                 {
-                    type === "mobile" && mobile.map(product => <ProductCard id='#mobile'
+                    type === "mobile" && mobile.map(product => <BestProductsCard id='#mobile'
                         key={product._id}
                         product={product}
-                    ></ProductCard>)
+                    ></BestProductsCard>)
                 }
             </div>
             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-10'>
                 {
-                    type === "computer" && pc.map(product => <ProductCard
+                    type === "computer" && pc.map(product => <BestProductsCard id='#computer'
                         key={product._id}
                         product={product}
-                    ></ProductCard>)
+                    ></BestProductsCard>)
                 }
             </div>
             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-10'>
                 {
-                    type === "smart" && smart.map(product => <ProductCard
+                    type === "smart" && smart.map(product => <BestProductsCard id='#smart'
                         key={product._id}
                         product={product}
-                    ></ProductCard>)
+                    ></BestProductsCard>)
                 }
             </div>
         </div >

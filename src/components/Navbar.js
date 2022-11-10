@@ -37,6 +37,7 @@ const Navbar = ({ children }) => {
 
                             <ul className="menu menu-horizontal gap-x-5 flex items-center ">
                                 <p><CustomLink to='/home' >Home</CustomLink></p>
+                                <p><CustomLink to='/products' >Products</CustomLink></p>
                                 <p><CustomLink to='/blogs' >Blogs</CustomLink></p>
                                 {
                                     user && <p> <CustomLink to='/dashboard'>Dashboard</CustomLink></p>
@@ -92,6 +93,7 @@ const Navbar = ({ children }) => {
                 <ul className="menu p-5 overflow-y-auto flex flex-col gap-5 w-64 bg-base-100">
 
                     <p><DashLink to='/home' >Home</DashLink></p>
+                    <p><DashLink to='/products' >Products</DashLink></p>
                     <p><DashLink to='/blogs' >Blogs</DashLink></p>
                     {
                         user && <p> <DashLink to='/dashboard'>Dashboard</DashLink></p>

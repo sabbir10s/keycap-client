@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
-import Loading from '../../../components/Loading';
+import Loading from './Loading';
 
 const ProductDetails = () => {
     const { productId } = useParams()

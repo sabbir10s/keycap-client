@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Fade } from 'react-reveal';
 
-const ProductCard = ({ product }) => {
+const BestProductsCard = ({ product }) => {
     const { _id, name, image, price } = product;
     const navigate = useNavigate()
     const handlePurchase = () => {
@@ -30,4 +30,4 @@ const ProductCard = ({ product }) => {
     );
 };
 
-export default ProductCard;
+export default BestProductsCard;

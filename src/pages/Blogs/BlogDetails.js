@@ -13,6 +13,7 @@ const BlogDetails = () => {
         }).then(res => res.json())
     );
     const { blogID } = useParams()
+
     if (isLoading) {
         return <Loading />
     }

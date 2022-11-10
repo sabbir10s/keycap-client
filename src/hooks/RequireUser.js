@@ -3,8 +3,8 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Navigate, useLocation } from 'react-router-dom';
 import auth from '../firebase.init';
-import useAdmin from '../hooks/useAdmin';
-import Loading from './Loading';
+import useAdmin from './useAdmin';
+import Loading from '../components/Loading';
 
 
 const RequireUser = ({ children }) => {
