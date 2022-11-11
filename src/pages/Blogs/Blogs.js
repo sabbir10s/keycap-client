@@ -6,6 +6,8 @@ import BlogCart from './BlogCart';
 import RecentBlog from './RecentBlog';
 
 const Blogs = () => {
+
+
     const {
         data: blogs,
         isLoading,
@@ -14,7 +16,11 @@ const Blogs = () => {
             method: "GET"
         }).then(res => res.json())
     );
+
     if (isLoading) {
+        return <Loading />
+    }
+    if (blogs?.length === 0) {
         return <Loading />
     }
     return (

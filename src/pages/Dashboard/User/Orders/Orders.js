@@ -41,8 +41,8 @@ const Orders = () => {
             <p className='text-xl  mt-5 font-bold'>My Orders</p>
             <div className="divider"></div>
 
-            <div className="overflow-x-auto">
-                <div className='grid md:grid-cols-2 gap-5 mb-5'>
+            <div>
+                <div className='grid md:grid-cols-2 gap-5 mb-5 '>
                     {
                         orders.map((order) => <OrderCart key={order._ke} refetch={refetch} order={order} />)
                     }
