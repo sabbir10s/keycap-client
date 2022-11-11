@@ -29,7 +29,7 @@ const Products = () => {
     return (
         <div className='container mx-auto'>
             <div>
-                <div className='grid grid-cols-4 pt-10'>
+                <div className='grid md:grid-cols-4 pt-10'>
                     <div className='mb-10 col-span-1 w-full'>
                         <div className='mb-8'>
                             <span className='text-xl text-primary font-bold border-l-4 border-primary pl-5 '>Product Category</span>
@@ -42,7 +42,7 @@ const Products = () => {
                         </div>
                     </div>
 
-                    <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-3 md:gap-10 col-span-3'>
+                    <div className='grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-10 col-span-3'>
                         {
                             type === "all" && products.map(product => <ProductCard
                                 key={product._id}

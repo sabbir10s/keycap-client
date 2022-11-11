@@ -14,7 +14,7 @@ const ProductDetails = () => {
     if (isLoading) {
         return <Loading />
     }
-    const { _id, name, image, price, description, minOrder, quantity
+    const { _id, name, image, price, description, quantity
     } = product;
 
     const handlePurchase = () => {
@@ -35,15 +35,12 @@ const ProductDetails = () => {
                             <table>
                                 <tr>
                                     <td className='border border-primary px-2 py-1 text-sm font-medium'>Available Stock</td>
-                                    <td className='border border-primary px-2 py-1 text-sm font-medium'>Minimum Order</td>
-                                </tr>
-                                <tr>
-                                    <td className='border border-primary px-2 py-1 text-secondary text-sm'>{quantity}</td>
-                                    <td className='border border-primary px-2 py-1 text-secondary text-sm'>{minOrder}</td>
+                                    <td className='border border-primary px-8 py-1 text-secondary text-sm'>{quantity}</td>
                                 </tr>
                             </table>
-                            <button onClick={handlePurchase} className='w-1/3 bg-primary text-base-100 py-1 rounded-lg my-3'>Order Now</button>
-                            <p className='text-sm py-2'>{description
+
+                            <button onClick={handlePurchase} className='bg-primary shadow-md shadow-secondary/50 text-base-100 px-10 py-2 rounded my-5'>Order Now</button>
+                            <p className='text-sm'>{description
                             }</p>
                         </div>
                     </div>

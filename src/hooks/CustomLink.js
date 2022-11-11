@@ -8,8 +8,7 @@ function CustomLink({ children, to, ...props }) {
     return (
         <div>
             <Link
-                // style={{ color: match ? "#3860BE" : "black", fontWeight: match ? "bold" : "normal" }}
-                className={match ? 'text-error font-bold border-b-4 pb-5 border-error px-5' : "text-primary px-5"}
+                className={match ? 'text-error font-bold border-b-4 pb-5 border-error px-8' : "text-primary px-8 border-b-0 pb-5"}
                 to={to}
                 {...props}
             >

@@ -22,7 +22,7 @@ const Blogs = () => {
             <div className='grid grid-cols-1 lg:grid-cols-4 gap-10 max-w-[1400px] mx-auto lg:px-20 px-2 my-10'>
                 <div className='md:col-span-1'>
                     <div>
-                        <p className='font-bold text-xl border-l-2 border-primary pl-5 my-5'>Recent Post</p>
+                        <p className='font-bold text-xl border-l-4 border-primary pl-5 my-5'>Recent Post</p>
                     </div>
                     <div className='flex flex-col md:flex-row lg:flex-col'>
                         {

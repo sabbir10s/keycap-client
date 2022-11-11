@@ -6,6 +6,7 @@ import OurService from './OurService/OurService';
 import Reviews from './Reviews/Reviews';
 import BestProducts from './BestProducts/BestProducts';
 
+
 const Home = () => {
 
     return (
@@ -14,7 +15,6 @@ const Home = () => {
             <div className='max-w-[1400px] mx-auto lg:px-20 px-2'>
                 <BestProducts />
             </div>
-
             <OurService />
             <div className='max-w-[1400px] mx-auto lg:px-20 px-2'>
                 <Reviews />

@@ -35,10 +35,10 @@ const Navbar = ({ children }) => {
 
                         <div className="flex-none hidden lg:block">
 
-                            <ul className="menu menu-horizontal gap-x-5 flex items-center ">
-                                <p><CustomLink to='/home' >Home</CustomLink></p>
-                                <p><CustomLink to='/products' >Products</CustomLink></p>
-                                <p><CustomLink to='/blogs' >Blogs</CustomLink></p>
+                            <ul className="menu-horizontal flex items-center">
+                                <li><CustomLink to='/home' >Home</CustomLink></li>
+                                <li><CustomLink to='/products' >Products</CustomLink></li>
+                                <li><CustomLink to='/blogs' >Blogs</CustomLink></li>
                                 {
                                     user && <p> <CustomLink to='/dashboard'>Dashboard</CustomLink></p>
 
@@ -46,7 +46,7 @@ const Navbar = ({ children }) => {
 
                                 {
                                     user ?
-                                        <p className="dropdown dropdown-click  dropdown-end">
+                                        <li className="dropdown dropdown-click dropdown-end ml-5">
                                             <label tabIndex="0">
                                                 <div className='flex items-center cursor-pointer gap-2'>
                                                     <div className='text-primary text-lg border border-primary w-8 h-8 rounded-full flex justify-center items-center'>{user?.displayName.slice(0, 1)} </div>
@@ -72,10 +72,10 @@ const Navbar = ({ children }) => {
                                                         <></>
                                                 }
                                             </div>
-                                        </p>
+                                        </li>
                                         :
                                         <>
-                                            <p> <CustomLink to='/SignIn'>Sign in</CustomLink></p>
+                                            <li> <CustomLink to='/SignIn'>Sign in</CustomLink></li>
                                         </>
                                 }
 
@@ -83,18 +83,15 @@ const Navbar = ({ children }) => {
                         </div>
                     </div>
                 </div>
-
-                {/* <!-- Page content here --> */}
-
                 {children}
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
-                <ul className="menu p-5 overflow-y-auto flex flex-col gap-5 w-64 bg-base-100">
+                <ul className="p-5 overflow-y-auto flex flex-col gap-5 w-64 bg-base-100">
 
-                    <p><DashLink to='/home' >Home</DashLink></p>
-                    <p><DashLink to='/products' >Products</DashLink></p>
-                    <p><DashLink to='/blogs' >Blogs</DashLink></p>
+                    <li><DashLink to='/home' >Home</DashLink></li>
+                    <li><DashLink to='/products' >Products</DashLink></li>
+                    <li><DashLink to='/blogs' >Blogs</DashLink></li>
                     {
                         user && <p> <DashLink to='/dashboard'>Dashboard</DashLink></p>
 
@@ -102,7 +99,7 @@ const Navbar = ({ children }) => {
 
                     {
                         user ?
-                            <p className="dropdown dropdown-click  dropdown-end">
+                            <li className="dropdown dropdown-click  dropdown-end">
                                 <label tabIndex="0">
                                     <div className='flex items-center cursor-pointer gap-2'>
                                         <div className='text-primary text-lg border border-primary w-8 h-8 rounded-full flex justify-center items-center'>{user?.displayName.slice(0, 1)} </div>
@@ -128,10 +125,10 @@ const Navbar = ({ children }) => {
                                             <></>
                                     }
                                 </div>
-                            </p>
+                            </li>
                             :
                             <>
-                                <p> <DashLink to='/SignIn'>Sign in</DashLink></p>
+                                <li> <DashLink to='/SignIn'>Sign in</DashLink></li>
                             </>
                     }
                 </ul>
