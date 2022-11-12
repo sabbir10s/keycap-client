@@ -6,7 +6,7 @@ const Banner = () => {
 
     return (
         <div className="md:py-5 lg:py-20 bgImg">
-            <div id='#hero' className="max-w-[1400px] mx-auto px-2 md:px-5 lg:px-20 grid grid-cols-1 lg:grid-cols-2 gap-5  items-center">
+            <div id='#hero' className="container mx-auto px-2 grid grid-cols-1 lg:grid-cols-2 gap-5  items-center">
                 <div className='pb-14 order-2 lg:order-1'>
                     <h1 className="text-3xl md:text-5xl font-bold">Best Tech, Best Future!</h1>
                     <h2 className="text-2xl md:text-3xl font-medium text-primary py-4">Largest gadgets manufacturer</h2>

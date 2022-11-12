@@ -11,7 +11,7 @@ const DashBoard = () => {
 
     return (
         <div className='bg-base-200'>
-            <div className="drawer drawer-mobile  max-w-[1400px] mx-auto lg:px-20">
+            <div className="drawer drawer-mobile container mx-auto">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="lg:my-5 drawer-content bg-base-100 shadow-xl rounded-lg">
                     <Outlet />
