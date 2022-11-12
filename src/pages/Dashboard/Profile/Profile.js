@@ -83,7 +83,7 @@ const Profile = () => {
                     setClick(false)
                 }
                 else {
-                    toast.error("Failed to update");
+                    toast.secondary("Failed to update");
                 }
 
             });
@@ -102,9 +102,9 @@ const Profile = () => {
                         {
                             !click
                                 ?
-                                <button onClick={() => setClick(true)} className='text-xl text-error flex items-center gap-2'> <AiOutlineEdit /> <span className='text-sm'>Edit</span> </button>
+                                <button onClick={() => setClick(true)} className='text-xl text-secondary flex items-center gap-2'> <AiOutlineEdit /> <span className='text-sm'>Edit</span> </button>
                                 :
-                                <button onClick={() => setClick(false)} className='text-error border border-error px-2 md:px-4 py-1 rounded-lg'>Cancel</button>
+                                <button onClick={() => setClick(false)} className='text-secondary border border-secondary px-2 md:px-4 py-1 rounded-lg'>Cancel</button>
                         }
                     </div>
                 </div>
@@ -162,12 +162,12 @@ const Profile = () => {
                             {
                                 !click
                                     ?
-                                    <a className='link text-error py-1' href={linkedInLink} target="_blank" >
+                                    <a className='link text-secondary py-1' href={linkedInLink} target="_blank" >
                                         https://www.linkedin.com/in/{linkedin}
                                     </a>
                                     :
                                     <div className='flex items-center border-b border-gray-400'>
-                                        <p className='text-error'>https://www.linkedin.com/in/</p>
+                                        <p className='text-secondary'>https://www.linkedin.com/in/</p>
                                         <input className=' text-lg w-full py-1 focus:outline-0' type="text" ref={getLinkedIn} defaultValue={linkedin} />
                                     </div>
                             }

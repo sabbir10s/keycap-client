@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
+import Footer from '../../components/Footer';
 import Loading from '../../components/Loading';
 import ProductCard from './ProductsCard';
 
@@ -27,9 +28,9 @@ const Products = () => {
 
 
     return (
-        <div className='container mx-auto'>
-            <div>
-                <div className='grid md:grid-cols-4 pt-10'>
+        <>
+            <div className='container mx-auto px-2 lg:px-0'>
+                <div className='grid md:grid-cols-4 py-10'>
                     <div className='mb-10 col-span-1 w-full'>
                         <div className='mb-8'>
                             <span className='text-xl text-primary font-bold border-l-4 border-primary pl-5 '>Product Category</span>
@@ -71,7 +72,8 @@ const Products = () => {
                     </div>
                 </div >
             </div>
-        </div>
+            <Footer />
+        </>
     );
 };
 

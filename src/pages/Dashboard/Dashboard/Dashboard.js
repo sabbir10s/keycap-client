@@ -2,7 +2,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Outlet } from 'react-router-dom';
 import auth from '../../../firebase.init';
-import DashLink from '../../../hooks/DashLink';
+import SecondaryCustomLink from '../../../hooks/SecondaryCustomLink';
 import useAdmin from '../../../hooks/useAdmin';
 
 const DashBoard = () => {
@@ -22,17 +22,17 @@ const DashBoard = () => {
 
                         {
                             !admin && <>
-                                <p className='p-3'><DashLink to='/dashboard'>My Orders</DashLink></p>
-                                <p className='p-3'><DashLink to='/dashboard/review'>Give Review</DashLink></p>
+                                <p className='p-3'><SecondaryCustomLink to='/dashboard'>My Orders</SecondaryCustomLink></p>
+                                <p className='p-3'><SecondaryCustomLink to='/dashboard/review'>Give Review</SecondaryCustomLink></p>
                             </>
 
 
                         }
                         {admin && <>
-                            <p className='p-3'><DashLink to='/dashboard'>Add New Product</DashLink></p>
-                            <p className='p-3'><DashLink to='/dashboard/mangeProducts'>Mange Products</DashLink></p>
-                            <p className='p-3'><DashLink to='/dashboard/mangeOrders'>Mange Orders</DashLink></p>
-                            <p className='p-3'><DashLink to='/dashboard/mangeUsers'>Mange Users</DashLink></p>
+                            <p className='p-3'><SecondaryCustomLink to='/dashboard'>Add New Product</SecondaryCustomLink></p>
+                            <p className='p-3'><SecondaryCustomLink to='/dashboard/mangeProducts'>Mange Products</SecondaryCustomLink></p>
+                            <p className='p-3'><SecondaryCustomLink to='/dashboard/mangeOrders'>Mange Orders</SecondaryCustomLink></p>
+                            <p className='p-3'><SecondaryCustomLink to='/dashboard/mangeUsers'>Mange Users</SecondaryCustomLink></p>
 
                         </>}
                     </ul>

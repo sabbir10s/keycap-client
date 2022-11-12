@@ -3,10 +3,10 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useLocation } from 'react-router-dom';
 import auth from '../firebase.init';
 import CustomLink from '../hooks/CustomLink';
-import DashLink from '../hooks/DashLink';
 import { MdLogout, MdOutlineArrowDropDown } from 'react-icons/md';
 import { FaUserAlt } from 'react-icons/fa';
 import { BiMenuAltRight, BiMenuAltLeft } from 'react-icons/bi';
+import SecondaryCustomLink from '../hooks/SecondaryCustomLink';
 
 const Navbar = ({ children }) => {
     const { pathname } = useLocation()
@@ -53,7 +53,7 @@ const Navbar = ({ children }) => {
                                             <div className='flex items-center cursor-pointer gap-2'>
                                                 <div className='text-primary text-lg border border-primary w-8 h-8 rounded-full flex justify-center items-center'>{user?.displayName.slice(0, 1)} </div>
                                                 <div className='flex justify-center items-center'>
-                                                    <span>Account</span> <MdOutlineArrowDropDown />
+                                                    <span>Profile</span> <MdOutlineArrowDropDown />
                                                 </div>
                                             </div>
                                         </label>
@@ -61,10 +61,10 @@ const Navbar = ({ children }) => {
                                             {
                                                 user ?
                                                     <div className='flex flex-col gap-5'>
-                                                        <DashLink to='/profile'>
-                                                            <div className='hover:text-error pt-5 px-5  flex items-center gap-2' ><FaUserAlt /> <span>Account Settings</span></div>
-                                                        </DashLink>
-                                                        <button className='hover:text-error py-5 px-5 border-t border-base-200 flex items-center gap-2 text-left' onClick={() => signOut(auth)}>
+                                                        <SecondaryCustomLink to='/profile'>
+                                                            <div className='hover:text-secondary pt-5 px-5  flex items-center gap-2' ><FaUserAlt /> <span>Settings</span></div>
+                                                        </SecondaryCustomLink>
+                                                        <button className='hover:text-secondary py-5 px-5 border-t border-base-200 flex items-center gap-2 text-left' onClick={() => signOut(auth)}>
                                                             <MdLogout /> <span>Sign out</span>
                                                         </button>
 
@@ -88,15 +88,34 @@ const Navbar = ({ children }) => {
                             <span className='text-3xl'><BiMenuAltRight /></span>
                         </label>
                         <ul tabIndex={0} className="menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><DashLink to='/home' >Home</DashLink></li>
-                            <li><DashLink to='/products' >Products</DashLink></li>
-                            <li><DashLink to='/blogs' >Blogs</DashLink></li>
+                            <li className='pt-1 px-5'><SecondaryCustomLink to='/home' >Home</SecondaryCustomLink></li>
+                            <li className='pt-1 px-5'><SecondaryCustomLink to='/products' >Products</SecondaryCustomLink></li>
+                            <li className='pt-1 px-5'><SecondaryCustomLink to='/blogs' >Blogs</SecondaryCustomLink></li>
                             {
-                                user && <p> <DashLink to='/dashboard'>Dashboard</DashLink></p>
+                                user && <li className='pt-1 px-5'> <SecondaryCustomLink to='/dashboard'>Dashboard</SecondaryCustomLink></li>
 
                             }
 
+                            <li className='block lg:hidden'>
+                                {
+                                    user ?
+                                        <div className='flex flex-col gap-5'>
+                                            <SecondaryCustomLink to='/profile'>
+                                                <div className='hover:text-secondary pt-2 px-5  flex items-center gap-2' >
+                                                    <FaUserAlt />
+                                                    <span>Profile Settings</span>
+                                                </div>
+                                            </SecondaryCustomLink>
+                                            <button className='hover:text-secondary pt-5 pb-2 px-5 border-t border-base-200 flex items-center gap-2 text-left' onClick={() => signOut(auth)}>
+                                                <MdLogout /> <span>Sign out</span>
+                                            </button>
 
+
+                                        </div>
+                                        :
+                                        <li className='pt-1 px-5'> <SecondaryCustomLink to='/SignIn'>Sign in</SecondaryCustomLink></li>
+                                }
+                            </li>
 
                         </ul>
                     </div>

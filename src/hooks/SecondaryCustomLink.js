@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 
-function DashLink({ children, to, ...props }) {
+function SecondaryCustomLink({ children, to, ...props }) {
     let resolved = useResolvedPath(to);
     let match = useMatch({ path: resolved.pathname, end: true });
 
     return (
         <div>
             <Link
-                className={match ? 'text-error font-bold' : "text-primary"}
+                className={match ? 'text-secondary font-bold' : "text-primary"}
                 to={to}
                 {...props}
             >
@@ -18,4 +18,4 @@ function DashLink({ children, to, ...props }) {
     );
 }
 
-export default DashLink;
+export default SecondaryCustomLink;
