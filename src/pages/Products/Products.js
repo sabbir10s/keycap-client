@@ -30,16 +30,36 @@ const Products = () => {
     return (
         <>
             <div className='container mx-auto px-2 lg:px-0'>
-                <div className='grid md:grid-cols-4 py-10'>
-                    <div className='mb-10 col-span-1 w-full'>
+                <div className='grid md:grid-cols-4 gap-5 py-10'>
+                    <div className='mb-5 md:mb-0 md:col-span-1'>
                         <div className='mb-8'>
-                            <span className='text-xl text-primary font-bold border-l-4 border-primary pl-5 '>Product Category</span>
+                            <span className='lg:text-xl text-primary font-bold border-l-4 border-primary pl-5 '>Product Category</span>
                         </div>
-                        <div className='flex flex-col gap-3 md:gap-10  w-full'>
-                            <button className={type === 'all' ? 'text-secondary border-b border-secondary w-32 text-left' : ' border-b border-white w-32 text-left'} onClick={() => setCategory({ type: "all" })}> All Products</button>
-                            <button className={type === 'mobile' ? 'text-secondary border-b border-secondary w-32 text-left' : ' border-b border-white w-32 text-left'} onClick={() => setCategory({ type: "mobile" })}>Mobile </button>
-                            <button className={type === 'computer' ? 'text-secondary border-b border-secondary w-32 text-left' : 'border-b border-white w-32 text-left'} onClick={() => setCategory({ type: "computer" })}>Computer</button>
-                            <button className={type === 'smart' ? 'text-secondary border-b border-secondary w-32 text-left' : ' border-b border-white w-32 text-left'} onClick={() => setCategory({ type: "smart" })}>Smart</button>
+                        <div className='flex flex-row md:flex-col gap-3 md:gap-10 text-sm lg:text-lg md:w-1/2 lg:w-1/3'>
+                            <button className={type === 'all' ? 'px-2 md:px-0 text-secondary border-b border-secondary text-left' :
+                                'px-2 md:px-0 border-b border-white text-left hover:text-secondary relative group'}
+                                onClick={() => setCategory({ type: "all" })}>
+                                <span>All</span>
+                                <span className='absolute left-0 bottom-0 w-0 border-b border-secondary -z-10 group-hover:w-full group-hover:transition-all  duration-500'></span>
+                            </button>
+                            <button button className={type === 'mobile' ? 'px-2 md:px-0 text-secondary border-b border-secondary text-left' :
+                                'px-2 md:px-0 border-b border-white text-left hover:text-secondary relative group'}
+                                onClick={() => setCategory({ type: "mobile" })}>
+                                <span>Mobile</span>
+                                <span className='absolute left-0 bottom-0 w-0 border-b border-secondary -z-10 group-hover:w-full group-hover:transition-all duration-500'></span>
+                            </button>
+                            <button className={type === 'computer' ? 'px-2 md:px-0 text-secondary border-b border-secondary text-left' :
+                                'px-2 md:px-0 border-b border-white text-left hover:text-secondary relative group'}
+                                onClick={() => setCategory({ type: "computer" })}>
+                                <span>Computer</span>
+                                <span className='absolute left-0 bottom-0 w-0 border-b border-secondary -z-10 group-hover:w-full group-hover:transition-all duration-500'></span>
+                            </button>
+                            <button className={type === 'smart' ? 'px-2 md:px-0 text-secondary border-b border-secondary text-left' :
+                                'px-2 md:px-0 border-b border-white text-left hover:text-secondary relative group'}
+                                onClick={() => setCategory({ type: "smart" })}>
+                                <span>Smart</span>
+                                <span className='absolute left-0 bottom-0 w-0 border-b border-secondary -z-10 group-hover:w-full group-hover:transition-all duration-500'></span>
+                            </button>
                         </div>
                     </div>
 
