@@ -9,7 +9,7 @@ const UsersRow = ({ user, refetch, index }) => {
     const navigate = useNavigate();
 
     const handleMakeAdmin = () => {
-        const url = `https://nexiq-server.onrender.com/user/admin/${email}`;
+        const url = `https://nexiq-server.vercel.app/user/admin/${email}`;
 
         fetch(url, {
             method: 'PUT',
@@ -38,7 +38,7 @@ const UsersRow = ({ user, refetch, index }) => {
 
 
     const handleDelete = () => {
-        const url = `https://nexiq-server.onrender.com/user/${_id}`;
+        const url = `https://nexiq-server.vercel.app/user/${_id}`;
         fetch(url, {
             method: "DELETE",
             headers: {

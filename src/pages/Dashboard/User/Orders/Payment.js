@@ -11,7 +11,7 @@ const stripePromise = loadStripe('pk_test_51L17CjFVPM1NcC4wk5HSCO097ADOKg2eQAOM7
 const Payment = () => {
 
     const { id } = useParams();
-    const url = `https://nexiq-server.onrender.com/order/email/${id}`;
+    const url = `https://nexiq-server.vercel.app/order/email/${id}`;
 
     const { isLoading, data: order } = useQuery(['order', id], () =>
         fetch(url, {

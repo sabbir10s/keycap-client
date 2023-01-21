@@ -7,7 +7,7 @@ const ProductDetails = () => {
     const { productId } = useParams()
     const navigate = useNavigate()
     const { isLoading, data: product } = useQuery(['product', productId], () =>
-        fetch(`https://nexiq-server.onrender.com/product/${productId}`).then(res =>
+        fetch(`https://nexiq-server.vercel.app/product/${productId}`).then(res =>
             res.json()
         )
     )

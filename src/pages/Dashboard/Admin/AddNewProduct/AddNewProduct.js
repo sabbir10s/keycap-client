@@ -35,7 +35,7 @@ const AddNewProduct = () => {
                     }
                     console.log(product);
                     // send to your database.
-                    fetch('https://nexiq-server.onrender.com/product', {
+                    fetch('https://nexiq-server.vercel.app/product', {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json',

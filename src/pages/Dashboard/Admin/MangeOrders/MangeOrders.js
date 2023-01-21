@@ -9,7 +9,7 @@ const MangeOrders = () => {
 
     console.log(reload);
     useEffect(() => {
-        const url = 'https://nexiq-server.onrender.com/order';
+        const url = 'https://nexiq-server.vercel.app/order';
         fetch(url, {
             method: 'GET',
             headers: {

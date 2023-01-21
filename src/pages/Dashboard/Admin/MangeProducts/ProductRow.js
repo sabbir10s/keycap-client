@@ -6,7 +6,7 @@ const ProductRow = ({ product, setIsReload, reload, index }) => {
     const { name, price, quantity, _id } = product;
 
     const handleDelete = () => {
-        const url = `https://nexiq-server.onrender.com/product/${_id}`;
+        const url = `https://nexiq-server.vercel.app/product/${_id}`;
         fetch(url, {
             method: "DELETE",
             headers: {

@@ -8,7 +8,7 @@ const Reviews = () => {
         data: reviews,
         isLoading,
     } = useQuery(["reviews"], () =>
-        fetch("https://nexiq-server.onrender.com/review", {
+        fetch("https://nexiq-server.vercel.app/review", {
             method: "GET"
         }).then(res => res.json())
     );

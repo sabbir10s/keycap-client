@@ -7,7 +7,7 @@ const useToken = (user) => {
         const currentUser = { email: email }
 
         if (user) {
-            fetch(`https://nexiq-server.onrender.com/user/${email}`, {
+            fetch(`https://nexiq-server.vercel.app/user/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

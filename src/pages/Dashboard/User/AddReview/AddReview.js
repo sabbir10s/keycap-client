@@ -19,7 +19,7 @@ const AddReview = () => {
         const userImage = user?.photoURL;
         const reviewInfo = { rating, comment, userName, userImage };
 
-        const url = `https://nexiq-server.onrender.com/review`;
+        const url = `https://nexiq-server.vercel.app/review`;
 
         fetch(url, {
             method: 'POST',

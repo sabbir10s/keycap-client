@@ -19,7 +19,7 @@ const Profile = () => {
     const email = user?.email
 
     const { isLoading, data: userData, refetch } = useQuery(['user', email], () =>
-        fetch(`https://nexiq-server.onrender.com/user/${email}`, {
+        fetch(`https://nexiq-server.vercel.app/user/${email}`, {
             method: "GET",
             headers: {
                 'content-type': 'application/json',
@@ -65,7 +65,7 @@ const Profile = () => {
             linkedin
         };
 
-        const url = `https://nexiq-server.onrender.com/user/${user.email}`;
+        const url = `https://nexiq-server.vercel.app/user/${user.email}`;
 
         fetch(url, {
             method: 'PUT',

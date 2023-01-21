@@ -12,7 +12,7 @@ const Purchase = () => {
     const navigate = useNavigate();
     const { id } = useParams()
     const { isLoading, data: product } = useQuery('product', () =>
-        fetch(`https://nexiq-server.onrender.com/product/${id}`).then(res =>
+        fetch(`https://nexiq-server.vercel.app/product/${id}`).then(res =>
             res.json()
         )
     )
@@ -45,7 +45,7 @@ const Purchase = () => {
         const totalPrice = parseInt(quantity) * product?.price;
         const orderInfo = { name, image, email, phone, address, productName, price, quantity, totalPrice };
 
-        const url = `https://nexiq-server.onrender.com/order`;
+        const url = `https://nexiq-server.vercel.app/order`;
 
         fetch(url, {
             method: 'POST',

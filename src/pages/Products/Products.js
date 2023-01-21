@@ -9,7 +9,7 @@ const Products = () => {
         data: products,
         isLoading,
     } = useQuery(["products"], () =>
-        fetch("https://nexiq-server.onrender.com/product", {
+        fetch("https://nexiq-server.vercel.app/product", {
             method: "GET"
         }).then(res => res.json())
     );

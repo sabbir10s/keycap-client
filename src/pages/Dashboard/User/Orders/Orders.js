@@ -12,7 +12,7 @@ const Orders = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
 
-    const url = `https://nexiq-server.onrender.com/order/${user.email}`;
+    const url = `https://nexiq-server.vercel.app/order/${user.email}`;
 
     const { isLoading, data: orders, refetch } = useQuery('order', () =>
         fetch(url, {

@@ -14,7 +14,7 @@ const MangeOrderRow = ({ order, setIsReload, reload, index }) => {
 
 
     const handleDelete = () => {
-        const url = `https://nexiq-server.onrender.com/order/${_id}`;
+        const url = `https://nexiq-server.vercel.app/order/${_id}`;
         fetch(url, {
             method: "DELETE",
             headers: {
@@ -34,7 +34,7 @@ const MangeOrderRow = ({ order, setIsReload, reload, index }) => {
     }
 
     const handleStatus = id => {
-        const url = `https://nexiq-server.onrender.com/order/${id}`;
+        const url = `https://nexiq-server.vercel.app/order/${id}`;
 
         fetch(url, {
             method: 'PUT',

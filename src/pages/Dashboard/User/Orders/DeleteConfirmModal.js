@@ -5,7 +5,7 @@ const DeleteConfirmModal = ({ refetch, cancelOrder, setCancelOrder }) => {
 
     const { _id } = cancelOrder;
     const handleCancelOrder = () => {
-        const url = `https://nexiq-server.onrender.com/order/email/${_id}`;
+        const url = `https://nexiq-server.vercel.app/order/email/${_id}`;
         fetch(url, {
             method: "DELETE",
             headers: {
