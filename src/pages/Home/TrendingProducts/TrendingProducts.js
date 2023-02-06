@@ -1,9 +1,9 @@
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import Loading from '../../../components/Loading';
-import BestProductsCard from './BestProductsCard';
+import ProductCard from '../../../components/ProductCard';
 
-const Products = () => {
+const TrendingProducts = () => {
     const {
         data: products,
         isLoading,
@@ -19,14 +19,14 @@ const Products = () => {
 
     return (
         <div className='pt-8 pb-20'>
-            <h2 id='products' className='text-primary text-center text-2xl font-bold py-8 uppercase'>Product Collection</h2>
-            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-3 md:gap-10 lg:mx-20 mt-5'>
+            <h2 id='products' className='text-primary text-center text-2xl font-bold py-8'>Trending Products</h2>
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-10 mt-5'>
                 {
-                    products.slice(0, 6).map(product => <BestProductsCard id='#new'
+                    products.slice(0, 8).map(product => <ProductCard id='#new'
                         key={product._id}
                         product={product}
                         products={products}
-                    ></BestProductsCard>)
+                    ></ProductCard>)
                 }
             </div>
             <div className='flex justify-center mt-16'>
@@ -36,4 +36,4 @@ const Products = () => {
     );
 };
 
-export default Products;
+export default TrendingProducts;

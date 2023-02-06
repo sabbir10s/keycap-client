@@ -1,6 +1,8 @@
 import React from 'react';
 import './Banner.css'
 import Slider from '../Slider/Slider';
+import { BsArrowRight } from 'react-icons/bs';
+
 
 const Banner = () => {
 
@@ -8,16 +10,17 @@ const Banner = () => {
         <div className="md:py-5 lg:py-20 bgImg">
             <div id='#hero' className="container mx-auto px-2 grid grid-cols-1 lg:grid-cols-2 gap-5  items-center">
                 <div className='pb-14 order-2 lg:order-1'>
-                    <h1 className="text-3xl md:text-5xl font-bold">Best Tech, Best Future!</h1>
-                    <h2 className="text-2xl md:text-3xl font-medium text-primary py-4">Largest gadgets manufacturer</h2>
+                    <h2 className="text-lg md:text-xl font-medium text-primary ">Largest gadgets supplier</h2>
+                    <h1 className="text-3xl md:text-5xl font-bold py-4">Best Tech, Best Future!</h1>
                     <p className="">NEXIQ build different types of gadget, which is world wide popular. Here you can order large amount of product for your shop or organization. </p>
-                    <button className="mt-6 text-base-100 font-bold bg-primary hover:bg-secondary hover:text-black duration-300 shadow-md shadow-secondary hover:shadow-primary py-3 px-5 rounded-full tracking-wide"> <a href="#products">Get Start Booking</a> </button>
+                    <a className="mt-6 border-[1px] border-primary hover:border-[1px] hover:border-transparent bg-white hover:bg-primary text-primary hover:text-white duration-300 w-[150px] py-2 flex items-center justify-center gap-1" href="#products"><span>Shop Now </span> <BsArrowRight className='text-lg' /></a>
                 </div>
                 <div className='relative flex justify-center lg:justify-end items-center order-1 lg:order-2'>
                     <div><Slider /></div>
+
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

@@ -4,7 +4,8 @@ import Banner from './Banner/Banner';
 import ContactFrom from './ContactFrom/ContactFrom';
 import OurService from './OurService/OurService';
 import Reviews from './Reviews/Reviews';
-import BestProducts from './BestProducts/BestProducts';
+import TrendingProducts from './TrendingProducts/TrendingProducts';
+
 
 
 const Home = () => {
@@ -13,7 +14,7 @@ const Home = () => {
         <div >
             <Banner />
             <div className='container mx-auto px-2'>
-                <BestProducts />
+                <TrendingProducts />
             </div>
             <OurService />
             <div className='container mx-auto px-2'>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Footer from '../../components/Footer';
 import Loading from '../../components/Loading';
-import ProductCard from './ProductsCard';
+import ProductCard from '../../components/ProductCard';
 
 const Products = () => {
     const {
