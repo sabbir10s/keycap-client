@@ -1,7 +1,8 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Fade } from 'react-reveal';
-import { AiOutlineHeart, AiFillHeart, AiOutlineShopping, AiOutlineEye } from 'react-icons/ai';
+import { AiOutlineHeart, AiOutlineShopping, AiOutlineEye } from 'react-icons/ai';
 import './ProductCard.css'
 
 const BestProductsCard = ({ product }) => {
@@ -13,7 +14,8 @@ const BestProductsCard = ({ product }) => {
     return (
         <div>
             <Fade bottom>
-                <div className='cursor-pointer w-full border-[1px] border-base-200 p-2 rounded-[5px] group'>
+                <div
+                    className='cursor-pointer w-full border-[1px] border-base-200 p-2 rounded-[5px] group'>
                     <div className='flex flex-col p-2 relative'>
                         <button onClick={() => handlePurchase(_id)}>
                             <div className='flex justify-center items-center h-[200px]'>
@@ -27,9 +29,15 @@ const BestProductsCard = ({ product }) => {
                             </div>
                         </button>
                         <div className='absolute right-0 flex flex-col gap-3 m-4 '>
-                            <a className='text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block' href="#"><AiOutlineHeart /></a>
-                            <a className='text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block' href="#"><AiOutlineShopping /></a>
-                            <a className='text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block' href="#"><AiOutlineEye /></a>
+                            <a
+                                className='text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block'
+                                href="#"><AiOutlineHeart /></a>
+                            <a
+                                className='text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block'
+                                href="#"><AiOutlineShopping /></a>
+                            <a
+                                className='text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block'
+                                href="#"><AiOutlineEye /></a>
                         </div>
                     </div>
                 </div>
