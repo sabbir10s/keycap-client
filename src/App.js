@@ -40,7 +40,7 @@ const Wrapper = ({ children }) => {
 function App() {
   const [user, loading] = useAuthState(auth)
   const [admin] = useAdmin(user)
-
+  console.log(admin);
   if (loading) {
     return <div className='hidden'>Loading...</div>
   }

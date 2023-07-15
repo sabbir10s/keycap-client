@@ -1,11 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Fade } from 'react-reveal';
-import { AiOutlineHeart, AiOutlineShopping, AiOutlineEye } from 'react-icons/ai';
+import { AiOutlineHeart, AiOutlineShopping, AiOutlineEye, AiFillHeart } from 'react-icons/ai';
 import './ProductCard.css'
 
 const BestProductsCard = ({ product }) => {
+    const [wishlist, setWishlist] = useState(false);
     const { _id, name, image, price } = product;
     const navigate = useNavigate()
     const handlePurchase = () => {
@@ -29,9 +30,12 @@ const BestProductsCard = ({ product }) => {
                             </div>
                         </button>
                         <div className='absolute right-0 flex flex-col gap-3 m-4 '>
-                            <a
+                            <button onClick={() => setWishlist(!wishlist)}
                                 className='text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block'
-                                href="#"><AiOutlineHeart /></a>
+                                href="#">
+                                {!wishlist && <AiOutlineHeart />}
+                                {wishlist && <AiFillHeart className='text-[#FF5555]' />}
+                            </button>
                             <a
                                 className='text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block'
                                 href="#"><AiOutlineShopping /></a>
