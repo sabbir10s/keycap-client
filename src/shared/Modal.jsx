@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
 const Modal = ({ children, isOpen, onClose }) => {
   const handleCloseModal = (e) => {
-    if (e.target.id === 'modalContainer') onClose();
+    if (e.target.id === "modalContainer") onClose();
   };
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     }
 
     return () => {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     };
   }, [isOpen]);
 
@@ -25,12 +25,12 @@ const Modal = ({ children, isOpen, onClose }) => {
     <button className="cursor-default" onClick={handleCloseModal}>
       <div>
         {isOpen && (
-          <div className="fixed flex items-center justify-center inset-0 z-50 ">
+          <div className="fixed flex items-center justify-center inset-0 z-50">
             <div
               id="modalContainer"
               className="absolute inset-0 bg-black opacity-50"
             ></div>
-            <div className="bg-white dark:bg-gray-800 p-4 w-4/5 z-10 relative">
+            <div className="bg-white rounded-lg dark:bg-gray-800 p-4 lg:p-8 h-screen md:h-auto max-w-sm md:max-w-2xl lg:max-w-5xl z-10 overflow-auto relative">
               <button
                 className="absolute right-0 top-0 text-gray-600 dark:text-gray-300 p-4 z-50"
                 onClick={onClose}
@@ -50,7 +50,7 @@ const Modal = ({ children, isOpen, onClose }) => {
                   />
                 </svg>
               </button>
-              {children}
+              <div>{children}</div>
             </div>
           </div>
         )}
