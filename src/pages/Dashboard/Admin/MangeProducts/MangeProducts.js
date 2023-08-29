@@ -37,7 +37,7 @@ const MangeProducts = () => {
                         <th>Name</th>
                         <th>Price</th>
                         <th>Quantity</th>
-                        <th>Action</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>

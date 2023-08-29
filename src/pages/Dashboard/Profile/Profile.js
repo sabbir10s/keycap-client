@@ -45,8 +45,6 @@ const Profile = () => {
         return <Loading />
     }
 
-
-    console.log(userData);
     const { name, education, mobile, address, linkedin } = userData;
     const linkedInLink = `https://www.linkedin.com/in/${linkedin}`
 

@@ -1,18 +1,24 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
 import { Fade } from "react-reveal";
 import {
   AiOutlineHeart,
   AiOutlineShopping,
   AiOutlineEye,
   AiFillHeart,
+  AiTwotoneEdit,
 } from "react-icons/ai";
 import "./ProductCard.css";
 import Modal from "../shared/Modal";
 import ProductQuickDetails from "./ProductQuickDetails";
+import { useAuthState } from "react-firebase-hooks/auth";
+import useAdmin from "../hooks/useAdmin";
+import auth from "../firebase.init";
+import EditProduct from "./Product/EditProduct";
 
 const BestProductsCard = ({ product }) => {
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
   const [wishlist, setWishlist] = useState(false);
   const { name, image, price } = product;
 
@@ -25,8 +31,6 @@ const BestProductsCard = ({ product }) => {
   const closeModal = () => {
     setIsOpen(false);
   };
-
-  const { productId } = useParams();
 
   return (
     <div>
@@ -57,35 +61,49 @@ const BestProductsCard = ({ product }) => {
               </div>
             </div>
             <div className="absolute right-0 flex flex-col gap-3 m-4 ">
-              <button
-                onClick={() => setWishlist(!wishlist)}
-                className="text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block hover:bg-primary hover:text-white duration-300"
-                href="#"
-              >
-                {!wishlist && <AiOutlineHeart />}
-                {wishlist && <AiFillHeart className="text-[#FF5555]" />}
-              </button>
-              <a
-                className="text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block hover:bg-primary hover:text-white duration-300"
-                href="#"
-              >
-                <AiOutlineShopping />
-              </a>
+              {!admin && (
+                <>
+                  <button
+                    onClick={() => setWishlist(!wishlist)}
+                    className="text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block hover:bg-primary hover:text-white duration-300"
+                    href="#"
+                  >
+                    {!wishlist && <AiOutlineHeart />}
+                    {wishlist && <AiFillHeart className="text-[#FF5555]" />}
+                  </button>
+                  <a
+                    className="text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block hover:bg-primary hover:text-white duration-300"
+                    href="#"
+                  >
+                    <AiOutlineShopping />
+                  </a>
 
-              <button
-                onClick={openModal}
-                className="text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block hover:bg-primary hover:text-white duration-300"
-                href="#"
-              >
-                <AiOutlineEye />
-              </button>
+                  <button
+                    onClick={openModal}
+                    className="text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block hover:bg-primary hover:text-white duration-300"
+                    href="#"
+                  >
+                    <AiOutlineEye />
+                  </button>
+                </>
+              )}
+
+              {admin && (
+                <label
+                  for="my-modal-4"
+                  className="modal-button modal-open cursor-pointer text-error border-[1px] border-error p-2 rounded-[5px] hidden group-hover:block hover:bg-primary hover:text-white duration-300"
+                >
+                  <AiTwotoneEdit />
+                </label>
+              )}
             </div>
           </div>
         </div>
       </Fade>
       <Modal isOpen={isOpen} onClose={closeModal}>
-        <ProductQuickDetails product={product} productId={productId} />
+        <ProductQuickDetails product={product} />
       </Modal>
+      <EditProduct product={product} />
     </div>
   );
 };
