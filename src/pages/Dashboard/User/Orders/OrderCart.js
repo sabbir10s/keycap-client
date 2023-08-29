@@ -6,6 +6,8 @@ import DeleteConfirmModal from './DeleteConfirmModal';
 const OrderCart = ({ order, refetch }) => {
     const [cancelOrder, setCancelOrder] = useState(null)
     const { productName, quantity, price, totalPrice, paid, image, transactionId } = order
+
+
     return (
         <div className='border shadow-lg shadow-base-300/30 p-5 rounded-lg'>
             <img className='w-20' src={image} alt="" />
@@ -65,23 +67,3 @@ const OrderCart = ({ order, refetch }) => {
 
 export default OrderCart;
 
-
-// <td>{order.productName}</td>
-// <td>{order.quantity}</td>
-// <td>{order.totalPrice}</td>
-
-
-// <td>
-//     {(order.totalPrice && !order.paid) && <Link to={`/dashboard/payment/${order._id}`} className='btn btn-success btn-xs'>Payment</Link>}
-//     {(order.totalPrice && order.paid) && <span className='text-success'>Paid</span>}
-// </td>
-
-// <td>{
-//     order.paid ? <p className='text-success'>{order.transactionId}</p>
-//         :
-//         <p className='text-error'>Not Paid Yet !</p>
-// }</td>
-// <td>
-//     {!order.paid && <label onClick={() => setCancelOrder(order)} for="delete-confirm-modal" className='btn font-medium text-base-100 btn-error btn-xs' >Cancel Order</label>}
-
-// </td>

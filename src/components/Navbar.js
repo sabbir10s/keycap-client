@@ -13,11 +13,12 @@ const Navbar = ({ children }) => {
     const [user] = useAuthState(auth);
 
 
+
+
     return (
         <div className='sticky top-0 z-50 bg-base-100  border-b-2 border-primary shadow-lg'>
             <div className="navbar container mx-auto">
                 <div className="navbar-start">
-
                     <div>
                         {
                             pathname.includes('dashboard') && (<label for="my-drawer-2" className=" drawer-button lg:hidden">
@@ -122,7 +123,9 @@ const Navbar = ({ children }) => {
 
                 </div>
             </div>
+
         </div >
+
     );
 };
 

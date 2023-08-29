@@ -26,8 +26,8 @@ import MangeProducts from './pages/Dashboard/Admin/MangeProducts/MangeProducts';
 import Blogs from './pages/Blogs/Blogs';
 import BlogDetails from './pages/Blogs/BlogDetails';
 import Products from './pages/Products/Products';
-import ProductDetails from './components/ProductDetails';
 import { useLayoutEffect } from 'react';
+import ProductDetails from './pages/ProductDetails/ProductDetails';
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
