@@ -8,13 +8,16 @@ import {
   QueryClient,
   QueryClientProvider,
 } from 'react-query'
+import { AppProvider } from './context/ProductContext';
 const queryClient = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <QueryClientProvider client={queryClient}>
       <React.StrictMode>
-        <App />
+        <AppProvider>
+          <App />
+        </AppProvider>
       </React.StrictMode>
     </QueryClientProvider>
   </BrowserRouter>
