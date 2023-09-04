@@ -16,7 +16,7 @@ import useAdmin from "../hooks/useAdmin";
 import auth from "../firebase.init";
 import EditProduct from "./Product/EditProduct";
 
-const BestProductsCard = ({ product }) => {
+const ProductCard = ({ product }) => {
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
   const [wishlist, setWishlist] = useState(false);
@@ -108,4 +108,4 @@ const BestProductsCard = ({ product }) => {
   );
 };
 
-export default BestProductsCard;
+export default ProductCard;
