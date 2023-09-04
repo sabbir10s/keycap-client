@@ -15,6 +15,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import useAdmin from "../hooks/useAdmin";
 import auth from "../firebase.init";
 import EditProduct from "./Product/EditProduct";
+import FormatePrice from "../helper/FormatePrice";
 
 const ProductCard = ({ product }) => {
   const [user] = useAuthState(auth);
@@ -53,7 +54,7 @@ const ProductCard = ({ product }) => {
                   <p className="text-left text-sm lg:text-base mb-1">{name}</p>
                   <div className="flex items-center space-x-1">
                     <p className="text-primary text-lg md:text-xl lg:text-2xl text-left font-bold">
-                      ${price}
+                      <FormatePrice price={price} />
                     </p>
                     <del className="text-gray-400">$106.06</del>
                   </div>
