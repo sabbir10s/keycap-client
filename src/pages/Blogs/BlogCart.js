@@ -16,7 +16,7 @@ const BlogCart = ({ blog }) => {
             </div>
             <h2 className='text-lg my-5'>{title}</h2>
             <article className='text-base-300'>{article[0].slice(0, 150)}</article>
-            <button onClick={handleBlogDetails} className='uppercase bg-primary hover:bg-black text-base-100 px-5 py-2 mt-5'>Read More</button>
+            <button onClick={handleBlogDetails} className='uppercase bg-primary-700 hover:bg-black text-base-100 px-5 py-2 mt-5'>Read More</button>
         </div>
     );
 };

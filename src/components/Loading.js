@@ -4,7 +4,7 @@ const Loading = () => {
     return (
         <div className='flex justify-center items-center h-[80vh]'>
             <div style={{ border: "top", color: "transparent" }}
-                className="w-16 h-16 border-4 border-primary border-dashed rounded-full animate-spin"></div>
+                className="w-16 h-16 border-4 border-primary-700 border-dashed rounded-full animate-spin"></div>
 
         </div>
     );

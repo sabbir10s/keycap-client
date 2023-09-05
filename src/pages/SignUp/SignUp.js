@@ -43,8 +43,8 @@ const SignUp = () => {
     };
 
     return (
-        <section className=' h-[90vh] flex justify-center items-center bg-base-200'>
-            <div className="card w-96 bg-base-100 shadow-xl">
+        <section className=' h-[90vh] flex justify-center items-center bg-gray-100'>
+            <div className="card w-96 bg-gray-100 shadow-xl">
                 <div className="card-body">
 
                     <form onSubmit={handleSubmit(onSubmit)}>
@@ -130,7 +130,7 @@ const SignUp = () => {
                     </form>
                     <p className='text-sm' >Already have an account? <Link to="/signIn" className='text-error hover:link'>Please Sign in</Link></p>
                     <div className="divider">OR</div>
-                    <button onClick={() => signInWithGoogle()} className="btn btn-accent border-primary "><FcGoogle className='text-3xl mr-2' /> CONTINUE WITH GOOGLE</button>
+                    <button onClick={() => signInWithGoogle()} className="btn btn-accent border-primary-700 "><FcGoogle className='text-3xl mr-2' /> CONTINUE WITH GOOGLE</button>
 
                 </div>
             </div>

@@ -16,7 +16,7 @@ const Navbar = ({ children }) => {
 
 
     return (
-        <div className='sticky top-0 z-50 bg-base-100  border-b-2 border-primary shadow-lg'>
+        <div className='sticky top-0 z-50 bg-gray-100  border-b-2 border-primary-700 shadow-lg'>
             <div className="navbar container mx-auto">
                 <div className="navbar-start">
                     <div>
@@ -52,20 +52,20 @@ const Navbar = ({ children }) => {
                                     <li className="dropdown dropdown-click dropdown-end ml-5">
                                         <label tabIndex="0">
                                             <div className='flex items-center cursor-pointer gap-2'>
-                                                <div className='text-primary text-lg border border-primary w-8 h-8 rounded-full flex justify-center items-center'>{user?.displayName.slice(0, 1)} </div>
+                                                <div className='text-primary-700 text-lg border border-primary-700 w-8 h-8 rounded-full flex justify-center items-center'>{user?.displayName.slice(0, 1)} </div>
                                                 <div className='flex justify-center items-center'>
                                                     <span>Profile</span> <MdOutlineArrowDropDown />
                                                 </div>
                                             </div>
                                         </label>
-                                        <div tabIndex="0" className="dropdown-content menu shadow-lg bg-base-100 border rounded-box w-52 mt-2">
+                                        <div tabIndex="0" className="dropdown-content menu shadow-lg bg-gray-100 border rounded-box w-52 mt-2">
                                             {
                                                 user ?
                                                     <div className='flex flex-col gap-5'>
                                                         <SecondaryCustomLink to='/profile'>
-                                                            <div className='hover:text-secondary pt-5 px-5  flex items-center gap-2' ><FaUserAlt /> <span>Settings</span></div>
+                                                            <div className='hover:text-secondary-500 pt-5 px-5  flex items-center gap-2' ><FaUserAlt /> <span>Settings</span></div>
                                                         </SecondaryCustomLink>
-                                                        <button className='hover:text-secondary py-5 px-5 border-t border-base-200 flex items-center gap-2 text-left' onClick={() => signOut(auth)}>
+                                                        <button className='hover:text-secondary-500 py-5 px-5 border-t border-base-200 flex items-center gap-2 text-left' onClick={() => signOut(auth)}>
                                                             <MdLogout /> <span>Sign out</span>
                                                         </button>
 
@@ -88,7 +88,7 @@ const Navbar = ({ children }) => {
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <span className='text-3xl'><BiMenuAltRight /></span>
                         </label>
-                        <ul tabIndex={0} className="menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                        <ul tabIndex={0} className="menu-compact dropdown-content mt-3 p-2 shadow bg-gray-100 rounded-box w-52">
                             <li className='pt-1 px-5'><SecondaryCustomLink to='/home' >Home</SecondaryCustomLink></li>
                             <li className='pt-1 px-5'><SecondaryCustomLink to='/products' >Products</SecondaryCustomLink></li>
                             <li className='pt-1 px-5'><SecondaryCustomLink to='/blogs' >Blogs</SecondaryCustomLink></li>
@@ -102,12 +102,12 @@ const Navbar = ({ children }) => {
                                     user ?
                                         <div className='flex flex-col gap-5'>
                                             <SecondaryCustomLink to='/profile'>
-                                                <div className='hover:text-secondary pt-2 px-5  flex items-center gap-2' >
+                                                <div className='hover:text-secondary-500 pt-2 px-5  flex items-center gap-2' >
                                                     <FaUserAlt />
                                                     <span>Profile Settings</span>
                                                 </div>
                                             </SecondaryCustomLink>
-                                            <button className='hover:text-secondary pt-5 pb-2 px-5 border-t border-base-200 flex items-center gap-2 text-left' onClick={() => signOut(auth)}>
+                                            <button className='hover:text-secondary-500 pt-5 pb-2 px-5 border-t border-base-200 flex items-center gap-2 text-left' onClick={() => signOut(auth)}>
                                                 <MdLogout /> <span>Sign out</span>
                                             </button>
 

@@ -78,7 +78,7 @@ const AddReview = () => {
                         <div className='my-3'>
                             <p className='text-base-300 block'>Review</p>
                             <textarea
-                                className='border border-primary text-sm pl-2 py-1 rounded-md w-full mt-1'
+                                className='border border-primary-700 text-sm pl-2 py-1 rounded-md w-full mt-1'
                                 name="comment"
                                 cols="30"
                                 rows="5"></textarea>

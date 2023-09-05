@@ -73,9 +73,9 @@ const Purchase = () => {
     console.log(product);
     const { name, image, quantity, price } = product;
     return (
-        <div className='bg-base-200 md:py-5 h-screen'>
+        <div className='bg-gray-100 md:py-5 h-screen'>
             <div className=' max-w-[1400px] mx-auto lg:px-20 flex justify-center'>
-                <div className='bg-base-100 shadow-xl md:rounded-xl col-span-1 p-5 lg:w-1/2'>
+                <div className='bg-gray-100 shadow-xl md:rounded-xl col-span-1 p-5 lg:w-1/2'>
                     <h3 className='text-2xl'>Order Details</h3>
                     <div className='flex flex-row gap-2 justify-between mt-5'>
                         <div className=' hidden md:block'>
@@ -86,12 +86,12 @@ const Purchase = () => {
                             <table>
                                 <tr>
                                     <td>
-                                        <span className='text-primary'>{name} </span>
+                                        <span className='text-primary-700'>{name} </span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <p className='text-base-300'>Price:  <span className='text-secondary'>${price} </span></p>
+                                        <p className='text-base-300'>Price:  <span className='text-secondary-500'>${price} </span></p>
                                     </td>
                                 </tr>
                             </table>
@@ -99,10 +99,10 @@ const Purchase = () => {
 
                         <table className='text-sm'>
                             <tr>
-                                <td className='border border-primary px-2 py-1'>Available Stock</td>
+                                <td className='border border-primary-700 px-2 py-1'>Available Stock</td>
                             </tr>
                             <tr>
-                                <td className='border border-primary px-2 py-1 text-secondary'>{quantity}</td>
+                                <td className='border border-primary-700 px-2 py-1 text-secondary-500'>{quantity}</td>
                             </tr>
                         </table>
 
@@ -131,8 +131,8 @@ const Purchase = () => {
                             <div className='mt-3'>
                                 <label className='text-sm'>Quantity</label>
                                 <div className='flex justify-between flex-col lg:flex-row gap-5 mt-1'>
-                                    <input onChange={orderQuantity} className='border border-primary pl-3 py-2 rounded-md w-full' type="number" name="quantity" id="" required />
-                                    <button type='submit' disabled={newQuantity.quantity < 1 || newQuantity.quantity > quantity} className='bg-primary/90 text-base-100 px-5 py-3 shadow-md shadow-secondary hover:bg-primary duration-300 rounded-lg block disabled:bg-gray-300 disabled:shadow-none w-full'>Place Order</button>
+                                    <input onChange={orderQuantity} className='border border-primary-700 pl-3 py-2 rounded-md w-full' type="number" name="quantity" id="" required />
+                                    <button type='submit' disabled={newQuantity.quantity < 1 || newQuantity.quantity > quantity} className='bg-primary-700/90 text-base-100 px-5 py-3 shadow-md shadow-secondary hover:bg-primary-700 duration-300 rounded-lg block disabled:bg-gray-300 disabled:shadow-none w-full'>Place Order</button>
                                 </div>
                             </div>
                         </form>

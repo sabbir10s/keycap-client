@@ -53,7 +53,7 @@ const ProductCard = ({ product }) => {
                 <div>
                   <p className="text-left text-sm lg:text-base mb-1">{name}</p>
                   <div className="flex items-center space-x-1">
-                    <p className="text-primary text-lg md:text-xl lg:text-2xl text-left font-bold">
+                    <p className="text-primary-700 text-lg md:text-xl lg:text-2xl text-left font-bold">
                       <FormatePrice price={price} />
                     </p>
                     <del className="text-gray-400">$106.06</del>
@@ -66,14 +66,14 @@ const ProductCard = ({ product }) => {
                 <>
                   <button
                     onClick={() => setWishlist(!wishlist)}
-                    className="text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block hover:bg-primary hover:text-white duration-300"
+                    className="text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block hover:bg-primary-700 hover:text-white duration-300"
                     href="#"
                   >
                     {!wishlist && <AiOutlineHeart />}
                     {wishlist && <AiFillHeart className="text-[#FF5555]" />}
                   </button>
                   <a
-                    className="text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block hover:bg-primary hover:text-white duration-300"
+                    className="text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block hover:bg-primary-700 hover:text-white duration-300"
                     href="#"
                   >
                     <AiOutlineShopping />
@@ -81,7 +81,7 @@ const ProductCard = ({ product }) => {
 
                   <button
                     onClick={openModal}
-                    className="text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block hover:bg-primary hover:text-white duration-300"
+                    className="text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block hover:bg-primary-700 hover:text-white duration-300"
                     href="#"
                   >
                     <AiOutlineEye />
@@ -92,7 +92,7 @@ const ProductCard = ({ product }) => {
               {admin && (
                 <label
                   htmlFor="my-modal-4"
-                  className="modal-button modal-open cursor-pointer text-error border-[1px] border-error p-2 rounded-[5px] hidden group-hover:block hover:bg-primary hover:text-white duration-300"
+                  className="modal-button modal-open cursor-pointer text-error border-[1px] border-error p-2 rounded-[5px] hidden group-hover:block hover:bg-primary-700 hover:text-white duration-300"
                 >
                   <AiTwotoneEdit />
                 </label>

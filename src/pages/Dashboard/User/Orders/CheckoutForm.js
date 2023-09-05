@@ -122,7 +122,7 @@ const CheckoutForm = ({ order }) => {
                 success && <div className='text-green-500'>
                     <p>{success}</p>
                     <p>Your transaction id: <span className='text-orange-600 font-bold'>{transactionId}</span></p>
-                    <button className='bg-primary w-full py-1 mt-2 text-base-100 rounded' onClick={() => navigate('/dashboard')}>Go Forward</button>
+                    <button className='bg-primary-700 w-full py-1 mt-2 text-base-100 rounded' onClick={() => navigate('/dashboard')}>Go Forward</button>
                 </div>
             }
         </>

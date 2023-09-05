@@ -10,7 +10,7 @@ const nav = () => {
             <div className="drawer-content flex flex-col">
 
                 {/* <!-- Navbar --> */}
-                <div className=" sticky top-0 z-50 w-full  bg-base-100 border-b border-primary shadow-lg  text-primary">
+                <div className=" sticky top-0 z-50 w-full  bg-gray-100 border-b border-primary-700 shadow-lg  text-primary-700">
                     <div className='navbar max-w-[1400px] mx-auto lg:px-20 px-2'>
                         {
                             pathname.includes('dashboard') && (<label htmlFor="my-drawer-2" className=" drawer-button lg:hidden">
@@ -40,13 +40,13 @@ const nav = () => {
                                         <li className="dropdown dropdown-click dropdown-end ml-5">
                                             <label tabIndex="0">
                                                 <div className='flex items-center cursor-pointer gap-2'>
-                                                    <div className='text-primary text-lg border border-primary w-8 h-8 rounded-full flex justify-center items-center'>{user?.displayName.slice(0, 1)} </div>
+                                                    <div className='text-primary-700 text-lg border border-primary-700 w-8 h-8 rounded-full flex justify-center items-center'>{user?.displayName.slice(0, 1)} </div>
                                                     <div className='flex justify-center items-center'>
                                                         <span>Account</span> <MdOutlineArrowDropDown />
                                                     </div>
                                                 </div>
                                             </label>
-                                            <div tabIndex="0" className="dropdown-content menu shadow-lg bg-base-100 border rounded-box w-52 mt-2">
+                                            <div tabIndex="0" className="dropdown-content menu shadow-lg bg-gray-100 border rounded-box w-52 mt-2">
                                                 {
                                                     user ?
                                                         <div className='flex flex-col gap-5'>
@@ -78,7 +78,7 @@ const nav = () => {
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
-                <ul className="p-5 overflow-y-auto flex flex-col gap-5 w-64 bg-base-100">
+                <ul className="p-5 overflow-y-auto flex flex-col gap-5 w-64 bg-gray-100">
 
                     <li><DashLink to='/home' >Home</DashLink></li>
                     <li><DashLink to='/products' >Products</DashLink></li>
@@ -93,13 +93,13 @@ const nav = () => {
                             <li className="dropdown dropdown-click  dropdown-end">
                                 <label tabIndex="0">
                                     <div className='flex items-center cursor-pointer gap-2'>
-                                        <div className='text-primary text-lg border border-primary w-8 h-8 rounded-full flex justify-center items-center'>{user?.displayName.slice(0, 1)} </div>
+                                        <div className='text-primary-700 text-lg border border-primary-700 w-8 h-8 rounded-full flex justify-center items-center'>{user?.displayName.slice(0, 1)} </div>
                                         <div className='flex justify-center items-center'>
                                             <span>Account</span> <MdOutlineArrowDropDown />
                                         </div>
                                     </div>
                                 </label>
-                                <div tabIndex="0" className="dropdown-content menu shadow-lg bg-base-100 border rounded-box w-52 mt-2">
+                                <div tabIndex="0" className="dropdown-content menu shadow-lg bg-gray-100 border rounded-box w-52 mt-2">
                                     {
                                         user ?
                                             <div className='flex flex-col gap-5'>

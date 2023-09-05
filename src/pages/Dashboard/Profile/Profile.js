@@ -95,14 +95,14 @@ const Profile = () => {
             <div>
 
                 <div className='flex justify-between items-center'>
-                    <p className='text-lg md:text-2xl font-bold text-primary'>Menage Your Profile</p>
+                    <p className='text-lg md:text-2xl font-bold text-primary-700'>Menage Your Profile</p>
                     <div>
                         {
                             !click
                                 ?
-                                <button onClick={() => setClick(true)} className='text-xl text-secondary flex items-center gap-2'> <AiOutlineEdit /> <span className='text-sm'>Edit</span> </button>
+                                <button onClick={() => setClick(true)} className='text-xl text-secondary-500 flex items-center gap-2'> <AiOutlineEdit /> <span className='text-sm'>Edit</span> </button>
                                 :
-                                <button onClick={() => setClick(false)} className='text-secondary border border-secondary px-2 md:px-4 py-1 rounded-lg'>Cancel</button>
+                                <button onClick={() => setClick(false)} className='text-secondary-500 border border-secondary-500 px-2 md:px-4 py-1 rounded-lg'>Cancel</button>
                         }
                     </div>
                 </div>
@@ -160,19 +160,19 @@ const Profile = () => {
                             {
                                 !click
                                     ?
-                                    <a className='link text-secondary py-1' href={linkedInLink} target="_blank" >
+                                    <a className='link text-secondary-500 py-1' href={linkedInLink} target="_blank" >
                                         https://www.linkedin.com/in/{linkedin}
                                     </a>
                                     :
                                     <div className='flex items-center border-b border-gray-400'>
-                                        <p className='text-secondary'>https://www.linkedin.com/in/</p>
+                                        <p className='text-secondary-500'>https://www.linkedin.com/in/</p>
                                         <input className=' text-lg w-full py-1 focus:outline-0' type="text" ref={getLinkedIn} defaultValue={linkedin} />
                                     </div>
                             }
 
                         </div>
                         {
-                            click && <input className='bg-primary text-base-100 px-7 py-2 rounded cursor-pointer'
+                            click && <input className='bg-primary-700 text-base-100 px-7 py-2 rounded cursor-pointer'
                                 type="submit"
                                 value="Save Change"
                             />

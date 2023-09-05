@@ -46,10 +46,10 @@ const SignIn = () => {
     };
 
     return (
-        <section className='lg:h-[90vh] md:h-[90vh] h-[80vh] lg:bg-base-200 md:bg-base-200 flex justify-center items-center'>
-            <div className="card w-96 bg-base-100 shadow-xl">
+        <section className='lg:h-[90vh] md:h-[90vh] h-[80vh] lg:bg-gray-100 md:bg-gray-100 flex justify-center items-center'>
+            <div className="card w-96 bg-gray-100 shadow-xl">
                 <div className="card-body">
-                    <div className='mb-2 text-secondary'>
+                    <div className='mb-2 text-secondary-500'>
                         <p className='text-sm'>Note: To check admin functionality please fill up</p>
                         <p className='text-sm'>Email: <span className='text-gray-500'>admin@gmail.com</span> Password: <span className='text-gray-500'>123456</span></p>
                         <p></p>
@@ -123,7 +123,7 @@ const SignIn = () => {
                     </form>
                     <p className='text-sm' >New to Doctors Portal? <Link to="/signUp" className='text-error hover:link'>Sign Up</Link></p>
                     <div className="divider">OR</div>
-                    <button onClick={() => signInWithGoogle()} className="btn btn-accent border-primary "><FcGoogle className='text-3xl mr-2' /> CONTINUE WITH GOOGLE</button>
+                    <button onClick={() => signInWithGoogle()} className="btn btn-accent border-primary-700 "><FcGoogle className='text-3xl mr-2' /> CONTINUE WITH GOOGLE</button>
 
                 </div>
             </div>

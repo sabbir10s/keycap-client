@@ -13,7 +13,7 @@ const ContactFrom = () => {
     }
     return (
         <div className='bgImage'>
-            <div className='bg-primary/90 py-10 md:py-20'>
+            <div className='bg-primary-700/90 py-10 md:py-20'>
                 <h1 className='text-2xl text-center text-base-100 uppercase md:py-4'>Contact With Us</h1>
 
                 <div className='flex justify-center'>
@@ -25,31 +25,31 @@ const ContactFrom = () => {
                                         <label className="label">
                                             <span className="label-text text-base-100">Name</span>
                                         </label>
-                                        <input type="text" name='name' placeholder="Name" required autoComplete='off' className="border border-primary p-[10px] rounded-md focus:outline-secondary" />
+                                        <input type="text" name='name' placeholder="Name" required autoComplete='off' className="border border-primary-700 p-[10px] rounded-md focus:outline-secondary" />
                                     </div>
 
                                     <div className="form-control w-full">
                                         <label className="label">
                                             <span className="label-text text-base-100">Subject</span>
                                         </label>
-                                        <input type="text" name='subject' placeholder="Subject" required autoComplete='off' className="border border-primary p-[10px] rounded-md focus:outline-secondary" />
+                                        <input type="text" name='subject' placeholder="Subject" required autoComplete='off' className="border border-primary-700 p-[10px] rounded-md focus:outline-secondary" />
                                     </div>
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text text-base-100">Email</span>
                                     </label>
-                                    <input type="email" name='email' placeholder="email" required autoComplete='off' className="border border-primary p-[10px] rounded-md focus:outline-secondary" />
+                                    <input type="email" name='email' placeholder="email" required autoComplete='off' className="border border-primary-700 p-[10px] rounded-md focus:outline-secondary" />
                                 </div>
 
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text text-base-100">Message</span>
                                     </label>
-                                    <textarea name="message" required id="" cols="30" rows="4" placeholder='Message' autoComplete='off' className="border border-primary p-[10px] rounded-md focus:outline-secondary" ></textarea>
+                                    <textarea name="message" required id="" cols="30" rows="4" placeholder='Message' autoComplete='off' className="border border-primary-700 p-[10px] rounded-md focus:outline-secondary" ></textarea>
                                 </div>
                                 <div className="form-control mt-5">
-                                    <button className="bg-secondary hover:bg-orange-500 duration-300 shadow-lg uppercase text-lg py-[10px] text-black rounded-md">submit</button>
+                                    <button className="bg-secondary-500 hover:bg-orange-500 duration-300 shadow-lg uppercase text-lg py-[10px] text-black rounded-md">submit</button>
                                 </div>
 
                             </form>

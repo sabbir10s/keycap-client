@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const NotFound = () => {
     return (
-        <div className='hero min-h-[89vh] bg-base-200'>
+        <div className='hero min-h-[89vh] bg-gray-100'>
             <div className='text-center max-w-md'>
                 <p className='text-7xl font-bold'>404</p>
                 <p className='font-bold text-xl'>This Page Isn't Available</p>

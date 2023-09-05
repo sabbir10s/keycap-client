@@ -14,7 +14,7 @@ const FeaturedProducts = () => {
       <div className="text-center py-8">
         <h2
           id="products"
-          className="text-primary text-2xl lg:text-3xl font-bold "
+          className="text-primary-700 text-2xl lg:text-3xl font-bold "
         >
           Featured Products
         </h2>
@@ -35,7 +35,7 @@ const FeaturedProducts = () => {
       <div className="flex justify-center mt-16">
         <Link
           to="/products"
-          className="bg-secondary text-base-100 px-8 py-3 rounded shadow-md shadow-base-300/50"
+          className="bg-secondary-500 text-base-100 px-8 py-3 rounded shadow-md shadow-base-300/50"
         >
           View All Products
         </Link>

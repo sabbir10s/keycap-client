@@ -14,7 +14,7 @@ const RecentBlog = ({ blog }) => {
                 <img className='w-32' src={img} alt="" />
             </div>
             <div className='col-span-2'>
-                <h2 onClick={handleBlogDetails} className='my-1 hover:text-secondary cursor-pointer'>{title.slice(0, 25)}</h2>
+                <h2 onClick={handleBlogDetails} className='my-1 hover:text-secondary-500 cursor-pointer'>{title.slice(0, 25)}</h2>
                 <p className='text-sm text-base-300'>{date}</p>
             </div>
         </div>

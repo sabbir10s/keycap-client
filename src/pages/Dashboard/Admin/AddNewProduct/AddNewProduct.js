@@ -61,7 +61,7 @@ const AddNewProduct = () => {
 
     return (
         <div className='py-5 max-w-xl mx-auto px-5'>
-            <p className='text-2xl font-bold text-primary text-left mt-3 mb-3'>Add New Product</p>
+            <p className='text-2xl font-bold text-primary-700 text-left mt-3 mb-3'>Add New Product</p>
             <div className=''>
                 <form onSubmit={handleSubmit(onSubmit)}>
 
@@ -72,7 +72,7 @@ const AddNewProduct = () => {
                         <input
                             type="text"
                             placeholder="Product Name"
-                            className="border border-primary p-[7px] rounded-md focus:outline-secondary"
+                            className="border border-primary-700 p-[7px] rounded-md focus:outline-secondary"
                             {...register("name", {
                                 required: {
                                     value: true,
@@ -90,7 +90,7 @@ const AddNewProduct = () => {
                                 <span className="label-text">Category</span>
                             </label>
 
-                            <select className="border border-primary p-[8px] rounded-md focus:outline-secondary"
+                            <select className="border border-primary-700 p-[8px] rounded-md focus:outline-secondary"
                                 {...register("category", {
                                     required: {
                                         value: true,
@@ -115,7 +115,7 @@ const AddNewProduct = () => {
                             <input
                                 type="number"
                                 placeholder="Product Price"
-                                className="border border-primary p-[7px] rounded-md focus:outline-secondary"
+                                className="border border-primary-700 p-[7px] rounded-md focus:outline-secondary"
                                 {...register("price", {
                                     required: {
                                         value: true,
@@ -138,7 +138,7 @@ const AddNewProduct = () => {
                             <input
                                 type="number"
                                 placeholder="Product Quantity"
-                                className="border border-primary p-[7px] rounded-md focus:outline-secondary"
+                                className="border border-primary-700 p-[7px] rounded-md focus:outline-secondary"
                                 {...register("quantity", {
                                     required: {
                                         value: true,
@@ -157,7 +157,7 @@ const AddNewProduct = () => {
                             <input
                                 type="number"
                                 placeholder="Minimum Order"
-                                className="border border-primary p-[7px] rounded-md focus:outline-secondary"
+                                className="border border-primary-700 p-[7px] rounded-md focus:outline-secondary"
                                 {...register("minOrder", {
                                     required: {
                                         value: true,
@@ -179,7 +179,7 @@ const AddNewProduct = () => {
                         <textarea
                             rows="3" cols="50"
                             placeholder="Product Description"
-                            className="border border-primary p-[7px] rounded-md focus:outline-secondary"
+                            className="border border-primary-700 p-[7px] rounded-md focus:outline-secondary"
                             {...register("description", {
                                 required: {
                                     value: true,
@@ -195,7 +195,7 @@ const AddNewProduct = () => {
 
                     <div className='flex flex-col lg:flex-row items-center gap-4'>
                         <div className="form-control w-full cursor-pointer">
-                            <div className=' cursor-pointer flex items-center justify-center gap-2 border border-primary bg-slate-100 rounded-lg py-1 mt-2'>
+                            <div className=' cursor-pointer flex items-center justify-center gap-2 border border-primary-700 bg-slate-100 rounded-lg py-1 mt-2'>
                                 <label className="label cursor-pointer pt-0" htmlFor='image'>
                                     <span className="text-4xl text-base-300"><RiImageAddFill /></span>
                                 </label>
@@ -220,7 +220,7 @@ const AddNewProduct = () => {
                         </div>
 
 
-                        <input type="submit" value="Upload Product" className='bg-primary text-base-100 text-lg py-3 w-full rounded-md shadow shadow-secondary cursor-pointer' />
+                        <input type="submit" value="Upload Product" className='bg-primary-700 text-base-100 text-lg py-3 w-full rounded-md shadow shadow-secondary cursor-pointer' />
                     </div>
                 </form>
             </div>

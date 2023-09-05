@@ -18,7 +18,7 @@ const Reviews = () => {
     }
     return (
         <div className='py-24'>
-            <h2 className='text-primary text-center text-2xl font-bold uppercase pb-4'>Customers Reviews</h2>
+            <h2 className='text-primary-700 text-center text-2xl font-bold uppercase pb-4'>Customers Reviews</h2>
 
             <div id='#reviews' className='grid grid-cols-1 lg:grid-cols-3 gap-10 content-center mt-20'>
                 {

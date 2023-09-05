@@ -8,7 +8,7 @@ function SecondaryCustomLink({ children, to, ...props }) {
     return (
         <div>
             <Link
-                className={match ? 'text-secondary font-bold' : "text-primary"}
+                className={match ? 'text-secondary-500 font-bold' : "text-primary-700"}
                 to={to}
                 {...props}
             >

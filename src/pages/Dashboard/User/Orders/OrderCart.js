@@ -11,7 +11,7 @@ const OrderCart = ({ order, refetch }) => {
     return (
         <div className='border shadow-lg shadow-base-300/30 p-5 rounded-lg'>
             <img className='w-20' src={image} alt="" />
-            <h2 className='text-xl mb-2 text-primary'>{productName}</h2>
+            <h2 className='text-xl mb-2 text-primary-700'>{productName}</h2>
             <table className='w-full border'>
                 <tr>
                     <td className='border text-sm font-bold p-1.5'>Price</td>
@@ -35,7 +35,7 @@ const OrderCart = ({ order, refetch }) => {
                     </div>
                     <div>
                         {!paid ? <div className='flex items-center gap-3'>
-                            <Link to={`/dashboard/payment/${order._id}`} className='bg-primary text-white px-3 py-1.5 rounded-full shadow-md'>Please Pay</Link>
+                            <Link to={`/dashboard/payment/${order._id}`} className='bg-primary-700 text-white px-3 py-1.5 rounded-full shadow-md'>Please Pay</Link>
                             <div>Or</div>
                             <div>
                                 <label onClick={() => setCancelOrder(order)} htmlFor="my-modal-4" className='bg-error text-white px-3 py-1.5 rounded-full shadow-md cursor-pointer'>Cancel Order</label>
@@ -56,7 +56,7 @@ const OrderCart = ({ order, refetch }) => {
 
             <div>
                 {
-                    paid ? <p>Transaction Id: <span className='text-secondary text-sm'>{transactionId}</span></p>
+                    paid ? <p>Transaction Id: <span className='text-secondary-500 text-sm'>{transactionId}</span></p>
                         :
                         <></>
                 }
