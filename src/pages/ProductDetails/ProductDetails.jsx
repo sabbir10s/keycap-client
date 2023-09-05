@@ -1,21 +1,26 @@
 import React from "react";
 import { useQuery } from "react-query";
-
 import { useNavigate, useParams } from "react-router-dom";
 import Loading from "../../components/Loading";
+import { useEffect } from "react";
+import { useProductContext } from "../../context/ProductContext";
+
+const API = "https://nexiq-server.vercel.app/product";
 
 const ProductQuickDetails = () => {
-  const { productId } = useParams();
+  const { getSingleProduct, isSingleLoading, singleProduct } =
+    useProductContext();
   const navigate = useNavigate();
-  const { isLoading, data: product } = useQuery(["product", productId], () =>
-    fetch(`https://nexiq-server.vercel.app/product/${productId}`).then((res) =>
-      res.json()
-    )
-  );
-  if (isLoading) {
+  const { productId } = useParams();
+
+  useEffect(() => {
+    getSingleProduct(`${API}/${productId}`);
+  }, []);
+
+  if (isSingleLoading) {
     return <Loading />;
   }
-  const { _id, name, image, price, description, quantity } = product;
+  const { _id, name, image, price, description, quantity } = singleProduct;
 
   const handlePurchase = () => {
     navigate(`/purchase/${_id}`);
@@ -35,14 +40,16 @@ const ProductQuickDetails = () => {
               </p>
 
               <table>
-                <tr>
-                  <td className="border border-primary-700 px-2 py-1 text-sm font-medium">
-                    Available Stock
-                  </td>
-                  <td className="border border-primary-700 px-8 py-1 text-secondary-500 text-sm">
-                    {quantity}
-                  </td>
-                </tr>
+                <tbody>
+                  <tr>
+                    <td className="border border-primary-700 px-2 py-1 text-sm font-medium">
+                      Available Stock
+                    </td>
+                    <td className="border border-primary-700 px-8 py-1 text-secondary-500 text-sm">
+                      {quantity}
+                    </td>
+                  </tr>
+                </tbody>
               </table>
 
               <button

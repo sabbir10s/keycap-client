@@ -3,6 +3,7 @@ import { useEffect, useReducer } from "react";
 import { useContext } from "react";
 import { createContext } from "react";
 import reducer from "../reducer/productReducer";
+import { actionType } from "../helper/ActionTypes";
 
 const AppContext = createContext();
 const API = 'https://nexiq-server.vercel.app/product';
@@ -10,21 +11,38 @@ const initialState = {
     isLoading: false,
     isError: false,
     products: [],
-    featureProducts: []
+    featureProducts: [],
+    isSingleLoading: false,
+    isSingleError: false,
+    singleProduct: {},
 }
 const AppProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(reducer, initialState)
 
+    // All products API
     const getProducts = async (url) => {
-        dispatch({ type: "SET_LOADING" })
+        dispatch({ type: actionType.ALL_PRODUCT_LOADING })
         try {
             const res = await axios.get(url);
             const products = await res.data;
-            dispatch({ type: "SET_API_DATA", payload: products });
+            dispatch({ type: actionType.ALL_PRODUCT, payload: products });
         }
         catch (error) {
-            dispatch({ type: "API_ERROR" })
+            dispatch({ type: actionType.ALL_PRODUCT_ERROR })
+        }
+    };
+
+    // single product API
+    const getSingleProduct = async (url) => {
+        dispatch({ type: actionType.SINGLE_PRODUCT_LOADING })
+        try {
+            const res = await axios.get(url);
+            const singleProduct = await res.data;
+            dispatch({ type: actionType.SINGLE_PRODUCT, payload: singleProduct });
+        }
+        catch (error) {
+            dispatch({ type: actionType.SINGLE_PRODUCT_ERROR })
         }
     };
 
@@ -32,7 +50,7 @@ const AppProvider = ({ children }) => {
         getProducts(API);
     }, []);
 
-    return <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
+    return <AppContext.Provider value={{ ...state, getSingleProduct }}>{children}</AppContext.Provider>
 };
 
 //custom hooks
