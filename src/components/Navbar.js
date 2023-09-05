@@ -21,7 +21,7 @@ const Navbar = ({ children }) => {
                 <div className="navbar-start">
                     <div>
                         {
-                            pathname.includes('dashboard') && (<label for="my-drawer-2" className=" drawer-button lg:hidden">
+                            pathname.includes('dashboard') && (<label htmlFor="my-drawer-2" className=" drawer-button lg:hidden">
                                 <span className='text-3xl'><BiMenuAltLeft /></span>
                             </label>)
                         }
@@ -35,7 +35,7 @@ const Navbar = ({ children }) => {
                             <li><CustomLink to='/products' >Products</CustomLink></li>
                             <li><CustomLink to='/blogs' >Blogs</CustomLink></li>
                             {
-                                user && <p> <CustomLink to='/dashboard'>Dashboard</CustomLink></p>
+                                user && <li> <CustomLink to='/dashboard'>Dashboard</CustomLink></li>
 
                             }
 
@@ -114,7 +114,7 @@ const Navbar = ({ children }) => {
 
                                         </div>
                                         :
-                                        <li className='pt-1 px-5'> <SecondaryCustomLink to='/SignIn'>Sign in</SecondaryCustomLink></li>
+                                        <div className='pt-1 px-5'> <SecondaryCustomLink to='/SignIn'>Sign in</SecondaryCustomLink></div>
                                 }
                             </li>
 

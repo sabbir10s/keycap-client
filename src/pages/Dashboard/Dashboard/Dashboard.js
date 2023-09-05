@@ -17,7 +17,7 @@ const DashBoard = () => {
                     <Outlet />
                 </div>
                 <div className="drawer-side">
-                    <label for="my-drawer-2" className="drawer-overlay"></label>
+                    <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="lg:mr-5 lg:my-5 menu p-4 overflow-y-auto w-56 bg-base-100 shadow-xl rounded-lg text-base-content">
 
                         {

@@ -91,7 +91,7 @@ const ProductCard = ({ product }) => {
 
               {admin && (
                 <label
-                  for="my-modal-4"
+                  htmlFor="my-modal-4"
                   className="modal-button modal-open cursor-pointer text-error border-[1px] border-error p-2 rounded-[5px] hidden group-hover:block hover:bg-primary hover:text-white duration-300"
                 >
                   <AiTwotoneEdit />

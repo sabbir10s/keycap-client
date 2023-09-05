@@ -14,11 +14,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <QueryClientProvider client={queryClient}>
-      <React.StrictMode>
+      <React.Fragment>
         <AppProvider>
           <App />
+
         </AppProvider>
-      </React.StrictMode>
+      </React.Fragment>
     </QueryClientProvider>
   </BrowserRouter>
 );

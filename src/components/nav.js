@@ -13,7 +13,7 @@ const nav = () => {
                 <div className=" sticky top-0 z-50 w-full  bg-base-100 border-b border-primary shadow-lg  text-primary">
                     <div className='navbar max-w-[1400px] mx-auto lg:px-20 px-2'>
                         {
-                            pathname.includes('dashboard') && (<label for="my-drawer-2" className=" drawer-button lg:hidden">
+                            pathname.includes('dashboard') && (<label htmlFor="my-drawer-2" className=" drawer-button lg:hidden">
                                 <span className='text-3xl'><BiMenuAltLeft /></span>
                             </label>)
                         }

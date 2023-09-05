@@ -42,12 +42,12 @@ const EditProduct = ({ product }) => {
   };
   return (
     <div>
-      <input type="checkbox" id="my-modal-4" class="modal-toggle" />
+      <input type="checkbox" id="my-modal-4" className="modal-toggle" />
       <label
-        for="my-modal-4"
-        class="modal cursor-pointer modal-bottom sm:modal-middle"
+        htmlFor="my-modal-4"
+        className="modal cursor-pointer modal-bottom sm:modal-middle"
       >
-        <label class="modal-box relative" for="">
+        <label className="modal-box relative" htmlFor="">
           <input
             className="border-b border-gray-400 text-lg w-full py-1 focus:outline-0"
             type="text"

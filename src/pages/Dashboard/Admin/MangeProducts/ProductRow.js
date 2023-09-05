@@ -33,7 +33,7 @@ const ProductRow = ({ product, setIsReload, reload, index }) => {
             <td>{quantity}</td>
             <td className='flex justify-between items-center'>
                 <label
-                    for="my-modal-4"
+                    htmlFor="my-modal-4"
                     className="modal-button modal-open cursor-pointer text-primary text-xl"
                 >
                     <FiEdit />
