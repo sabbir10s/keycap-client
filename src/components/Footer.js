@@ -1,26 +1,58 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
 
 const Footer = () => {
     return (
-        <footer className="footer footer-center p-10 bg-gray-100 text-base-content rounded">
-            <div className="grid grid-flow-col gap-4">
-                <Link to='/home' className='rounded-lg'>Home</Link>
-                <Link to='/signIn' className='rounded-lg'>Sign in</Link>
-                <Link to='/blogs' className='rounded-lg'>Blogs</Link>
-                <a href="https://sabbir10s.web.app/" target='_blank'>My Portfolio</a>
-            </div>
-            <div>
-                <div className="grid grid-flow-col gap-4">
-                    <a href="https://twitter.com/" target='_blank'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg></a>
-                    <a href="https://youtube.com/" target='_blank'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg></a>
-                    <a href="http://facebook.com/" target='_blank'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></a>
+        <>
+            <footer class="bg-gray-900 text-white pt-12 pb-8 px-4">
+                <div class="container overflow-hidden flex flex-col lg:flex-row justify-between mx-auto px-4">
+                    <h2 class="mr-2 w-30 text-2xl font-serif font-bold">
+                        Wishful Thinking
+                    </h2>
+                    <div class="block sm:flex text-sm mt-6 lg:mt-0 w-1/3">
+                        <ul class="text-gray-700 list-none p-0 font-thin flex flex-col text-left w-full">
+                            <li class="inline-block py-2 px-3 text-white uppercase font-medium tracking-wide">Product</li>
+                            <li><a href="#a" class="inline-block py-2 pl-3 pr-5 text-gray-500 hover:text-white no-underline">Features</a></li>
+                            <li><a href="#a" class="inline-block py-2 pl-3 pr-5 text-gray-500 hover:text-white no-underline">Integrations</a></li>
+                            <li><a href="#a" class="inline-block py-2 pl-3 pr-5 text-gray-500 hover:text-white no-underline">Pricing</a></li>
+                            <li><a href="#a" class="inline-block py-2 pl-3 pr-5 text-gray-500 hover:text-white no-underline">FAQ</a></li>
+                        </ul>
+                        <ul class="text-gray-700 list-none p-0 font-thin flex flex-col text-left w-full">
+                            <li class="inline-block py-2 px-3 text-white uppercase font-medium tracking-wide">Company</li>
+                            <li><a href="#a" class="inline-block py-2 pl-3 pr-5 text-gray-500 hover:text-white no-underline">Privacy</a>
+                            </li>
+                            <li><a href="#a" class="inline-block py-2 pl-3 pr-5 text-gray-500 hover:text-white no-underline">Terms of Service</a></li>
+                        </ul>
+                        <ul class="text-gray-700 list-none p-0 font-thin flex flex-col text-left w-full">
+                            <li class="inline-block py-2 px-3 text-white uppercase font-medium tracking-wide">Developers</li>
+                            <li><a href="#a" class="inline-block py-2 pl-3 pr-5 text-gray-500 hover:text-white no-underline">Developer API</a></li>
+                            <li><a href="#a" class="inline-block py-2 pl-3 pr-5 text-gray-500 hover:text-white no-underline">Documentation</a></li>
+                            <li><a href="#a" class="inline-block py-2 pl-3 pr-5 text-gray-500 hover:text-white no-underline">Guides</a></li>
+                        </ul>
+                    </div>
+                    <div class="text-gray-700 flex flex-col">
+                        <div class="inline-block py-2 px-3 text-white uppercase font-medium tracking-wide">Follow Us</div>
+                        <div class="flex pl-4 justify-start mt-2">
+                            <a class="flex items-center text-gray-300 hover:text-white mr-6 no-underline" href="#s">
+                                <svg viewBox="0 0 24 24" class="fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M23.998 12c0-6.628-5.372-12-11.999-12C5.372 0 0 5.372 0 12c0 5.988 4.388 10.952 10.124 11.852v-8.384H7.078v-3.469h3.046V9.356c0-3.008 1.792-4.669 4.532-4.669 1.313 0 2.686.234 2.686.234v2.953H15.83c-1.49 0-1.955.925-1.955 1.874V12h3.328l-.532 3.469h-2.796v8.384c5.736-.9 10.124-5.864 10.124-11.853z" /></svg>
+                            </a>
+                            <a class="flex items-center text-gray-300 hover:text-white mr-6 no-underline" href="#s">
+                                <svg viewBox="0 0 24 24" class="fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M23.954 4.569a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.691 8.094 4.066 6.13 1.64 3.161a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.061a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63a9.936 9.936 0 002.46-2.548l-.047-.02z" /></svg>
+                            </a>
+                            <a class="block text-center text-gray-300 hover:text-white no-underline" href="#s">
+                                <svg viewBox="0 0 24 24" class="fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <p>Copyright © 2022 - All right reserved by NEXIQ</p>
-            </div>
-        </footer>
+                <div class="pt-4 mt-4 lg:pt-6 text-gray-600 border-t border-gray-800 flex flex-col md:flex-row justify-center items-center">
+                    <div>© 2020 Wishful Thinking Agency LLC.</div>
+                    <div>&nbsp;All rights reserved.</div>
+                </div>
+            </footer >
+        </>
     );
 };
 
