@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Loading from "../../components/Loading";
 import { useEffect } from "react";
 import { useProductContext } from "../../context/ProductContext";
+import PageNavigation from "../../components/PageNavigation";
 
 const API = "https://nexiq-server.vercel.app/product";
 
@@ -26,7 +27,8 @@ const ProductQuickDetails = () => {
     navigate(`/purchase/${_id}`);
   };
   return (
-    <div className="">
+    <div className="container mx-auto pt-6">
+      <PageNavigation title={name} />
       <div>
         <div className="grid lg:grid-cols-2">
           <div className="flex justify-center items-center">

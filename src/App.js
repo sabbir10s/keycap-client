@@ -28,6 +28,7 @@ import BlogDetails from './pages/Blogs/BlogDetails';
 import Products from './pages/Products/Products';
 import { useLayoutEffect } from 'react';
 import ProductDetails from './pages/ProductDetails/ProductDetails';
+import NavLeft from './components/nav';
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -46,7 +47,8 @@ function App() {
   return (
     <div>
       <Wrapper>
-        <Navbar />
+        {/* <Navbar /> */}
+        <NavLeft />
         <ToastContainer />
         <Routes>
           <Route path='/' element={<Home />} />

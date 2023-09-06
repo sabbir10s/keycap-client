@@ -5,9 +5,6 @@ const MangeOrders = () => {
 
     const [orders, setOrders] = useState([]);
     const [reload, setIsReload] = useState(true)
-
-
-    console.log(reload);
     useEffect(() => {
         const url = 'https://nexiq-server.vercel.app/order';
         fetch(url, {

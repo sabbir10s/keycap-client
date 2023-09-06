@@ -1,0 +1,118 @@
+[debug] [2023-09-05T15:43:20.744Z] ----------------------------------------------------------------------
+[debug] [2023-09-05T15:43:20.747Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\sabbi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-09-05T15:43:20.748Z] CLI Version:   12.5.2
+[debug] [2023-09-05T15:43:20.749Z] Platform:      win32
+[debug] [2023-09-05T15:43:20.749Z] Node Version:  v16.16.0
+[debug] [2023-09-05T15:43:20.751Z] Time:          Tue Sep 05 2023 21:43:20 GMT+0600 (Bangladesh Standard Time)
+[debug] [2023-09-05T15:43:20.751Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-09-05T15:43:20.879Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-09-05T15:43:20.880Z] > authorizing via signed-in user (sabbirahmed1023@gmail.com)
+[debug] [2023-09-05T15:43:20.881Z] [iam] checking project nexiq-1199a for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-09-05T15:43:20.885Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/nexiq-1199a:testIamPermissions [none]
+[debug] [2023-09-05T15:43:20.885Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/nexiq-1199a:testIamPermissions x-goog-quota-user=projects/nexiq-1199a
+[debug] [2023-09-05T15:43:20.886Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nexiq-1199a:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-09-05T15:43:23.342Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/nexiq-1199a:testIamPermissions 200
+[debug] [2023-09-05T15:43:23.343Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nexiq-1199a:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-09-05T15:43:23.344Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/nexiq-1199a [none]
+[debug] [2023-09-05T15:43:24.481Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/nexiq-1199a 200
+[debug] [2023-09-05T15:43:24.482Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/nexiq-1199a {"projectId":"nexiq-1199a","projectNumber":"448801689513","displayName":"NEXIQ","name":"projects/nexiq-1199a","resources":{"hostingSite":"nexiq-1199a"},"state":"ACTIVE","etag":"1_cda4847d-d23d-4f99-baf1-72c380790227"}
+[info] 
+[info] === Deploying to 'nexiq-1199a'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2023-09-05T15:43:24.498Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/nexiq-1199a/versions [none]
+[debug] [2023-09-05T15:43:24.498Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/nexiq-1199a/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-09-05T15:43:26.258Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/nexiq-1199a/versions 200
+[debug] [2023-09-05T15:43:26.259Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/nexiq-1199a/versions {"name":"projects/448801689513/sites/nexiq-1199a/versions/457cc80c6de541c1","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[nexiq-1199a]: beginning deploy... 
+[info] i  hosting[nexiq-1199a]: found 22 files in build 
+[debug] [2023-09-05T15:43:26.296Z] [hosting] uploading with 200 concurrency
+[debug] [2023-09-05T15:43:27.452Z] [hosting] hash cache [YnVpbGQ] stored for 22 files
+[debug] [2023-09-05T15:43:27.452Z] [hosting][hash queue][FINAL] {"max":1138,"min":48,"avg":102.45454545454545,"active":0,"complete":22,"success":22,"errored":0,"retried":0,"total":22,"elapsed":1148}
+[debug] [2023-09-05T15:43:27.453Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/448801689513/sites/nexiq-1199a/versions/457cc80c6de541c1:populateFiles [none]
+[debug] [2023-09-05T15:43:27.453Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/448801689513/sites/nexiq-1199a/versions/457cc80c6de541c1:populateFiles {"files":{"/asset-manifest.json":"fa6a407ec2977ebe19b6b950d6570eabac127aa01b21899565fedb07b33a73be","/img.json":"f0b2430e7fa0a0b6a860e550accba9bad24b127847c82d5016dbde04bd2d819a","/index.html":"3cc3c5402f5c7899a174b468b22b12e9a38f0e2cfa7454f4b76810f27dbbeb96","/blogs.json":"a6f72a8561831145de1e205c318fa5c09592c275722ac5bb1d5928d36272de4e","/manifest.json":"5c997de1364b8be939319fa9209abd77f2caf7f8844999a9e2e9173f844e7840","/favicon.ico":"aea9e32b8dbc8724f84741548938913e0013cfe00770f4ff892f9814845964c5","/data.json":"18eea1abb87c1b0886f82a3c465ef98280c9d5829cc23bc237bc72cc37755f31","/robots.txt":"b2090cf9761ef60aa06e4fab97679bd43dfa5e5df073701ead5879d7c68f1ec5","/static/js/787.04e02c0f.chunk.js":"cbec1fc43ebcfe6b78f7792a227445387d75c69950905efe10617c820123cc8d","/logo192.png":"3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b","/logo512.png":"ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331","/static/js/787.04e02c0f.chunk.js.map":"d10b54c70d4f806c7e10b8a19f7a4c40c343201b0fe6a11b2aab6d91a8053716","/static/js/main.2c837c17.js.LICENSE.txt":"a46860ec1e5b09b3f0bae58a17da7475275aea5df5798003e638206e43105e96","/static/css/main.3c25d386.css.map":"7be2f819fce91cd2aa60cedeb046e4515ba5d16d9475e3174752207b4fb6f41f","/static/media/icon2.ba9a17bbc638739a5a69.png":"20b679cdbb3a13894590e88be7a9156e6eec918d55d093dbca7ff38e3bf1f889","/static/css/main.3c25d386.css":"879a5df6070bdead7f6b8711f165212ee6cc7e395efc5651b15c24f110eac002","/static/media/backgroundImage.d2dcb780348d06891676.jpg":"409b59d901c520609be6c5c8aaf7e94f3bb756500b700c79ce6c0ca736c57943","/static/media/hero img.5b368ad5dcf697e770e1.png":"39d01101eddab811ad99bdf10e4cc13306fdcf7cffe22266e5b8f76375e74deb","/static/media/icon3.a03e6c58fb720b1956c4.png":"398733e753a7837eb392a49b0322c6bc28ff0cc3a24375a05e0d7b00d137c120","/static/media/icon.a45337c213c3965c06fa.png":"839082a34427ce7026db465318c88b7b6262ed51341f49e24b017620f52aa20a","/static/js/main.2c837c17.js":"0bf2e0a5ef7d1ffe6cbd68feb4a084ddc59cfb177e2c277f6f7a9e6717ca24bc","/static/js/main.2c837c17.js.map":"8963870968c01d4ef4633605abc377967d3346e8e3c8fc4356b1ef27b8d790a2"}}
+[debug] [2023-09-05T15:43:29.182Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/448801689513/sites/nexiq-1199a/versions/457cc80c6de541c1:populateFiles 200
+[debug] [2023-09-05T15:43:29.182Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/448801689513/sites/nexiq-1199a/versions/457cc80c6de541c1:populateFiles {"uploadRequiredHashes":["8963870968c01d4ef4633605abc377967d3346e8e3c8fc4356b1ef27b8d790a2","0bf2e0a5ef7d1ffe6cbd68feb4a084ddc59cfb177e2c277f6f7a9e6717ca24bc","879a5df6070bdead7f6b8711f165212ee6cc7e395efc5651b15c24f110eac002","b2090cf9761ef60aa06e4fab97679bd43dfa5e5df073701ead5879d7c68f1ec5","fa6a407ec2977ebe19b6b950d6570eabac127aa01b21899565fedb07b33a73be","7be2f819fce91cd2aa60cedeb046e4515ba5d16d9475e3174752207b4fb6f41f","3cc3c5402f5c7899a174b468b22b12e9a38f0e2cfa7454f4b76810f27dbbeb96","5c997de1364b8be939319fa9209abd77f2caf7f8844999a9e2e9173f844e7840"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files"}
+[debug] [2023-09-05T15:43:29.188Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/8963870968c01d4ef4633605abc377967d3346e8e3c8fc4356b1ef27b8d790a2 [none]
+[debug] [2023-09-05T15:43:29.189Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/8963870968c01d4ef4633605abc377967d3346e8e3c8fc4356b1ef27b8d790a2 [stream]
+[debug] [2023-09-05T15:43:29.190Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/0bf2e0a5ef7d1ffe6cbd68feb4a084ddc59cfb177e2c277f6f7a9e6717ca24bc [none]
+[debug] [2023-09-05T15:43:29.191Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/0bf2e0a5ef7d1ffe6cbd68feb4a084ddc59cfb177e2c277f6f7a9e6717ca24bc [stream]
+[debug] [2023-09-05T15:43:29.192Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/879a5df6070bdead7f6b8711f165212ee6cc7e395efc5651b15c24f110eac002 [none]
+[debug] [2023-09-05T15:43:29.192Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/879a5df6070bdead7f6b8711f165212ee6cc7e395efc5651b15c24f110eac002 [stream]
+[debug] [2023-09-05T15:43:29.193Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/b2090cf9761ef60aa06e4fab97679bd43dfa5e5df073701ead5879d7c68f1ec5 [none]
+[debug] [2023-09-05T15:43:29.194Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/b2090cf9761ef60aa06e4fab97679bd43dfa5e5df073701ead5879d7c68f1ec5 [stream]
+[debug] [2023-09-05T15:43:29.195Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/fa6a407ec2977ebe19b6b950d6570eabac127aa01b21899565fedb07b33a73be [none]
+[debug] [2023-09-05T15:43:29.195Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/fa6a407ec2977ebe19b6b950d6570eabac127aa01b21899565fedb07b33a73be [stream]
+[debug] [2023-09-05T15:43:29.197Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/7be2f819fce91cd2aa60cedeb046e4515ba5d16d9475e3174752207b4fb6f41f [none]
+[debug] [2023-09-05T15:43:29.197Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/7be2f819fce91cd2aa60cedeb046e4515ba5d16d9475e3174752207b4fb6f41f [stream]
+[debug] [2023-09-05T15:43:29.199Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/3cc3c5402f5c7899a174b468b22b12e9a38f0e2cfa7454f4b76810f27dbbeb96 [none]
+[debug] [2023-09-05T15:43:29.199Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/3cc3c5402f5c7899a174b468b22b12e9a38f0e2cfa7454f4b76810f27dbbeb96 [stream]
+[debug] [2023-09-05T15:43:29.203Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/5c997de1364b8be939319fa9209abd77f2caf7f8844999a9e2e9173f844e7840 [none]
+[debug] [2023-09-05T15:43:29.203Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/5c997de1364b8be939319fa9209abd77f2caf7f8844999a9e2e9173f844e7840 [stream]
+[debug] [2023-09-05T15:43:29.205Z] [hosting][populate queue][FINAL] {"max":1739,"min":1739,"avg":1739,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1756}
+[debug] [2023-09-05T15:43:29.205Z] [hosting] uploads queued: 8
+[debug] [2023-09-05T15:43:32.886Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/7be2f819fce91cd2aa60cedeb046e4515ba5d16d9475e3174752207b4fb6f41f 200
+[debug] [2023-09-05T15:43:32.886Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/7be2f819fce91cd2aa60cedeb046e4515ba5d16d9475e3174752207b4fb6f41f [stream]
+[debug] [2023-09-05T15:43:32.987Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/5c997de1364b8be939319fa9209abd77f2caf7f8844999a9e2e9173f844e7840 200
+[debug] [2023-09-05T15:43:32.988Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/5c997de1364b8be939319fa9209abd77f2caf7f8844999a9e2e9173f844e7840 [stream]
+[debug] [2023-09-05T15:43:32.989Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/b2090cf9761ef60aa06e4fab97679bd43dfa5e5df073701ead5879d7c68f1ec5 200
+[debug] [2023-09-05T15:43:32.989Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/b2090cf9761ef60aa06e4fab97679bd43dfa5e5df073701ead5879d7c68f1ec5 [stream]
+[debug] [2023-09-05T15:43:32.990Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/3cc3c5402f5c7899a174b468b22b12e9a38f0e2cfa7454f4b76810f27dbbeb96 200
+[debug] [2023-09-05T15:43:32.990Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/3cc3c5402f5c7899a174b468b22b12e9a38f0e2cfa7454f4b76810f27dbbeb96 [stream]
+[debug] [2023-09-05T15:43:32.992Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/fa6a407ec2977ebe19b6b950d6570eabac127aa01b21899565fedb07b33a73be 200
+[debug] [2023-09-05T15:43:32.992Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/fa6a407ec2977ebe19b6b950d6570eabac127aa01b21899565fedb07b33a73be [stream]
+[debug] [2023-09-05T15:43:35.467Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/879a5df6070bdead7f6b8711f165212ee6cc7e395efc5651b15c24f110eac002 200
+[debug] [2023-09-05T15:43:35.467Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/879a5df6070bdead7f6b8711f165212ee6cc7e395efc5651b15c24f110eac002 [stream]
+[debug] [2023-09-05T15:43:37.354Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/0bf2e0a5ef7d1ffe6cbd68feb4a084ddc59cfb177e2c277f6f7a9e6717ca24bc 200
+[debug] [2023-09-05T15:43:37.355Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/0bf2e0a5ef7d1ffe6cbd68feb4a084ddc59cfb177e2c277f6f7a9e6717ca24bc [stream]
+[debug] [2023-09-05T15:43:57.465Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/8963870968c01d4ef4633605abc377967d3346e8e3c8fc4356b1ef27b8d790a2 200
+[debug] [2023-09-05T15:43:57.465Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/nexiq-1199a/versions/457cc80c6de541c1/files/8963870968c01d4ef4633605abc377967d3346e8e3c8fc4356b1ef27b8d790a2 [stream]
+[debug] [2023-09-05T15:43:57.466Z] [hosting][upload queue][FINAL] {"max":28283,"min":3699,"avg":7706,"active":0,"complete":8,"success":8,"errored":0,"retried":0,"total":8,"elapsed":28283}
+[info] +  hosting[nexiq-1199a]: file upload complete 
+[debug] [2023-09-05T15:43:57.469Z] [hosting] deploy completed after 31207ms
+[debug] [2023-09-05T15:43:57.469Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "nexiq-1199a"
+    },
+    "version": "projects/448801689513/sites/nexiq-1199a/versions/457cc80c6de541c1"
+  }
+]
+[info] i  hosting[nexiq-1199a]: finalizing version... 
+[debug] [2023-09-05T15:43:57.474Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/nexiq-1199a/versions/457cc80c6de541c1 updateMask=status%2Cconfig
+[debug] [2023-09-05T15:43:57.474Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/nexiq-1199a/versions/457cc80c6de541c1 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2023-09-05T15:43:59.045Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/nexiq-1199a/versions/457cc80c6de541c1 200
+[debug] [2023-09-05T15:43:59.045Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/nexiq-1199a/versions/457cc80c6de541c1 {"name":"projects/448801689513/sites/nexiq-1199a/versions/457cc80c6de541c1","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2023-09-05T15:43:30.283076Z","createUser":{"email":"sabbirahmed1023@gmail.com"},"finalizeTime":"2023-09-05T15:44:03.381065Z","finalizeUser":{"email":"sabbirahmed1023@gmail.com"}}
+[debug] [2023-09-05T15:43:59.046Z] [hosting] finalized version for nexiq-1199a:[object Object]
+[info] +  hosting[nexiq-1199a]: version finalized 
+[info] i  hosting[nexiq-1199a]: releasing new version... 
+[debug] [2023-09-05T15:43:59.049Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/nexiq-1199a/channels/live/releases versionName=projects%2F448801689513%2Fsites%2Fnexiq-1199a%2Fversions%2F457cc80c6de541c1
+[debug] [2023-09-05T15:43:59.049Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/nexiq-1199a/channels/live/releases {}
+[debug] [2023-09-05T15:44:00.472Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/nexiq-1199a/channels/live/releases 200
+[debug] [2023-09-05T15:44:00.472Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/nexiq-1199a/channels/live/releases {"name":"projects/448801689513/sites/nexiq-1199a/channels/live/releases/1693928644121000","version":{"name":"projects/448801689513/sites/nexiq-1199a/versions/457cc80c6de541c1","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2023-09-05T15:43:30.283076Z","createUser":{"email":"sabbirahmed1023@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AAcHTtdqiTPgmFhWYbfTMcGWfumuwP_A11mknDw4zOz9qP6HeW4"},"finalizeTime":"2023-09-05T15:44:03.381065Z","finalizeUser":{"email":"sabbirahmed1023@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AAcHTtdqiTPgmFhWYbfTMcGWfumuwP_A11mknDw4zOz9qP6HeW4"}},"type":"DEPLOY","releaseTime":"2023-09-05T15:44:04.121Z","releaseUser":{"email":"sabbirahmed1023@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AAcHTtdqiTPgmFhWYbfTMcGWfumuwP_A11mknDw4zOz9qP6HeW4"}}
+[debug] [2023-09-05T15:44:00.473Z] [hosting] release: {"name":"projects/448801689513/sites/nexiq-1199a/channels/live/releases/1693928644121000","version":{"name":"projects/448801689513/sites/nexiq-1199a/versions/457cc80c6de541c1","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2023-09-05T15:43:30.283076Z","createUser":{"email":"sabbirahmed1023@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AAcHTtdqiTPgmFhWYbfTMcGWfumuwP_A11mknDw4zOz9qP6HeW4"},"finalizeTime":"2023-09-05T15:44:03.381065Z","finalizeUser":{"email":"sabbirahmed1023@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AAcHTtdqiTPgmFhWYbfTMcGWfumuwP_A11mknDw4zOz9qP6HeW4"}},"type":"DEPLOY","releaseTime":"2023-09-05T15:44:04.121Z","releaseUser":{"email":"sabbirahmed1023@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AAcHTtdqiTPgmFhWYbfTMcGWfumuwP_A11mknDw4zOz9qP6HeW4"}}
+[info] +  hosting[nexiq-1199a]: release complete 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/nexiq-1199a/overview
+[info] Hosting URL: https://nexiq-1199a.web.app
+[debug] [2023-09-05T15:44:10.466Z] Error: Timed out.
+    at Timeout.<anonymous> (C:\Users\sabbi\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:254:49)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+[error] 
+[error] Error: An unexpected error has occurred.

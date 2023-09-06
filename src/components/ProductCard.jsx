@@ -6,7 +6,6 @@ import {
   AiOutlineShopping,
   AiOutlineEye,
   AiFillHeart,
-  AiTwotoneEdit,
 } from "react-icons/ai";
 import "./ProductCard.css";
 import Modal from "../shared/Modal";
@@ -14,7 +13,6 @@ import ProductQuickDetails from "./ProductQuickDetails";
 import { useAuthState } from "react-firebase-hooks/auth";
 import useAdmin from "../hooks/useAdmin";
 import auth from "../firebase.init";
-import EditProduct from "./Product/EditProduct";
 import FormatePrice from "../helper/FormatePrice";
 
 const ProductCard = ({ product }) => {
@@ -62,41 +60,28 @@ const ProductCard = ({ product }) => {
               </div>
             </div>
             <div className="absolute right-0 flex flex-col gap-3 m-4 ">
-              {!admin && (
-                <>
-                  <button
-                    onClick={() => setWishlist(!wishlist)}
-                    className="text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block hover:bg-primary-700 hover:text-white duration-300"
-                    href="#"
-                  >
-                    {!wishlist && <AiOutlineHeart />}
-                    {wishlist && <AiFillHeart className="text-[#FF5555]" />}
-                  </button>
-                  <a
-                    className="text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block hover:bg-primary-700 hover:text-white duration-300"
-                    href="#"
-                  >
-                    <AiOutlineShopping />
-                  </a>
+              <button
+                onClick={() => setWishlist(!wishlist)}
+                className="text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block hover:bg-primary-700 hover:text-white duration-300"
+                href="#"
+              >
+                {!wishlist && <AiOutlineHeart />}
+                {wishlist && <AiFillHeart className="text-[#FF5555]" />}
+              </button>
+              <a
+                className="text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block hover:bg-primary-700 hover:text-white duration-300"
+                href="#"
+              >
+                <AiOutlineShopping />
+              </a>
 
-                  <button
-                    onClick={openModal}
-                    className="text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block hover:bg-primary-700 hover:text-white duration-300"
-                    href="#"
-                  >
-                    <AiOutlineEye />
-                  </button>
-                </>
-              )}
-
-              {admin && (
-                <label
-                  htmlFor="my-modal-4"
-                  className="modal-button modal-open cursor-pointer text-error border-[1px] border-error p-2 rounded-[5px] hidden group-hover:block hover:bg-primary-700 hover:text-white duration-300"
-                >
-                  <AiTwotoneEdit />
-                </label>
-              )}
+              <button
+                onClick={openModal}
+                className="text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block hover:bg-primary-700 hover:text-white duration-300"
+                href="#"
+              >
+                <AiOutlineEye />
+              </button>
             </div>
           </div>
         </div>
@@ -104,7 +89,6 @@ const ProductCard = ({ product }) => {
       <Modal isOpen={isOpen} onClose={closeModal}>
         <ProductQuickDetails product={product} />
       </Modal>
-      <EditProduct product={product} />
     </div>
   );
 };
