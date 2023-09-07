@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
@@ -8,6 +8,7 @@ import useToken from '../../hooks/useToken';
 import { FcGoogle } from 'react-icons/fc';
 
 const SignIn = () => {
+    const [email, setEmail] = useState('')
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
 
@@ -45,29 +46,32 @@ const SignIn = () => {
         signInWithEmailAndPassword(data.email, data.password);
     };
 
+
     return (
-        <section className='lg:h-[90vh] md:h-[90vh] h-[80vh] lg:bg-gray-100 md:bg-gray-100 flex justify-center items-center'>
-            <div className="card w-96 bg-gray-100 shadow-xl">
-                <div className="card-body">
-                    <div className='mb-2 text-secondary-500'>
-                        <p className='text-sm'>Note: To check admin functionality please fill up</p>
-                        <p className='text-sm'>Email: <span className='text-gray-500'>admin@gmail.com</span> Password: <span className='text-gray-500'>123456</span></p>
-                        <p></p>
+        <section className='h-full flex justify-center items-center pt-6'>
+            <div className="w-96 border rounded-lg p-6">
+                <div className='space-y-4'>
+                    <div className='text-sm'>
+                        <p className='font-semibold text-gray-500'>login as a:</p>
+                        <div className='space-x-2'>
+                            <button className='text-primary-500 hover:text-secondary-500 duration-200' onClick={() => setEmail('user@gmail.com')}>user@gmail.com</button>
+                            <button className='text-primary-500 hover:text-secondary-500 duration-200' onClick={() => setEmail('admin@gmail.com')}>admin@gmail.com</button>
+                        </div>
                     </div>
 
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <form className='space-y-4' onSubmit={handleSubmit(onSubmit)}>
 
-                        <div className="form-control w-full max-w-xs">
+                        <div className="w-full">
 
 
                             <label className="label">
-                                <span className="label-text">Email</span>
+                                <span className="text-black font-semibold text-sm tracking-wider">Your email</span>
                             </label>
                             <input
                                 type="email"
                                 placeholder="Your Email"
-                                className="input input-bordered w-full max-w-xs"
-                                defaultValue='user@gmail.com'
+                                className="w-full border border-gray-500 py-2 pl-2 rounded-lg"
+                                defaultValue={email}
                                 autoFocus={true}
                                 {...register("email", {
                                     required: {
@@ -88,14 +92,14 @@ const SignIn = () => {
                             </label>
                         </div>
 
-                        <div className="form-control w-full max-w-xs">
+                        <div className="w-full">
                             <label className="label">
-                                <span className="label-text">Password</span>
+                                <span className="text-black font-semibold text-sm tracking-wider">Password</span>
                             </label>
                             <input
                                 type="Password"
                                 placeholder="Password"
-                                className="input input-bordered w-full max-w-xs"
+                                className="w-full border border-gray-500 py-2 pl-2 rounded-lg"
                                 defaultValue='123456'
                                 {...register("password", {
                                     required: {
@@ -118,12 +122,23 @@ const SignIn = () => {
                         {signInError}
 
 
-                        <input type="submit" value="Sign in" className='btn btn-primary w-full' />
+                        <input type="submit" value="Sign in" className='bg-primary-700 hover:bg-primary-600 duration-300 text-white py-2 w-full rounded-lg cursor-pointer shadow-lg' />
 
                     </form>
-                    <p className='text-sm' >New to Doctors Portal? <Link to="/signUp" className='text-error hover:link'>Sign Up</Link></p>
-                    <div className="divider">OR</div>
-                    <button onClick={() => signInWithGoogle()} className="btn btn-accent border-primary-700 "><FcGoogle className='text-3xl mr-2' /> CONTINUE WITH GOOGLE</button>
+
+                    <div className='flex items-center space-x-2'>
+                        <div className='w-full border'></div>
+                        <span>OR</span>
+                        <div className='w-full border'></div>
+                    </div>
+                    <button onClick={() => signInWithGoogle()} className="bg-gray-100 py-2 w-full flex items-center justify-center hover:shadow-md duration-300">
+                        <span className='flex items-center'><FcGoogle className='text-3xl mr-2' /><span>Sign In with Google</span></span>
+                    </button>
+
+                    <div className='text-sm flex flex-col space-y-1 justify-center items-center' >
+                        <span>Don't have an account?</span>
+                        <Link to="/signUp" className='text-primary-700 font-semibold'>Sign Up</Link>
+                    </div>
 
                 </div>
             </div>

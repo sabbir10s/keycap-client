@@ -80,11 +80,11 @@ function App() {
                 <Route index element={<Orders />} />
                 <Route path='payment/:id' element={<Payment />} />
                 <Route path='review' element={<RequireUser><AddReview /></RequireUser>} />
-
+                <Route path='profile' element={<RequireUser><Profile /></RequireUser>} />
               </Route>
           }
 
-          <Route path='/profile' element={<PrivateRoute><Profile /></PrivateRoute>} />
+
 
           <Route path='*' element={<NotFound />} />
         </Routes>

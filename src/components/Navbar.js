@@ -25,7 +25,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className='sticky top-0 z-40 bg-gray-100  border-b-2 border-primary-700 shadow-lg'>
+            <div className='sticky top-0 bg-gray-100  border-b-2 border-primary-700 shadow-lg'>
                 <div className="navbar container mx-auto">
                     <div className="navbar-start">
                         <div>
