@@ -5,7 +5,7 @@ import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../../../../components/Loading';
 import auth from '../../../../firebase.init';
-import OrderCart from './OrderCart';
+import OrderRows from './OrderRows';
 
 const Orders = () => {
 
@@ -35,20 +35,9 @@ const Orders = () => {
     }
 
 
-
     return (
-        <div className='mx-5'>
-            <p className='text-xl  mt-5 font-bold'>My Orders</p>
-            <div className="divider"></div>
-
-            <div>
-                <div className='grid md:grid-cols-2 gap-5 mb-5 '>
-                    {
-                        orders.map((order) => <OrderCart key={order._ke} refetch={refetch} order={order} />)
-                    }
-                </div>
-            </div>
-
+        <div className='m-5'>
+            {orders?.slice(0, 5).map((order) => <OrderRows order={order} key={order._id} />)}
         </div>
     );
 };

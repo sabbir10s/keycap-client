@@ -2,8 +2,8 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import Footer from '../../components/Footer';
 import Loading from '../../components/Loading';
-import BlogCart from './BlogCart';
 import RecentBlog from './RecentBlog';
+import BlogCard from './BlogCard';
 
 const Blogs = () => {
 
@@ -38,7 +38,7 @@ const Blogs = () => {
                 </div>
                 <div className='col-span-3 grid lg:grid-cols-2 gap-10'>
                     {
-                        blogs.map(blog => <BlogCart key={blog._id} blog={blog}></BlogCart>)
+                        blogs.map(blog => <BlogCard key={blog._id} blog={blog}></BlogCard>)
                     }
                 </div>
             </div>

@@ -6,7 +6,7 @@ const DashBoard = () => {
 
 
     return (
-        <div className='flex' >
+        <div className='flex container mx-auto' >
             <div className="hidden lg:block fixed inset-y-0 left-0 h-screen pt-20 bg-gray-100 w-64 p-4 overflow-y-auto">
                 <Sidebar />
             </div>

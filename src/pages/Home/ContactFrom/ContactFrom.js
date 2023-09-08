@@ -17,7 +17,7 @@ const ContactFrom = () => {
                 <h1 className='text-4xl text-center text-gray-100 md:pb-6'>Contact with us</h1>
 
                 <div className='flex justify-center'>
-                    <div className="w-full max-w-lg">
+                    <div className="w-full max-w-lg mx-2">
                         <div>
                             <form className=' space-y-4' onSubmit={handleMessageSubmit}>
                                 <div className='flex flex-col lg:flex-row gap-3 w-full'>
@@ -49,7 +49,7 @@ const ContactFrom = () => {
                                     <textarea name="message" required id="" cols="30" rows="4" placeholder='Message' autoComplete='off' className="border border-primary-700 p-[10px] rounded-md focus:outline-secondary" ></textarea>
                                 </div>
                                 <div className=" mt-5">
-                                    <button className="text-white bg-secondary-500 hover:bg-orange-600 duration-300 shadow-lg uppercase text-lg py-[10px] rounded-lg w-full">submit</button>
+                                    <button className="text-white bg-secondary-500 hover:bg-orange-600 duration-300 shadow-lg uppercase text-lg py-[10px] rounded-md w-full">submit</button>
                                 </div>
 
                             </form>

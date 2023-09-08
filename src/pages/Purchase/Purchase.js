@@ -43,7 +43,8 @@ const Purchase = () => {
         const quantity = event.target.quantity.value;
         const price = product.price;
         const totalPrice = parseInt(quantity) * product?.price;
-        const orderInfo = { name, image, email, phone, address, productName, price, quantity, totalPrice };
+        const status = 'pending'
+        const orderInfo = { name, image, email, phone, address, productName, price, quantity, totalPrice, status };
 
         const url = `https://nexiq-server.vercel.app/order`;
 
@@ -132,7 +133,7 @@ const Purchase = () => {
                                 <label className='text-sm'>Quantity</label>
                                 <div className='flex justify-between flex-col lg:flex-row gap-5 mt-1'>
                                     <input onChange={orderQuantity} className='border border-primary-700 pl-3 py-2 rounded-md w-full' type="number" name="quantity" id="" required />
-                                    <button type='submit' disabled={newQuantity.quantity < 1 || newQuantity.quantity > quantity} className='bg-primary-700/90 text-base-100 px-5 py-3 shadow-md shadow-secondary hover:bg-primary-700 duration-300 rounded-lg block disabled:bg-gray-300 disabled:shadow-none w-full'>Place Order</button>
+                                    <button type='submit' disabled={newQuantity.quantity < 1 || newQuantity.quantity > quantity} className='bg-primary-700/90 text-gray-100 px-5 py-3 shadow-md shadow-secondary hover:bg-primary-700 duration-300 rounded-lg block disabled:bg-gray-300 disabled:shadow-none w-full'>Place Order</button>
                                 </div>
                             </div>
                         </form>

@@ -35,7 +35,7 @@ const FeaturedProducts = () => {
       <div className="flex justify-center mt-16">
         <Link
           to="/products"
-          className="bg-secondary-500 text-base-100 px-8 py-3 rounded shadow-md shadow-base-300/50"
+          className="bg-secondary-500 text-gray-100 px-8 py-3 rounded shadow-md shadow-base-300/50"
         >
           View All Products
         </Link>

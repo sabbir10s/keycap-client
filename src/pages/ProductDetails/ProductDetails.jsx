@@ -56,7 +56,7 @@ const ProductQuickDetails = () => {
 
               <button
                 onClick={handlePurchase}
-                className="bg-primary-700 shadow-md shadow-secondary/50 text-base-100 px-10 py-2 rounded my-5"
+                className="bg-primary-700 shadow-md shadow-secondary/50 text-gray-100 px-10 py-2 rounded my-5"
               >
                 Order Now
               </button>

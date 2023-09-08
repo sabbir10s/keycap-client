@@ -1,7 +1,5 @@
 import React from 'react';
 import { toast } from 'react-toastify';
-import { FiEdit } from 'react-icons/fi';
-import EditProduct from '../../../../components/Product/EditProduct';
 
 
 const ProductRow = ({ product, setIsReload, reload, index }) => {
@@ -32,12 +30,6 @@ const ProductRow = ({ product, setIsReload, reload, index }) => {
             <td>{price}</td>
             <td>{quantity}</td>
             <td className='flex justify-between items-center'>
-                <label
-                    htmlFor="my-modal-4"
-                    className="modal-button modal-open cursor-pointer text-primary-700 text-xl"
-                >
-                    <FiEdit />
-                </label>
 
                 <button onClick={() => handleDelete(_id)} className='btn-xs text-gray-400'>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -45,7 +37,6 @@ const ProductRow = ({ product, setIsReload, reload, index }) => {
                     </svg></button>
             </td>
 
-            <EditProduct product={product} />
         </tr>
     );
 };

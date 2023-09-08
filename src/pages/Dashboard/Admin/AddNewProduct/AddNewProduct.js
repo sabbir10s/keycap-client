@@ -220,7 +220,7 @@ const AddNewProduct = () => {
                         </div>
 
 
-                        <input type="submit" value="Upload Product" className='bg-primary-700 text-base-100 text-lg py-3 w-full rounded-md shadow shadow-secondary cursor-pointer' />
+                        <input type="submit" value="Upload Product" className='bg-primary-700 text-gray-100 text-lg py-3 w-full rounded-md shadow shadow-secondary cursor-pointer' />
                     </div>
                 </form>
             </div>
