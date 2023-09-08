@@ -22,28 +22,28 @@ const ContactFrom = () => {
                             <form onSubmit={handleMessageSubmit}>
                                 <div className='flex flex-col lg:flex-row gap-3 w-full'>
                                     <div className="form-control w-full">
-                                        <label className="label">
+                                        <label >
                                             <span className="label-text text-base-100">Name</span>
                                         </label>
                                         <input type="text" name='name' placeholder="Name" required autoComplete='off' className="border border-primary-700 p-[10px] rounded-md focus:outline-secondary" />
                                     </div>
 
                                     <div className="form-control w-full">
-                                        <label className="label">
+                                        <label >
                                             <span className="label-text text-base-100">Subject</span>
                                         </label>
                                         <input type="text" name='subject' placeholder="Subject" required autoComplete='off' className="border border-primary-700 p-[10px] rounded-md focus:outline-secondary" />
                                     </div>
                                 </div>
                                 <div className="form-control">
-                                    <label className="label">
+                                    <label >
                                         <span className="label-text text-base-100">Email</span>
                                     </label>
                                     <input type="email" name='email' placeholder="email" required autoComplete='off' className="border border-primary-700 p-[10px] rounded-md focus:outline-secondary" />
                                 </div>
 
                                 <div className="form-control">
-                                    <label className="label">
+                                    <label >
                                         <span className="label-text text-base-100">Message</span>
                                     </label>
                                     <textarea name="message" required id="" cols="30" rows="4" placeholder='Message' autoComplete='off' className="border border-primary-700 p-[10px] rounded-md focus:outline-secondary" ></textarea>

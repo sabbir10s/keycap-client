@@ -25,7 +25,7 @@ const ProductQuickDetails = ({ product }) => {
           <p className="text-xl lg:text-4xl font-bold text-primary-700">
             {name}
           </p>
-          <small className="bg-success/20 font-bold tracking-wider inline-block px-2 rounded-full mb-4 mt-2">
+          <small className="bg-success/20 font-bold  inline-block px-2 rounded-full mb-4 mt-2">
             <span className="text-success">Stock:</span>{" "}
             <span className="text-error">{quantity}</span>
           </small>

@@ -67,7 +67,7 @@ const AddNewProduct = () => {
 
                     <div className="form-control w-full">
                         <label className="label pt-0">
-                            <span className="label-text">Product Name</span>
+                            <span >Product Name</span>
                         </label>
                         <input
                             type="text"
@@ -87,7 +87,7 @@ const AddNewProduct = () => {
                     <div className='flex flex-col lg:flex-row items-center lg:gap-10'>
                         <div className="form-control w-full">
                             <label className="label pt-0">
-                                <span className="label-text">Category</span>
+                                <span >Category</span>
                             </label>
 
                             <select className="border border-primary-700 p-[8px] rounded-md focus:outline-secondary"
@@ -110,7 +110,7 @@ const AddNewProduct = () => {
 
                         <div className="form-control w-full">
                             <label className="label pt-2">
-                                <span className="label-text">Price</span>
+                                <span >Price</span>
                             </label>
                             <input
                                 type="number"
@@ -123,7 +123,7 @@ const AddNewProduct = () => {
                                     }
                                 })}
                             />
-                            <label className="label">
+                            <label >
                                 {errors.price?.type === 'required' && <span className="label-text-alt text-error">{errors.price.message}</span>}
                             </label>
                         </div>
@@ -133,7 +133,7 @@ const AddNewProduct = () => {
 
                         <div className="form-control w-full">
                             <label className="label pt-0">
-                                <span className="label-text">Quantity</span>
+                                <span >Quantity</span>
                             </label>
                             <input
                                 type="number"
@@ -146,13 +146,13 @@ const AddNewProduct = () => {
                                     }
                                 })}
                             />
-                            <label className="label">
+                            <label >
                                 {errors.quantity?.type === 'required' && <span className="label-text-alt text-error">{errors.quantity.message}</span>}
                             </label>
                         </div>
                         <div className="form-control w-full">
                             <label className="label pt-0">
-                                <span className="label-text">Minimum Order</span>
+                                <span >Minimum Order</span>
                             </label>
                             <input
                                 type="number"
@@ -165,7 +165,7 @@ const AddNewProduct = () => {
                                     }
                                 })}
                             />
-                            <label className="label">
+                            <label >
                                 {errors.minOrder?.type === 'required' && <span className="label-text-alt text-error">{errors.minOrder.message}</span>}
                             </label>
                         </div>
@@ -174,7 +174,7 @@ const AddNewProduct = () => {
 
                     <div className="form-control">
                         <label className="label pt-0">
-                            <span className="label-text">Description</span>
+                            <span >Description</span>
                         </label>
                         <textarea
                             rows="3" cols="50"
@@ -187,7 +187,7 @@ const AddNewProduct = () => {
                                 }
                             })}
                         />
-                        <label className="label">
+                        <label >
                             {errors.description?.type === 'required' && <span className="label-text-alt text-error">{errors.description.message}</span>}
                         </label>
                     </div>

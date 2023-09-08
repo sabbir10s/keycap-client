@@ -2,13 +2,12 @@ import auth from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
-import { FcGoogle } from 'react-icons/fc';
 import Loading from '../../components/Loading';
 import useToken from '../../hooks/useToken';
+import GoogleSignIn from '../../shared/GoogleSignIn';
 
 
 const SignUp = () => {
-
     const { register, formState: { errors }, reset, handleSubmit } = useForm();
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
 
@@ -43,21 +42,21 @@ const SignUp = () => {
     };
 
     return (
-        <section className=' h-[90vh] flex justify-center items-center bg-gray-100'>
-            <div className="card w-96 bg-gray-100 shadow-xl">
-                <div className="card-body">
+        <section className='flex justify-center items-center pt-6'>
+            <div className="md:w-96 border rounded-lg p-6">
+                <div className='space-y-4'>
+                    <h2 className='text-2xl lg:text-3xl font-semibold text-black'>Sign up</h2>
+                    <form className='space-y-4' onSubmit={handleSubmit(onSubmit)}>
 
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <div className="w-full">
 
-                        <div className="form-control w-full max-w-xs">
-
-                            <label className="label">
-                                <span className="label-text">Name</span>
+                            <label>
+                                <span className="text-black font-semibold text-sm">Name</span>
                             </label>
                             <input
                                 type="text"
                                 placeholder="Your Name"
-                                className="input input-bordered w-full max-w-xs"
+                                className="w-full border border-gray-500 py-2 pl-2 rounded-lg"
                                 {...register("name", {
                                     required: {
                                         value: true,
@@ -66,20 +65,20 @@ const SignUp = () => {
                                 })}
 
                             />
-                            <label className="label">
+                            <label >
                                 {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
 
                             </label>
                         </div>
-                        <div className="form-control w-full max-w-xs">
+                        <div className="w-full">
 
-                            <label className="label">
-                                <span className="label-text">Email</span>
+                            <label >
+                                <span className="text-black font-semibold text-sm">Email</span>
                             </label>
                             <input
                                 type="email"
                                 placeholder="Your Email"
-                                className="input input-bordered w-full max-w-xs"
+                                className="w-full border border-gray-500 py-2 pl-2 rounded-lg"
                                 {...register("email", {
                                     required: {
                                         value: true,
@@ -92,21 +91,21 @@ const SignUp = () => {
                                 })}
 
                             />
-                            <label className="label">
+                            <label >
                                 {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
                                 {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
 
                             </label>
                         </div>
 
-                        <div className="form-control w-full max-w-xs">
-                            <label className="label">
-                                <span className="label-text">Password</span>
+                        <div className="w-full">
+                            <label >
+                                <span className="text-black font-semibold text-sm">Password</span>
                             </label>
                             <input
                                 type="Password"
                                 placeholder="Password"
-                                className="input input-bordered w-full max-w-xs"
+                                className="w-full border border-gray-500 py-2 pl-2 rounded-lg"
                                 {...register("password", {
                                     required: {
                                         value: true,
@@ -119,18 +118,26 @@ const SignUp = () => {
                                 })}
 
                             />
-                            <label className="label">
+                            <label >
                                 {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                                 {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
 
                             </label>
                         </div>
                         {signInError}
-                        <input type="submit" value="SIGNUP" className='btn btn-primary w-full' />
+                        <input type="submit" value="Sign up" className='bg-primary-700 hover:bg-primary-600 duration-300 text-white py-2 w-full rounded-lg cursor-pointer shadow-lg' />
                     </form>
-                    <p className='text-sm' >Already have an account? <Link to="/signIn" className='text-error hover:link'>Please Sign in</Link></p>
-                    <div className="divider">OR</div>
-                    <button onClick={() => signInWithGoogle()} className="btn btn-accent border-primary-700 "><FcGoogle className='text-3xl mr-2' /> CONTINUE WITH GOOGLE</button>
+                    <div className='flex items-center space-x-2'>
+                        <div className='w-full border'></div>
+                        <span>OR</span>
+                        <div className='w-full border'></div>
+                    </div>
+                    <GoogleSignIn signInWithGoogle={signInWithGoogle} />
+
+                    <div className='text-sm flex flex-col space-y-1 justify-center items-center' >
+                        <span className='text-gray-500'>Already have a account ?</span>
+                        <Link to="/signIn" className='text-primary-700 font-semibold'>Sign in</Link>
+                    </div>
 
                 </div>
             </div>
