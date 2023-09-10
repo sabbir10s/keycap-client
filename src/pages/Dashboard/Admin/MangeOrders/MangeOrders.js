@@ -22,7 +22,7 @@ const MangeOrders = () => {
     }, [reload])
 
     return (
-        <div className="bg-white dark:bg-gray-700 border-[1px] border-gray-200/80 dark:border-gray-600 rounded-[10px] shadow-custom">
+        <div className="bg-white border-[1px] border-gray-200/80 rounded-[10px] mt-6" >
             <div className="overflow-x-auto">
                 <div className="align-middle inline-block min-w-full">
                     <div className="shadow overflow-hidden border-b border-gray-200 dark:border-gray-600 sm:rounded-lg">

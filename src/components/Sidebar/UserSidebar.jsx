@@ -1,13 +1,12 @@
-import React from "react";
-import SecondaryCustomLink from "../hooks/SecondaryCustomLink";
-import auth from "../firebase.init";
 import { signOut } from "firebase/auth";
 import { MdLogout } from "react-icons/md";
-const Sidebar = ({ handleMobileSidebar, links }) => {
+import SecondaryCustomLink from "../../hooks/SecondaryCustomLink";
+import auth from "../../firebase.init";
+const Sidebar = ({ handleMobileSidebar, items }) => {
   // console.log(items.navigation.map);
   return (
     <ul>
-      {links.map((item) => (
+      {items.navigation.map((item) => (
         <li onClick={handleMobileSidebar} className="p-3">
           <SecondaryCustomLink to={item.path}>{item.label}</SecondaryCustomLink>
         </li>

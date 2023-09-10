@@ -1,12 +1,10 @@
 import { ToastContainer } from 'react-toastify';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import PrivateRoute from './hooks/PrivateRoute';
 import RequireAdmin from './hooks/RequireAdmin';
 import RequireUser from './hooks/RequireUser';
-import Navbar from './components/Navbar';
 import AddReview from './pages/Dashboard/User/AddReview/AddReview';
 import Orders from './pages/Dashboard/User/Orders/Orders';
 import Home from './pages/Home/Home';
@@ -18,9 +16,6 @@ import Payment from './pages/Dashboard/User/Orders/Payment';
 import AddNewProduct from './pages/Dashboard/Admin/AddNewProduct/AddNewProduct';
 import AllUsers from './pages/Dashboard/Admin/MangeUsers/AllUsers';
 import Profile from './pages/Dashboard/Profile/Profile';
-import DashBoard from './pages/Dashboard/Dashboard/Dashboard';
-import auth from './firebase.init';
-import useAdmin from './hooks/useAdmin';
 import MangeOrders from './pages/Dashboard/Admin/MangeOrders/MangeOrders';
 import MangeProducts from './pages/Dashboard/Admin/MangeProducts/MangeProducts';
 import Blogs from './pages/Blogs/Blogs';
@@ -29,6 +24,8 @@ import Products from './pages/Products/Products';
 import { useLayoutEffect } from 'react';
 import ProductDetails from './pages/ProductDetails/ProductDetails';
 import NavLeft from './components/nav';
+import UserDashboard from './pages/Dashboard/Dashboard/UserDashboard';
+import AdminDashboard from './pages/Dashboard/Dashboard/AdminDashboard';
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -39,11 +36,7 @@ const Wrapper = ({ children }) => {
 }
 
 function App() {
-  const [user, loading] = useAuthState(auth)
-  const [admin] = useAdmin(user)
-  if (loading) {
-    return <div className='hidden'>Loading...</div>
-  }
+
   return (
     <div>
       <Wrapper>
@@ -63,26 +56,23 @@ function App() {
           <Route path='/purchase/:id' element={<PrivateRoute>
             <Purchase />
           </PrivateRoute>} />
-          {
-            admin ?
-              <Route path='dashboard' element={<PrivateRoute> <DashBoard /> </PrivateRoute>}>
-                <Route path='mangeUsers' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
-                <Route index element={<RequireAdmin><AddNewProduct /></RequireAdmin>} />
-                <Route path='mangeOrders' element={<RequireAdmin><MangeOrders /></RequireAdmin>} />
-                <Route path='mangeProducts' element={<RequireAdmin>
-                  <MangeProducts />
-                </RequireAdmin>} />
-              </Route>
 
-              :
-              <Route path='dashboard' element={<PrivateRoute> <DashBoard /> </PrivateRoute>}>
+          {/* user */}
+          <Route path='user/dashboard' element={<PrivateRoute> <UserDashboard /> </PrivateRoute>}>
 
-                <Route index element={<Orders />} />
-                <Route path='payment/:id' element={<Payment />} />
-                <Route path='review' element={<RequireUser><AddReview /></RequireUser>} />
-                <Route path='profile' element={<RequireUser><Profile /></RequireUser>} />
-              </Route>
-          }
+            <Route index element={<Orders />} />
+            <Route path='dashboard/profile' element={<RequireUser><Profile /></RequireUser>} />
+            <Route path='payment/:id' element={<Payment />} />
+            <Route path='review' element={<RequireUser><AddReview /></RequireUser>} />
+          </Route>
+
+          {/* admin */}
+          <Route path='admin/dashboard' element={<PrivateRoute><RequireAdmin><AdminDashboard /></RequireAdmin></PrivateRoute>}>
+            <Route path='mangeProducts' element={<RequireAdmin> <MangeProducts /></RequireAdmin>} />
+            <Route path='mangeUsers' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
+            <Route index element={<RequireAdmin><AddNewProduct /></RequireAdmin>} />
+            <Route path='mangeOrders' element={<RequireAdmin><MangeOrders /></RequireAdmin>} />
+          </Route>
 
 
 

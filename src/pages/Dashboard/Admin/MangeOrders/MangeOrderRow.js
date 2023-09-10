@@ -6,10 +6,12 @@ import auth from '../../../../firebase.init';
 import Select from '../../../../components/Select';
 import { useState } from 'react';
 import { stringify } from 'postcss';
+import Dropdown from '../../../../shared/Dropdown';
 
 
 
 const MangeOrderRow = ({ order, setIsReload, reload, index }) => {
+    const [isOpen, setIsOpen] = useState(false);
 
     const navigate = useNavigate()
 
@@ -33,10 +35,12 @@ const MangeOrderRow = ({ order, setIsReload, reload, index }) => {
             .then(data => {
                 if (data.deletedCount) {
                     toast.success('Successfully Deleted')
+                    setIsOpen(false)
                     setIsReload(!reload)
 
                 }
             })
+
 
     }
 
@@ -73,6 +77,13 @@ const MangeOrderRow = ({ order, setIsReload, reload, index }) => {
 
     };
 
+    const [selectedOption, setSelectedOption] = useState(null);
+    const handleOptionClick = (option) => {
+        setSelectedOption(option); // Update the selected option state
+    };
+
+
+
     return (
         <tr
             className="hover:bg-gray-50 dark:hover:bg-gray-600/50"
@@ -102,51 +113,23 @@ const MangeOrderRow = ({ order, setIsReload, reload, index }) => {
                 </div>
             </td>
             <td className="block text-center py-4 text-sm font-medium">
-                <div class="relative inline-flex">
-                    <select class="appearance-none border rounded px-3 py-2 pr-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                        <option value="option1">Option 1</option>
-                        <option value="option2">Option 2</option>
-                        <option value="option3">Option 3</option>
-                    </select>
-                    <div class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                        :
-                    </div>
-                </div>
+                <Dropdown
+                    toggleText=":"
+                    dropBtnClass="cursor-pointer"
+                    dropdownClass="relative z-50"
+                    dropMenuClass="bg-gray-200 absolute  top-5 left-[-15px] w-20 space-y-2 py-2"
+                    defaultOpen={false}
+                    onOptionClick={handleOptionClick} >
+                    <div onClick={() => handleOptionClick("Option 1")}>Option 1</div>
 
+                    <button onClick={() => handleDelete(_id)} className='flex items-center justify-center w-full gap-2'>
+                        <span>Delete</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        </svg></button>
+                </Dropdown>
             </td>
-        </tr>
-        // <tr>
-        //     <th></th>
-        //     <td>{name}</td>
-        //     <td>{productName}</td>
-        //     <td>{price}</td>
-        //     <td>{quantity}</td>
-
-        //     {
-        //         paid ? <td className='text-success'>Paid</td>
-        //             :
-        //             <td className='text-error'>Unpaid</td>
-        //     }
-
-        //     <td className='relative'>
-        //         <span className="text-base absolute z-30 bg-white top-3 left-2">{status}</span>
-        //         <Select className="w-32"
-        //             _id={_id}
-        //             options={options}
-        //             onChange={handleSelectChange} />
-        //     </td>
-
-        //     <td>
-        //         {
-        //             <button onClick={() => handleDelete(_id)} className='btn-xs text-error'>
-        //                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-        //                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-        //                 </svg></button>
-        //         }
-
-        //     </td>
-
-        // </tr>
+        </tr >
     );
 };
 

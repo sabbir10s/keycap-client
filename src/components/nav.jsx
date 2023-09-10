@@ -1,13 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import CustomLink from "../hooks/CustomLink";
-import { signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../firebase.init";
-import { MdOutlineArrowDropDown } from "react-icons/md";
 import { BiMenuAltLeft } from "react-icons/bi";
 import MobileSidebar from "./MobileSidebar";
 import SecondaryCustomLink from "../hooks/SecondaryCustomLink";
+import useAdmin from "../hooks/useAdmin";
 const navItems = [
   {
     name: "Home",
@@ -23,6 +22,9 @@ const navItems = [
   },
 ];
 const NavLeft = () => {
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
+
   // Mobile sidebar
   const [mobileSidebar, setMobileSidebar] = useState(false);
 
@@ -31,7 +33,6 @@ const NavLeft = () => {
     setMobileSidebar(false);
   };
   const { pathname } = useLocation();
-  const [user] = useAuthState(auth);
 
   //Dropdown options
   const [isOpen, setIsOpen] = useState(false);
@@ -92,9 +93,17 @@ const NavLeft = () => {
 
             <div className="flex items-center gap-4">
               <div className="hidden lg:flex lg:gap-4 ">
-                {user && (
+                {!admin && user && (
                   <Link
-                    to="/dashboard"
+                    to="user/dashboard"
+                    className="text-primary-700 text-base uppercase font-bold border-2 border-primary-700 w-8 h-8 rounded-full flex justify-center items-center"
+                  >
+                    {user?.displayName.slice(0, 1)}{" "}
+                  </Link>
+                )}
+                {admin && (
+                  <Link
+                    to="admin/dashboard"
                     className="text-primary-700 text-base uppercase font-bold border-2 border-primary-700 w-8 h-8 rounded-full flex justify-center items-center"
                   >
                     {user?.displayName.slice(0, 1)}{" "}
