@@ -115,9 +115,9 @@ const MangeOrderRow = ({ order, setIsReload, reload, index }) => {
             <td className="block text-center py-4 text-sm font-medium">
                 <Dropdown
                     toggleText=":"
-                    dropBtnClass="cursor-pointer"
-                    dropdownClass="relative z-50"
-                    dropMenuClass="bg-gray-200 absolute  top-5 left-[-15px] w-20 space-y-2 py-2"
+                    dropBtnclassName="cursor-pointer"
+                    dropdownclassName="relative z-50"
+                    dropMenuclassName="bg-gray-200 absolute  top-5 left-[-15px] w-20 space-y-2 py-2"
                     defaultOpen={false}
                     onOptionClick={handleOptionClick} >
                     <div onClick={() => handleOptionClick("Option 1")}>Option 1</div>

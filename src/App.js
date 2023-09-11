@@ -24,8 +24,12 @@ import Products from './pages/Products/Products';
 import { useLayoutEffect } from 'react';
 import ProductDetails from './pages/ProductDetails/ProductDetails';
 import NavLeft from './components/nav';
-import UserDashboard from './pages/Dashboard/Dashboard/UserDashboard';
 import AdminDashboard from './pages/Dashboard/Dashboard/AdminDashboard';
+import ClientDashboard from './pages/Dashboard/Dashboard/ClientDashboard';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import useAdmin from './hooks/useAdmin';
+import auth from './firebase.init';
+import Loading from './components/Loading';
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -35,7 +39,16 @@ const Wrapper = ({ children }) => {
   return children;
 }
 
+
+
 function App() {
+  const [loading, user] = useAuthState(auth);
+  const [adminLoading] = useAdmin(user);
+
+  if (adminLoading) {
+    return <Loading />
+  }
+
 
   return (
     <div>
@@ -43,41 +56,44 @@ function App() {
         {/* <Navbar /> */}
         <NavLeft />
         <ToastContainer />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/home' element={<Home />} />
-          <Route path='/products' element={<Products />} />
-          <Route path='/blogs' element={<Blogs />} />
-          <Route path='/blog/:blogID' element={<BlogDetails />} />
-          <Route path='/signIn' element={<SignIn />} />
-          <Route path='/signUp' element={<SignUp />} />
+        <div className='pt-16'>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/home' element={<Home />} />
+            <Route path='/products' element={<Products />} />
+            <Route path='/blogs' element={<Blogs />} />
+            <Route path='/blog/:blogID' element={<BlogDetails />} />
+            <Route path='/signIn' element={<SignIn />} />
+            <Route path='/signUp' element={<SignUp />} />
 
-          <Route path='/product/:productId' element={<ProductDetails />} />
-          <Route path='/purchase/:id' element={<PrivateRoute>
-            <Purchase />
-          </PrivateRoute>} />
+            <Route path='/product/:productId' element={<ProductDetails />} />
+            <Route path='/purchase/:id' element={<PrivateRoute>
+              <Purchase />
+            </PrivateRoute>} />
 
-          {/* user */}
-          <Route path='user/dashboard' element={<PrivateRoute> <UserDashboard /> </PrivateRoute>}>
+            {/* user */}
+            <Route path='user/dashboard' element={<PrivateRoute> <ClientDashboard /> </PrivateRoute>}>
 
-            <Route index element={<Orders />} />
-            <Route path='dashboard/profile' element={<RequireUser><Profile /></RequireUser>} />
-            <Route path='payment/:id' element={<Payment />} />
-            <Route path='review' element={<RequireUser><AddReview /></RequireUser>} />
-          </Route>
+              <Route index element={<Orders />} />
+              <Route path='profile' element={<RequireUser><Profile /></RequireUser>} />
+              <Route path='payment/:id' element={<Payment />} />
+              <Route path='review' element={<RequireUser><AddReview /></RequireUser>} />
+            </Route>
 
-          {/* admin */}
-          <Route path='admin/dashboard' element={<PrivateRoute><RequireAdmin><AdminDashboard /></RequireAdmin></PrivateRoute>}>
-            <Route path='mangeProducts' element={<RequireAdmin> <MangeProducts /></RequireAdmin>} />
-            <Route path='mangeUsers' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
-            <Route index element={<RequireAdmin><AddNewProduct /></RequireAdmin>} />
-            <Route path='mangeOrders' element={<RequireAdmin><MangeOrders /></RequireAdmin>} />
-          </Route>
+            {/* admin */}
+            <Route path='admin/dashboard' element={<PrivateRoute><RequireAdmin><AdminDashboard /></RequireAdmin></PrivateRoute>}>
+              <Route index element={<RequireAdmin> <MangeProducts /></RequireAdmin>} />
+              <Route path='addNewProduct' element={<RequireAdmin><AddNewProduct /></RequireAdmin>} />
+              <Route path='mangeUsers' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
+              <Route path='mangeOrders' element={<RequireAdmin><MangeOrders /></RequireAdmin>} />
+              <Route path='profile' element={<RequireUser><Profile /></RequireUser>} />
+            </Route>
 
 
 
-          <Route path='*' element={<NotFound />} />
-        </Routes>
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </div>
       </Wrapper>
     </div >
   );

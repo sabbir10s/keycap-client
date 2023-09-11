@@ -4,9 +4,9 @@ import CustomLink from "../hooks/CustomLink";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../firebase.init";
 import { BiMenuAltLeft } from "react-icons/bi";
-import MobileSidebar from "./MobileSidebar";
 import SecondaryCustomLink from "../hooks/SecondaryCustomLink";
 import useAdmin from "../hooks/useAdmin";
+import MobileSidebar from "./Sidebar/MobileSidebar";
 const navItems = [
   {
     name: "Home",
@@ -59,10 +59,15 @@ const NavLeft = () => {
   const handleOptionClick = () => {
     setIsOpen(false);
   };
+
+  const path1 = "/user/dashboard";
+  const path2 = "/admin/dashboard";
+  const linkPath = !admin ? path1 : path2;
+
   return (
     <>
-      <header className="bg-[#f9fafb] dark:bg-[#1a1c23] z-50 sticky top-0">
-        <div className="mx-auto flex items-center justify-center h-16 max-w-screen-xl gap-8 px-4 sm:px-6 lg:px-8">
+      <header className="bg-primary-600 z-50 fixed top-0 w-full py-4">
+        <div className="mx-auto flex items-center justify-center max-w-screen-xl gap-8 px-4 sm:px-6 lg:px-8 ">
           <div className="lg:hidden absolute left-0 lg:static">
             {pathname.includes("dashboard") && (
               <button onClick={() => setMobileSidebar(true)}>
@@ -73,7 +78,7 @@ const NavLeft = () => {
             )}
           </div>
           <div>
-            <Link className="block text-primary-600" to="/">
+            <Link className="block text-white" to="/">
               <div className="text-center text-2xl font-bold ">
                 <Link to="/">NEXIQ</Link>
               </div>
@@ -93,25 +98,16 @@ const NavLeft = () => {
 
             <div className="flex items-center gap-4">
               <div className="hidden lg:flex lg:gap-4 ">
-                {!admin && user && (
+                {user ? (
                   <Link
-                    to="user/dashboard"
-                    className="text-primary-700 text-base uppercase font-bold border-2 border-primary-700 w-8 h-8 rounded-full flex justify-center items-center"
+                    to={linkPath}
+                    className="text-white text-base uppercase font-bold border-2 border-white w-8 h-8 rounded-full flex justify-center items-center"
                   >
-                    {user?.displayName.slice(0, 1)}{" "}
+                    {user?.displayName.slice(0, 1)}
                   </Link>
-                )}
-                {admin && (
+                ) : (
                   <Link
-                    to="admin/dashboard"
-                    className="text-primary-700 text-base uppercase font-bold border-2 border-primary-700 w-8 h-8 rounded-full flex justify-center items-center"
-                  >
-                    {user?.displayName.slice(0, 1)}{" "}
-                  </Link>
-                )}
-                {!user && (
-                  <Link
-                    className="block rounded-md bg-primary-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-primary-700"
+                    className="border border-white rounded px-5 py-1.5 text-sm font-medium text-white"
                     to="/SignIn"
                   >
                     Sign In
@@ -144,28 +140,14 @@ const NavLeft = () => {
 
                   {isOpen && (
                     <div className="absolute right-0 z-10 mt-1 w-48 py-2 text-left text-sm text-gray-700 dark:text-gray-200 bg-white rounded-lg shadow dark:bg-gray-700">
-                      <div className="py-1 flex flex-col gap-3">
-                        {user && (
+                      <div className="py-1 flex flex-col gap-6 pl-4">
+                        {user ? (
                           <button onClick={handleOptionClick}>
-                            <NavLink
-                              to="/dashboard"
-                              className="block text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                              activeClassName="text-secondary-500"
-                            >
+                            <SecondaryCustomLink to={linkPath}>
                               Dashboard
-                            </NavLink>
-                          </button>
-                        )}
-
-                        {navItems.map((item) => (
-                          <button key={item.name} onClick={handleOptionClick}>
-                            <SecondaryCustomLink to={item.link}>
-                              {item.name}
                             </SecondaryCustomLink>
                           </button>
-                        ))}
-
-                        {!user && (
+                        ) : (
                           <Link
                             className="block rounded-md bg-primary-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-primary-700"
                             to="/SignIn"
@@ -173,6 +155,13 @@ const NavLeft = () => {
                             Sign In
                           </Link>
                         )}
+                        {navItems.map((item) => (
+                          <button key={item.name} onClick={handleOptionClick}>
+                            <SecondaryCustomLink to={item.link}>
+                              {item.name}
+                            </SecondaryCustomLink>
+                          </button>
+                        ))}
                       </div>
                     </div>
                   )}

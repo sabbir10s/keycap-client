@@ -11,9 +11,9 @@ const OrderRows = ({ order, refetch }) => {
     console.log(status);
     return (
         <div
-            className="py-2 border-b flex items-center justify-between"
+            className="mb-12 md:mb-0 py-2 border-b flex flex-col md:flex-row items-center justify-between gap-4"
         >
-            <div className="w-1/2">
+            <div className="w-full md:w-1/2">
                 <div className='max-w-[120px]'>
                     <img
                         className="w-full object-fill"
@@ -60,7 +60,7 @@ const OrderRows = ({ order, refetch }) => {
                 </div>
 
             </div>
-            <div className='w-20'>
+            <div className='w-20 hidden lg:block'>
                 <a href='#k'>Details</a>
             </div>
         </div >

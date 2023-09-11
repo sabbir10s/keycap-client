@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import ProductRow from './ProductRow';
 import TablePagination from './MenageP';
 import Pagination from '../../../../shared/Pagination';
+import Search from '../../../../components/Search';
+import { AiOutlinePlus } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+import Loading from '../../../../components/Loading';
 
 
 
@@ -9,7 +13,7 @@ const MangeProducts = () => {
 
     const [products, setProducts] = useState([]);
     const [reload, setIsReload] = useState(true)
-    console.log(reload);
+    // console.log(reload);
     useEffect(() => {
         const url = 'https://nexiq-server.vercel.app/product';
         fetch(url, {
@@ -32,9 +36,16 @@ const MangeProducts = () => {
     const itemsPerPage = 5;
 
 
+    if (!products.length) {
+        return <Loading />
+    }
 
     return (
         <div className='mt-4'>
+            <div className='mb-4 flex items-center justify-between'>
+                <Search />
+                <Link to='addNewProduct' className='flex items-center gap-2 bg-primary-700 px-4 py-3 md:p-2 rounded-md text-white'><AiOutlinePlus /><span className='hidden md:block'>Add Product</span></Link>
+            </div>
             <div className="bg-white dark:bg-gray-700 border-[1px] border-gray-200/80 dark:border-gray-600 rounded-[10px] shadow-custom">
                 <div className="overflow-x-auto">
                     <div className="align-middle inline-block min-w-full">
