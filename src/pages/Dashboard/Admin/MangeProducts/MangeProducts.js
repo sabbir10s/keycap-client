@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ProductRow from './ProductRow';
+import TablePagination from './MenageP';
+import Pagination from '../../../../shared/Pagination';
 
 
 
@@ -24,31 +26,95 @@ const MangeProducts = () => {
 
     }, [reload])
 
+    const [currentItems, setCurrentItems] = useState([]);
+    const [pageCount, setPageCount] = useState(0);
+    const [itemsOffset, setItemsOffset] = useState(0);
+    const itemsPerPage = 5;
+
+
+
     return (
-        <div className="overflow-x-auto mx-5 mt-5">
-            <p className='text-2xl font-bold text-primary-700'>Menage All Products</p>
-            <div className="divider mt-3"></div>
-
-            <table className="table w-full">
-
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    {
-                        products.map((product, index) => <ProductRow product={product} setIsReload={setIsReload} reload={reload} index={index} key={product._id} ></ProductRow>)
-                    }
-
-
-                </tbody>
-            </table>
+        <div className='mt-4'>
+            <div className="bg-white dark:bg-gray-700 border-[1px] border-gray-200/80 dark:border-gray-600 rounded-[10px] shadow-custom">
+                <div className="overflow-x-auto">
+                    <div className="align-middle inline-block min-w-full">
+                        <div className="shadow overflow-hidden border-b border-gray-200 dark:border-gray-600 sm:rounded-lg">
+                            <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-500">
+                                <thead className="bg-gray-50 dark:bg-gray-900 dark:text-gray-300">
+                                    <tr>
+                                        <th
+                                            scope="col"
+                                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                                        >
+                                            Product
+                                        </th>
+                                        <th
+                                            scope="col"
+                                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                                        >
+                                            Category
+                                        </th>
+                                        <th
+                                            scope="col"
+                                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                                        >
+                                            Price
+                                        </th>
+                                        <th
+                                            scope="col"
+                                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                                        >
+                                            Sale Price
+                                        </th>
+                                        <th
+                                            scope="col"
+                                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                                        >
+                                            Stock
+                                        </th>
+                                        <th
+                                            scope="col"
+                                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                                        >
+                                            Status
+                                        </th>
+                                        <th
+                                            scope="col"
+                                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                                        >
+                                            Published
+                                        </th>
+                                        <th
+                                            scope="col"
+                                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                                        >
+                                            Action
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-gray-200 dark:divide-gray-500">
+                                    {currentItems.map((product, index) => <TablePagination index={index} product={product} setProducts={setProducts} key={product._id} />)}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div className="text-gray-900 dark:text-gray-300 flex flex-col md:flex-row gap-6 justify-between items-center w-full pl-[15px] pr-[30px] py-6 text-sm">
+                    <p className="uppercase font-semibold">
+                        showing ({itemsOffset + 1}- {itemsOffset + currentItems.length}) of{" "}
+                        {products.length}
+                    </p>
+                    <Pagination
+                        pageCount={pageCount}
+                        setPageCount={setPageCount}
+                        itemsOffset={itemsOffset}
+                        setItemsOffset={setItemsOffset}
+                        setCurrentItems={setCurrentItems}
+                        itemsPerPage={itemsPerPage}
+                        items={products}
+                    />
+                </div>
+            </div>
         </div>
     );
 };

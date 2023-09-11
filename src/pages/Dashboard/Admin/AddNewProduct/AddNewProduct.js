@@ -2,9 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { RiImageAddFill } from 'react-icons/ri';
-
-
-
+import ImageUpload from '../../../../components/ImgUpload/ImgUpload';
 
 const AddNewProduct = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
@@ -65,8 +63,8 @@ const AddNewProduct = () => {
             <div className=''>
                 <form onSubmit={handleSubmit(onSubmit)}>
 
-                    <div className="form-control w-full">
-                        <label className="label pt-0">
+                    <div className=" w-full">
+                        <label className="block text-sm">
                             <span >Product Name</span>
                         </label>
                         <input
@@ -80,13 +78,13 @@ const AddNewProduct = () => {
                                 }
                             })}
                         />
-                        <label className="label pt-0">
+                        <label className="block text-sm">
                             {errors.name?.type === 'required' && <span className="label-text-alt text-error">{errors.name.message}</span>}
                         </label>
                     </div>
                     <div className='flex flex-col lg:flex-row items-center lg:gap-10'>
-                        <div className="form-control w-full">
-                            <label className="label pt-0">
+                        <div className=" w-full">
+                            <label className="block text-sm">
                                 <span >Category</span>
                             </label>
 
@@ -103,13 +101,13 @@ const AddNewProduct = () => {
                                 <option value="smart">Smart Gadget</option>
                             </select>
 
-                            <label className="label pt-0">
+                            <label className="block text-sm">
                                 {errors.category?.type === 'required' && <span className="label-text-alt text-error">{errors.category?.message}</span>}
                             </label>
                         </div>
 
-                        <div className="form-control w-full">
-                            <label className="label pt-2">
+                        <div className=" w-full">
+                            <label className="block text-sm">
                                 <span >Price</span>
                             </label>
                             <input
@@ -131,8 +129,8 @@ const AddNewProduct = () => {
 
                     <div className='flex flex-col lg:flex-row items-center lg:gap-10'>
 
-                        <div className="form-control w-full">
-                            <label className="label pt-0">
+                        <div className=" w-full">
+                            <label className="block text-sm">
                                 <span >Quantity</span>
                             </label>
                             <input
@@ -150,8 +148,8 @@ const AddNewProduct = () => {
                                 {errors.quantity?.type === 'required' && <span className="label-text-alt text-error">{errors.quantity.message}</span>}
                             </label>
                         </div>
-                        <div className="form-control w-full">
-                            <label className="label pt-0">
+                        <div className=" w-full">
+                            <label className="block text-sm">
                                 <span >Minimum Order</span>
                             </label>
                             <input
@@ -172,8 +170,8 @@ const AddNewProduct = () => {
                     </div>
 
 
-                    <div className="form-control">
-                        <label className="label pt-0">
+                    <div className="">
+                        <label className="block text-sm">
                             <span >Description</span>
                         </label>
                         <textarea
@@ -191,10 +189,9 @@ const AddNewProduct = () => {
                             {errors.description?.type === 'required' && <span className="label-text-alt text-error">{errors.description.message}</span>}
                         </label>
                     </div>
-
-
+                    <ImageUpload />
                     <div className='flex flex-col lg:flex-row items-center gap-4'>
-                        <div className="form-control w-full cursor-pointer">
+                        <div className=" w-full cursor-pointer">
                             <div className=' cursor-pointer flex items-center justify-center gap-2 border border-primary-700 bg-slate-100 rounded-lg py-1 mt-2'>
                                 <label className="label cursor-pointer pt-0" htmlFor='image'>
                                     <span className="text-4xl text-base-300"><RiImageAddFill /></span>
@@ -213,7 +210,7 @@ const AddNewProduct = () => {
                                 />
                             </div>
 
-                            <label className="label pt-0">
+                            <label className="block text-SM">
                                 {errors.image?.type === 'required' && <span className="label-text-alt text-error">{errors.image.message}</span>}
 
                             </label>
