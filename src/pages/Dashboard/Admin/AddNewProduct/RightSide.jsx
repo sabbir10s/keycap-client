@@ -1,16 +1,17 @@
 import React from "react";
 
-const ProductInputField = ({ register, errors }) => {
+const RightSide = ({ register, errors }) => {
   return (
-    <div>
+    <div className="space-y-1">
       <div className=" w-full">
-        <label className="block text-sm">
+        <label className="block text-sm font-medium leading-6 text-gray-700 dark:text-white">
           <span>Product Name</span>
         </label>
         <input
+          autoComplete="off"
           type="text"
           placeholder="Product Name"
-          className="w-full border border-primary-700 p-[7px] rounded-md focus:outline-secondary"
+          className="block w-full rounded-md border-[1px] border-gray-100 dark:border-gray-700 dark:focus:border-gray-300 p-3 dark:text-white bg-[#f4f5f7] dark:bg-[#24262d] focus:bg-white placeholder:text-gray-400 sm:text-sm sm:leading-6 outline-none duration-300"
           {...register("name", {
             required: {
               value: true,
@@ -18,7 +19,7 @@ const ProductInputField = ({ register, errors }) => {
             },
           })}
         />
-        <label className="block text-sm">
+        <label className="block text-sm font-medium leading-6 text-gray-700 dark:text-white">
           {errors.name?.type === "required" && (
             <span className="label-text-alt text-error">
               {errors.name.message}
@@ -29,12 +30,12 @@ const ProductInputField = ({ register, errors }) => {
 
       <div className="flex flex-col lg:flex-row items-center lg:gap-10">
         <div className=" w-full">
-          <label className="block text-sm">
+          <label className="block text-sm font-medium leading-6 text-gray-700 dark:text-white">
             <span>Category</span>
           </label>
 
           <select
-            className="border border-primary-700 p-[8px] rounded-md focus:outline-secondary"
+            className="block w-full rounded-md border-[1px] border-gray-100 dark:border-gray-700 dark:focus:border-gray-300 p-3 dark:text-white bg-[#f4f5f7] dark:bg-[#24262d] focus:bg-white placeholder:text-gray-400 sm:text-sm sm:leading-6 outline-none duration-300"
             {...register("category", {
               required: {
                 value: true,
@@ -47,7 +48,7 @@ const ProductInputField = ({ register, errors }) => {
             <option value="smart">Smart Gadget</option>
           </select>
 
-          <label className="block text-sm">
+          <label className="block text-sm font-medium leading-6 text-gray-700 dark:text-white">
             {errors.category?.type === "required" && (
               <span className="label-text-alt text-error">
                 {errors.category?.message}
@@ -57,13 +58,13 @@ const ProductInputField = ({ register, errors }) => {
         </div>
 
         <div className=" w-full">
-          <label className="block text-sm">
+          <label className="block text-sm font-medium leading-6 text-gray-700 dark:text-white">
             <span>Price</span>
           </label>
           <input
             type="number"
             placeholder="Product Price"
-            className="border border-primary-700 p-[7px] rounded-md focus:outline-secondary"
+            className="block w-full rounded-md border-[1px] border-gray-100 dark:border-gray-700 dark:focus:border-gray-300 p-3 dark:text-white bg-[#f4f5f7] dark:bg-[#24262d] focus:bg-white placeholder:text-gray-400 sm:text-sm sm:leading-6 outline-none duration-300"
             {...register("price", {
               required: {
                 value: true,
@@ -83,13 +84,13 @@ const ProductInputField = ({ register, errors }) => {
 
       <div className="flex flex-col lg:flex-row items-center lg:gap-10">
         <div className=" w-full">
-          <label className="block text-sm">
+          <label className="block text-sm font-medium leading-6 text-gray-700 dark:text-white">
             <span>Quantity</span>
           </label>
           <input
             type="number"
             placeholder="Product Quantity"
-            className="border border-primary-700 p-[7px] rounded-md focus:outline-secondary"
+            className="block w-full rounded-md border-[1px] border-gray-100 dark:border-gray-700 dark:focus:border-gray-300 p-3 dark:text-white bg-[#f4f5f7] dark:bg-[#24262d] focus:bg-white placeholder:text-gray-400 sm:text-sm sm:leading-6 outline-none duration-300"
             {...register("quantity", {
               required: {
                 value: true,
@@ -106,13 +107,13 @@ const ProductInputField = ({ register, errors }) => {
           </label>
         </div>
         <div className=" w-full">
-          <label className="block text-sm">
+          <label className="block text-sm font-medium leading-6 text-gray-700 dark:text-white">
             <span>Minimum Order</span>
           </label>
           <input
             type="number"
             placeholder="Minimum Order"
-            className="border border-primary-700 p-[7px] rounded-md focus:outline-secondary"
+            className="block w-full rounded-md border-[1px] border-gray-100 dark:border-gray-700 dark:focus:border-gray-300 p-3 dark:text-white bg-[#f4f5f7] dark:bg-[#24262d] focus:bg-white placeholder:text-gray-400 sm:text-sm sm:leading-6 outline-none duration-300"
             {...register("minOrder", {
               required: {
                 value: true,
@@ -130,15 +131,15 @@ const ProductInputField = ({ register, errors }) => {
         </div>
       </div>
 
-      <div className="">
-        <label className="block text-sm">
+      <div>
+        <label className="block text-sm font-medium leading-6 text-gray-700 dark:text-white">
           <span>Description</span>
         </label>
         <textarea
-          rows="3"
+          rows="6"
           cols="50"
           placeholder="Product Description"
-          className="border border-primary-700 p-[7px] rounded-md focus:outline-secondary"
+          className="block w-full rounded-md border-[1px] border-gray-100 dark:border-gray-700 dark:focus:border-gray-300 p-3 dark:text-white bg-[#f4f5f7] dark:bg-[#24262d] focus:bg-white placeholder:text-gray-400 sm:text-sm sm:leading-6 outline-none duration-300"
           {...register("description", {
             required: {
               value: true,
@@ -158,4 +159,4 @@ const ProductInputField = ({ register, errors }) => {
   );
 };
 
-export default ProductInputField;
+export default RightSide;

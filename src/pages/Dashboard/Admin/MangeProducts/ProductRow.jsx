@@ -1,4 +1,4 @@
-const TablePagination = ({ setProducts, product, index }) => {
+const ProductRow = ({ setProducts, product, index }) => {
   const toggle = (productIdToToggle) => {
     setProducts((prevState) =>
       prevState.map((product) => {
@@ -121,4 +121,4 @@ const TablePagination = ({ setProducts, product, index }) => {
   );
 };
 
-export default TablePagination;
+export default ProductRow;

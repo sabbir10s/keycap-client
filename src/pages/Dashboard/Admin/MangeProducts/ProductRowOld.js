@@ -2,7 +2,7 @@ import React from 'react';
 import { toast } from 'react-toastify';
 
 
-const ProductRow = ({ product, setIsReload, reload, index }) => {
+const ProductRowOld = ({ product, setIsReload, reload, index }) => {
     const { name, price, quantity, _id } = product;
 
     const handleDelete = () => {
@@ -41,4 +41,4 @@ const ProductRow = ({ product, setIsReload, reload, index }) => {
     );
 };
 
-export default ProductRow;
+export default ProductRowOld;

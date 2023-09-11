@@ -2,8 +2,8 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import ImageUpload from '../../../../components/ImgUpload/ImgUpload';
-import ProductInputField from './ProductInputField';
 import LeftSide from './LeftSide';
+import RightSide from './RightSide';
 
 const AddNewProduct = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
@@ -58,15 +58,18 @@ const AddNewProduct = () => {
 
 
     return (
-        <div className='bg-gray-400'>
-            <p className='text-2xl font-bold text-primary-700 text-left mt-3 mb-3'>Add New Product</p>
+        <div className=''>
+            <p className='text-lg font-bold text-primary-700 text-left py-2'>Add Product</p>
             <div className=''>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <ProductInputField register={register} errors={register} />
-
-                    <ImageUpload />
-                    <LeftSide register={register} errors={register} />
+                <form className='flex gap-4' onSubmit={handleSubmit(onSubmit)}>
+                    <div className='bg-white shadow-sm border p-6'>
+                        <RightSide register={register} errors={register} />
+                    </div>
+                    <div className='bg-white shadow-sm border p-6'>
+                        <LeftSide register={register} errors={register} />
+                    </div>
                 </form>
+                {/* <ImageUpload /> */}
             </div>
         </div>
     );

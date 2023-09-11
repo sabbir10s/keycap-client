@@ -26,10 +26,6 @@ import ProductDetails from './pages/ProductDetails/ProductDetails';
 import NavLeft from './components/nav';
 import AdminDashboard from './pages/Dashboard/Dashboard/AdminDashboard';
 import ClientDashboard from './pages/Dashboard/Dashboard/ClientDashboard';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import useAdmin from './hooks/useAdmin';
-import auth from './firebase.init';
-import Loading from './components/Loading';
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -42,12 +38,6 @@ const Wrapper = ({ children }) => {
 
 
 function App() {
-  const [loading, user] = useAuthState(auth);
-  const [adminLoading] = useAdmin(user);
-
-  if (adminLoading) {
-    return <Loading />
-  }
 
 
   return (
