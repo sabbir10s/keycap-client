@@ -1,8 +1,8 @@
 import React from "react";
 
-const RightSide = ({ register, errors }) => {
+const InputFields = ({ register, errors }) => {
   return (
-    <div className="space-y-1">
+    <div className="space-y-4">
       <div className=" w-full">
         <label className="block text-sm font-medium leading-6 text-gray-700 dark:text-white">
           <span>Product Name</span>
@@ -21,9 +21,7 @@ const RightSide = ({ register, errors }) => {
         />
         <label className="block text-sm font-medium leading-6 text-gray-700 dark:text-white">
           {errors.name?.type === "required" && (
-            <span className="label-text-alt text-error">
-              {errors.name.message}
-            </span>
+            <span className="text-xs text-red-400">{errors.name.message}</span>
           )}
         </label>
       </div>
@@ -50,7 +48,7 @@ const RightSide = ({ register, errors }) => {
 
           <label className="block text-sm font-medium leading-6 text-gray-700 dark:text-white">
             {errors.category?.type === "required" && (
-              <span className="label-text-alt text-error">
+              <span className="text-xs text-red-400">
                 {errors.category?.message}
               </span>
             )}
@@ -74,7 +72,7 @@ const RightSide = ({ register, errors }) => {
           />
           <label>
             {errors.price?.type === "required" && (
-              <span className="label-text-alt text-error">
+              <span className="text-xs text-red-400">
                 {errors.price.message}
               </span>
             )}
@@ -100,7 +98,7 @@ const RightSide = ({ register, errors }) => {
           />
           <label>
             {errors.quantity?.type === "required" && (
-              <span className="label-text-alt text-error">
+              <span className="text-xs text-red-400">
                 {errors.quantity.message}
               </span>
             )}
@@ -117,13 +115,13 @@ const RightSide = ({ register, errors }) => {
             {...register("minOrder", {
               required: {
                 value: true,
-                message: "Minimum order quantity is required",
+                message: "Minimum order is required",
               },
             })}
           />
           <label>
             {errors.minOrder?.type === "required" && (
-              <span className="label-text-alt text-error">
+              <span className="text-xs text-red-400">
                 {errors.minOrder.message}
               </span>
             )}
@@ -136,7 +134,7 @@ const RightSide = ({ register, errors }) => {
           <span>Description</span>
         </label>
         <textarea
-          rows="6"
+          rows="5"
           cols="50"
           placeholder="Product Description"
           className="block w-full rounded-md border-[1px] border-gray-100 dark:border-gray-700 dark:focus:border-gray-300 p-3 dark:text-white bg-[#f4f5f7] dark:bg-[#24262d] focus:bg-white placeholder:text-gray-400 sm:text-sm sm:leading-6 outline-none duration-300"
@@ -149,7 +147,7 @@ const RightSide = ({ register, errors }) => {
         />
         <label>
           {errors.description?.type === "required" && (
-            <span className="label-text-alt text-error">
+            <span className="text-xs text-red-400">
               {errors.description.message}
             </span>
           )}
@@ -159,4 +157,4 @@ const RightSide = ({ register, errors }) => {
   );
 };
 
-export default RightSide;
+export default InputFields;

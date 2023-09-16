@@ -1,7 +1,7 @@
 import React from "react";
 import { RiImageAddFill } from "react-icons/ri";
 
-const LeftSide = ({ register, errors }) => {
+const ImageUpload = ({ register, errors }) => {
   return (
     <div>
       <div className="flex flex-col lg:flex-row items-center gap-4">
@@ -27,7 +27,7 @@ const LeftSide = ({ register, errors }) => {
 
           <label className="block text-SM">
             {errors.image?.type === "required" && (
-              <span className="label-text-alt text-error">
+              <span className="text-xs text-red-400">
                 {errors.image.message}
               </span>
             )}
@@ -44,4 +44,4 @@ const LeftSide = ({ register, errors }) => {
   );
 };
 
-export default LeftSide;
+export default ImageUpload;

@@ -47,7 +47,6 @@ const MangeOrderRow = ({ order, setIsReload, reload, index }) => {
     const handleSelectChange = (event) => {
         const value = event.target.value;
         const json = JSON.stringify({ status: value })
-        console.log(json);
         const url = `https://nexiq-server.vercel.app/order/${_id}`;
 
         fetch(url, {
