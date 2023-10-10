@@ -109,6 +109,8 @@ const MangeProducts = () => {
                       index={index}
                       product={product}
                       setProducts={setProducts}
+                      reload={reload}
+                      setIsReload={setIsReload}
                       key={product._id}
                     />
                   ))}
