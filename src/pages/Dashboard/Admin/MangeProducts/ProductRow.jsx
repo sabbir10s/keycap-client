@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { toast } from "react-toastify";
+import Modal from "../../../../shared/Modal";
 
 const ProductRow = ({ setProducts, product, index, setIsReload, reload }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const toggle = (productIdToToggle) => {
     setProducts((prevState) =>
       prevState.map((product) => {
@@ -25,14 +29,20 @@ const ProductRow = ({ setProducts, product, index, setIsReload, reload }) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount) {
+          setIsOpen(false);
           toast.success("Successfully Deleted");
           setIsReload(!reload);
         }
       });
   };
 
-  
+  const openModal = () => {
+    setIsOpen(true);
+  };
 
+  const closeModal = () => {
+    setIsOpen(false);
+  };
 
   return (
     <tr
@@ -116,7 +126,7 @@ const ProductRow = ({ setProducts, product, index, setIsReload, reload }) => {
           </div>
         </div>
         <button
-          onClick={() => handleDelete(product._id)}
+          onClick={openModal}
           className="text-gray-400 text-lg hover:text-red-500 duration-200"
         >
           <svg
@@ -135,6 +145,33 @@ const ProductRow = ({ setProducts, product, index, setIsReload, reload }) => {
           </svg>
         </button>
       </td>
+
+      <Modal isOpen={isOpen} onClose={closeModal}>
+        <div className="max-w-[500px] py-2 text-left">
+          <h3 className="text-lg font-semibold">
+            Are you sure you wanna delete this product?
+          </h3>
+
+          <p className="text-gray-400 text-sm pt-2">
+            This will delete the product permanently. You cannot undo this
+            action.
+          </p>
+          <div className="flex justify-end mt-6">
+            <button
+              className="text-gray-400 px-4 py-1 rounded"
+              onClick={closeModal}
+            >
+              Cancel
+            </button>
+            <button
+              className="bg-red-500 text-white px-4 py-1 rounded"
+              onClick={() => handleDelete(product._id)}
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </Modal>
     </tr>
   );
 };
