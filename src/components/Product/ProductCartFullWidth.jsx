@@ -7,13 +7,13 @@ import {
   AiOutlineEye,
   AiFillHeart,
 } from "react-icons/ai";
-import Modal from "../shared/Modal";
-import ProductQuickDetails from "./ProductQuickDetails";
-import FormatePrice from "../helper/FormatePrice";
+import FormatePrice from "../../helper/FormatePrice";
+import ProductQuickDetails from "../ProductQuickDetails";
+import Modal from "../../shared/Modal";
 
-const ProductCard = ({ product }) => {
+const ProductCartFullWidth = ({ product }) => {
   const [wishlist, setWishlist] = useState(false);
-  const { name, image, price } = product;
+  const { name, image, price, description } = product;
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -28,12 +28,12 @@ const ProductCard = ({ product }) => {
   return (
     <div>
       <Fade bottom>
-        <div className="w-full p-2 border/50 rounded-[5px] group bg-white shadow-sm">
-          <div className="flex flex-col p-2 relative">
-            <div>
+        <div className="w-full p-2 border/50 rounded-[5px] group bg-white shadow-sm border my-4">
+          <div className="flex p-2 relative">
+            <div className="grid grid-cols-3 items-center gap-4">
               <button
                 onClick={openModal}
-                className="flex justify-center items-center h-[200px] w-full"
+                className="flex justify-center items-center w-full"
               >
                 <img
                   className="w-[180px] group-hover:scale-110 duration-300"
@@ -41,15 +41,16 @@ const ProductCard = ({ product }) => {
                   alt=""
                 />
               </button>
-              <div className="h-[80px] flex items-center">
-                <div>
-                  <p className="text-left text-sm lg:text-base mb-1">{name}</p>
-                  <div className="flex items-center space-x-1">
-                    <p className="text-primary-700 text-lg md:text-xl lg:text-2xl text-left font-bold">
-                      <FormatePrice price={price} />
-                    </p>
-                    <del className="text-gray-400">$106.06</del>
-                  </div>
+              <div className=" col-span-2 pr-10">
+                <p className="text-left text-base lg:text-lg mb-1">{name}</p>
+                <p className="text-sm text-gray-500">
+                  {description.slice(0, 120)} ...
+                </p>
+                <div className="flex items-center space-x-1">
+                  <p className="text-primary-700 text-lg md:text-xl lg:text-2xl text-left font-bold">
+                    <FormatePrice price={price} />
+                  </p>
+                  <del className="text-gray-400">$106.06</del>
                 </div>
               </div>
             </div>
@@ -87,4 +88,4 @@ const ProductCard = ({ product }) => {
   );
 };
 
-export default ProductCard;
+export default ProductCartFullWidth;

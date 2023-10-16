@@ -4,7 +4,7 @@ import Modal from "../../../../shared/Modal";
 import DeleteModal from "../../../../shared/DeleteModal";
 import ProductQuickDetails from "../../../../components/ProductQuickDetails";
 
-const ProductRow = ({ setProducts, product, index, setIsReload, reload }) => {
+const ProductRow = ({ setProducts, product, setIsReload, reload }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDeleteModal, setDeleteModal] = useState(false);
 
@@ -12,7 +12,8 @@ const ProductRow = ({ setProducts, product, index, setIsReload, reload }) => {
     setProducts((prevState) =>
       prevState.map((product) => {
         if (product._id === productIdToToggle) {
-          return { ...product, isOn: !product.isOn };
+          console.log(!product.isOn);
+          return { ...product, published: !product.published };
         } else {
           return product;
         }
@@ -74,18 +75,18 @@ const ProductRow = ({ setProducts, product, index, setIsReload, reload }) => {
         {product.price}
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-300 capitalize font-semibold">
-        {product.sale_price}
+        {product.sellingPrice}
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-300 capitalize font-semibold">
         {product.quantity}
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 capitalize">
-        {product.selling && (
-          <span className="bg-success-100 text-success-500 text-[14px] px-[6px] py-[1px] rounded-full">
-            selling
+        {product.published && (
+          <span className="bg-green-100 text-green-500 text-[14px] px-[6px] py-[2px] rounded-full">
+            Published
           </span>
         )}
-        {!product.selling && (
+        {!product.published && (
           <span className="bg-accent-100 text-accent-500 text-[14px] px-[6px] py-[1px] rounded-full">
             Pending
           </span>
@@ -94,13 +95,13 @@ const ProductRow = ({ setProducts, product, index, setIsReload, reload }) => {
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 capitalize">
         <button
           className={`relative inline-flex items-center h-4 rounded-full w-8 focus:outline-none ${
-            product.isOn ? "bg-primary-500" : "bg-gray-300"
+            product.published ? "bg-primary-500" : "bg-gray-300"
           }`}
           onClick={() => toggle(product._id)}
         >
           <span
             className={`inline-block w-4 h-4 transform transition ${
-              product.isOn ? "translate-x-5" : "translate-x-0"
+              product.published ? "translate-x-5" : "translate-x-0"
             } bg-white rounded-full`}
           />
         </button>
@@ -129,7 +130,7 @@ const ProductRow = ({ setProducts, product, index, setIsReload, reload }) => {
               d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
             />
           </svg>
-          <div class="absolute bottom-0 flex flex-col items-center hidden mb-6 group-hover:flex">
+          <div class="absolute bottom-0 flex-col items-center hidden mb-6 group-hover:flex">
             <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">
               Details
             </span>
@@ -155,7 +156,7 @@ const ProductRow = ({ setProducts, product, index, setIsReload, reload }) => {
               d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
             />
           </svg>
-          <div class="absolute bottom-0 flex flex-col items-center hidden mb-6 group-hover:flex">
+          <div class="absolute bottom-0 flex-col items-center hidden mb-6 group-hover:flex">
             <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-red-500 shadow-lg">
               Delete
             </span>

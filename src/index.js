@@ -9,6 +9,7 @@ import {
   QueryClientProvider,
 } from 'react-query'
 import { AppProvider } from './context/ProductContext';
+import { FilterContextProvider } from './context/FilterContext';
 const queryClient = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,8 +17,9 @@ root.render(
     <QueryClientProvider client={queryClient}>
       <React.Fragment>
         <AppProvider>
-          <App />
-
+          <FilterContextProvider>
+            <App />
+          </FilterContextProvider>
         </AppProvider>
       </React.Fragment>
     </QueryClientProvider>

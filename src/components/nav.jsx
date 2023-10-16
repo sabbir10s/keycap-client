@@ -67,7 +67,7 @@ const NavLeft = () => {
   return (
     <>
       <header className="bg-primary-600 z-50 fixed top-0 w-full py-4">
-        <div className="mx-auto flex items-center justify-center max-w-screen-xl gap-8 px-4 sm:px-6 lg:px-8 ">
+        <div className="flex items-center justify-center gap-8 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:hidden absolute left-0 lg:static">
             {pathname.includes("dashboard") && (
               <button onClick={() => setMobileSidebar(true)}>
