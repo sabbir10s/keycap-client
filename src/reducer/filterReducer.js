@@ -18,10 +18,6 @@ const filterReducer = (state, action) => {
                 grid_view: false
             }
         case "GET_SORT_VALUE":
-            // let userShortValue = document.getElementById("sort")
-            // let sort_value = userShortValue.options[userShortValue.selectedIndex].value
-            // console.log(sort_value);
-
             return {
                 ...state,
                 sorting_value: action.payload
@@ -43,10 +39,33 @@ const filterReducer = (state, action) => {
                 }
             }
             newSortData = tempSortProduct.sort(sortingProducts)
-            console.log(newSortData);
             return {
                 ...state,
                 filter_products: newSortData
+            }
+
+        case "UPDATE_FILTERS_VALUE":
+            const { name, value } = action.payload
+            return {
+                ...state,
+                filters: {
+                    ...state.filters,
+                    [name]: value,
+                }
+            }
+
+        case "FILTER_PRODUCTS":
+            let { all_products } = state;
+            let tempFilterProduct = [...all_products];
+            const { text } = state.filters
+            if (text) {
+                tempFilterProduct = tempFilterProduct.filter((curElem) => {
+                    return curElem.name.toLowerCase().startsWith(text)
+                })
+            }
+            return {
+                ...state,
+                filter_products: tempFilterProduct
             }
         default: return state
     }
