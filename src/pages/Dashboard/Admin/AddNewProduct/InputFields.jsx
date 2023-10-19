@@ -32,6 +32,7 @@ const InputFields = ({ register, errors }) => {
             <span>Price</span>
           </label>
           <input
+            autoComplete="off"
             type="number"
             placeholder="Product Price"
             className="block w-full rounded-md border-[1px] border-gray-100 dark:border-gray-700 dark:focus:border-gray-300 p-3 dark:text-white bg-[#f4f5f7] dark:bg-[#24262d] focus:bg-white placeholder:text-gray-400 sm:text-sm sm:leading-6 outline-none duration-300"
@@ -56,6 +57,7 @@ const InputFields = ({ register, errors }) => {
             <span>Selling</span>
           </label>
           <input
+            autoComplete="off"
             type="number"
             placeholder="Selling Price"
             className="block w-full rounded-md border-[1px] border-gray-100 dark:border-gray-700 dark:focus:border-gray-300 p-3 dark:text-white bg-[#f4f5f7] dark:bg-[#24262d] focus:bg-white placeholder:text-gray-400 sm:text-sm sm:leading-6 outline-none duration-300"
@@ -82,6 +84,7 @@ const InputFields = ({ register, errors }) => {
             <span>Quantity</span>
           </label>
           <input
+            autoComplete="off"
             type="number"
             placeholder="Product Quantity"
             className="block w-full rounded-md border-[1px] border-gray-100 dark:border-gray-700 dark:focus:border-gray-300 p-3 dark:text-white bg-[#f4f5f7] dark:bg-[#24262d] focus:bg-white placeholder:text-gray-400 sm:text-sm sm:leading-6 outline-none duration-300"

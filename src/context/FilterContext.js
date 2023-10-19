@@ -12,6 +12,8 @@ const initialState = {
     sorting_value: "default",
     filters: {
         text: "",
+        category: "all",
+        company: "all"
     }
 }
 export const FilterContextProvider = ({ children }) => {
@@ -39,6 +41,7 @@ export const FilterContextProvider = ({ children }) => {
     const updateFilterValue = (e) => {
         let name = e.target.name;
         let value = e.target.value;
+        console.log(name, value);
         return dispatch({ type: "UPDATE_FILTERS_VALUE", payload: { name, value } })
     }
 

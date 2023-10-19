@@ -79,9 +79,7 @@ const NavLeft = () => {
           </div>
           <div>
             <Link className="block text-white" to="/">
-              <div className="text-center text-2xl font-bold ">
-                <Link to="/">NEXIQ</Link>
-              </div>
+              <div className="text-center text-2xl font-bold ">NEXIQ</div>
             </Link>
           </div>
 
