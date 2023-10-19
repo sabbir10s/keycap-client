@@ -21,14 +21,14 @@ const ProductFilters = () => {
   return (
     <div className="mb-5 md:mb-0 md:col-span-1">
       <div className="mb-8">
-        <h2 className="lg:text-xl text-primary-700 font-bold border-l-4 border-primary-700 pl-5 ">
+        <h2 className="text-base text-primary-700 font-semibold border-l-2 border-primary-700 pl-2 ">
           Product Category
         </h2>
         <div className="pt-4">
           {categoryNames.map((curElm, idx) => {
             return (
               <button
-                className="flex pb-4"
+                className="flex pb-3"
                 onClick={updateFilterValue}
                 value={curElm}
                 key={idx}
@@ -43,13 +43,15 @@ const ProductFilters = () => {
       </div>
 
       <div>
-        <h3>Company</h3>
-        <form className="relative block w-44" action="#">
+        <h2 className="text-base text-primary-700 font-semibold border-l-2 border-primary-700 pl-2 mb-4 ">
+          Company
+        </h2>
+        <form className="relative block w-36" action="#">
           <select
             onClick={updateFilterValue}
             name="company"
             id="company"
-            className="appearance-none block rounded-md border-[1px] border-gray-100 dark:border-gray-700 dark:focus:border-gray-300 px-3 py-1.5 dark:text-white bg-[#f4f5f7] dark:bg-[#24262d] focus:bg-white placeholder:text-gray-400 text-sm leading-6 outline-none duration-300 w-full"
+            className="appearance-none block border-[1px] border-gray-400 dark:border-gray-700 dark:focus:border-gray-300 px-3 py-1 dark:text-white bg-[#f4f5f7] dark:bg-[#24262d] focus:bg-white placeholder:text-gray-400 text-sm leading-6 outline-none duration-300 w-full"
           >
             {companyNames.map((curElm, idx) => {
               return (

@@ -71,7 +71,7 @@ const filterReducer = (state, action) => {
             }
             if (company !== "all") {
                 tempFilterProduct = tempFilterProduct.filter((curElem) => {
-                    return curElem.category === company
+                    return curElem.company === company
                 })
             }
 
