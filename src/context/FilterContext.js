@@ -10,10 +10,13 @@ const initialState = {
     all_products: [],
     grid_view: true,
     sorting_value: "default",
-    filterCompany: ["all"],
     filters: {
         text: "",
         category: "all",
+        company: "all",
+        maxPrice: 0,
+        price: 0,
+        minPrice: 0,
     }
 }
 export const FilterContextProvider = ({ children }) => {
@@ -43,7 +46,10 @@ export const FilterContextProvider = ({ children }) => {
         let value = e.target.value;
         return dispatch({ type: "UPDATE_FILTERS_VALUE", payload: { name, value } })
     }
-
+    // To clear the filters value 
+    const clearFilters = () => {
+        dispatch({ type: "CLEAR_FILTERS" })
+    }
     // Sort the product
     useEffect(() => {
         dispatch({ type: "FILTER_PRODUCTS" })
@@ -54,7 +60,7 @@ export const FilterContextProvider = ({ children }) => {
         dispatch({ type: "LOAD_FILTER_PRODUCTS", payload: products })
     }, [products])
 
-    return <FilterContext.Provider value={{ ...state, setGridView, setListView, sorting, updateFilterValue }}>
+    return <FilterContext.Provider value={{ ...state, setGridView, setListView, sorting, updateFilterValue, clearFilters }}>
         {children}
     </FilterContext.Provider>
 }

@@ -1,11 +1,13 @@
 import React from "react";
 import { useFilterContext } from "../../context/FilterContext";
+import FormatePrice from "../../helper/FormatePrice";
 
 const ProductFilters = () => {
   const {
     all_products,
     updateFilterValue,
-    filters: { category, company },
+    filters: { category, company, price, maxPrice, minPrice },
+    clearFilters,
   } = useFilterContext();
 
   const getUniqueData = (data, property) => {
@@ -20,6 +22,24 @@ const ProductFilters = () => {
 
   return (
     <div className="mb-5 md:mb-0 md:col-span-1">
+      <div className="mb-8">
+        <h2 className="text-base text-primary-700 font-semibold border-l-2 border-primary-700 pl-2 ">
+          Price
+        </h2>
+        <div className="pt-4">
+          <p>
+            <FormatePrice price={price} />
+          </p>
+          <input
+            type="range"
+            name="price"
+            min={minPrice}
+            max={maxPrice}
+            value={price}
+            onChange={updateFilterValue}
+          />
+        </div>
+      </div>
       <div className="mb-8">
         <h2 className="text-base text-primary-700 font-semibold border-l-2 border-primary-700 pl-2 ">
           Product Category
@@ -79,6 +99,12 @@ const ProductFilters = () => {
           </div>
         </form>
       </div>
+      <button
+        className=" bg-rose-700 text-white py-2 px-4 mt-7"
+        onClick={clearFilters}
+      >
+        Clear Filters
+      </button>
     </div>
   );
 };
