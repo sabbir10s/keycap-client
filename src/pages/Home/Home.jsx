@@ -8,7 +8,7 @@ import FeaturedProducts from "./FeaturedProducts/FeaturedProducts";
 
 const Home = () => {
   return (
-    <div className="bg-gray-100/70">
+    <div>
       <Banner />
       <div className="container mx-auto px-2">
         <FeaturedProducts />

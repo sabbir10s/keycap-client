@@ -9,7 +9,7 @@ const ProductList = () => {
   // Grid view product list
   if (grid_view) {
     return (
-      <div className="grid grid-cols-3">
+      <div className="grid grid-cols-1 md:grid-cols-3 mt-3 shadow-sm">
         {filter_products.map((product) => (
           <ProductCard product={product} key={product._id} />
         ))}
@@ -19,7 +19,7 @@ const ProductList = () => {
   // List view product list
   if (!grid_view) {
     return (
-      <div>
+      <div className="mt-3 shadow-sm">
         {filter_products.map((product) => (
           <ProductCartFullWidth product={product} key={product._id} />
         ))}

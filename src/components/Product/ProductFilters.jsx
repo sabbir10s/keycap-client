@@ -21,12 +21,12 @@ const ProductFilters = () => {
   const companyNames = getUniqueData(all_products, "company");
 
   return (
-    <div className="mb-5 md:mb-0 md:col-span-1">
-      <div className="mb-8">
-        <h2 className="text-base text-primary-700 font-semibold border-l-2 border-primary-700 pl-2 ">
+    <div className="hidden md:flex flex-col gap-3 md:col-span-1">
+      <div className="bg-white p-3 shadow-sm">
+        <h2 className="text-base text-primary-700 font-semibold xl:border-l-2 border-primary-700 xl:pl-2 mb-3">
           Price
         </h2>
-        <div className="pt-4">
+        <div>
           <p>
             <FormatePrice price={price} />
           </p>
@@ -40,11 +40,11 @@ const ProductFilters = () => {
           />
         </div>
       </div>
-      <div className="mb-8">
-        <h2 className="text-base text-primary-700 font-semibold border-l-2 border-primary-700 pl-2 ">
+      <div className="bg-white p-3 shadow-sm">
+        <h2 className="text-base text-primary-700 font-semibold xl:border-l-2 border-primary-700 xl:pl-2  mb-3">
           Product Category
         </h2>
-        <div className="pt-4">
+        <div>
           {categoryNames.map((curElm, idx) => {
             return (
               <button
@@ -62,8 +62,8 @@ const ProductFilters = () => {
         </div>
       </div>
 
-      <div>
-        <h2 className="text-base text-primary-700 font-semibold border-l-2 border-primary-700 pl-2 mb-4 ">
+      <div className="bg-white p-3 shadow-sm">
+        <h2 className="text-base text-primary-700 font-semibold xl:border-l-2 border-primary-700 xl:pl-2  mb-3">
           Company
         </h2>
         <form className="relative block w-36" action="#">
@@ -100,7 +100,7 @@ const ProductFilters = () => {
         </form>
       </div>
       <button
-        className=" bg-rose-700 text-white py-2 px-4 mt-7"
+        className=" bg-rose-700 text-white py-2 px-4"
         onClick={clearFilters}
       >
         Clear Filters

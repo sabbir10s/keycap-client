@@ -46,7 +46,7 @@ function App() {
         {/* <Navbar /> */}
         <NavLeft />
         <ToastContainer />
-        <div className='pt-16'>
+        <div className='pt-16 bg-slate-100'>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/home' element={<Home />} />
