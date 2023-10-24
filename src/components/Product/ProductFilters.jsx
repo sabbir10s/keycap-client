@@ -1,12 +1,13 @@
 import React from "react";
 import { useFilterContext } from "../../context/FilterContext";
 import FormatePrice from "../../helper/FormatePrice";
+import Loading from "../Loading";
 
 const ProductFilters = () => {
   const {
     all_products,
     updateFilterValue,
-    filters: { category, company, price, maxPrice, minPrice },
+    filters: { category, price, maxPrice, minPrice },
     clearFilters,
   } = useFilterContext();
 
@@ -20,6 +21,9 @@ const ProductFilters = () => {
   const categoryNames = getUniqueData(all_products, "category");
   const companyNames = getUniqueData(all_products, "company");
 
+  if (!all_products.length) {
+    return <Loading />;
+  }
   return (
     <div className="hidden md:flex flex-col gap-3 md:col-span-1">
       <div className="bg-white p-3 shadow-sm">
@@ -48,7 +52,11 @@ const ProductFilters = () => {
           {categoryNames.map((curElm, idx) => {
             return (
               <button
-                className="flex pb-3"
+                className={
+                  category === curElm
+                    ? "flex pb-3 text-primary-600 capitalize"
+                    : "flex pb-3 capitalize"
+                }
                 onClick={updateFilterValue}
                 value={curElm}
                 key={idx}

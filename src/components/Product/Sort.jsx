@@ -37,20 +37,20 @@ const Sort = () => {
           name="text"
           value={text}
           onChange={updateFilterValue}
-          className="block w-full lg:w-64 border-[1px] border-gray-300 dark:border-gray-700 dark:focus:border-gray-300 py-1.5 pl-3 dark:text-white bg-gray-100/50 dark:bg-[#24262d] focus:bg-white placeholder:text-gray-400 sm:text-sm sm:leading-6 outline-none duration-300"
+          className="block w-full lg:w-64 border-[1px] border-gray-300 dark:border-gray-700 dark:focus:border-gray-300 py-1.5 pl-3 dark:text-white bg-gray-100/50 dark:bg-[#24262d] focus:bg-white placeholder:text-gray-400 sm:text-sm outline-none duration-300"
           placeholder="Search"
           autoComplete="off"
         />
       </form>
 
       <div className="flex items-center gap-2">
-        <span className="hidden md:block">Sort By:</span>
-        <form className="relative  w-36 flex items-center" action="">
+        <span className="hidden md:block text-sm">Sort By:</span>
+        <form className="relative w-36 flex items-center" action="">
           <select
             onClick={sorting}
             name="sort"
             id="sort"
-            className="appearance-none block border-[1px] border-gray-400 dark:border-gray-700 dark:focus:border-gray-300 px-3 py-1 dark:text-white bg-[#f4f5f7] dark:bg-[#24262d] focus:bg-white placeholder:text-gray-400 text-sm leading-6 outline-none duration-300 w-full"
+            className="appearance-none block border-[1px] border-gray-400 dark:border-gray-700 dark:focus:border-gray-300 px-3 py-1.5 dark:text-white bg-[#f4f5f7] dark:bg-[#24262d] focus:bg-white placeholder:text-gray-400 text-xs outline-none duration-300 w-full"
           >
             <option value="default">Default</option>
             <option value="lowest">Price (Low &lt; High)</option>
