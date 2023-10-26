@@ -3,6 +3,7 @@ import Loading from "../../../components/Loading";
 import { useProductContext } from "../../../context/ProductContext";
 import ProductCard from "../../../components/Product/ProductCard/ProductCard";
 import Button from "../../../shared/Button/Button";
+import { AiOutlineArrowRight } from "react-icons/ai";
 
 const FeaturedProducts = () => {
   const { isLoading, featureProducts } = useProductContext();
@@ -39,12 +40,17 @@ const FeaturedProducts = () => {
       </div>
       <div className="flex justify-center mt-16">
         <Button
+          className="flex items-center gap-1"
           id={"btnSave"}
+          btnCategory={"secondary"}
           type={"submit"}
-          value={"View All Products"}
+          // value={"View All Products"}
           isDisabled={false}
           clickHandler={handleButton}
-        />
+        >
+          View All Products
+          <AiOutlineArrowRight className="text-xl" />
+        </Button>
       </div>
     </div>
   );
