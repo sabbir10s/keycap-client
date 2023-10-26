@@ -41,12 +41,11 @@ const FeaturedProducts = () => {
       <div className="flex justify-center mt-16">
         <Button
           className="flex items-center gap-1"
-          id={"btnSave"}
-          btnCategory={"secondary"}
-          type={"submit"}
-          // value={"View All Products"}
+          id={"View All Products"}
+          category={"secondary"}
+          type={"button"}
           isDisabled={false}
-          clickHandler={handleButton}
+          onClick={handleButton}
         >
           View All Products
           <AiOutlineArrowRight className="text-xl" />

@@ -4,7 +4,7 @@ import Loading from "../../components/Loading";
 import { useEffect } from "react";
 import { useProductContext } from "../../context/ProductContext";
 import CartAmountToggle from "../../components/CartAmountToggle";
-import { SecondaryButton } from "../../shared/Button/Button";
+import Button, { SecondaryButton } from "../../shared/Button/Button";
 
 const API = "https://nexiq-server.vercel.app/product";
 
@@ -23,7 +23,6 @@ const ProductQuickDetails = () => {
   if (isSingleLoading) {
     return <Loading />;
   }
-  // const stock = 0;
   const { _id, name, image, price, description, company, stock } =
     singleProduct;
 
@@ -72,19 +71,27 @@ const ProductQuickDetails = () => {
               setDecrease={setDecrease}
             />
             <div className=" space-x-6">
-              <button
-                onClick={handlePurchase}
-                disabled={!stock}
-                className={
-                  stock
-                    ? "bg-primary-700 border border-primary-700 shadow-md shadow-secondary/50 text-gray-100 px-10 py-2"
-                    : "bg-gray-200 text-gray-500 px-10 py-2"
-                }
-              >
-                {stock ? "Buy Now" : "Out Of Stock"}
-              </button>
+              {stock > 0 && (
+                <Button
+                  id="Buy Now"
+                  type="button"
+                  category="primary"
+                  onClick={handlePurchase}
+                  isDisabled={false}
+                  className={""}
+                >
+                  Buy Now
+                </Button>
+              )}
+              {!stock > 0 && <Button isDisabled={true}>Out Of Stock</Button>}
 
-              {/* {stock ? <SecondaryButton>Add to Cart</SecondaryButton> : ""} */}
+              {stock ? (
+                <Button id="Add to Cart" type="button" category="secondary">
+                  Add to Cart
+                </Button>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>
