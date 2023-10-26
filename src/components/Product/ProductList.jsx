@@ -1,7 +1,7 @@
 import React from "react";
 import { useFilterContext } from "../../context/FilterContext";
-import ProductCard from "../ProductCard";
-import ProductCartFullWidth from "./ProductCartFullWidth";
+import ProductCard from "./ProductCard/ProductCard";
+import ProductCartFullWidth from "./ProductCard/FullWidthCard";
 
 const ProductList = () => {
   const { filter_products, grid_view } = useFilterContext();

@@ -1,11 +1,16 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Loading from "../../../components/Loading";
-import ProductCard from "../../../components/ProductCard";
 import { useProductContext } from "../../../context/ProductContext";
+import ProductCard from "../../../components/Product/ProductCard/ProductCard";
+import Button from "../../../shared/Button/Button";
 
 const FeaturedProducts = () => {
   const { isLoading, featureProducts } = useProductContext();
-  console.log(featureProducts);
+  const navigate = useNavigate();
+  const handleButton = () => {
+    console.log("clicked");
+    navigate("/products");
+  };
   if (isLoading) {
     return <Loading />;
   }
@@ -33,12 +38,13 @@ const FeaturedProducts = () => {
         ))}
       </div>
       <div className="flex justify-center mt-16">
-        <Link
-          to="/products"
-          className="bg-secondary-500 text-gray-100 px-8 py-3 rounded shadow-md shadow-base-300/50"
-        >
-          View All Products
-        </Link>
+        <Button
+          id={"btnSave"}
+          type={"submit"}
+          value={"View All Products"}
+          isDisabled={false}
+          clickHandler={handleButton}
+        />
       </div>
     </div>
   );

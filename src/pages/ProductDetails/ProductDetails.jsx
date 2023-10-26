@@ -3,8 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import Loading from "../../components/Loading";
 import { useEffect } from "react";
 import { useProductContext } from "../../context/ProductContext";
-import PageNavigation from "../../components/PageNavigation";
 import CartAmountToggle from "../../components/CartAmountToggle";
+import { SecondaryButton } from "../../shared/Button/Button";
 
 const API = "https://nexiq-server.vercel.app/product";
 
@@ -23,7 +23,9 @@ const ProductQuickDetails = () => {
   if (isSingleLoading) {
     return <Loading />;
   }
-  const { _id, name, image, price, description, stock } = singleProduct;
+  // const stock = 0;
+  const { _id, name, image, price, description, company, stock } =
+    singleProduct;
 
   const handlePurchase = () => {
     navigate(`/purchase/${_id}`);
@@ -38,44 +40,51 @@ const ProductQuickDetails = () => {
   };
 
   return (
-    <div className="container mx-auto pt-6">
-      <PageNavigation title={name} />
-      <div>
-        <div className="grid lg:grid-cols-2">
-          <div className="flex justify-center items-center">
+    <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 h-screen">
+      <div className="mt-6">
+        <div className="grid lg:grid-cols-2 gap-3">
+          <div className="flex justify-center items-center bg-white">
             <img className="w-[400px]" src={image} alt="" />
           </div>
-          <div className="flex items-center">
-            <div>
-              <p className="text-4xl font-bold text-primary-700">{name}</p>
-              <p className="text-secondary-500 text-2xl font-bold py-3">
-                ${price}
+          <div className=" space-y-3 bg-white p-6">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-primary-700">
+              {name}
+            </h2>
+            <div className=" space-x-2">
+              <p className=" bg-slate-400/30 rounded-full px-2 py-1.5 text-sm inline text-gray-400">
+                Status:{" "}
+                <span className="font-semibold text-black">
+                  {stock ? "In Stock" : "	Out Of Stock"}
+                </span>
               </p>
-
-              <table>
-                <tbody>
-                  <tr>
-                    <td className="border border-primary-700 px-2 py-1 text-sm font-medium">
-                      Available Stock
-                    </td>
-                    <td className="border border-primary-700 px-8 py-1 text-secondary-500 text-sm">
-                      {stock}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <CartAmountToggle
-                amount={amount}
-                setIncrease={setIncrease}
-                setDecrease={setDecrease}
-              />
+              <p className=" bg-slate-400/30 rounded-full px-2 py-1.5 text-sm inline text-gray-400">
+                Brand:{" "}
+                <span className="font-semibold text-black">{company}</span>
+              </p>
+            </div>
+            <p className="text-secondary-500 text-2xl font-bold py-3">
+              ${price}
+            </p>
+            <p className="text-sm">{description}</p>
+            <CartAmountToggle
+              amount={amount}
+              setIncrease={setIncrease}
+              setDecrease={setDecrease}
+            />
+            <div className=" space-x-6">
               <button
                 onClick={handlePurchase}
-                className="bg-primary-700 shadow-md shadow-secondary/50 text-gray-100 px-10 py-2 rounded my-5"
+                disabled={!stock}
+                className={
+                  stock
+                    ? "bg-primary-700 border border-primary-700 shadow-md shadow-secondary/50 text-gray-100 px-10 py-2"
+                    : "bg-gray-200 text-gray-500 px-10 py-2"
+                }
               >
-                Order Now
+                {stock ? "Buy Now" : "Out Of Stock"}
               </button>
-              <p className="text-sm">{description}</p>
+
+              {/* {stock ? <SecondaryButton>Add to Cart</SecondaryButton> : ""} */}
             </div>
           </div>
         </div>

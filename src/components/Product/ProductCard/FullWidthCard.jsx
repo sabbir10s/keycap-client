@@ -1,30 +1,18 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import { Fade } from "react-reveal";
-import {
-  AiOutlineHeart,
-  AiOutlineShopping,
-  AiOutlineEye,
-  AiFillHeart,
-} from "react-icons/ai";
-import FormatePrice from "../../helper/FormatePrice";
-import ProductQuickDetails from "../ProductQuickDetails";
-import Modal from "../../shared/Modal";
+import { AiOutlineHeart, AiOutlineShopping, AiFillHeart } from "react-icons/ai";
+import FormatePrice from "../../../helper/FormatePrice";
+import { useNavigate } from "react-router-dom";
 
-const ProductCartFullWidth = ({ product }) => {
+const FullWidthCard = ({ product }) => {
   const [wishlist, setWishlist] = useState(false);
-  const { name, image, price, description } = product;
+  const { _id, name, image, price, description } = product;
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  const openModal = () => {
-    setIsOpen(true);
+  const navigate = useNavigate();
+  const handleProductDetails = () => {
+    navigate(`/product/${_id}`);
   };
-
-  const closeModal = () => {
-    setIsOpen(false);
-  };
-
   return (
     <div>
       <Fade bottom>
@@ -32,7 +20,7 @@ const ProductCartFullWidth = ({ product }) => {
           <div className="flex p-2 relative">
             <div className="grid grid-cols-3 items-center gap-4">
               <button
-                onClick={openModal}
+                onClick={handleProductDetails}
                 className="flex justify-center items-center w-full"
               >
                 <img
@@ -69,23 +57,12 @@ const ProductCartFullWidth = ({ product }) => {
               >
                 <AiOutlineShopping />
               </a>
-
-              <button
-                onClick={openModal}
-                className="text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block hover:bg-primary-700 hover:text-white duration-300"
-                href="#"
-              >
-                <AiOutlineEye />
-              </button>
             </div>
           </div>
         </div>
       </Fade>
-      <Modal isOpen={isOpen} onClose={closeModal}>
-        <ProductQuickDetails product={product} />
-      </Modal>
     </div>
   );
 };
 
-export default ProductCartFullWidth;
+export default FullWidthCard;

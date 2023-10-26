@@ -4,7 +4,6 @@ import { FaUserAlt } from 'react-icons/fa';
 const ReviewCard = ({ review }) => {
     const { rating, comment, userName, userImage } = review;
     const rat = Number(rating)
-    console.log(rat);
     return (
         <div className='min-w-[300px] border p-4 shadow-lg rounded-xl mb-4 lg:my-0'>
             <div className='flex items-center justify-center mt-[-45px]'>

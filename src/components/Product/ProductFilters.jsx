@@ -21,9 +21,6 @@ const ProductFilters = () => {
   const categoryNames = getUniqueData(all_products, "category");
   const companyNames = getUniqueData(all_products, "company");
 
-  if (!all_products.length) {
-    return <Loading />;
-  }
   return (
     <div className="hidden md:flex flex-col gap-3 md:col-span-1">
       <div className="bg-white p-3 shadow-sm">
@@ -108,7 +105,7 @@ const ProductFilters = () => {
         </form>
       </div>
       <button
-        className=" bg-rose-700 text-white py-2 px-4"
+        className=" bg-secondary-500 text-white py-2 px-4"
         onClick={clearFilters}
       >
         Clear Filters

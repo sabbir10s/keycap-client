@@ -7,7 +7,6 @@ const BlogCard = ({ blog }) => {
     const handleBlogDetails = () => {
         navigate(`/blog/${_id}`)
     }
-    console.log(article);
     return (
         <div>
             <div className='relative'>
