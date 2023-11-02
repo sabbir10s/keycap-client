@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Loading from "../../components/Loading";
 import { useEffect } from "react";
 import { useProductContext } from "../../context/ProductContext";
 import CartAmountToggle from "../../components/CartAmountToggle";
-import Button, { SecondaryButton } from "../../shared/Button/Button";
+import Button from "../../shared/Button/Button";
+import { useCartContext } from "../../context/CartContext";
 
 const API = "https://nexiq-server.vercel.app/product";
 
 const ProductQuickDetails = () => {
   const { getSingleProduct, isSingleLoading, singleProduct } =
     useProductContext();
+  const { addToCart } = useCartContext();
   const [amount, setAmount] = useState(1);
 
   const navigate = useNavigate();
@@ -86,9 +88,16 @@ const ProductQuickDetails = () => {
               {!stock > 0 && <Button isDisabled={true}>Out Of Stock</Button>}
 
               {stock ? (
-                <Button id="Add to Cart" type="button" category="secondary">
-                  Add to Cart
-                </Button>
+                <Link to="/cart">
+                  <Button
+                    onClick={() => addToCart(_id, amount, singleProduct)}
+                    id="Add to Cart"
+                    type="button"
+                    category="secondary"
+                  >
+                    Add to Cart
+                  </Button>
+                </Link>
               ) : (
                 ""
               )}

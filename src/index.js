@@ -10,6 +10,7 @@ import {
 } from 'react-query'
 import { AppProvider } from './context/ProductContext';
 import { FilterContextProvider } from './context/FilterContext';
+import { CartProvider } from './context/CartContext';
 const queryClient = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,7 +19,9 @@ root.render(
       <React.Fragment>
         <AppProvider>
           <FilterContextProvider>
-            <App />
+            <CartProvider>
+              <App />
+            </CartProvider>
           </FilterContextProvider>
         </AppProvider>
       </React.Fragment>
@@ -26,7 +29,4 @@ root.render(
   </BrowserRouter>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

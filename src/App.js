@@ -26,6 +26,7 @@ import ProductDetails from './pages/ProductDetails/ProductDetails';
 import NavLeft from './components/nav';
 import AdminDashboard from './pages/Dashboard/Dashboard/AdminDashboard';
 import ClientDashboard from './pages/Dashboard/Dashboard/ClientDashboard';
+import Cart from './pages/Dashboard/User/Cart/Cart';
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -59,6 +60,9 @@ function App() {
             <Route path='/product/:productId' element={<ProductDetails />} />
             <Route path='/purchase/:id' element={<PrivateRoute>
               <Purchase />
+            </PrivateRoute>} />
+            <Route path='/cart' element={<PrivateRoute>
+              <Cart />
             </PrivateRoute>} />
 
             {/* user */}
