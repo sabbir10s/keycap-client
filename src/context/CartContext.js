@@ -28,6 +28,13 @@ const CartProvider = ({ children }) => {
         dispatch({ type: "ADD_TO_CART", payload: { _id, amount, singleProduct } })
     }
 
+    const setIncrease = (_id) => {
+        dispatch({ type: "SET_INCREMENT", payload: _id })
+    }
+    const setDecrease = (_id) => {
+        dispatch({ type: "SET_DECREMENT", payload: _id })
+    }
+
     const removeItem = (_id) => {
         dispatch({ type: "REMOVE_ITEM", payload: _id })
     }
@@ -36,7 +43,7 @@ const CartProvider = ({ children }) => {
         localStorage.setItem("productCart", JSON.stringify(state.cart))
     }, [state.cart])
 
-    return <CartContext.Provider value={{ ...state, addToCart, removeItem }}>{children}</CartContext.Provider>
+    return <CartContext.Provider value={{ ...state, addToCart, removeItem, setIncrease, setDecrease }}>{children}</CartContext.Provider>
 }
 
 const useCartContext = () => {

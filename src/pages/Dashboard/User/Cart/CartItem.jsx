@@ -1,9 +1,19 @@
 import React from "react";
 import { useCartContext } from "../../../../context/CartContext";
+import CartAmountToggle from "../../../../components/CartAmountToggle";
 
 const CartItem = ({ item }) => {
-  const { removeItem } = useCartContext();
+  const { removeItem, setIncrease, setDecrease } = useCartContext();
   const { _id, name, image, price, amount } = item;
+
+  // const setDecrease = () => {
+  //   amount > 1 ? setAmount(amount - 1) : setAmount(1);
+  // };
+
+  // const setIncrease = () => {
+  //   amount < stock ? setAmount(amount + 1) : setAmount(stock);
+  // };
+
   return (
     <div>
       <div className="flex justify-between lg:grid  grid-cols-7 lg:gap-2 items-center lg:m-[7px] bg-white">
@@ -32,25 +42,11 @@ const CartItem = ({ item }) => {
         </div>
 
         <div>
-          <div className="flex items-center justify-center">
-            <button
-              type="button"
-              className=" w-5 md:w-6 lg:w-8 h-5 md:h-6 lg:h-8 text-xs md:text-base lg:text-xl font-medium border border-primary-600 lg:border-0 bg-gray-50 rounded-[50%] text-primary-600 lg:text-black transition hover:opacity-75"
-            >
-              &minus;
-            </button>
-
-            <span className="px-2 lg:px-4 lg:text-base font-medium">
-              {amount}
-            </span>
-
-            <button
-              type="button"
-              className=" w-5 md:w-6 lg:w-8 h-5 md:h-6 lg:h-8 text-xs md:text-base lg:text-xl font-medium border border-primary-600 lg:border-0 bg-gray-50 rounded-[50%] text-primary-600 lg:text-black transition hover:opacity-75"
-            >
-              &#43;
-            </button>
-          </div>
+          <CartAmountToggle
+            amount={amount}
+            setDecrease={() => setDecrease(_id)}
+            setIncrease={() => setIncrease(_id)}
+          />
         </div>
         <h2 className=" font-semibold text-primary-600 hidden lg:block mx-auto">
           $ {}
