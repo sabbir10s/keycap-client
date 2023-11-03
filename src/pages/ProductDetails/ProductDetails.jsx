@@ -62,6 +62,9 @@ const ProductQuickDetails = () => {
                 Brand:{" "}
                 <span className="font-semibold text-black">{company}</span>
               </p>
+              <p className=" bg-slate-400/30 rounded-full px-2 py-1.5 text-sm inline text-gray-400">
+                Stock: <span className="font-semibold text-black">{stock}</span>
+              </p>
             </div>
             <p className="text-secondary-500 text-2xl font-bold py-3">
               ${price}

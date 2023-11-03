@@ -12,8 +12,8 @@ const Cart = () => {
         Your Cart
       </h2>
       {cart.length ? (
-        <div>
-          <div className="grid grid-cols-1 lg:grid-cols-4 lg:gap-8 mt-4 h-screen">
+        <div className="h-screen">
+          <div className="grid grid-cols-1 lg:grid-cols-4 lg:gap-8 mt-4">
             <div className=" col-span-3 bg-[#F9FAFB] rounded-[10px] shadow-custom">
               <div className="hidden lg:block">
                 <div className="grid grid-cols-7 mx-[7px] font-semibold py-5 uppercase text-[12px] ">
@@ -65,7 +65,7 @@ const Cart = () => {
           </div>
           {/* shipping button */}
           <div className="mt-14 text-center lg:text-left">
-            <Link to="/categories" className="hidden lg:block">
+            <Link to="/products" className="hidden lg:block">
               <Button>Continue Shopping</Button>
             </Link>
           </div>

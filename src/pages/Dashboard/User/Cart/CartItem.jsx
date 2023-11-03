@@ -3,7 +3,7 @@ import { useCartContext } from "../../../../context/CartContext";
 
 const CartItem = ({ item }) => {
   const { removeItem } = useCartContext();
-  const { _id, name, image, price } = item;
+  const { _id, name, image, price, amount } = item;
   return (
     <div>
       <div className="flex justify-between lg:grid  grid-cols-7 lg:gap-2 items-center lg:m-[7px] bg-white">
@@ -40,7 +40,9 @@ const CartItem = ({ item }) => {
               &minus;
             </button>
 
-            <span className="px-2 lg:px-4 lg:text-base font-medium">{}</span>
+            <span className="px-2 lg:px-4 lg:text-base font-medium">
+              {amount}
+            </span>
 
             <button
               type="button"
