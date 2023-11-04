@@ -15,7 +15,6 @@ const getCartData = () => {
 }
 
 const initialState = {
-    // cart: [],
     cart: getCartData(),
     total_item: 0,
     total_price: 0,
