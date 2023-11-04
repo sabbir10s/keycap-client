@@ -1,18 +1,11 @@
 import React from "react";
 import { useCartContext } from "../../../../context/CartContext";
 import CartAmountToggle from "../../../../components/CartAmountToggle";
+import FormatePrice from "../../../../helper/FormatePrice";
 
 const CartItem = ({ item }) => {
   const { removeItem, setIncrease, setDecrease } = useCartContext();
   const { _id, name, image, price, amount } = item;
-
-  // const setDecrease = () => {
-  //   amount > 1 ? setAmount(amount - 1) : setAmount(1);
-  // };
-
-  // const setIncrease = () => {
-  //   amount < stock ? setAmount(amount + 1) : setAmount(stock);
-  // };
 
   return (
     <div>
@@ -33,7 +26,7 @@ const CartItem = ({ item }) => {
           <h2 className="lg:hidden ">{name.slice(0, 16)}...</h2>
           <div className="flex flex-col lg:flex-row lg:items-center lg:gap-1">
             <p className="text-primary-600 lg:text-gray-600  font-semibold">
-              ${price}.00
+              <FormatePrice price={price} />
             </p>
             <p className="text-gray-600 lg:hidden">
               <del>${}.00</del>
@@ -49,7 +42,7 @@ const CartItem = ({ item }) => {
           />
         </div>
         <h2 className=" font-semibold text-primary-600 hidden lg:block mx-auto">
-          $ {}
+          <FormatePrice price={price * amount} />
         </h2>
         <button
           onClick={() => removeItem(_id)}

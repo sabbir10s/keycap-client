@@ -58,14 +58,15 @@ function App() {
             <Route path='/signUp' element={<SignUp />} />
 
             <Route path='/product/:productId' element={<ProductDetails />} />
-            <Route path='/purchase/:id' element={<PrivateRoute>
-              <Purchase />
-            </PrivateRoute>} />
+
             <Route path='/cart' element={<PrivateRoute>
               <Cart />
             </PrivateRoute>} />
+            <Route path='/checkout' element={<PrivateRoute>
+              <Purchase />
+            </PrivateRoute>} />
 
-            {/* user */}
+            {/* user dashboard section */}
             <Route path='user/dashboard' element={<PrivateRoute> <ClientDashboard /> </PrivateRoute>}>
 
               <Route index element={<Orders />} />
@@ -74,7 +75,7 @@ function App() {
               <Route path='review' element={<RequireUser><AddReview /></RequireUser>} />
             </Route>
 
-            {/* admin */}
+            {/* admin dashboard section*/}
             <Route path='admin/dashboard' element={<PrivateRoute><RequireAdmin><AdminDashboard /></RequireAdmin></PrivateRoute>}>
               <Route index element={<RequireAdmin> <MangeProducts /></RequireAdmin>} />
               <Route path='addNewProduct' element={<RequireAdmin><AddNewProduct /></RequireAdmin>} />

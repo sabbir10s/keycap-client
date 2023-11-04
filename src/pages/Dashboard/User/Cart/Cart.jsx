@@ -3,9 +3,10 @@ import { useCartContext } from "../../../../context/CartContext";
 import CartItem from "./CartItem";
 import Button from "../../../../shared/Button/Button";
 import { Link } from "react-router-dom";
+import FormatePrice from "../../../../helper/FormatePrice";
 
 const Cart = () => {
-  const { cart } = useCartContext();
+  const { cart, total_price, shipping_fee } = useCartContext();
   return (
     <div className=" max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 className=" text-base md:text-xl lg:text-3xl font-semibold  mb-[15px] lg:mb-[32px] mt-2">
@@ -31,42 +32,40 @@ const Cart = () => {
               </div>
             </div>
             <div className="relative grid-cols-1 w-full mt-[20px] lg:mt-0">
-              <div className="lg:absolute space-y-5 top-0 left-0 w-full h-auto  lg:py-3 lg:px-4 lg:shadow-custom lg:border lg:rounded-lg">
+              <div className="lg:absolute space-y-5 top-0 left-0 w-full h-auto  lg:py-3 lg:px-4 lg:shadow-custom lg:border lg:rounded-lg bg-white">
                 <div className="flex justify-between items-center">
                   <p className="text-gray-600 text-[14px]">Subtotal:</p>
                   <p className="text-gray-700 font-semibold text-[16px]">
-                    ${}.00
-                  </p>
-                </div>
-                <div className="flex justify-between items-center">
-                  <p className="text-gray-600 text-[14px]">Tax:</p>
-                  <p className="text-gray-700 font-semibold text-[16px]">
-                    $0.00
+                    <FormatePrice price={total_price} />
                   </p>
                 </div>
                 <div className="flex justify-between items-center">
                   <p className="text-gray-600 text-[14px]">Shipping:</p>
                   <p className="text-gray-700 font-semibold text-[16px]">
-                    ${}.00
+                    <FormatePrice price={shipping_fee} />
                   </p>
                 </div>
                 <hr className="" />
                 <div className="flex justify-between items-center">
                   <p className="text-black font-medium text-[14px]">Total:</p>
                   <p className="text-primary-600 font-bold text-[16px]">
-                    ${}.00
+                    <FormatePrice price={total_price + shipping_fee} />
                   </p>
                 </div>
                 <Link className="mt-[20px] block" to="/checkout">
-                  <Button className="w-full">Check out</Button>
+                  <Button category="primary" type="button" className="w-full">
+                    Check out
+                  </Button>
                 </Link>{" "}
               </div>
             </div>
           </div>
           {/* shipping button */}
           <div className="mt-14 text-center lg:text-left">
-            <Link to="/products" className="hidden lg:block">
-              <Button>Continue Shopping</Button>
+            <Link to="/products" className="hidden lg:inline">
+              <Button category="primary" type="button">
+                Continue Shopping
+              </Button>
             </Link>
           </div>
         </div>

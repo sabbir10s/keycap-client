@@ -7,6 +7,8 @@ import { BiMenuAltLeft } from "react-icons/bi";
 import SecondaryCustomLink from "../hooks/SecondaryCustomLink";
 import useAdmin from "../hooks/useAdmin";
 import MobileSidebar from "./Sidebar/MobileSidebar";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { useCartContext } from "../context/CartContext";
 const navItems = [
   {
     name: "Home",
@@ -22,6 +24,7 @@ const navItems = [
   },
 ];
 const NavLeft = () => {
+  const { total_item } = useCartContext();
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
 
@@ -95,6 +98,16 @@ const NavLeft = () => {
             </nav>
 
             <div className="flex items-center gap-4">
+              <Link
+                to="/cart"
+                className="relative flex items-center md:pr-5"
+                type="button"
+              >
+                <AiOutlineShoppingCart className="text-[24px] text-white" />
+                <span className="absolute top-[-10px] left-[18px] text-[11px] text-white bg-secondary-600 rounded-full h-[20px] w-[18px] flex items-center justify-center">
+                  {total_item}
+                </span>
+              </Link>
               <div className="hidden lg:flex lg:gap-4 ">
                 {user ? (
                   <Link

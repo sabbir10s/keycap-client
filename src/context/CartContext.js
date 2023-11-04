@@ -7,7 +7,7 @@ const getCartData = () => {
     let localCartData = localStorage.getItem("productCart")
 
     console.log(localCartData);
-    if (localCartData == [] || localCartData == null) {
+    if (localCartData == [] || localCartData == null || localCartData == undefined) {
         return []
     } else {
         return JSON.parse(localCartData)
@@ -18,8 +18,8 @@ const initialState = {
     // cart: [],
     cart: getCartData(),
     total_item: 0,
-    total_amount: 0,
-    shipping_fee: 120
+    total_price: 0,
+    shipping_fee: 5
 }
 const CartProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState)
@@ -40,6 +40,8 @@ const CartProvider = ({ children }) => {
     }
 
     useEffect(() => {
+        dispatch({ type: "CART_TOTAL_ITEM" })
+        dispatch({ type: "CART_TOTAL_PRICE" })
         localStorage.setItem("productCart", JSON.stringify(state.cart))
     }, [state.cart])
 
