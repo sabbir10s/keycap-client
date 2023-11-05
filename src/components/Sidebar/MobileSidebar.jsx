@@ -6,6 +6,7 @@ import SecondaryCustomLink from "../../hooks/SecondaryCustomLink";
 import { useAuthState } from "react-firebase-hooks/auth";
 import useAdmin from "../../hooks/useAdmin";
 import { useNavigate } from "react-router-dom";
+import { useCartContext } from "../../context/CartContext";
 const clientLinks = [
   {
     label: "Order",
@@ -31,6 +32,7 @@ const adminLinks = [
   },
 ];
 const MobileSidebar = ({ visible, handleMobileSidebar }) => {
+  const { clearCart } = useCartContext();
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
   const handleCloseModal = (e) => {
@@ -43,6 +45,7 @@ const MobileSidebar = ({ visible, handleMobileSidebar }) => {
     signOut(auth);
     handleMobileSidebar();
     navigate("/");
+    clearCart();
   };
 
   if (!visible) {

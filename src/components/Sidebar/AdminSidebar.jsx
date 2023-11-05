@@ -5,12 +5,15 @@ import SecondaryCustomLink from "../../hooks/SecondaryCustomLink";
 import Loading from "../Loading";
 import auth from "../../firebase.init";
 import { useNavigate } from "react-router-dom";
+import { useCartContext } from "../../context/CartContext";
 
 const AdminSidebar = ({ handleMobileSidebar, links }) => {
+  const { clearCart } = useCartContext();
   const navigate = useNavigate();
   const handleSignOut = () => {
     navigate("/");
     signOut(auth);
+    clearCart();
   };
   if (!links.length) {
     return <Loading />;

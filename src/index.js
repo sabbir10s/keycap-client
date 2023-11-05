@@ -11,8 +11,13 @@ import {
 import { AppProvider } from './context/ProductContext';
 import { FilterContextProvider } from './context/FilterContext';
 import { CartProvider } from './context/CartContext';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 const queryClient = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const stripePromise = loadStripe('pk_test_51L17CjFVPM1NcC4wk5HSCO097ADOKg2eQAOM7vvJiloMXfu1ghTtdemx4zqJIsaokSLRN1ymzqin5gtKFyMn0e6z00PtAPsGer');
+
 root.render(
   <BrowserRouter>
     <QueryClientProvider client={queryClient}>
@@ -20,7 +25,9 @@ root.render(
         <AppProvider>
           <FilterContextProvider>
             <CartProvider>
-              <App />
+              <Elements stripe={stripePromise}>
+                <App />
+              </Elements>
             </CartProvider>
           </FilterContextProvider>
         </AppProvider>

@@ -108,6 +108,11 @@ const cartReducer = (state, action) => {
                 ...state,
                 total_price: totalPrice
             }
+        case "CLEAR_CART":
+            return {
+                ...state,
+                cart: []
+            }
         default:
             return state;
     }

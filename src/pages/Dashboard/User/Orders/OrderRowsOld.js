@@ -5,7 +5,7 @@ import DeleteConfirmModal from './DeleteConfirmModal';
 import FormatePrice from '../../../../helper/FormatePrice';
 import { BsCheck } from 'react-icons/bs';
 
-const OrderRows = ({ order, refetch }) => {
+const OrderRowsOld = ({ order, refetch }) => {
     const [cancelOrder, setCancelOrder] = useState(null)
     const { productName, quantity, price, totalPrice, paid, image, transactionId, status } = order
     console.log(status);
@@ -67,5 +67,5 @@ const OrderRows = ({ order, refetch }) => {
     );
 };
 
-export default OrderRows;
+export default OrderRowsOld;
 
