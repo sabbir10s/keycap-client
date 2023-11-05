@@ -9,7 +9,6 @@ import AddReview from './pages/Dashboard/User/AddReview/AddReview';
 import Orders from './pages/Dashboard/User/Orders/Orders';
 import Home from './pages/Home/Home';
 import NotFound from './pages/NotFound/NotFound';
-import Purchase from './pages/Purchase/Purchase';
 import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
 import Payment from './pages/Dashboard/User/Orders/Payment';
@@ -27,6 +26,7 @@ import NavLeft from './components/nav';
 import AdminDashboard from './pages/Dashboard/Dashboard/AdminDashboard';
 import ClientDashboard from './pages/Dashboard/Dashboard/ClientDashboard';
 import Cart from './pages/Dashboard/User/Cart/Cart';
+import Checkout from './pages/Checkout/Checkout';
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -63,7 +63,7 @@ function App() {
               <Cart />
             </PrivateRoute>} />
             <Route path='/checkout' element={<PrivateRoute>
-              <Purchase />
+              <Checkout />
             </PrivateRoute>} />
 
             {/* user dashboard section */}
