@@ -17,7 +17,7 @@ const PaymentMethod = () => {
             <span
               className={`${
                 SelectMethod === "cash"
-                  ? " w-5 h-5 border border-gray-400 rounded-full bg-primary-500"
+                  ? " w-5 h-5 border border-gray-400 rounded-full bg-primary-600"
                   : "w-5 h-5 border border-gray-400 rounded-full"
               } `}
             ></span>
@@ -33,7 +33,7 @@ const PaymentMethod = () => {
             <span
               className={`${
                 SelectMethod === "card"
-                  ? "w-5 h-5 border border-gray-400 rounded-full bg-primary-500"
+                  ? "w-5 h-5 border border-gray-400 rounded-full bg-primary-600"
                   : "w-5 h-5 border border-gray-400 rounded-full "
               } `}
             ></span>
