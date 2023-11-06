@@ -5,7 +5,7 @@ import Button from "../../../../shared/Button/Button";
 import { Link } from "react-router-dom";
 import FormatePrice from "../../../../helper/FormatePrice";
 import Footer from "../../../../components/Footer";
-
+import { BsArrowRight } from "react-icons/bs";
 const Cart = () => {
   const { cart, total_price, shipping_fee } = useCartContext();
   return (
@@ -63,13 +63,12 @@ const Cart = () => {
               </div>
             </div>
             {/* shipping button */}
-            <div className=" pt-4 text-center lg:text-left">
-              <Link to="/products" className="hidden lg:inline">
-                <Button category="primary" type="button">
-                  Continue Shopping
-                </Button>
-              </Link>
-            </div>
+            <Link
+              to="/products"
+              className="border border-primary-600 text-primary-600 hover:text-secondary-500 hover:border-secondary-600 duration-300 px-3 py-2 flex items-center justify-center gap-1 w-[200px] mt-4"
+            >
+              <span> Continue Shopping</span> <BsArrowRight />
+            </Link>
           </div>
         ) : (
           <div className="flex flex-col items-center gap-8 h-screen">

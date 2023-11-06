@@ -11,7 +11,7 @@ const Orders = () => {
 
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
-    const url = `http://localhost:5000/order/${user.email}`;
+    const url = `https://nexiq-server.vercel.app/order/${user.email}`;
 
     const { isLoading, data: orders, refetch } = useQuery('order', () =>
         fetch(url, {
@@ -40,7 +40,7 @@ const Orders = () => {
                 <div className="align-middle inline-block min-w-full">
                     <div className="shadow overflow-hidden border-b border-gray-200 dark:border-gray-600 sm:rounded-lg">
                         <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-500">
-                            <thead className="bg-gray-100 dark:bg-gray-900 dark:text-gray-300">
+                            <thead className="bg-secondary-100 dark:bg-gray-900 dark:text-gray-300">
                                 <tr>
                                     <th
                                         scope="col"

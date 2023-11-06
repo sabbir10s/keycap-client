@@ -1,44 +1,54 @@
 import React, { useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Loading from "../../components/Loading";
 import { useEffect } from "react";
 import { useProductContext } from "../../context/ProductContext";
 import CartAmountToggle from "../../components/CartAmountToggle";
 import Button from "../../shared/Button/Button";
 import { useCartContext } from "../../context/CartContext";
+import { BsArrowRight } from "react-icons/bs";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { toast } from "react-toastify";
 
 const API = "https://nexiq-server.vercel.app/product";
 
 const ProductQuickDetails = () => {
+  const [added, setAdded] = useState(false);
   const { getSingleProduct, isSingleLoading, singleProduct } =
     useProductContext();
   const { addToCart } = useCartContext();
+
+  // Cart Quantity
   const [amount, setAmount] = useState(1);
+  const setDecrease = () => {
+    amount > 1 ? setAmount(amount - 1) : setAmount(1);
+  };
+  const setIncrease = () => {
+    amount < stock ? setAmount(amount + 1) : setAmount(stock);
+  };
 
+  // Add To Cart Button
   const navigate = useNavigate();
-  const { productId } = useParams();
+  const handleAddToCart = () => {
+    if (!added) {
+      setAdded(true);
+      addToCart(_id, amount, singleProduct);
+      toast.success("Successfully Added to Cart");
+    } else {
+      navigate("/checkout");
+    }
+  };
 
+  // Get single product information
+  const { productId } = useParams();
   useEffect(() => {
     getSingleProduct(`${API}/${productId}`);
   }, []);
-
   if (isSingleLoading) {
     return <Loading />;
   }
   const { _id, name, image, price, description, company, stock } =
     singleProduct;
-
-  const handlePurchase = () => {
-    navigate(`/purchase/${_id}`);
-  };
-
-  const setDecrease = () => {
-    amount > 1 ? setAmount(amount - 1) : setAmount(1);
-  };
-
-  const setIncrease = () => {
-    amount < stock ? setAmount(amount + 1) : setAmount(stock);
-  };
 
   return (
     <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 h-screen">
@@ -78,32 +88,29 @@ const ProductQuickDetails = () => {
             <div className=" space-x-6">
               {stock > 0 && (
                 <Button
+                  onClick={handleAddToCart}
                   id="Buy Now"
                   type="button"
                   category="primary"
-                  onClick={handlePurchase}
                   isDisabled={false}
-                  className={""}
+                  className={`w-[200px] flex items-center justify-center ${
+                    added && "bg-secondary-500"
+                  }`}
                 >
-                  Buy Now
+                  {!added ? (
+                    <span className="flex items-center gap-2">
+                      <AiOutlineShoppingCart className="text-[20px] text-white" />
+                      Add to Cart
+                    </span>
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      View Cart
+                      <BsArrowRight className="text-[20px] text-white" />
+                    </span>
+                  )}
                 </Button>
               )}
               {!stock > 0 && <Button isDisabled={true}>Out Of Stock</Button>}
-
-              {stock ? (
-                <Link to="/cart">
-                  <Button
-                    onClick={() => addToCart(_id, amount, singleProduct)}
-                    id="Add to Cart"
-                    type="button"
-                    category="secondary"
-                  >
-                    Add to Cart
-                  </Button>
-                </Link>
-              ) : (
-                ""
-              )}
             </div>
           </div>
         </div>
