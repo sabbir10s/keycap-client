@@ -27,6 +27,7 @@ import ClientDashboard from './pages/Dashboard/Dashboard/ClientDashboard';
 import Cart from './pages/Dashboard/User/Cart/Cart';
 import Checkout from './pages/Checkout/Checkout';
 import Navbar from './components/Navbar';
+import MangeOrderDetails from './pages/Dashboard/Admin/MangeOrders/MangeOrderDetails';
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -47,7 +48,7 @@ function App() {
         {/* <Navbar /> */}
         <Navbar />
         <ToastContainer />
-        <div className='pt-16 bg-slate-100'>
+        <div className='pt-16 bg-[#f0f0fa]'>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/home' element={<Home />} />
@@ -79,6 +80,7 @@ function App() {
               <Route path='addNewProduct' element={<RequireAdmin><AddNewProduct /></RequireAdmin>} />
               <Route path='mangeUsers' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
               <Route path='mangeOrders' element={<RequireAdmin><MangeOrders /></RequireAdmin>} />
+              <Route path='mangeOrders/:id' element={<RequireAdmin><MangeOrderDetails /></RequireAdmin>} />
               <Route path='profile' element={<RequireUser><Profile /></RequireUser>} />
             </Route>
 

@@ -15,7 +15,7 @@ const links = [
 
 const ClientDashboard = () => {
   return (
-    <div className=" bg-gray-100 h-screen">
+    <div className="h-screen">
       <div className="flex gap-4 max-w-screen-xl mx-auto">
         <div className="hidden lg:block w-64 shadow-sm border bg-white h-[520px] mt-4">
           <ClientSidebar links={links} />

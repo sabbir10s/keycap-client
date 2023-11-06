@@ -31,12 +31,10 @@ const Checkout = () => {
   };
 
   // Get current date
-  const today = Date.now();
-  const date = new Intl.DateTimeFormat("en-US", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).format(today);
+  const options = { day: "numeric", month: "long", year: "numeric" };
+  const currentDate = new Date();
+
+  const formattedDate = currentDate.toLocaleDateString(undefined, options);
 
   const handlePlaceOrder = (e) => {
     e.preventDefault();
@@ -56,7 +54,7 @@ const Checkout = () => {
         method: paymentMethod,
         status: paymentStatus,
       },
-      date: date,
+      date: formattedDate,
     };
 
     const url = `https://nexiq-server.vercel.app/order`;

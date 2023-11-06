@@ -18,12 +18,12 @@ const links = [
 
 const AdminDashboard = () => {
   return (
-    <div className="h-screen bg-gray-100">
+    <div className="h-screen">
       <div className="flex gap-4 max-w-screen-xl mx-auto pt-4">
         <div className="hidden lg:block w-64 shadow-sm border bg-white h-[520px] ">
           <AdminSidebar links={links} />
         </div>
-        <div className="w-full ">
+        <div className="w-full">
           <Outlet />
         </div>
       </div>
