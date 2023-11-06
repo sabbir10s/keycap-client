@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import CustomLink from "../hooks/CustomLink";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../firebase.init";
@@ -23,7 +23,7 @@ const navItems = [
     link: "/blogs",
   },
 ];
-const NavLeft = () => {
+const Navbar = () => {
   const { total_item } = useCartContext();
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
@@ -190,4 +190,4 @@ const NavLeft = () => {
   );
 };
 
-export default NavLeft;
+export default Navbar;

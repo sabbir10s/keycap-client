@@ -22,11 +22,11 @@ import BlogDetails from './pages/Blogs/BlogDetails';
 import Products from './pages/Products/Products';
 import { useLayoutEffect } from 'react';
 import ProductDetails from './pages/ProductDetails/ProductDetails';
-import NavLeft from './components/nav';
 import AdminDashboard from './pages/Dashboard/Dashboard/AdminDashboard';
 import ClientDashboard from './pages/Dashboard/Dashboard/ClientDashboard';
 import Cart from './pages/Dashboard/User/Cart/Cart';
 import Checkout from './pages/Checkout/Checkout';
+import Navbar from './components/Navbar';
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -45,7 +45,7 @@ function App() {
     <div>
       <Wrapper>
         {/* <Navbar /> */}
-        <NavLeft />
+        <Navbar />
         <ToastContainer />
         <div className='pt-16 bg-slate-100'>
           <Routes>
