@@ -18,9 +18,9 @@ const links = [
 
 const AdminDashboard = () => {
   return (
-    <div className="h-screen">
-      <div className="flex gap-4 max-w-screen-xl mx-auto pt-4">
-        <div className="hidden lg:block w-64 shadow-sm border bg-white h-[520px] ">
+    <div className="min-h-screen">
+      <div className="flex gap-4 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="hidden lg:block w-64 shadow-sm border bg-white min-h-[520px] ">
           <AdminSidebar links={links} />
         </div>
         <div className="w-full">

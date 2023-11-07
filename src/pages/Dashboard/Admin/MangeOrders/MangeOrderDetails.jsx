@@ -12,14 +12,15 @@ import FormatePrice from "../../../../helper/FormatePrice";
 const MangeOrderDetails = () => {
   const { orderId } = useParams();
   const [isOpen, setIsOpen] = useState(false);
+  const [statusValue, setStatusValue] = useState("pending");
   const navigate = useNavigate();
 
   // Get Order Information
-
   const [orderInfo, setOrderInfo] = useState([]);
   const [reload, setIsReload] = useState(true);
   useEffect(() => {
     const url = `https://nexiq-server.vercel.app/order/${orderId}`;
+    console.log(url);
     fetch(url, {
       method: "GET",
       headers: {
@@ -33,14 +34,13 @@ const MangeOrderDetails = () => {
       });
   }, [orderId]);
 
+  if (orderInfo.length === 0) {
+    return <Loading />;
+  }
   const { customer, email, status, items, payment, totalAmount, date } =
     orderInfo;
+  const { name, mobile, streetAddress, city, zip } = customer;
 
-  const options = [
-    { value: "pending", label: "Pending" },
-    { value: "confirmed", label: "Confirmed" },
-    { value: "delivered", label: "Delivered" },
-  ];
   const handleDelete = () => {
     const url = `https://nexiq-server.vercel.app/order/${orderId}`;
     fetch(url, {
@@ -60,9 +60,22 @@ const MangeOrderDetails = () => {
       });
   };
 
-  const handleSelectChange = (event) => {
-    const value = event.target.value;
-    const json = JSON.stringify({ status: value });
+  const options = [
+    { value: "pending", label: "Pending" },
+    { value: "confirmed", label: "Confirmed" },
+    { value: "delivered", label: "Delivered" },
+  ];
+
+  const selectStatus = (e) => {
+    e.preventDefault();
+    const value = e.target.value;
+    console.log(value);
+    setStatusValue(value);
+  };
+  const updateStatus = (e) => {
+    e.preventDefault();
+    console.log(statusValue);
+    const json = JSON.stringify({ status: statusValue });
     const url = `https://nexiq-server.vercel.app/order/${orderId}`;
 
     fetch(url, {
@@ -74,7 +87,6 @@ const MangeOrderDetails = () => {
       },
     })
       .then((res) => {
-        console.log("res for all users", res);
         if (res.status === 403) {
           toast.error("Failed to change");
           signOut(auth);
@@ -91,14 +103,6 @@ const MangeOrderDetails = () => {
       });
   };
 
-  const [selectedOption, setSelectedOption] = useState(null);
-  const handleOptionClick = (option) => {
-    setSelectedOption(option); // Update the selected option state
-  };
-  console.log(orderInfo);
-  if (!orderInfo) {
-    return <Loading />;
-  }
   return (
     <div className="space-y-4">
       <div className="bg-white flex items-center justify-between p-4">
@@ -108,18 +112,48 @@ const MangeOrderDetails = () => {
           </h2>
           <p>Order Created : </p>
         </div>
-        <form className="flex items-center gap-2">
+        <form onSubmit={updateStatus} className="flex items-center gap-2">
           <small>Change Status :</small>
-          <div className="relative">
-            <span className=" text-sm absolute z-30 bg-white text-gray-600 px-2 top-2 left-2 capitalize">
-              {orderInfo.status}
-            </span>
-            <Select
-              className="w-28 border-gray-300"
-              _id={orderId}
-              options={options}
-              onChange={handleSelectChange}
-            />
+          <div className="relative inline-block ">
+            <select
+              className="w-[130px] appearance-none block rounded-md border px-4 py-2 text-gray-600 text-base leading-6 outline-none duration-300"
+              onChange={selectStatus}
+              name="status"
+              id="status"
+            >
+              <option selected={status === "pending" && true} value="pending">
+                Pending
+              </option>
+              <option
+                selected={status === "confirmed" && true}
+                value="confirmed"
+              >
+                Confirmed
+              </option>
+              <option
+                selected={status === "delivered" && true}
+                value="delivered"
+              >
+                Delivered
+              </option>
+            </select>
+
+            <div className="pointer-events-none absolute inset-y-0 right-1 flex items-center px-1 md:px-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="w-4 h-4 text-gray-600 dark:text-white"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                />
+              </svg>
+            </div>
           </div>
           <Button category="secondary" type="submit">
             Save
@@ -136,7 +170,7 @@ const MangeOrderDetails = () => {
                 <th className="py-3 font-normal text-[#55585B] w-[50%]">
                   Name
                 </th>
-                <td className="py-3 text-right">{customer.name}</td>
+                <td className="py-3 text-right">{name}</td>
               </tr>
               <tr className="bg-white border-b border-gray-200 last:border-0 text-start mx-9">
                 <th className="py-3 font-normal text-[#55585B] w-[50%]">
@@ -148,7 +182,7 @@ const MangeOrderDetails = () => {
                 <th className="py-3 font-normal text-[#55585B] w-[50%]">
                   Phone
                 </th>
-                <td className="py-3 text-right">{customer.mobile}</td>
+                <td className="py-3 text-right">{mobile}</td>
               </tr>
             </tbody>
           </table>
@@ -161,19 +195,19 @@ const MangeOrderDetails = () => {
                 <th className="py-3 font-normal text-[#55585B] w-[50%]">
                   Street
                 </th>
-                <td className="py-3 text-right">{customer.streetAddress}</td>
+                <td className="py-3 text-right">{streetAddress}</td>
               </tr>
               <tr className="bg-white border-b border-gray-200 last:border-0 text-start mx-9">
                 <th className="py-3 font-normal text-[#55585B] w-[50%]">
                   City
                 </th>
-                <td className="py-3 text-right">{customer.city}</td>
+                <td className="py-3 text-right">{city}</td>
               </tr>
               <tr className="bg-white border-b border-gray-200 last:border-0 text-start mx-9">
                 <th className="py-3 font-normal text-[#55585B] w-[50%]">
                   Zip Code
                 </th>
-                <td className="py-3 text-right">{customer.zip}</td>
+                <td className="py-3 text-right">{zip}</td>
               </tr>
             </tbody>
           </table>
@@ -191,20 +225,20 @@ const MangeOrderDetails = () => {
             <span className="text-gray-800">{payment.method}</span>
           </p>
         </div>
-        <div class="relative overflow-x-auto py-4">
-          <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+        <div className="relative overflow-x-auto py-4">
+          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
               <tr>
-                <th scope="col" class="px-6 py-3 rounded-l-lg">
+                <th scope="col" className="px-6 py-3 rounded-l-lg">
                   Product
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   Qty
                 </th>
-                <th scope="col" class="px-6 py-3 rounded-r-lg">
+                <th scope="col" className="px-6 py-3 rounded-r-lg">
                   Unit Price
                 </th>
-                <th scope="col" class="px-6 py-3 rounded-r-lg">
+                <th scope="col" className="px-6 py-3 rounded-r-lg">
                   Total
                 </th>
               </tr>
@@ -215,13 +249,13 @@ const MangeOrderDetails = () => {
               ))}
             </tbody>
             <tfoot>
-              <tr class="font-semibold text-gray-900 dark:text-white">
-                <td class="px-6 py-3">{}</td>
-                <td class="px-6 py-3">{}</td>
-                <th scope="row" class="px-6 py-3 text-base">
+              <tr className="font-semibold text-gray-900 dark:text-white">
+                <td className="px-6 py-3">{}</td>
+                <td className="px-6 py-3">{}</td>
+                <th scope="row" className="px-6 py-3 text-base">
                   Total
                 </th>
-                <td class="px-6 py-3">
+                <td className="px-6 py-3">
                   <FormatePrice price={totalAmount} />
                 </td>
               </tr>

@@ -10,7 +10,7 @@ const OrderItems = ({ item }) => {
         className="flex items-center gap-1 px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
       >
         <div className="border rounded-full w-[30px] h-[30px]">
-          <img className="" src={image} alt="" />
+          <img className="w-full" src={image} alt="" />
         </div>
         {name}
       </th>
