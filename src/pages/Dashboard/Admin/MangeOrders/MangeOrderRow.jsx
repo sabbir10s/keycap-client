@@ -1,6 +1,6 @@
 import React from "react";
 import FormatePrice from "../../../../helper/FormatePrice";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const MangeOrderRow = ({ order }) => {
   const { customer, items, totalAmount, status, _id, date } = order;
@@ -22,8 +22,13 @@ const MangeOrderRow = ({ order }) => {
       </td>
       <td className={fieldStyle}>{date}</td>
       <td className={fieldStyle}>{status}</td>
-      <td className={`${fieldStyle} hover:underline`}>
-        <button onClick={handleOrderDetails}>Details</button>
+      <td className={fieldStyle}>
+        <button
+          className="hover:underline hover:text-primary-600 duration-300"
+          onClick={handleOrderDetails}
+        >
+          Details
+        </button>
       </td>
     </tr>
   );

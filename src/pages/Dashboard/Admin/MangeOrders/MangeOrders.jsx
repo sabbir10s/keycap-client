@@ -53,6 +53,7 @@ const MangeOrders = () => {
                   <MangeOrderRow
                     order={order}
                     index={index}
+                    key={order._id}
                     setIsReload={setIsReload}
                     reload={reload}
                   />

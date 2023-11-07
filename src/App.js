@@ -80,7 +80,7 @@ function App() {
               <Route path='addNewProduct' element={<RequireAdmin><AddNewProduct /></RequireAdmin>} />
               <Route path='mangeUsers' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
               <Route path='mangeOrders' element={<RequireAdmin><MangeOrders /></RequireAdmin>} />
-              <Route path='mangeOrders/:id' element={<RequireAdmin><MangeOrderDetails /></RequireAdmin>} />
+              <Route path='mangeOrders/:orderId' element={<RequireAdmin><MangeOrderDetails /></RequireAdmin>} />
               <Route path='profile' element={<RequireUser><Profile /></RequireUser>} />
             </Route>
 
