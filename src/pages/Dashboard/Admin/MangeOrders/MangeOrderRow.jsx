@@ -6,7 +6,6 @@ const MangeOrderRow = ({ order }) => {
   const { customer, items, totalAmount, status, _id, date } = order;
 
   const fieldStyle = "px-6 py-4 whitespace-nowrap text-sm  capitalize ";
-  console.log(fieldStyle);
 
   const navigate = useNavigate();
   const handleOrderDetails = () => {
@@ -24,7 +23,7 @@ const MangeOrderRow = ({ order }) => {
       <td className={fieldStyle}>{status}</td>
       <td className={fieldStyle}>
         <button
-          className="hover:underline hover:text-primary-600 duration-300"
+          className="underline text-blue-600 hover:text-secondary-600 duration-300"
           onClick={handleOrderDetails}
         >
           Details

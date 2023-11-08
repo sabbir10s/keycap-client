@@ -1,28 +1,29 @@
 import React from "react";
 import FormatePrice from "../../../../helper/FormatePrice";
+import { useNavigate } from "react-router-dom";
 
 const OrderRow = ({ order, index }) => {
-  const { date, payment, status, totalAmount } = order;
-  console.log(totalAmount);
+  const { _id, date, payment, status, totalAmount } = order;
+  const navigate = useNavigate();
+  const handleOrderDetails = () => {
+    navigate(`/admin/dashboard/mangeOrders/${_id}`);
+  };
+  const fieldStyle = "px-6 py-4 whitespace-nowrap text-sm  capitalize ";
   return (
-    <tr className="">
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 capitalize">
-        {index + 1}
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 capitalize">
-        {date}
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 capitalize">
-        {payment.method}
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 capitalize">
-        {status}
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 capitalize">
+    <tr className="text-gray-500 hover:bg-gray-100 duration-200  dark:text-gray-400 dark:hover:bg-gray-600/50 even:bg-white-100 odd:bg-secondary-100/30">
+      <td className={fieldStyle}>#{index}</td>
+      <td className={fieldStyle}>{date}</td>
+      <td className={fieldStyle}>{payment.method}</td>
+      <td className={fieldStyle}>{status}</td>
+      <td className={fieldStyle}>
         <FormatePrice price={totalAmount} />
       </td>
-      <td className="py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 capitalize">
-        <button className="bg-green-100 text-green-700 hover:bg-primary-600 hover:text-white duration-300 text-xs font-semibold tracking-widest px-2 py-1 rounded-full">
+
+      <td className={fieldStyle}>
+        <button
+          className="underline text-blue-600 hover:text-secondary-600 duration-300"
+          onClick={handleOrderDetails}
+        >
           Details
         </button>
       </td>
