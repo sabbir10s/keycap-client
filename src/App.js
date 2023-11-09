@@ -2,32 +2,33 @@ import { ToastContainer } from 'react-toastify';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
-import PrivateRoute from './hooks/PrivateRoute';
-import RequireAdmin from './hooks/RequireAdmin';
-import RequireUser from './hooks/RequireUser';
-import AddReview from './pages/Dashboard/User/AddReview/AddReview';
-import Orders from './pages/Dashboard/User/Orders/Orders';
-import Home from './pages/Home/Home';
-import NotFound from './pages/NotFound/NotFound';
-import SignIn from './pages/SignIn/SignIn';
-import SignUp from './pages/SignUp/SignUp';
-import Payment from './pages/Dashboard/User/Orders/Payment';
-import AddNewProduct from './pages/Dashboard/Admin/AddNewProduct/AddNewProduct';
-import AllUsers from './pages/Dashboard/Admin/MangeUsers/AllUsers';
-import Profile from './pages/Dashboard/Profile/Profile';
-import MangeOrders from './pages/Dashboard/Admin/MangeOrders/MangeOrders';
-import MangeProducts from './pages/Dashboard/Admin/MangeProducts/MangeProducts';
-import Blogs from './pages/Blogs/Blogs';
-import BlogDetails from './pages/Blogs/BlogDetails';
-import Products from './pages/Products/Products';
 import { useLayoutEffect } from 'react';
-import ProductDetails from './pages/ProductDetails/ProductDetails';
-import AdminDashboard from './pages/Dashboard/Dashboard/AdminDashboard';
-import ClientDashboard from './pages/Dashboard/Dashboard/ClientDashboard';
-import Cart from './pages/Dashboard/User/Cart/Cart';
-import Checkout from './pages/Checkout/Checkout';
 import Navbar from './components/Navbar';
-import MangeOrderDetails from './pages/Dashboard/Admin/MangeOrders/MangeOrderDetails';
+import Home from './pages/PublicPages/Home/Home';
+import Products from './pages/PublicPages/Products/Products';
+import Blogs from './pages/PublicPages/Blogs/Blogs';
+import BlogDetails from './pages/PublicPages/Blogs/BlogDetails';
+import SignIn from './pages/Auth/SignIn/SignIn';
+import SignUp from './pages/Auth/SignUp/SignUp';
+import ProductDetails from './pages/PublicPages/ProductDetails/ProductDetails';
+import Cart from './pages/PublicPages/Cart/Cart';
+import PrivateRoute from './hooks/PrivateRoute';
+import Checkout from './pages/User/Checkout/Checkout';
+import ClientDashboard from './pages/User/Dashboard/ClientDashboard';
+import Orders from './pages/User/Dashboard/Orders/Orders';
+import RequireUser from './hooks/RequireUser';
+import Profile from './pages/Common/Profile/Profile';
+import Payment from './pages/User/Dashboard/Orders/Payment';
+import AddReview from './pages/User/Dashboard/AddReview/AddReview';
+import RequireAdmin from './hooks/RequireAdmin';
+import AdminDashboard from './pages/Admin/AdminDashboard/AdminDashboard';
+import MangeProducts from './pages/Admin/MangeProducts/MangeProducts';
+import AddProduct from './pages/Admin/AddProduct/AddProduct';
+import AllUsers from './pages/Admin/MangeUsers/AllUsers';
+import MangeOrders from './pages/Admin/MangeOrders/MangeOrders';
+import MangeOrderDetails from './pages/Admin/MangeOrders/MangeOrderDetails';
+import NotFound from './pages/Common/NotFound/NotFound';
+
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -77,7 +78,7 @@ function App() {
             {/* admin dashboard section*/}
             <Route path='admin/dashboard' element={<PrivateRoute><RequireAdmin><AdminDashboard /></RequireAdmin></PrivateRoute>}>
               <Route index element={<RequireAdmin> <MangeProducts /></RequireAdmin>} />
-              <Route path='addNewProduct' element={<RequireAdmin><AddNewProduct /></RequireAdmin>} />
+              <Route path='addNewProduct' element={<RequireAdmin><AddProduct /></RequireAdmin>} />
               <Route path='mangeUsers' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
               <Route path='mangeOrders' element={<RequireAdmin><MangeOrders /></RequireAdmin>} />
               <Route path='mangeOrders/:orderId' element={<RequireAdmin><MangeOrderDetails /></RequireAdmin>} />
