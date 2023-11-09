@@ -14,7 +14,7 @@ const MangeOrderDetails = () => {
   const [orderInfo, setOrderInfo] = useState([]);
 
   useEffect(() => {
-    const url = `https://nexiq-server.vercel.app/order/${orderId}`;
+    const url = `https://nexiq-server.vercel.app/admin/order/${orderId}`;
     console.log(url);
     fetch(url, {
       method: "GET",
@@ -28,7 +28,6 @@ const MangeOrderDetails = () => {
         setOrderInfo(data);
       });
   }, [orderId]);
-
   if (orderInfo.length === 0) {
     return <Loading />;
   }

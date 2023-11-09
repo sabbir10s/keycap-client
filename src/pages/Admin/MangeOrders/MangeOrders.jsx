@@ -13,7 +13,7 @@ const MangeOrders = () => {
   const [orders, setOrders] = useState([]);
   const [reload, setIsReload] = useState(true);
   useEffect(() => {
-    const url = "https://nexiq-server.vercel.app/order";
+    const url = "https://nexiq-server.vercel.app/admin/order";
     fetch(url, {
       method: "GET",
       headers: {

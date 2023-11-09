@@ -58,7 +58,7 @@ const Checkout = () => {
       date: formattedDate,
     };
 
-    const url = `https://nexiq-server.vercel.app/order`;
+    const url = `https://nexiq-server.vercel.app/user/order`;
 
     fetch(url, {
       method: "POST",

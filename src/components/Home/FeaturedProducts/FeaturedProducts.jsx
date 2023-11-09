@@ -9,7 +9,6 @@ const FeaturedProducts = () => {
   const { isLoading, featureProducts } = useProductContext();
   const navigate = useNavigate();
   const handleButton = () => {
-    console.log("clicked");
     navigate("/products");
   };
   if (isLoading) {

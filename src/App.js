@@ -62,13 +62,10 @@ function App() {
             <Route path='/product/:productId' element={<ProductDetails />} />
 
             <Route path='/cart' element={<Cart />} />
-            <Route path='/checkout' element={<PrivateRoute>
-              <Checkout />
-            </PrivateRoute>} />
+            <Route path='/checkout' element={<PrivateRoute><Checkout /></PrivateRoute>} />
 
             {/* user dashboard section */}
             <Route path='user/dashboard' element={<PrivateRoute> <ClientDashboard /> </PrivateRoute>}>
-
               <Route index element={<Orders />} />
               <Route path='profile' element={<RequireUser><Profile /></RequireUser>} />
               <Route path='payment/:id' element={<Payment />} />
