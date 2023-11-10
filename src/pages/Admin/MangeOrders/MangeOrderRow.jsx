@@ -9,7 +9,7 @@ const MangeOrderRow = ({ order }) => {
 
   const navigate = useNavigate();
   const handleOrderDetails = () => {
-    navigate(`/admin/dashboard/mangeOrders/${_id}`);
+    navigate(`/dashboard/mangeOrders/${_id}`);
   };
   return (
     <tr className="text-gray-500 hover:bg-gray-100 duration-200  dark:text-gray-400 dark:hover:bg-gray-600/50 even:bg-white-100 odd:bg-secondary-100/30">

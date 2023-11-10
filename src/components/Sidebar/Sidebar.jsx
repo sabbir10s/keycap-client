@@ -7,7 +7,7 @@ import auth from "../../firebase.init";
 import { useNavigate } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
 
-const ClientSidebar = ({ handleMobileSidebar, links }) => {
+const Sidebar = ({ handleMobileSidebar, paths }) => {
   const { clearCart } = useCartContext();
   const navigate = useNavigate();
 
@@ -16,13 +16,13 @@ const ClientSidebar = ({ handleMobileSidebar, links }) => {
     signOut(auth);
     clearCart();
   };
-  if (!links.length) {
+  if (!paths.length) {
     return <Loading />;
   }
   return (
     <div className="flex flex-col justify-between h-full">
       <ul className="px-6 py-3">
-        {links.map((item, index) => (
+        {paths.map((item, index) => (
           <li key={index} className="pt-3" onClick={() => handleMobileSidebar}>
             <SecondaryCustomLink to={item.path}>
               {item.label}
@@ -43,4 +43,4 @@ const ClientSidebar = ({ handleMobileSidebar, links }) => {
   );
 };
 
-export default ClientSidebar;
+export default Sidebar;

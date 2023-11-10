@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MangeOrderRow from "./MangeOrderRow";
+import Loading from "../../../components/Loading";
 const title = [
   " Order Id",
   "Customer",
@@ -13,7 +14,7 @@ const MangeOrders = () => {
   const [orders, setOrders] = useState([]);
   const [reload, setIsReload] = useState(true);
   useEffect(() => {
-    const url = "https://nexiq-server.vercel.app/admin/order";
+    const url = "https://nexiq-server.vercel.app/order";
     fetch(url, {
       method: "GET",
       headers: {
@@ -26,7 +27,10 @@ const MangeOrders = () => {
         setOrders(data);
       });
   }, [reload]);
-
+  console.log(orders);
+  if (orders.length === 0) {
+    return <Loading />;
+  }
   return (
     <div className="bg-white border-[1px] border-gray-200/80">
       <h2 className="p-4 font-semibold">ORDERS LIST</h2>

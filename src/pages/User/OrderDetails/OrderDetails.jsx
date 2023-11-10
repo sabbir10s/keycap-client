@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Loading from "../../../components/Loading";
-import HandleOrderStatus from "../../../components/Order/HandleOrderStatus";
 import CustomerInfo from "../../../components/Order/CustomerInfo";
 import OrderItems from "../../../components/Order/OrderItems";
 import FormatePrice from "../../../helper/FormatePrice";
+import OrderStatus from "../../../components/Order/OrderStatus";
 
-const MangeOrderDetails = () => {
+const OrderDetails = () => {
   const { orderId } = useParams();
   // const [isOpen, setIsOpen] = useState(false);
 
@@ -54,15 +54,17 @@ const MangeOrderDetails = () => {
 
   return (
     <div className="space-y-4">
-      <div className="bg-white flex flex-col md:flex-row md:items-center justify-between p-4">
+      <div className="bg-white grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
         <div>
           <h2 className=" font-semibold uppercase">
             Order Details: #Order-{orderId.slice(0, 4)}
           </h2>
           <p className="text-gray-500 text-sm">Order Created : {date}</p>
         </div>
-
-        <HandleOrderStatus orderId={orderId} status={status} />
+        <div className="flex items-center justify-start gap-2 py-2">
+          <p className="text-sm text-gray-500 hidden lg:block">Order Status:</p>
+          <OrderStatus status={status} />
+        </div>
       </div>
 
       <CustomerInfo orderInfo={orderInfo} />
@@ -120,4 +122,4 @@ const MangeOrderDetails = () => {
   );
 };
 
-export default MangeOrderDetails;
+export default OrderDetails;

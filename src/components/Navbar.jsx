@@ -5,7 +5,6 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../firebase.init";
 import { BiMenuAltLeft } from "react-icons/bi";
 import SecondaryCustomLink from "../hooks/SecondaryCustomLink";
-import useAdmin from "../hooks/useAdmin";
 import MobileSidebar from "./Sidebar/MobileSidebar";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useCartContext } from "../context/CartContext";
@@ -26,7 +25,6 @@ const navItems = [
 const Navbar = () => {
   const { total_item } = useCartContext();
   const [user] = useAuthState(auth);
-  const [admin] = useAdmin(user);
 
   // Mobile sidebar
   const [mobileSidebar, setMobileSidebar] = useState(false);
@@ -62,10 +60,6 @@ const Navbar = () => {
   const handleOptionClick = () => {
     setIsOpen(false);
   };
-
-  const path1 = "/user/dashboard";
-  const path2 = "/admin/dashboard";
-  const linkPath = !admin ? path1 : path2;
 
   return (
     <>
@@ -111,7 +105,7 @@ const Navbar = () => {
               <div className="hidden lg:flex lg:gap-4 ">
                 {user ? (
                   <Link
-                    to={linkPath}
+                    to="/dashboard"
                     className="text-white text-base uppercase font-bold border-2 border-white w-8 h-8 rounded-full flex justify-center items-center"
                   >
                     {user?.displayName.slice(0, 1)}
@@ -154,7 +148,7 @@ const Navbar = () => {
                       <div className="py-1 flex flex-col gap-6 pl-4">
                         {user ? (
                           <button onClick={handleOptionClick}>
-                            <SecondaryCustomLink to={linkPath}>
+                            <SecondaryCustomLink to="/dashboard">
                               Dashboard
                             </SecondaryCustomLink>
                           </button>

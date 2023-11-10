@@ -1,0 +1,47 @@
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import React from "react";
+import { useQuery } from "react-query";
+import { useParams } from "react-router-dom";
+import CheckoutForm from "./CheckoutForm";
+import Loading from "../../../components/Loading";
+
+const stripePromise = loadStripe(
+  "pk_test_51L17CjFVPM1NcC4wk5HSCO097ADOKg2eQAOM7vvJiloMXfu1ghTtdemx4zqJIsaokSLRN1ymzqin5gtKFyMn0e6z00PtAPsGer"
+);
+
+const Payment = () => {
+  const { id } = useParams();
+  const url = `https://nexiq-server.vercel.app/order/email/${id}`;
+
+  const { isLoading, data: order } = useQuery(["order", id], () =>
+    fetch(url, {
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => res.json())
+  );
+  console.log(order);
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  return (
+    <div className="mt-10 flex justify-center">
+      <div className="card w-full md:w-1/2 mx-2 bg-gray-100 border border-primary-700 shadow-xl">
+        <div className="card-body">
+          <h2 className="card-title mb-7">
+            Please Pay for{" "}
+            <span className="text-secondary-500">{order.productName}</span>
+          </h2>
+          <Elements stripe={stripePromise}>
+            <CheckoutForm order={order} />
+          </Elements>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Payment;

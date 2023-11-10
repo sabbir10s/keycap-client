@@ -1,12 +1,12 @@
 import React from "react";
-import FormatePrice from "../../../../helper/FormatePrice";
 import { useNavigate } from "react-router-dom";
+import FormatePrice from "../../../helper/FormatePrice";
 
 const OrderRow = ({ order, index }) => {
   const { _id, date, payment, status, totalAmount } = order;
   const navigate = useNavigate();
   const handleOrderDetails = () => {
-    navigate(`/admin/dashboard/mangeOrders/${_id}`);
+    navigate(`/dashboard/order/${_id}`);
   };
   const fieldStyle = "px-6 py-4 whitespace-nowrap text-sm  capitalize ";
   return (
