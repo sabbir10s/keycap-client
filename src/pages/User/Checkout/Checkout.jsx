@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { signOut } from "firebase/auth";
-import { useCartContext } from "../../../context/CartContext";
 import auth from "../../../firebase.init";
-import InputFields from "../../Admin/AddProduct/InputFields";
-import InputField from "../../../shared/InputField/InputField";
 import PaymentMethod from "../../../components/Checkout/PaymentMethod";
 import CheckoutItem from "../../../components/Checkout/CheckoutItem";
 import FormatePrice from "../../../helper/FormatePrice";
 import Button from "../../../shared/Button/Button";
 import Footer from "../../../components/Footer";
+import { useCartContext } from "../../../context/CartContext";
+import InputField from "../../../shared/InputField/InputField";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const Checkout = () => {
+  const [user] = useAuthState(auth);
   const navigate = useNavigate();
   const { cart, total_price, shipping_fee, clearCart } = useCartContext();
   const [paymentMethod, setPaymentMethod] = useState("cash");
@@ -101,7 +102,7 @@ const Checkout = () => {
                   1. Contact Information
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <InputFields
+                  <InputField
                     onChange={handleInputChange}
                     label="Name"
                     type="text"
@@ -119,6 +120,7 @@ const Checkout = () => {
                   />
                   <InputField
                     onChange={handleInputChange}
+                    defaultValue={user.email}
                     label="Email"
                     type="email"
                     placeholder="Email"

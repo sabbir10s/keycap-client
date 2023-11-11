@@ -3,11 +3,14 @@ import { BsCheck } from "react-icons/bs";
 
 const OrderStatus = ({ status }) => {
   return (
-    <div className="flex items-center">
+    <div className="flex items-center justify-start min-h-[100px] pl-4">
+      <p className="text-gray-500 pr-3 text-sm hidden md:block">
+        Order Status:
+      </p>
       <div
         className={
           status === "pending" || "confirmed" || "delivered"
-            ? "w-20 h-[2px] bg-green-500"
+            ? "w-20 lg:w-36 h-[2px] bg-green-500"
             : ""
         }
       ></div>
@@ -21,8 +24,8 @@ const OrderStatus = ({ status }) => {
       <div
         className={
           status === "confirmed" || "delivered"
-            ? "w-20 h-[2px] bg-green-500"
-            : "w-20 h-[2px] bg-gray-400"
+            ? "w-20 lg:w-36 h-[2px] bg-green-500"
+            : "w-20 lg:w-36 h-[2px] bg-gray-400"
         }
       ></div>
 
@@ -37,8 +40,8 @@ const OrderStatus = ({ status }) => {
       <div
         className={
           status === "delivered"
-            ? "w-20 h-[2px] bg-green-500"
-            : "w-20 h-[2px] bg-gray-400"
+            ? "w-20 lg:w-36 h-[2px] bg-green-500"
+            : "w-20 lg:w-36 h-[2px] bg-gray-400"
         }
       ></div>
 

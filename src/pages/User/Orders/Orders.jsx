@@ -12,6 +12,7 @@ const title = [
   "method",
   "status",
   "total",
+  "payment",
   "action",
 ];
 const Orders = () => {
@@ -47,7 +48,7 @@ const Orders = () => {
         <div className="align-middle inline-block min-w-full">
           <div className="shadow overflow-hidden border-b border-gray-200 dark:border-gray-600">
             <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-500">
-              <thead className="bg-secondary-500 dark:bg-gray-900 dark:text-gray-300">
+              <thead className="bg-primary-600 dark:bg-gray-900 dark:text-gray-300">
                 <tr>
                   {title.map((item, idx) => (
                     <th

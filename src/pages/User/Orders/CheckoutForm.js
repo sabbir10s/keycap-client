@@ -1,6 +1,7 @@
 import { CardElement, useElements, useStripe, } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import FormatePrice from '../../../helper/FormatePrice';
 
 const CheckoutForm = ({ order }) => {
     const navigate = useNavigate()
@@ -8,10 +9,10 @@ const CheckoutForm = ({ order }) => {
     const elements = useElements();
     const [cardError, setCardError] = useState('');
     const [success, setSuccess] = useState('');
-    const [processing, setProcessing] = useState(false);
+    const [setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
-    const { _id, totalPrice, name, email } = order;
+    const { _id, totalAmount, customer, email } = order;
     useEffect(() => {
         fetch('https://nexiq-server.vercel.app/create-payment-intent', {
             method: "POST",
@@ -19,7 +20,7 @@ const CheckoutForm = ({ order }) => {
                 'content-type': 'application/json',
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
-            body: JSON.stringify({ totalPrice })
+            body: JSON.stringify({ totalAmount })
         })
             .then(res => res.json())
             .then(data => {
@@ -27,7 +28,7 @@ const CheckoutForm = ({ order }) => {
                     setClientSecret(data.clientSecret);
                 }
             })
-    }, [totalPrice])
+    }, [totalAmount])
     const handleSubmit = async (event) => {
         event.preventDefault()
         if (!stripe || !elements) {
@@ -39,7 +40,7 @@ const CheckoutForm = ({ order }) => {
             return;
         }
 
-        const { error, paymentMethod } = await stripe.createPaymentMethod({
+        const { error, } = await stripe.createPaymentMethod({
             type: 'card',
             card,
         });
@@ -54,7 +55,7 @@ const CheckoutForm = ({ order }) => {
                 payment_method: {
                     card: card,
                     billing_details: {
-                        name: name,
+                        name: customer.name,
                         email: email
                     },
                 },
@@ -111,8 +112,8 @@ const CheckoutForm = ({ order }) => {
                         },
                     }}
                 />
-                <button className='btn btn-success btn-sm px-5 mt-5' type="submit" disabled={!stripe || !clientSecret}>
-                    Pay
+                <button className='bg-primary-600 hover:bg-primary-700 duration-300 text-white disabled:bg-slate-300 px-5 py-1.5 mt-8 rounded' type="submit" disabled={!stripe || !clientSecret}>
+                    Pay <FormatePrice price={totalAmount} />
                 </button>
             </form>
             {

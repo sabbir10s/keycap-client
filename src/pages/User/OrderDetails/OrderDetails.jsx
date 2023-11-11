@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Loading from "../../../components/Loading";
-import CustomerInfo from "../../../components/Order/CustomerInfo";
 import OrderItems from "../../../components/Order/OrderItems";
 import FormatePrice from "../../../helper/FormatePrice";
 import OrderStatus from "../../../components/Order/OrderStatus";
+import PaymentModal from "../../../shared/Modal/PaymentModal/PaymentModal";
 
 const OrderDetails = () => {
   const { orderId } = useParams();
-  // const [isOpen, setIsOpen] = useState(false);
+  // const navigate = useNavigate();
+  const [isPaymentCart, setPaymentCart] = useState(false);
 
   // Get Order Information
   const [orderInfo, setOrderInfo] = useState([]);
@@ -33,6 +34,14 @@ const OrderDetails = () => {
   }
   const { status, items, payment, totalAmount, date } = orderInfo;
 
+  const openPaymentCart = () => {
+    setPaymentCart(true);
+  };
+
+  const closePaymentCart = () => {
+    setPaymentCart(false);
+  };
+
   // const handleDelete = () => {
   //   const url = `https://nexiq-server.vercel.app/order/${orderId}`;
   //   fetch(url, {
@@ -54,20 +63,47 @@ const OrderDetails = () => {
 
   return (
     <div className="space-y-4">
-      <div className="bg-white grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+      <div className="bg-white grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-4 p-4">
         <div>
           <h2 className=" font-semibold uppercase">
             Order Details: #Order-{orderId.slice(0, 4)}
           </h2>
           <p className="text-gray-500 text-sm">Order Created : {date}</p>
         </div>
-        <div className="flex items-center justify-start gap-2 py-2">
-          <p className="text-sm text-gray-500 hidden lg:block">Order Status:</p>
-          <OrderStatus status={status} />
+
+        <div className="flex items-center justify-start md:justify-end gap-4 py-2">
+          <div className="text-sm text-gray-500 flex items-center gap-1">
+            Payment Status :
+            {payment.status && (
+              <>
+                <span className="bg-green-400/10 text-[11px] lg:text-sm  text-green-500 px-3 py-1 rounded-md leading-none font-medium text-end">
+                  Payment Complete
+                </span>
+              </>
+            )}
+            {!payment.status && (
+              <>
+                <span className="bg-orange-400/10 text-[11px] lg:text-sm  text-yellow-600 px-3 py-1 rounded-md leading-none font-medium text-end">
+                  Payment Pending
+                </span>
+              </>
+            )}
+          </div>
+          {!payment.status && (
+            <button
+              type="button"
+              onClick={openPaymentCart}
+              className="text-xs lg:text-base bg-primary-600 hover:bg-primary-700 duration-300 text-white px-3 py-1.5 rounded"
+            >
+              Pay Now
+            </button>
+          )}
         </div>
       </div>
-
-      <CustomerInfo orderInfo={orderInfo} />
+      <div className="bg-white">
+        <OrderStatus status={status} />
+      </div>
+      {/* <CustomerInfo orderInfo={orderInfo} /> */}
 
       <div className="bg-white p-4">
         <h2 className=" font-medium pb-2">Order Summery</h2>
@@ -118,6 +154,11 @@ const OrderDetails = () => {
           </table>
         </div>
       </div>
+      <PaymentModal
+        order={orderInfo}
+        isPaymentCart={isPaymentCart}
+        onClose={closePaymentCart}
+      />
     </div>
   );
 };

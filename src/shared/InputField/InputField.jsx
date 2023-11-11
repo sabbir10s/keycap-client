@@ -1,6 +1,14 @@
 import React from "react";
 
-const InputField = ({ label, type, name, placeholder, required, onChange }) => {
+const InputField = ({
+  label,
+  type,
+  name,
+  placeholder,
+  required,
+  onChange,
+  defaultValue,
+}) => {
   return (
     <div>
       {label && (
@@ -13,6 +21,7 @@ const InputField = ({ label, type, name, placeholder, required, onChange }) => {
       )}
       <div className="mt-2">
         <input
+          defaultValue={defaultValue}
           type={type}
           name={name}
           id="input"
