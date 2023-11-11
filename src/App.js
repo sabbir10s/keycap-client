@@ -18,7 +18,6 @@ import Dashboard from './pages/Common/Dashboard/Dashboard';
 import RequireUser from './hooks/RequireUser';
 import Profile from './pages/Common/Profile/Profile';
 import Orders from './pages/User/Orders/Orders';
-import Payment from './pages/User/Orders/Payment';
 import AddReview from './pages/User/AddReview/AddReview';
 import RequireAdmin from './hooks/RequireAdmin';
 import MangeProducts from './pages/Admin/MangeProducts/MangeProducts';
@@ -85,7 +84,6 @@ function App() {
                     <Route index element={<Orders />} />
                     <Route path='order/:orderId' element={<RequireUser><OrderDetails /></RequireUser>} />
                     <Route path='profile' element={<RequireUser><Profile /></RequireUser>} />
-                    <Route path='payment/:id' element={<Payment />} />
                     <Route path='review' element={<RequireUser><AddReview /></RequireUser>} />
                   </>
               }

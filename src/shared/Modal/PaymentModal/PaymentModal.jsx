@@ -1,7 +1,13 @@
 import React, { useEffect } from "react";
-import Payment from "../../../pages/User/Orders/Payment";
+import Payment from "../../../components/Order/Payment/Payment";
 
-const PaymentModal = ({ isPaymentCart, onClose, order }) => {
+const PaymentModal = ({
+  isPaymentCart,
+  onClose,
+  order,
+  setIsReload,
+  reload,
+}) => {
   useEffect(() => {
     if (isPaymentCart) {
       document.body.style.overflow = "hidden";
@@ -47,7 +53,11 @@ const PaymentModal = ({ isPaymentCart, onClose, order }) => {
               </svg>
             </button>
             <div>
-              <Payment order={order} />
+              <Payment
+                order={order}
+                reload={reload}
+                setIsReload={setIsReload}
+              />
             </div>
           </div>
         </div>

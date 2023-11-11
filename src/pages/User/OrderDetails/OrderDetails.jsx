@@ -8,7 +8,7 @@ import PaymentModal from "../../../shared/Modal/PaymentModal/PaymentModal";
 
 const OrderDetails = () => {
   const { orderId } = useParams();
-  // const navigate = useNavigate();
+  const [reload, setIsReload] = useState(true);
   const [isPaymentCart, setPaymentCart] = useState(false);
 
   // Get Order Information
@@ -41,25 +41,6 @@ const OrderDetails = () => {
   const closePaymentCart = () => {
     setPaymentCart(false);
   };
-
-  // const handleDelete = () => {
-  //   const url = `https://nexiq-server.vercel.app/order/${orderId}`;
-  //   fetch(url, {
-  //     method: "DELETE",
-  //     headers: {
-  //       "content-type": "application/json",
-  //       authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       if (data.deletedCount) {
-  //         toast.success("Successfully Deleted");
-  //         setIsOpen(false);
-  //         setIsReload(!reload);
-  //       }
-  //     });
-  // };
 
   return (
     <div className="space-y-4">
@@ -107,14 +88,23 @@ const OrderDetails = () => {
 
       <div className="bg-white p-4">
         <h2 className=" font-medium pb-2">Order Summery</h2>
-        <div className="text-gray-500 text-sm flex flex-col md:flex-row md:justify-between">
+        <div className="text-gray-800 font-medium text-sm max-w-[350px]">
           <p>
-            Order Date: <span className="text-gray-800">{date}</span>
+            Order Date: <span className="text-gray-500 pl-1">{date}</span>
           </p>
           <p>
             Payment Method:{" "}
-            <span className="text-gray-800">{payment.method}</span>
+            <span className="text-gray-500 pl-1">{payment.method}</span>
           </p>
+          {payment.transactionId && (
+            <div>
+              Transaction Id:
+              <span className="text-gray-500 pl-1">
+                {" "}
+                {payment.transactionId}
+              </span>
+            </div>
+          )}
         </div>
         <div className="relative overflow-x-auto py-4">
           <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -155,6 +145,8 @@ const OrderDetails = () => {
         </div>
       </div>
       <PaymentModal
+        reload={reload}
+        setIsReload={setIsReload}
         order={orderInfo}
         isPaymentCart={isPaymentCart}
         onClose={closePaymentCart}

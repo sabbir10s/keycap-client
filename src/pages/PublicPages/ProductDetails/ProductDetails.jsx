@@ -35,7 +35,7 @@ const ProductDetails = () => {
       addToCart(_id, amount, singleProduct);
       toast.success("Successfully Added to Cart");
     } else {
-      navigate("/checkout");
+      navigate("/cart");
     }
   };
 
