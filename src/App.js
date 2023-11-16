@@ -14,11 +14,9 @@ import ProductDetails from './pages/PublicPages/ProductDetails/ProductDetails';
 import Cart from './pages/PublicPages/Cart/Cart';
 import PrivateRoute from './hooks/PrivateRoute';
 import Checkout from './pages/User/Checkout/Checkout';
-import Dashboard from './pages/Common/Dashboard/Dashboard';
 import RequireUser from './hooks/RequireUser';
 import Profile from './pages/Common/Profile/Profile';
 import Orders from './pages/User/Orders/Orders';
-import AddReview from './pages/User/AddReview/AddReview';
 import MangeProducts from './pages/Admin/MangeProducts/MangeProducts';
 import AddProduct from './pages/Admin/AddProduct/AddProduct';
 import AllUsers from './pages/Admin/MangeUsers/AllUsers';
@@ -28,6 +26,7 @@ import OrderDetails from './pages/User/OrderDetails/OrderDetails';
 import RequireAdmin from './hooks/RequireAdmin';
 import MangeOrderDetails from './pages/Admin/MangeOrders/MangeOrderDetails';
 import AdminDashboard from './pages/Admin/Dashboard/AdminDashboard';
+import UserDashboard from './pages/Common/Dashboard/UserDashboard';
 
 
 
@@ -62,11 +61,10 @@ function App() {
             <Route path='/checkout' element={<PrivateRoute><Checkout /></PrivateRoute>} />
 
             {/* user dashboard section */}
-            <Route path='userDashboard' element={<RequireUser><Dashboard /></RequireUser>}>
+            <Route path='userDashboard' element={<RequireUser><UserDashboard /></RequireUser>}>
               <Route index element={<RequireUser><Orders /></RequireUser>} />
               <Route path='order/:orderId' element={<OrderDetails />} />
               <Route path='profile' element={<Profile />} />
-              <Route path='review' element={<RequireUser><AddReview /></RequireUser>} />
             </Route>
 
             {/* admin dashboard section*/}
@@ -76,7 +74,7 @@ function App() {
               <Route path='mangeUsers' element={<AllUsers />} />
               <Route path='mangeOrders' element={<MangeOrders />} />
               <Route path='mangeOrders/:orderId' element={<RequireAdmin><MangeOrderDetails /></RequireAdmin>} />
-
+              <Route path='profile' element={<Profile />} />
             </Route>
 
 

@@ -13,7 +13,7 @@ const userPaths = [
   },
 ];
 
-const Dashboard = () => {
+const UserDashboard = () => {
   return (
     <div className="min-h-screen">
       <div className="flex gap-4 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -28,4 +28,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default UserDashboard;

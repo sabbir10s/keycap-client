@@ -1,19 +1,16 @@
 import { signOut } from "firebase/auth";
 import React from "react";
 import { useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../../components/Loading";
 import auth from "../../../firebase.init";
-import { AiOutlineEdit } from "react-icons/ai";
-import { useRef } from "react";
 import { toast } from "react-toastify";
 import InputField from "../../../shared/InputField/InputField";
+import { useAuthContext } from "../../../context/AuthContext";
 
 const Profile = () => {
-  const [user, loading] = useAuthState(auth);
-  const [click, setClick] = useState(false);
+  const { user } = useAuthContext();
   const navigate = useNavigate();
   const email = user?.email;
 
@@ -65,7 +62,7 @@ const Profile = () => {
 
     console.log(userInfo);
 
-    const url = `http://localhost:5000/ser/${user.email}`;
+    const url = `http://localhost:5000/user/${user.email}`;
 
     fetch(url, {
       method: "PUT",
@@ -80,7 +77,6 @@ const Profile = () => {
         if (data.result.acknowledged) {
           toast.success("Profile Update");
           refetch();
-          setClick(false);
         } else {
           toast.secondary("Failed to update");
         }

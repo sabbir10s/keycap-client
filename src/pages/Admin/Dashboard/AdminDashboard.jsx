@@ -15,6 +15,10 @@ const adminPaths = [
     label: " Mange Users",
     path: "mangeUsers",
   },
+  {
+    label: "Profile",
+    path: "profile",
+  },
 ];
 
 const AdminDashboard = () => {
