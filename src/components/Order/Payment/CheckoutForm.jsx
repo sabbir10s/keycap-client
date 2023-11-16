@@ -13,11 +13,11 @@ const CheckoutForm = ({ order, setIsReload, reload }) => {
   const [clientSecret, setClientSecret] = useState("");
   const { _id, totalAmount, customer, email } = order;
   useEffect(() => {
-    fetch("https://nexiq-server.vercel.app/create-payment-intent", {
+    fetch("http://localhost:5000/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        authorization: `Bearer ${localStorage.getItem("access-token")}`,
       },
       body: JSON.stringify({ totalAmount }),
     })
@@ -71,11 +71,11 @@ const CheckoutForm = ({ order, setIsReload, reload }) => {
         orderId: _id,
         transactionId: paymentIntent.id,
       };
-      fetch(`https://nexiq-server.vercel.app/order/email/${_id}`, {
+      fetch(`http://localhost:5000/order/email/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          authorization: `Bearer ${localStorage.getItem("access-token")}`,
         },
         body: JSON.stringify(payment),
       })

@@ -58,21 +58,21 @@ const Checkout = () => {
       },
       date: formattedDate,
     };
-
-    const url = `https://nexiq-server.vercel.app/user/order`;
+    console.log(orderData);
+    const url = `http://localhost:5000/user/orde`;
 
     fetch(url, {
       method: "POST",
       body: JSON.stringify(orderData),
       headers: {
         "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        authorization: `Bearer ${localStorage.getItem("access-token")}`,
       },
     })
       .then((res) => {
         if (res.status === 401 || res.status === 403) {
           signOut(auth);
-          localStorage.removeItem("accessToken");
+          localStorage.removeItem("access-token");
           navigate("/");
         }
         return res.json();
@@ -121,6 +121,7 @@ const Checkout = () => {
                   <InputField
                     onChange={handleInputChange}
                     defaultValue={user.email}
+                    value={user.email}
                     label="Email"
                     type="email"
                     placeholder="Email"

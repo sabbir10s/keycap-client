@@ -1,19 +1,19 @@
 import React from "react";
-import { signOut } from "firebase/auth";
 import { MdLogout } from "react-icons/md";
 import Loading from "../Loading";
 import SecondaryCustomLink from "../../hooks/SecondaryCustomLink";
-import auth from "../../firebase.init";
 import { useNavigate } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
+import { useAuthContext } from "../../context/AuthContext";
 
 const Sidebar = ({ handleMobileSidebar, paths }) => {
+  const { logOut } = useAuthContext();
   const { clearCart } = useCartContext();
   const navigate = useNavigate();
 
   const handleSignOut = () => {
     navigate("/");
-    signOut(auth);
+    logOut();
     clearCart();
   };
   if (!paths.length) {

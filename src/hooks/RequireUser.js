@@ -1,21 +1,19 @@
-import { signOut } from 'firebase/auth';
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { Navigate, useLocation } from 'react-router-dom';
-import auth from '../firebase.init';
 import useAdmin from './useAdmin';
 import Loading from '../components/Loading';
+import { useAuthContext } from '../context/AuthContext';
 
 
 const RequireUser = ({ children }) => {
-    const [user, loading] = useAuthState(auth);
-    const [admin, adminLoading] = useAdmin(user);
+    const { user, loading, logOut } = useAuthContext();
+    const [isAdmin, isAdminLoading] = useAdmin(user);
     const location = useLocation();
-    if (loading || adminLoading) {
+    if (loading || isAdminLoading) {
         return <Loading />
     }
-    if (!user || admin) {
-        signOut(auth);
+    if (!user || isAdmin) {
+        logOut();
         return <Navigate to="/signIn" state={{ from: location }} replace />;
     }
 

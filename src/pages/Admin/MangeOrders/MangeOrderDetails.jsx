@@ -14,13 +14,13 @@ const MangeOrderDetails = () => {
   const [orderInfo, setOrderInfo] = useState([]);
 
   useEffect(() => {
-    const url = `https://nexiq-server.vercel.app/order/${orderId}`;
+    const url = `http://localhost:5000/order/${orderId}`;
     console.log(url);
     fetch(url, {
       method: "GET",
       headers: {
         "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        authorization: `Bearer ${localStorage.getItem("access-token")}`,
       },
     })
       .then((res) => res.json())
@@ -34,12 +34,12 @@ const MangeOrderDetails = () => {
   const { status, items, payment, totalAmount, date } = orderInfo;
 
   // const handleDelete = () => {
-  //   const url = `https://nexiq-server.vercel.app/order/${orderId}`;
+  //   const url = `http://localhost:5000/order/${orderId}`;
   //   fetch(url, {
   //     method: "DELETE",
   //     headers: {
   //       "content-type": "application/json",
-  //       authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+  //       authorization: `Bearer ${localStorage.getItem("access-token")}`,
   //     },
   //   })
   //     .then((res) => res.json())

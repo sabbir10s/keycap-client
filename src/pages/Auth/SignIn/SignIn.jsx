@@ -1,54 +1,35 @@
-import React, { useEffect, useState } from "react";
-import auth from "../../../firebase.init";
-import {
-  useSignInWithEmailAndPassword,
-  useSignInWithGoogle,
-} from "react-firebase-hooks/auth";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Loading from "../../../components/Loading";
-import useToken from "../../../hooks/useToken";
 import GoogleSignIn from "../../../shared/GoogleSignIn";
+import { useAuthContext } from "../../../context/AuthContext";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
+  const { signIn } = useAuthContext();
+  const [signInError, setSignInError] = useState();
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
 
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
-
-  const [token] = useToken(user || gUser);
-
-  let signInError;
   const navigate = useNavigate();
   const location = useLocation();
 
   let from = location?.state?.from?.pathname || "/";
 
-  useEffect(() => {
-    if (token) {
-      navigate(from, { replace: true });
-    }
-  }, [token, from, navigate]);
-
-  if (loading || gLoading) {
-    return <Loading />;
-  }
-  if (error || gError) {
-    signInError = (
-      <p className="text-red-500 pb-4">
-        <small>{error?.message || gError?.message}</small>
-      </p>
-    );
-  }
-
   const onSubmit = (data) => {
-    signInWithEmailAndPassword(data.email, data.password);
+    signIn(data.email, data.password)
+      .then((result) => {
+        // const user = result.user;
+        // console.log(user);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setSignInError(errorMessage);
+      });
   };
 
   return (
@@ -149,8 +130,7 @@ const SignIn = () => {
                 )}
               </label>
             </div>
-            {signInError}
-
+            <span className="label-text-alt text-red-500">{signInError}</span>
             <input
               type="submit"
               value="Sign in"
@@ -163,7 +143,7 @@ const SignIn = () => {
             <span>OR</span>
             <div className="w-full border"></div>
           </div>
-          <GoogleSignIn signInWithGoogle={signInWithGoogle} />
+          <GoogleSignIn />
           <div className="text-sm flex flex-col space-y-1 justify-center items-center">
             <span className="text-gray-500">Don't have an account?</span>
             <Link to="/signUp" className="text-primary-700 font-semibold">

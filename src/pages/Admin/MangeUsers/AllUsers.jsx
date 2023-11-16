@@ -1,32 +1,18 @@
-import { signOut } from "firebase/auth";
 import React from "react";
 import { useQuery } from "react-query";
-import { useNavigate } from "react-router-dom";
-import auth from "../../../firebase.init";
 import Loading from "../../../components/Loading";
 import UsersRow from "./UsersRow";
+import useAxios from "../../../hooks/useAxios";
 const AllUsers = () => {
-  const navigate = useNavigate();
+  const [axiosSecure] = useAxios();
   const {
-    data: users,
+    data: users = [],
     isLoading,
     refetch,
-  } = useQuery("users", () =>
-    fetch("https://nexiq-server.vercel.app/user", {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    }).then((res) => {
-      if (res.status === 403) {
-        signOut(auth);
-        localStorage.removeItem("accessToken");
-        navigate("/");
-      }
-      return res.json();
-    })
-  );
+  } = useQuery(["users"], async () => {
+    const res = await axiosSecure.get(`/user`);
+    return res.data;
+  });
   if (isLoading) {
     return <Loading />;
   }

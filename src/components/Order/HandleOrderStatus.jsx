@@ -20,21 +20,21 @@ const HandleOrderStatus = ({ status, orderId }) => {
     e.preventDefault();
     console.log(statusValue);
     const json = JSON.stringify({ status: statusValue });
-    const url = `https://nexiq-server.vercel.app/admin/order/${orderId}`;
+    const url = `http://localhost:5000/admin/order/${orderId}`;
 
     fetch(url, {
       method: "PUT",
       body: json,
       headers: {
         "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        authorization: `Bearer ${localStorage.getItem("access-token")}`,
       },
     })
       .then((res) => {
         if (res.status === 403) {
           toast.error("Failed to change");
           signOut(auth);
-          localStorage.removeItem("accessToken");
+          localStorage.removeItem("access-token");
           navigate("/");
         }
         return res.json();

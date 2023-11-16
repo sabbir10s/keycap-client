@@ -11,12 +11,12 @@ const MangeProducts = () => {
   const [reload, setIsReload] = useState(true);
   // console.log(reload);
   useEffect(() => {
-    const url = "https://nexiq-server.vercel.app/product";
+    const url = "http://localhost:5000/product";
     fetch(url, {
       method: "GET",
       headers: {
         "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        authorization: `Bearer ${localStorage.getItem("access-token")}`,
       },
     })
       .then((res) => res.json())

@@ -39,11 +39,11 @@ const AddProduct = () => {
             published: published,
           };
           // send to your database.
-          fetch("https://nexiq-server.vercel.app/product", {
+          fetch("http://localhost:5000/product", {
             method: "POST",
             headers: {
               "content-type": "application/json",
-              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              authorization: `Bearer ${localStorage.getItem("access-token")}`,
             },
             body: JSON.stringify(product),
           })

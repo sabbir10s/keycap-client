@@ -1,11 +1,9 @@
-import { signOut } from "firebase/auth";
 import React from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
-import auth from "../../../firebase.init";
 import Loading from "../../../components/Loading";
 import OrderRow from "../../../components/Order/OrderRow";
+import { useAuthContext } from "../../../context/AuthContext";
 const title = [
   " Order Id",
   "order time",
@@ -16,27 +14,27 @@ const title = [
   "action",
 ];
 const Orders = () => {
-  const [user] = useAuthState(auth);
+  const { user, loading, logOut } = useAuthContext();
   const navigate = useNavigate();
-  const url = `https://nexiq-server.vercel.app/user/order/${user.email}`;
+  const url = `http://localhost:5000/user/order/${user.email}`;
 
   const { isLoading, data: orders } = useQuery("order", () =>
     fetch(url, {
       headers: {
         "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        authorization: `Bearer ${localStorage.getItem("access-token")}`,
       },
     }).then((res) => {
       if (res.status === 401 || res.status === 403) {
-        signOut(auth);
-        localStorage.removeItem("accessToken");
+        logOut();
+        localStorage.removeItem("access-token");
         navigate("/");
       }
       return res.json();
     })
   );
 
-  if (isLoading) {
+  if (isLoading || loading) {
     return <Loading />;
   }
 

@@ -2,23 +2,27 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Sidebar from "../../../components/Sidebar/Sidebar";
 
-const userPaths = [
+const adminPaths = [
   {
-    label: "Order",
+    label: "Mange Products",
     path: "",
   },
   {
-    label: "Profile",
-    path: "profile",
+    label: " Mange Orders",
+    path: "mangeOrders",
+  },
+  {
+    label: " Mange Users",
+    path: "mangeUsers",
   },
 ];
 
-const Dashboard = () => {
+const AdminDashboard = () => {
   return (
     <div className="min-h-screen">
       <div className="flex gap-4 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="hidden lg:block w-64 shadow-sm border bg-white min-h-[520px] ">
-          <Sidebar paths={userPaths} />
+          <Sidebar paths={adminPaths} />
         </div>
         <div className="w-full">
           <Outlet />
@@ -28,4 +32,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default AdminDashboard;

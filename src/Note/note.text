@@ -1,11 +1,11 @@
 
   const handleDelete = () => {
-    const url = `https://nexiq-server.vercel.app/order/${orderId}`;
+    const url = `http://localhost:5000/order/${orderId}`;
     fetch(url, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        authorization: `Bearer ${localStorage.getItem("access-token")}`,
       },
     })
       .then((res) => res.json())
@@ -17,3 +17,12 @@
         }
       });
   };
+
+
+
+
+   <div className="bg-white border-[1px] border-gray-200/80">
+      <h2 className="p-4 font-semibold">ORDERS LIST</h2>
+      <div className="border-b"></div>
+
+    </div>

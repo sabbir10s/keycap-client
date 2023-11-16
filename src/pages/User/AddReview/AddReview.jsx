@@ -24,14 +24,14 @@ const AddReview = () => {
       userImage,
     };
 
-    const url = `https://nexiq-server.vercel.app/review`;
+    const url = `http://localhost:5000/review`;
 
     fetch(url, {
       method: "POST",
       body: JSON.stringify(reviewInfo),
       headers: {
         "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        authorization: `Bearer ${localStorage.getItem("access-token")}`,
       },
     })
       .then((res) => res.json())

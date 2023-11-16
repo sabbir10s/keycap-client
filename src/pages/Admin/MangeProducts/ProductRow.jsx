@@ -23,12 +23,12 @@ const ProductRow = ({ setProducts, product, setIsReload, reload }) => {
   };
 
   const handleDelete = () => {
-    const url = `https://nexiq-server.vercel.app/product/${product._id}`;
+    const url = `http://localhost:5000/product/${product._id}`;
     fetch(url, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        authorization: `Bearer ${localStorage.getItem("access-token")}`,
       },
     })
       .then((res) => res.json())

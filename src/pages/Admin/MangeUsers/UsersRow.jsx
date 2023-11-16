@@ -1,29 +1,28 @@
 import React from 'react';
 import { toast } from 'react-toastify';
-import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import auth from '../../../firebase.init';
+import { useAuthContext } from '../../../context/AuthContext';
 
 const UsersRow = ({ user, refetch, index }) => {
+    const { logOut } = useAuthContext()
     const { name, email, role, _id } = user;
     const navigate = useNavigate();
 
-    const handleMakeAdmin = () => {
-        const url = `https://nexiq-server.vercel.app/user/admin/${email}`;
-
+    const handleMakeAdmin = (user) => {
+        const url = `http://localhost:5000/user/admin/${user._id}`;
         fetch(url, {
-            method: 'PUT',
+            method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                authorization: `Bearer ${localStorage.getItem('access-token')}`
             },
         })
             .then(res => {
                 console.log('res for all users', res);
                 if (res.status === 403) {
                     toast.error('Failed to make an admin')
-                    signOut(auth);
-                    localStorage.removeItem('accessToken');
+                    localStorage.removeItem('access-token');
+                    logOut()
                     navigate('/')
                 }
                 return res.json()
@@ -38,12 +37,12 @@ const UsersRow = ({ user, refetch, index }) => {
 
 
     const handleDelete = () => {
-        const url = `https://nexiq-server.vercel.app/user/${_id}`;
+        const url = `http://localhost:5000/user/${_id}`;
         fetch(url, {
             method: "DELETE",
             headers: {
                 'content-type': 'application/json',
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                authorization: `Bearer ${localStorage.getItem('access-token')}`
             },
         })
             .then(res => res.json())
@@ -61,7 +60,7 @@ const UsersRow = ({ user, refetch, index }) => {
             <th>{index + 1}</th>
             <td>{name}</td>
             <td>{email}</td>
-            <td>{role !== 'admin' && <button onClick={handleMakeAdmin} className='btn btn-xs btn-success'>Make Admin</button>}</td>
+            <td>{role !== 'admin' && <button onClick={() => handleMakeAdmin(user)} className='btn btn-xs btn-success'>Make Admin</button>}</td>
             <td>
                 {role !== 'admin' && <button onClick={() => handleDelete(_id)} className='btn btn-xs btn-error'>Delete</button>}
             </td>

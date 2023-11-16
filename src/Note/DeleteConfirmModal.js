@@ -5,12 +5,12 @@ const DeleteConfirmModal = ({ refetch, cancelOrder, setCancelOrder }) => {
 
     const { _id } = cancelOrder;
     const handleCancelOrder = () => {
-        const url = `https://nexiq-server.vercel.app/order/email/${_id}`;
+        const url = `http://localhost:5000/order/email/${_id}`;
         fetch(url, {
             method: "DELETE",
             headers: {
                 'content-type': 'application/json',
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                authorization: `Bearer ${localStorage.getItem('access-token')}`
             },
         })
             .then(res => res.json())

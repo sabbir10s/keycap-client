@@ -6,7 +6,7 @@ const GetUserInfo = (email) => {
         isLoading,
         refetch,
     } = useQuery(["userInfo", email], () =>
-        fetch(`https://nexiq-server.vercel.app/user/${email}`, {
+        fetch(`http://localhost:5000/user/${email}`, {
         }).then((res) => res.json())
     );
 

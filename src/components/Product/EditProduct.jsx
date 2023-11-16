@@ -20,14 +20,14 @@ const EditProduct = ({ product }) => {
       quantity,
     };
 
-    const url = `https://nexiq-server.vercel.app/product/${_id}`;
+    const url = `http://localhost:5000/product/${_id}`;
 
     fetch(url, {
       method: "PUT",
       body: JSON.stringify(userInfo),
       headers: {
         "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        authorization: `Bearer ${localStorage.getItem("access-token")}`,
       },
     })
       .then((res) => res.json())

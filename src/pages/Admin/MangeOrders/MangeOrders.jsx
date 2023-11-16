@@ -14,12 +14,12 @@ const MangeOrders = () => {
   const [orders, setOrders] = useState([]);
   const [reload, setIsReload] = useState(true);
   useEffect(() => {
-    const url = "https://nexiq-server.vercel.app/order";
+    const url = "http://localhost:5000/order";
     fetch(url, {
       method: "GET",
       headers: {
         "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        authorization: `Bearer ${localStorage.getItem("access-token")}`,
       },
     })
       .then((res) => res.json())

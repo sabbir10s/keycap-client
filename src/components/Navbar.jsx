@@ -1,13 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import CustomLink from "../hooks/CustomLink";
-import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../firebase.init";
 import { BiMenuAltLeft } from "react-icons/bi";
 import SecondaryCustomLink from "../hooks/SecondaryCustomLink";
 import MobileSidebar from "./Sidebar/MobileSidebar";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useCartContext } from "../context/CartContext";
+import { useAuthContext } from "../context/AuthContext";
+import useAdmin from "../hooks/useAdmin";
+import { HiUser } from "react-icons/hi";
+
 const navItems = [
   {
     name: "Home",
@@ -23,8 +25,9 @@ const navItems = [
   },
 ];
 const Navbar = () => {
+  const { user } = useAuthContext();
+  const [isAdmin] = useAdmin();
   const { total_item } = useCartContext();
-  const [user] = useAuthState(auth);
 
   // Mobile sidebar
   const [mobileSidebar, setMobileSidebar] = useState(false);
@@ -105,10 +108,11 @@ const Navbar = () => {
               <div className="hidden lg:flex lg:gap-4 ">
                 {user ? (
                   <Link
-                    to="/dashboard"
+                    to={isAdmin ? "/adminDashboard" : "/userDashboard"}
                     className="text-white text-base uppercase font-bold border-2 border-white w-8 h-8 rounded-full flex justify-center items-center"
                   >
-                    {user?.displayName.slice(0, 1)}
+                    {/* {loading ? ".." : user?.displayName.slice(0, 1)} */}
+                    <HiUser className="text-white" />
                   </Link>
                 ) : (
                   <Link

@@ -3,10 +3,9 @@ import { signOut } from "firebase/auth";
 import auth from "../../firebase.init";
 import { MdLogout } from "react-icons/md";
 import SecondaryCustomLink from "../../hooks/SecondaryCustomLink";
-import { useAuthState } from "react-firebase-hooks/auth";
-import useAdmin from "../../hooks/useAdmin";
 import { useNavigate } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
+import { useAuthContext } from "../../context/AuthContext";
 const clientLinks = [
   {
     label: "Order",
@@ -32,9 +31,10 @@ const adminLinks = [
   },
 ];
 const MobileSidebar = ({ visible, handleMobileSidebar }) => {
+  const { user, loading, logOut } = useAuthContext();
   const { clearCart } = useCartContext();
-  const [user] = useAuthState(auth);
-  const [admin] = useAdmin(user);
+
+  const admin = false;
   const handleCloseModal = (e) => {
     if (e.target.id === "containers") handleMobileSidebar();
   };
@@ -42,7 +42,7 @@ const MobileSidebar = ({ visible, handleMobileSidebar }) => {
   const navigate = useNavigate();
 
   const handleSignOut = () => {
-    signOut(auth);
+    logOut();
     handleMobileSidebar();
     navigate("/");
     clearCart();

@@ -19,17 +19,15 @@ import RequireUser from './hooks/RequireUser';
 import Profile from './pages/Common/Profile/Profile';
 import Orders from './pages/User/Orders/Orders';
 import AddReview from './pages/User/AddReview/AddReview';
-import RequireAdmin from './hooks/RequireAdmin';
 import MangeProducts from './pages/Admin/MangeProducts/MangeProducts';
 import AddProduct from './pages/Admin/AddProduct/AddProduct';
 import AllUsers from './pages/Admin/MangeUsers/AllUsers';
 import MangeOrders from './pages/Admin/MangeOrders/MangeOrders';
-import MangeOrderDetails from './pages/Admin/MangeOrders/MangeOrderDetails';
 import NotFound from './pages/Common/NotFound/NotFound';
-import useAdmin from './hooks/useAdmin';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from './firebase.init';
 import OrderDetails from './pages/User/OrderDetails/OrderDetails';
+import RequireAdmin from './hooks/RequireAdmin';
+import MangeOrderDetails from './pages/Admin/MangeOrders/MangeOrderDetails';
+import AdminDashboard from './pages/Admin/Dashboard/AdminDashboard';
 
 
 
@@ -42,13 +40,10 @@ const Wrapper = ({ children }) => {
 }
 
 function App() {
-  const [user] = useAuthState(auth);
-  const [admin] = useAdmin(user);
 
   return (
     <div>
       <Wrapper>
-        {/* <Navbar /> */}
         <Navbar />
         <ToastContainer />
         <div className='pt-16 bg-[#f0f0fa]'>
@@ -67,34 +62,22 @@ function App() {
             <Route path='/checkout' element={<PrivateRoute><Checkout /></PrivateRoute>} />
 
             {/* user dashboard section */}
-            <Route path='dashboard' element={<PrivateRoute> <Dashboard /> </PrivateRoute>}>
-
-              {
-                admin ?
-                  <>
-                    <Route index element={<RequireAdmin> <MangeProducts /></RequireAdmin>} />
-                    <Route path='addNewProduct' element={<RequireAdmin><AddProduct /></RequireAdmin>} />
-                    <Route path='mangeUsers' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
-                    <Route path='mangeOrders' element={<RequireAdmin><MangeOrders /></RequireAdmin>} />
-                    <Route path='mangeOrders/:orderId' element={<RequireAdmin><MangeOrderDetails /></RequireAdmin>} />
-                    <Route path='profile' element={<RequireUser><Profile /></RequireUser>} />
-                  </>
-                  :
-                  <>
-                    <Route index element={<Orders />} />
-                    <Route path='order/:orderId' element={<RequireUser><OrderDetails /></RequireUser>} />
-                    <Route path='profile' element={<RequireUser><Profile /></RequireUser>} />
-                    <Route path='review' element={<RequireUser><AddReview /></RequireUser>} />
-                  </>
-              }
-
-
-
+            <Route path='userDashboard' element={<RequireUser><Dashboard /></RequireUser>}>
+              <Route index element={<RequireUser><Orders /></RequireUser>} />
+              <Route path='order/:orderId' element={<OrderDetails />} />
+              <Route path='profile' element={<Profile />} />
+              <Route path='review' element={<RequireUser><AddReview /></RequireUser>} />
             </Route>
 
             {/* admin dashboard section*/}
-            {/* <Route path='admin/dashboard' element={<PrivateRoute><RequireAdmin><AdminDashboard /></RequireAdmin></PrivateRoute>}>
-            </Route> */}
+            <Route path='adminDashboard' element={<RequireAdmin><AdminDashboard /></RequireAdmin>}>
+              <Route index element={<MangeProducts />} />
+              <Route path='addNewProduct' element={<AddProduct />} />
+              <Route path='mangeUsers' element={<AllUsers />} />
+              <Route path='mangeOrders' element={<MangeOrders />} />
+              <Route path='mangeOrders/:orderId' element={<RequireAdmin><MangeOrderDetails /></RequireAdmin>} />
+
+            </Route>
 
 
 

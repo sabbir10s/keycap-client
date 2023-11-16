@@ -13,6 +13,8 @@ import { FilterContextProvider } from './context/FilterContext';
 import { CartProvider } from './context/CartContext';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
+import { AuthProvider } from './context/AuthContext';
+// import AuthProvider from './context/AuthContext';
 const queryClient = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -22,15 +24,17 @@ root.render(
   <BrowserRouter>
     <QueryClientProvider client={queryClient}>
       <React.Fragment>
-        <AppProvider>
-          <FilterContextProvider>
-            <CartProvider>
-              <Elements stripe={stripePromise}>
-                <App />
-              </Elements>
-            </CartProvider>
-          </FilterContextProvider>
-        </AppProvider>
+        <AuthProvider>
+          <AppProvider>
+            <FilterContextProvider>
+              <CartProvider>
+                <Elements stripe={stripePromise}>
+                  <App />
+                </Elements>
+              </CartProvider>
+            </FilterContextProvider>
+          </AppProvider>
+        </AuthProvider>
       </React.Fragment>
     </QueryClientProvider>
   </BrowserRouter>
