@@ -90,7 +90,7 @@ const Profile = () => {
 
   return (
     <div className="bg-white border-[1px] border-gray-200/80">
-      <form onSubmit={handleProfile}>
+      <form onSubmit={() => handleProfile}>
         <div className="flex items-center justify-between p-4">
           <h2 className=" font-semibold"> Menage Your Profile</h2>
 

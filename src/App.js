@@ -19,7 +19,6 @@ import Profile from './pages/Common/Profile/Profile';
 import Orders from './pages/User/Orders/Orders';
 import MangeProducts from './pages/Admin/MangeProducts/MangeProducts';
 import AddProduct from './pages/Admin/AddProduct/AddProduct';
-import AllUsers from './pages/Admin/MangeUsers/AllUsers';
 import MangeOrders from './pages/Admin/MangeOrders/MangeOrders';
 import NotFound from './pages/Common/NotFound/NotFound';
 import OrderDetails from './pages/User/OrderDetails/OrderDetails';
@@ -27,6 +26,7 @@ import RequireAdmin from './hooks/RequireAdmin';
 import MangeOrderDetails from './pages/Admin/MangeOrders/MangeOrderDetails';
 import AdminDashboard from './pages/Admin/Dashboard/AdminDashboard';
 import UserDashboard from './pages/Common/Dashboard/UserDashboard';
+import MangeUsers from './pages/Admin/MangeUsers/MangeUsers';
 
 
 
@@ -71,7 +71,7 @@ function App() {
             <Route path='adminDashboard' element={<RequireAdmin><AdminDashboard /></RequireAdmin>}>
               <Route index element={<MangeProducts />} />
               <Route path='addNewProduct' element={<AddProduct />} />
-              <Route path='mangeUsers' element={<AllUsers />} />
+              <Route path='mangeUsers' element={<MangeUsers />} />
               <Route path='mangeOrders' element={<MangeOrders />} />
               <Route path='mangeOrders/:orderId' element={<RequireAdmin><MangeOrderDetails /></RequireAdmin>} />
               <Route path='profile' element={<Profile />} />
