@@ -1,6 +1,5 @@
 import { signOut } from "firebase/auth";
 import React from "react";
-import { useState } from "react";
 import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../../components/Loading";
@@ -35,32 +34,19 @@ const Profile = () => {
     })
   );
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    mobile: "",
-    streetAddress: "",
-    city: "",
-    zip: "",
-  });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
   const handleProfile = (event) => {
     event.preventDefault();
+    const e = event.target;
     const userInfo = {
-      email: formData.email,
-      name: formData.name,
-      mobile: formData.mobile,
-      streetAddress: formData.streetAddress,
-      city: formData.city,
-      zip: formData.zip,
+      email: e.email.value,
+      name: e.name.value,
+      mobile: parseInt(e.mobile.value),
+      streetAddress: e.streetAddress.value,
+      city: e.city.value,
+      zip: parseInt(e.zip.value),
     };
 
-    console.log(userInfo);
+    // console.log(userInfo)
 
     const url = `http://localhost:5000/user/${user.email}`;
 
@@ -74,11 +60,11 @@ const Profile = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.result.acknowledged) {
+        if (data.acknowledged) {
           toast.success("Profile Update");
           refetch();
         } else {
-          toast.secondary("Failed to update");
+          toast.error("Failed to update");
         }
       });
   };
@@ -90,7 +76,7 @@ const Profile = () => {
 
   return (
     <div className="bg-white border-[1px] border-gray-200/80">
-      <form onSubmit={() => handleProfile}>
+      <form onSubmit={handleProfile}>
         <div className="flex items-center justify-between p-4">
           <h2 className=" font-semibold"> Menage Your Profile</h2>
 
@@ -109,34 +95,25 @@ const Profile = () => {
             </h3>
             <div className=" space-y-4">
               <InputField
-                onChange={handleInputChange}
                 label="Name"
                 type="text"
                 placeholder="Name"
                 name="name"
-                required={true}
-                value={name}
                 defaultValue={name}
               />
               <InputField
-                onChange={handleInputChange}
                 label="Mobile"
                 type="number"
                 placeholder="Mobile"
                 name="mobile"
-                required={true}
-                value={mobile}
                 defaultValue={mobile}
               />
               <InputField
-                onChange={handleInputChange}
                 label="Email"
                 type="email"
                 placeholder="Email"
                 name="email"
-                required={true}
                 defaultValue={user.email}
-                value={user.email}
               />
             </div>
           </div>
@@ -144,35 +121,26 @@ const Profile = () => {
             <h3 className="text-xl mb-5 font-semibold">2. Shipping Address</h3>
             <div className=" space-y-4">
               <InputField
-                onChange={handleInputChange}
                 label="Street Address"
                 type="text"
                 placeholder="Street Address"
                 name="streetAddress"
-                required={true}
                 defaultValue={streetAddress}
-                value={streetAddress}
               />
 
               <InputField
-                onChange={handleInputChange}
                 label="City"
                 type="text"
                 placeholder="City"
                 name="city"
-                required={true}
                 defaultValue={city}
-                value={city}
               />
               <InputField
-                onChange={handleInputChange}
                 label="Zip Code"
                 type="number"
                 placeholder="Zip Code"
                 name="zip"
-                required={true}
                 defaultValue={zip}
-                value={zip}
               />
             </div>
           </div>

@@ -63,7 +63,7 @@ const UsersRow = ({ user, refetch, index }) => {
         {role !== "admin" && (
           <button
             onClick={() => handleMakeAdmin(user)}
-            className="text-xs bg-green-400 hover:bg-primary-700 duration-300 text-white px-2 py-1 rounded-full"
+            className="text-xs bg-primary-600 hover:bg-primary-700 duration-300 text-white px-2 py-1 rounded-full"
           >
             Make Admin
           </button>
