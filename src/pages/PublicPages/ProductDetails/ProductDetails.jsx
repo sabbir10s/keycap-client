@@ -35,7 +35,9 @@ const ProductDetails = () => {
     if (!added) {
       setAdded(true);
       addToCart(_id, amount, singleProduct);
-      toast.success("Successfully Added to Cart");
+      toast.success("Successfully Added to Cart", {
+        position: toast.POSITION.TOP_CENTER,
+      });
     } else {
       navigate("/cart");
     }

@@ -4,12 +4,33 @@ import { Fade } from "react-reveal";
 import { AiOutlineHeart, AiOutlineShopping, AiFillHeart } from "react-icons/ai";
 import FormatePrice from "../../../helper/FormatePrice";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useCartContext } from "../../../context/CartContext";
 const ProductCard = ({ product }) => {
   const [wishlist, setWishlist] = useState(false);
   const { _id, name, image, price } = product;
   const navigate = useNavigate();
   const handleProductDetails = () => {
     navigate(`/product/${_id}`);
+  };
+
+  const [added, setAdded] = useState(false);
+  const { addToCart } = useCartContext();
+
+  // Cart Quantity
+  const [amount] = useState(1);
+
+  // Add To Cart Button
+  const handleAddToCart = () => {
+    if (!added) {
+      setAdded(true);
+      addToCart(_id, amount, product);
+      toast.success("Successfully Added to Cart", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+    } else {
+      navigate("/cart");
+    }
   };
   return (
     <div>
@@ -48,12 +69,14 @@ const ProductCard = ({ product }) => {
                 {!wishlist && <AiOutlineHeart />}
                 {wishlist && <AiFillHeart className="text-[#FF5555]" />}
               </button>
-              <a
-                className="text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block hover:bg-primary-700 hover:text-white duration-300"
-                href="#"
+              <button
+                onClick={handleAddToCart}
+                className={`${
+                  added && "bg-primary-700 text-white"
+                } text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block hover:bg-primary-700 hover:text-white duration-300`}
               >
                 <AiOutlineShopping />
-              </a>
+              </button>
             </div>
           </div>
         </div>
