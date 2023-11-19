@@ -208,9 +208,19 @@ const Checkout = () => {
                   </p>
                 </div>
                 <div className="block mt-[20px]">
-                  <Button category="primary" className="w-full" type="submit">
-                    Place Order
-                  </Button>
+                  {cart.length ? (
+                    <Button category="primary" className="w-full" type="submit">
+                      Place Order
+                    </Button>
+                  ) : (
+                    <Button
+                      onclick={navigate("/products")}
+                      className="w-full"
+                      category="secondary"
+                    >
+                      Empty Cart! Add Product
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>

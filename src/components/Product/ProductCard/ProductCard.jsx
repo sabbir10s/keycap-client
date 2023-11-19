@@ -14,7 +14,7 @@ const ProductCard = ({ product }) => {
   return (
     <div>
       <Fade bottom>
-        <div className="w-full p-2 border/50 rounded-[5px] group bg-white shadow-sm">
+        <div className="w-full p-2 border/50 rounded-[5px] group bg-white shadow-sm border">
           <div className="flex flex-col p-2 relative">
             <div>
               <button
