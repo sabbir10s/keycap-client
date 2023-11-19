@@ -48,7 +48,7 @@ const Profile = () => {
 
     // console.log(userInfo)
 
-    const url = `https://nexiq-server.vercel.app/user/${user.email}`;
+    const url = `https://nexiq-server.vercel.app/user/${email}`;
 
     fetch(url, {
       method: "PUT",

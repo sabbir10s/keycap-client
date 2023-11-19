@@ -8,7 +8,7 @@ import FormatePrice from "../../../helper/FormatePrice";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useCartContext } from "../../../context/CartContext";
-import AddWishlist from "../../Wishlist/AddWishlist";
+// import AddWishlist from "../../Wishlist/AddWishlist";
 const ProductCard = ({ product }) => {
   const { _id, name, image, price } = product;
   const navigate = useNavigate();
@@ -65,7 +65,7 @@ const ProductCard = ({ product }) => {
                 </div>
               </div>
             </div>
-            <AddWishlist />
+            {/* <AddWishlist _id={_id} /> */}
             <button
               onClick={handleAddToCart}
               className={`p-2 rounded-[5px] border flex items-center justify-between text-sm ${

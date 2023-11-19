@@ -7,10 +7,10 @@ const userPaths = [
     label: "Order",
     path: "",
   },
-  {
-    label: "wishlist",
-    path: "Wishlist",
-  },
+  // {
+  //   label: "wishlist",
+  //   path: "Wishlist",
+  // },
   {
     label: "Profile",
     path: "profile",
