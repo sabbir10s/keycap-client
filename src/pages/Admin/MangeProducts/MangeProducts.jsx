@@ -11,7 +11,7 @@ const MangeProducts = () => {
   const [reload, setIsReload] = useState(true);
   // console.log(reload);
   useEffect(() => {
-    const url = "http://localhost:5000/product";
+    const url = "https://nexiq-server.vercel.app/product";
     fetch(url, {
       method: "GET",
       headers: {

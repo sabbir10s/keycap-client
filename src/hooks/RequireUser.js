@@ -8,16 +8,19 @@ import { useAuthContext } from '../context/AuthContext';
 const RequireUser = ({ children }) => {
     const { user, loading, logOut } = useAuthContext();
     const [isAdmin, isAdminLoading] = useAdmin(user);
+    console.log(loading);
     const location = useLocation();
+    if (user && !isAdmin) {
+        return children
+    }
     if (loading || isAdminLoading) {
         return <Loading />
     }
-    if (!user || isAdmin) {
-        logOut();
-        return <Navigate to="/signIn" state={{ from: location }} replace />;
-    }
 
-    return children;
+    else {
+        logOut();
+        return <Navigate to="/signIn" state={{ from: location }} replace />
+    };
 };
 
 export default RequireUser;

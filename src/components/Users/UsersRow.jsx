@@ -10,7 +10,7 @@ const UsersRow = ({ user, refetch, index }) => {
   const navigate = useNavigate();
 
   const handleMakeAdmin = (user) => {
-    const url = `http://localhost:5000/user/admin/${user._id}`;
+    const url = `https://nexiq-server.vercel.app/user/admin/${user._id}`;
     fetch(url, {
       method: "PATCH",
       headers: {
@@ -37,7 +37,7 @@ const UsersRow = ({ user, refetch, index }) => {
   };
 
   const handleDelete = () => {
-    const url = `http://localhost:5000/user/${_id}`;
+    const url = `https://nexiq-server.vercel.app/user/${_id}`;
     fetch(url, {
       method: "DELETE",
       headers: {

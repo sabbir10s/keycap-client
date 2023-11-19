@@ -20,7 +20,7 @@ const EditProduct = ({ product }) => {
       quantity,
     };
 
-    const url = `http://localhost:5000/product/${_id}`;
+    const url = `https://nexiq-server.vercel.app/product/${_id}`;
 
     fetch(url, {
       method: "PUT",

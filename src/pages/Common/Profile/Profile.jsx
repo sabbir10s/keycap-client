@@ -18,7 +18,7 @@ const Profile = () => {
     data: userData,
     refetch,
   } = useQuery(["user", email], () =>
-    fetch(`http://localhost:5000/user/${email}`, {
+    fetch(`https://nexiq-server.vercel.app/user/${email}`, {
       method: "GET",
       headers: {
         "content-type": "application/json",
@@ -48,7 +48,7 @@ const Profile = () => {
 
     // console.log(userInfo)
 
-    const url = `http://localhost:5000/user/${user.email}`;
+    const url = `https://nexiq-server.vercel.app/user/${user.email}`;
 
     fetch(url, {
       method: "PUT",
@@ -72,7 +72,7 @@ const Profile = () => {
   if (isLoading) {
     return <Loading />;
   }
-  const { name, mobile, streetAddress, city, zip } = userData;
+  const { name, mobile, streetAddress, city, zip, role } = userData;
 
   return (
     <div className="bg-white border-[1px] border-gray-200/80">
@@ -118,7 +118,15 @@ const Profile = () => {
             </div>
           </div>
           <div className="bg-white rounded-xl p-5">
-            <h3 className="text-xl mb-5 font-semibold">2. Shipping Address</h3>
+            <h3
+              className={`${
+                role !== "admin"
+                  ? " text-xl mb-5 font-semibold "
+                  : " text-xl mb-5 font-semibold invisible"
+              }`}
+            >
+              2. Shipping Address
+            </h3>
             <div className=" space-y-4">
               <InputField
                 label="Street Address"

@@ -23,7 +23,7 @@ const ProductRow = ({ setProducts, product, setIsReload, reload }) => {
   };
 
   const handleDelete = () => {
-    const url = `http://localhost:5000/product/${product._id}`;
+    const url = `https://nexiq-server.vercel.app/product/${product._id}`;
     fetch(url, {
       method: "DELETE",
       headers: {

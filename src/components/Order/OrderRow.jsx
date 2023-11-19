@@ -16,7 +16,7 @@ const OrderRow = ({ order, index }) => {
   };
 
   const handleOrderDetails = () => {
-    navigate(`/dashboard/order/${_id}`);
+    navigate(`/userDashboard/order/${_id}`);
   };
   const fieldStyle = "px-6 py-4 whitespace-nowrap text-sm  capitalize ";
   return (

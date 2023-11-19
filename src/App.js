@@ -12,7 +12,6 @@ import SignIn from './pages/Auth/SignIn/SignIn';
 import SignUp from './pages/Auth/SignUp/SignUp';
 import ProductDetails from './pages/PublicPages/ProductDetails/ProductDetails';
 import Cart from './pages/PublicPages/Cart/Cart';
-import PrivateRoute from './hooks/PrivateRoute';
 import Checkout from './pages/User/Checkout/Checkout';
 import RequireUser from './hooks/RequireUser';
 import Profile from './pages/Common/Profile/Profile';
@@ -27,6 +26,7 @@ import MangeOrderDetails from './pages/Admin/MangeOrders/MangeOrderDetails';
 import AdminDashboard from './pages/Admin/Dashboard/AdminDashboard';
 import UserDashboard from './pages/Common/Dashboard/UserDashboard';
 import MangeUsers from './pages/Admin/MangeUsers/MangeUsers';
+import PrivateRoute from './hooks/PrivateRoute';
 
 
 

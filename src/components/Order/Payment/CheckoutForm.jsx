@@ -13,7 +13,7 @@ const CheckoutForm = ({ order, setIsReload, reload }) => {
   const [clientSecret, setClientSecret] = useState("");
   const { _id, totalAmount, customer, email } = order;
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://nexiq-server.vercel.app/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -71,7 +71,7 @@ const CheckoutForm = ({ order, setIsReload, reload }) => {
         orderId: _id,
         transactionId: paymentIntent.id,
       };
-      fetch(`http://localhost:5000/order/email/${_id}`, {
+      fetch(`https://nexiq-server.vercel.app/order/email/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

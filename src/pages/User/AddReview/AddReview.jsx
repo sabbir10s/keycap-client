@@ -24,7 +24,7 @@ const AddReview = () => {
       userImage,
     };
 
-    const url = `http://localhost:5000/review`;
+    const url = `https://nexiq-server.vercel.app/review`;
 
     fetch(url, {
       method: "POST",

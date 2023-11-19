@@ -16,7 +16,7 @@ const title = [
 const Orders = () => {
   const { user, loading, logOut } = useAuthContext();
   const navigate = useNavigate();
-  const url = `http://localhost:5000/user/order/${user.email}`;
+  const url = `https://nexiq-server.vercel.app/user/order/${user.email}`;
 
   const { isLoading, data: orders } = useQuery("order", () =>
     fetch(url, {
@@ -42,32 +42,38 @@ const Orders = () => {
     <div className="bg-white border-[1px] border-gray-200/80">
       <h2 className="p-4 font-semibold">ORDERS LIST</h2>
       <div className="border-b"></div>
-      <div className="overflow-x-auto p-4">
-        <div className="align-middle inline-block min-w-full">
-          <div className="shadow overflow-hidden border-b border-gray-200 dark:border-gray-600">
-            <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-500">
-              <thead className="bg-primary-600 dark:bg-gray-900 dark:text-gray-300">
-                <tr>
-                  {title.map((item, idx) => (
-                    <th
-                      key={idx}
-                      scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
-                    >
-                      {item}
-                    </th>
+      {orders.length > 0 ? (
+        <div className="overflow-x-auto p-4">
+          <div className="align-middle inline-block min-w-full">
+            <div className="shadow overflow-hidden border-b border-gray-200 dark:border-gray-600">
+              <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-500">
+                <thead className="bg-primary-600 dark:bg-gray-900 dark:text-gray-300">
+                  <tr>
+                    {title.map((item, idx) => (
+                      <th
+                        key={idx}
+                        scope="col"
+                        className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
+                      >
+                        {item}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className=" divide-y divide-gray-200 dark:divide-gray-600">
+                  {orders.map((order, index) => (
+                    <OrderRow order={order} index={index} key={order._id} />
                   ))}
-                </tr>
-              </thead>
-              <tbody className=" divide-y divide-gray-200 dark:divide-gray-600">
-                {orders.map((order, index) => (
-                  <OrderRow order={order} index={index} key={order._id} />
-                ))}
-              </tbody>
-            </table>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <div className=" text-center w-full text-gray-500 py-4">
+          No orders available
+        </div>
+      )}
     </div>
   );
 };

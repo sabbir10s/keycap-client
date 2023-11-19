@@ -7,7 +7,7 @@
 //         const currentUser = { email: email }
 
 //         if (user) {
-//             fetch(`http://localhost:5000/user/${email}`, {
+//             fetch(`https://nexiq-server.vercel.app/user/${email}`, {
 //                 method: 'PUT',
 //                 headers: {
 //                     'content-type': 'application/json'

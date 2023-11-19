@@ -24,7 +24,7 @@ const SignUp = () => {
         console.log(loggedUser);
         updateUserProfile(data.name).then(() => {
           const userInfo = { name: data.name, email: data.email };
-          fetch("http://localhost:5000/user", {
+          fetch("https://nexiq-server.vercel.app/user", {
             method: "POST",
             headers: {
               "content-type": "application/json",

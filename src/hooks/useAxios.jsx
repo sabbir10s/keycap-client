@@ -7,7 +7,7 @@ const useAxios = () => {
   const { logOut } = useAuthContext();
   const navigate = useNavigate();
   const axiosSecure = axios.create({
-    baseURL: "http://localhost:5000",
+    baseURL: "https://nexiq-server.vercel.app",
   });
 
   useEffect(() => {

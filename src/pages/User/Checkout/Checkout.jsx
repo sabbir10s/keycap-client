@@ -10,27 +10,17 @@ import Button from "../../../shared/Button/Button";
 import Footer from "../../../components/Footer";
 import { useCartContext } from "../../../context/CartContext";
 import InputField from "../../../shared/InputField/InputField";
-import { useAuthState } from "react-firebase-hooks/auth";
+import { useAuthContext } from "../../../context/AuthContext";
+import { useQuery } from "react-query";
+import Loading from "../../../components/Loading";
 
 const Checkout = () => {
-  const [user] = useAuthState(auth);
+  const { user } = useAuthContext();
+  const email = user?.email;
   const navigate = useNavigate();
   const { cart, total_price, shipping_fee, clearCart } = useCartContext();
   const [paymentMethod, setPaymentMethod] = useState("cash");
   const paymentStatus = paymentMethod === "cash" ? true : false;
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    mobile: "",
-    streetAddress: "",
-    city: "",
-    zip: "",
-  });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
 
   // Get current date
   const options = { day: "numeric", month: "long", year: "numeric" };
@@ -38,16 +28,34 @@ const Checkout = () => {
 
   const formattedDate = currentDate.toLocaleDateString(undefined, options);
 
-  const handlePlaceOrder = (e) => {
-    e.preventDefault();
+  const { isLoading, data: userData } = useQuery(["user", email], () =>
+    fetch(`https://nexiq-server.vercel.app/user/${email}`, {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("access-token")}`,
+      },
+    }).then((res) => {
+      if (res.status === 401 || res.status === 403) {
+        signOut(auth);
+        localStorage.removeItem("access-token");
+        navigate("/");
+      }
+      return res.json();
+    })
+  );
+
+  const handlePlaceOrder = (event) => {
+    event.preventDefault();
+    const e = event.target;
     const orderData = {
-      email: formData.email,
+      email: e.email.value,
       customer: {
-        name: formData.name,
-        mobile: formData.mobile,
-        streetAddress: formData.streetAddress,
-        city: formData.city,
-        zip: formData.zip,
+        name: e.name.value,
+        mobile: parseInt(e.mobile.value),
+        streetAddress: e.streetAddress.value,
+        city: e.city.value,
+        zip: parseInt(e.zip.value),
       },
       items: cart,
       totalAmount: total_price,
@@ -58,8 +66,8 @@ const Checkout = () => {
       },
       date: formattedDate,
     };
-    console.log(orderData);
-    const url = `http://localhost:5000/user/orde`;
+
+    const url = `https://nexiq-server.vercel.app/user/order`;
 
     fetch(url, {
       method: "POST",
@@ -78,13 +86,16 @@ const Checkout = () => {
         return res.json();
       })
       .then((data) => {
-        e.target.reset();
+        event.target.reset();
         toast.success("Your Order Successful");
-        navigate("/dashboard");
+        navigate("/userDashboard");
         clearCart();
       });
   };
-
+  if (isLoading) {
+    return <Loading />;
+  }
+  const { name, mobile, streetAddress, city, zip } = userData;
   return (
     <div>
       <div className=" max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -103,25 +114,23 @@ const Checkout = () => {
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <InputField
-                    onChange={handleInputChange}
                     label="Name"
                     type="text"
                     placeholder="Name"
                     name="name"
                     required={true}
+                    defaultValue={name}
                   />
                   <InputField
-                    onChange={handleInputChange}
                     label="Mobile"
                     type="number"
                     placeholder="Mobile"
                     name="mobile"
                     required={true}
+                    defaultValue={mobile}
                   />
                   <InputField
-                    onChange={handleInputChange}
-                    defaultValue={user.email}
-                    value={user.email}
+                    defaultValue={email}
                     label="Email"
                     type="email"
                     placeholder="Email"
@@ -136,30 +145,30 @@ const Checkout = () => {
                 </h3>
                 <div>
                   <InputField
-                    onChange={handleInputChange}
                     label="Street Address"
                     type="text"
                     placeholder="Street Address"
                     name="streetAddress"
                     required={true}
+                    defaultValue={streetAddress}
                   />
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
                     <InputField
-                      onChange={handleInputChange}
                       label="City"
                       type="text"
                       placeholder="City"
                       name="city"
                       required={true}
+                      defaultValue={city}
                     />
                     <InputField
-                      onChange={handleInputChange}
                       label="Zip Code"
                       type="number"
                       placeholder="Zip Code"
                       name="zip"
                       required={true}
+                      defaultValue={zip}
                     />
                   </div>
                 </div>

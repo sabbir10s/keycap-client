@@ -39,7 +39,7 @@ const AddProduct = () => {
             published: published,
           };
           // send to your database.
-          fetch("http://localhost:5000/product", {
+          fetch("https://nexiq-server.vercel.app/product", {
             method: "POST",
             headers: {
               "content-type": "application/json",

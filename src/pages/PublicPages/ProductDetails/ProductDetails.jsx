@@ -10,7 +10,7 @@ import CartAmountToggle from "../../../components/CartAmountToggle";
 import Button from "../../../shared/Button/Button";
 import { useCartContext } from "../../../context/CartContext";
 
-const API = "http://localhost:5000/product";
+const API = "https://nexiq-server.vercel.app/product";
 
 const ProductDetails = () => {
   const [added, setAdded] = useState(false);

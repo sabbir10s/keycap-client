@@ -14,7 +14,7 @@ const MangeOrderDetails = () => {
   const [orderInfo, setOrderInfo] = useState([]);
 
   useEffect(() => {
-    const url = `http://localhost:5000/order/${orderId}`;
+    const url = `https://nexiq-server.vercel.app/order/${orderId}`;
     console.log(url);
     fetch(url, {
       method: "GET",
@@ -34,7 +34,7 @@ const MangeOrderDetails = () => {
   const { status, items, payment, totalAmount, date } = orderInfo;
 
   // const handleDelete = () => {
-  //   const url = `http://localhost:5000/order/${orderId}`;
+  //   const url = `https://nexiq-server.vercel.app/order/${orderId}`;
   //   fetch(url, {
   //     method: "DELETE",
   //     headers: {

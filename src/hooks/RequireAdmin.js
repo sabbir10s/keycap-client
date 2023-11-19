@@ -6,7 +6,7 @@ import { useAuthContext } from '../context/AuthContext';
 
 
 const RequireAdmin = ({ children }) => {
-    const { user, loading } = useAuthContext()
+    const { user, logOut, loading } = useAuthContext()
     const [isAdmin, isAdminLoading] = useAdmin(user);
     const location = useLocation();
     if (loading || isAdminLoading) {
@@ -16,7 +16,10 @@ const RequireAdmin = ({ children }) => {
         return children
     }
 
-    return <Navigate to="/signIn" state={{ from: location }} replace />;
+    else {
+        logOut();
+        return <Navigate to="/signIn" state={{ from: location }} replace />
+    };
 };
 
 export default RequireAdmin;
