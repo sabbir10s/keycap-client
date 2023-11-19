@@ -1,7 +1,7 @@
 import React from "react";
-import { useCartContext } from "../../../context/CartContext";
-import FormatePrice from "../../../helper/FormatePrice";
-import CartAmountToggle from "../../../components/CartAmountToggle";
+import { useCartContext } from "../../context/CartContext";
+import FormatePrice from "../../helper/FormatePrice";
+import CartAmountToggle from "./CartAmountToggle";
 
 const CartItem = ({ item }) => {
   const { removeItem, setIncrease, setDecrease } = useCartContext();

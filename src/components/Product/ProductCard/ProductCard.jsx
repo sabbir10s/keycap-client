@@ -14,16 +14,19 @@ const ProductCard = ({ product }) => {
     navigate(`/product/${_id}`);
   };
 
-  const [added, setAdded] = useState(false);
-  const { addToCart } = useCartContext();
+  const { addToCart, cart } = useCartContext();
+  const alreadyAdded = cart.find((item) => {
+    if (item._id === _id) {
+      return true;
+    }
+    return false;
+  });
 
-  // Cart Quantity
   const [amount] = useState(1);
 
   // Add To Cart Button
   const handleAddToCart = () => {
-    if (!added) {
-      setAdded(true);
+    if (!alreadyAdded) {
       addToCart(_id, amount, product);
       toast.success("Successfully Added to Cart", {
         position: toast.POSITION.TOP_CENTER,
@@ -72,7 +75,7 @@ const ProductCard = ({ product }) => {
               <button
                 onClick={handleAddToCart}
                 className={`${
-                  added && "bg-primary-700 text-white"
+                  alreadyAdded && "bg-primary-700 text-white"
                 } text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block hover:bg-primary-700 hover:text-white duration-300`}
               >
                 <AiOutlineShopping />

@@ -6,7 +6,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { toast } from "react-toastify";
 import { useProductContext } from "../../../context/ProductContext";
 import Loading from "../../../components/Loading";
-import CartAmountToggle from "../../../components/CartAmountToggle";
+import CartAmountToggle from "../../../components/Cart/CartAmountToggle";
 import Button from "../../../shared/Button/Button";
 import { useCartContext } from "../../../context/CartContext";
 import RelatedProducts from "../../../components/Product/RelatedProducts/RelatedProducts";
@@ -15,10 +15,9 @@ import Footer from "../../../components/Footer";
 const API = "https://nexiq-server.vercel.app/product";
 
 const ProductDetails = () => {
-  const [added, setAdded] = useState(false);
   const { getSingleProduct, isSingleLoading, singleProduct } =
     useProductContext();
-  const { addToCart } = useCartContext();
+  const { addToCart, cart } = useCartContext();
 
   // Cart Quantity
   const [amount, setAmount] = useState(1);
@@ -31,9 +30,26 @@ const ProductDetails = () => {
 
   // Add To Cart Button
   const navigate = useNavigate();
+
+  // Get single product information
+  const { productId } = useParams();
+  useEffect(() => {
+    getSingleProduct(`${API}/${productId}`);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  if (isSingleLoading) {
+    return <Loading />;
+  }
+  const { _id, name, image, price, description, company, stock, category } =
+    singleProduct;
+  const alreadyAdded = cart.find((item) => {
+    if (item._id === _id) {
+      return true;
+    }
+    return false;
+  });
   const handleAddToCart = () => {
-    if (!added) {
-      setAdded(true);
+    if (!alreadyAdded) {
       addToCart(_id, amount, singleProduct);
       toast.success("Successfully Added to Cart", {
         position: toast.POSITION.TOP_CENTER,
@@ -42,18 +58,6 @@ const ProductDetails = () => {
       navigate("/cart");
     }
   };
-
-  // Get single product information
-  const { productId } = useParams();
-  useEffect(() => {
-    getSingleProduct(`${API}/${productId}`);
-  }, []);
-  if (isSingleLoading) {
-    return <Loading />;
-  }
-  const { _id, name, image, price, description, company, stock, category } =
-    singleProduct;
-
   return (
     <>
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 ">
@@ -100,10 +104,10 @@ const ProductDetails = () => {
                     category="primary"
                     isDisabled={false}
                     className={`w-[200px] flex items-center justify-center ${
-                      added && "bg-secondary-500"
+                      alreadyAdded && "bg-secondary-500"
                     }`}
                   >
-                    {!added ? (
+                    {!alreadyAdded ? (
                       <span className="flex items-center gap-2">
                         <AiOutlineShoppingCart className="text-[20px] text-white" />
                         Add to Cart

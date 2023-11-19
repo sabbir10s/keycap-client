@@ -1,11 +1,11 @@
 import React from "react";
-import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 import { useCartContext } from "../../../context/CartContext";
 import FormatePrice from "../../../helper/FormatePrice";
 import Button from "../../../shared/Button/Button";
 import Footer from "../../../components/Footer";
+import CartItem from "../../../components/Cart/CartItem";
 const Cart = () => {
   const { cart, total_price, shipping_fee } = useCartContext();
   return (
