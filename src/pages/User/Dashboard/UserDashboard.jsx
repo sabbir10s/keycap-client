@@ -8,6 +8,10 @@ const userPaths = [
     path: "",
   },
   {
+    label: "wishlist",
+    path: "Wishlist",
+  },
+  {
     label: "Profile",
     path: "profile",
   },

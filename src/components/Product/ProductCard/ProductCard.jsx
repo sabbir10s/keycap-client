@@ -1,13 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import { Fade } from "react-reveal";
-import { AiOutlineHeart, AiOutlineShopping, AiFillHeart } from "react-icons/ai";
+import { AiOutlinePlus } from "react-icons/ai";
+import { FiArrowRight } from "react-icons/fi";
+
 import FormatePrice from "../../../helper/FormatePrice";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useCartContext } from "../../../context/CartContext";
+import AddWishlist from "../../Wishlist/AddWishlist";
 const ProductCard = ({ product }) => {
-  const [wishlist, setWishlist] = useState(false);
   const { _id, name, image, price } = product;
   const navigate = useNavigate();
   const handleProductDetails = () => {
@@ -38,8 +40,8 @@ const ProductCard = ({ product }) => {
   return (
     <div>
       <Fade bottom>
-        <div className="w-full p-2 border/50 rounded-[5px] group bg-white shadow-sm border">
-          <div className="flex flex-col p-2 relative">
+        <div className="w-full p-4 border/50 rounded-[5px] group bg-white shadow-sm border">
+          <div className="flex flex-col relative">
             <div>
               <button
                 onClick={handleProductDetails}
@@ -63,24 +65,18 @@ const ProductCard = ({ product }) => {
                 </div>
               </div>
             </div>
-            <div className="absolute right-0 flex flex-col gap-3 m-4 ">
-              <button
-                onClick={() => setWishlist(!wishlist)}
-                className="text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block hover:bg-primary-700 hover:text-white duration-300"
-                href="#"
-              >
-                {!wishlist && <AiOutlineHeart />}
-                {wishlist && <AiFillHeart className="text-[#FF5555]" />}
-              </button>
-              <button
-                onClick={handleAddToCart}
-                className={`${
-                  alreadyAdded && "bg-primary-700 text-white"
-                } text-base-300/50 border-[1px] border-base-300/50 p-2 rounded-[5px] hidden group-hover:block hover:bg-primary-700 hover:text-white duration-300`}
-              >
-                <AiOutlineShopping />
-              </button>
-            </div>
+            <AddWishlist />
+            <button
+              onClick={handleAddToCart}
+              className={`p-2 rounded-[5px] border flex items-center justify-between text-sm ${
+                alreadyAdded
+                  ? " border-primary-600  hover:bg-primary-700 text-primary-600 hover:text-white duration-300"
+                  : "text-gray-700 hover:text-white bg-gray-100 hover:bg-primary-600 duration-300"
+              }`}
+            >
+              {alreadyAdded ? "View in Cart" : "Add to Cart"}
+              {alreadyAdded ? <FiArrowRight /> : <AiOutlinePlus />}
+            </button>
           </div>
         </div>
       </Fade>

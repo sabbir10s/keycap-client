@@ -24,9 +24,10 @@ import OrderDetails from './pages/User/OrderDetails/OrderDetails';
 import RequireAdmin from './hooks/RequireAdmin';
 import MangeOrderDetails from './pages/Admin/MangeOrders/MangeOrderDetails';
 import AdminDashboard from './pages/Admin/Dashboard/AdminDashboard';
-import UserDashboard from './pages/Common/Dashboard/UserDashboard';
 import MangeUsers from './pages/Admin/MangeUsers/MangeUsers';
 import PrivateRoute from './hooks/PrivateRoute';
+import UserDashboard from './pages/User/Dashboard/UserDashboard';
+import WishList from './pages/User/WishList/WishList';
 
 
 
@@ -63,7 +64,8 @@ function App() {
             {/* user dashboard section */}
             <Route path='userDashboard' element={<RequireUser><UserDashboard /></RequireUser>}>
               <Route index element={<RequireUser><Orders /></RequireUser>} />
-              <Route path='order/:orderId' element={<OrderDetails />} />
+              <Route path='order/:orderId' element={<RequireUser><OrderDetails /></RequireUser>} />
+              <Route path='wishlist' element={<RequireUser><WishList /></RequireUser>} />
               <Route path='profile' element={<Profile />} />
             </Route>
 
