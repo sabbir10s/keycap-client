@@ -50,8 +50,8 @@ const SignUp = () => {
   };
 
   return (
-    <section className="flex justify-center items-center pt-6">
-      <div className="md:w-96 border rounded-lg p-6">
+    <section className="flex justify-center items-center py-6">
+      <div className="md:w-96 border rounded-lg p-6 bg-white">
         <div className="space-y-4">
           <h2 className="text-2xl lg:text-3xl font-semibold text-black">
             Sign up

@@ -69,7 +69,14 @@ const Navbar = () => {
       <header className="bg-primary-600 z-50 fixed top-0 w-full py-4">
         <div className="flex items-center justify-center gap-8 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:hidden absolute left-0 lg:static">
-            {pathname.includes("dashboard") && (
+            {pathname === "/userDashboard" && (
+              <button onClick={() => setMobileSidebar(true)}>
+                <span className="text-3xl">
+                  <BiMenuAltLeft />
+                </span>
+              </button>
+            )}
+            {pathname === "/adminDashboard" && (
               <button onClick={() => setMobileSidebar(true)}>
                 <span className="text-3xl">
                   <BiMenuAltLeft />
@@ -150,19 +157,16 @@ const Navbar = () => {
                   {isOpen && (
                     <div className="absolute right-0 z-10 mt-1 w-48 py-2 text-left text-sm text-gray-700 dark:text-gray-200 bg-white rounded-lg shadow dark:bg-gray-700">
                       <div className="py-1 flex flex-col gap-6 pl-4">
-                        {user ? (
+                        {user && (
                           <button onClick={handleOptionClick}>
-                            <SecondaryCustomLink to="/dashboard">
+                            <SecondaryCustomLink
+                              to={
+                                isAdmin ? "/adminDashboard" : "/userDashboard"
+                              }
+                            >
                               Dashboard
                             </SecondaryCustomLink>
                           </button>
-                        ) : (
-                          <Link
-                            className="block rounded-md bg-primary-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-primary-700"
-                            to="/SignIn"
-                          >
-                            Sign In
-                          </Link>
                         )}
                         {navItems.map((item) => (
                           <button key={item.name} onClick={handleOptionClick}>
@@ -171,6 +175,12 @@ const Navbar = () => {
                             </SecondaryCustomLink>
                           </button>
                         ))}
+
+                        {!user && (
+                          <SecondaryCustomLink to="/SignIn">
+                            Sign In
+                          </SecondaryCustomLink>
+                        )}
                       </div>
                     </div>
                   )}

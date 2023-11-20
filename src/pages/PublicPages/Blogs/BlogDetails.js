@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import Loading from '../../../components/Loading';
+import Footer from '../../../components/Footer';
 
 const BlogDetails = () => {
     const {
@@ -20,16 +21,19 @@ const BlogDetails = () => {
     const blog = blogs.find(b => b._id === parseInt(blogID))
     const { date, title, article, img } = blog
     return (
-        <div className='max-w-[1000px] mx-auto lg:px-20 px-2 my-5'>
-            <div className='relative'>
-                <img src={img} alt="" />
-                <p className='absolute bottom-0 bg-[#333333] px-3 py-1 text-white'>{date}</p>
+        <>
+            <div className='max-w-[1000px] mx-auto lg:px-20 px-2 my-5'>
+                <div className='relative'>
+                    <img src={img} alt="" />
+                    <p className='absolute bottom-0 bg-[#333333] px-3 py-1 text-white'>{date}</p>
+                </div>
+                <h2 className='text-lg my-5'>{title}</h2>
+                <article className='text-base-300'>{article[0]}</article>
+                <br />
+                <article className='text-base-300'>{article[1]}</article>
             </div>
-            <h2 className='text-lg my-5'>{title}</h2>
-            <article className='text-base-300'>{article[0]}</article>
-            <br />
-            <article className='text-base-300'>{article[1]}</article>
-        </div>
+            <Footer />
+        </>
     );
 };
 
