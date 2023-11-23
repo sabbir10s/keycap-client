@@ -6,9 +6,9 @@ const Search = () => {
       <div className="w-full max-w-screen-xl">
         <div className="flex justify-center">
           <div className="w-full max-w-md">
-            <div className="bg-white shadow-md rounded-lg px-3 py-2 mb-4">
-              <div className="flex items-center bg-gray-100 rounded-md">
-                <div className="pl-2">
+            <div className="bg-white">
+              <div className="flex items-center bg-transparent rounded-md relative">
+                <div className="pl-2 absolute">
                   <svg
                     className="fill-current text-gray-500 w-6 h-6"
                     xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +21,7 @@ const Search = () => {
                   </svg>
                 </div>
                 <input
-                  className="w-full rounded-md bg-gray-100 text-gray-700 leading-tight focus:outline-none py-2 px-2"
+                  className="w-full border bg-gray-100/50 focus:bg-white text-gray-700 leading-tight focus:outline-none pl-10 py-2.5"
                   id="search"
                   type="text"
                   placeholder="Search in product"

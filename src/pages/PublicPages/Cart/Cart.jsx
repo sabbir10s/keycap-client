@@ -10,7 +10,7 @@ const Cart = () => {
   const { cart, total_price, shipping_fee } = useCartContext();
   return (
     <div>
-      <div className=" max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className=" max-w-screen-xl mx-auto px-2 sm:px-4 lg:px-8">
         <h2 className=" text-base md:text-xl lg:text-3xl font-semibold mt-6">
           Your Cart
         </h2>
@@ -34,7 +34,7 @@ const Cart = () => {
                 </div>
               </div>
               <div className="relative grid-cols-1 w-full mt-[20px] lg:mt-0">
-                <div className="lg:absolute space-y-5 top-0 left-0 w-full h-auto  lg:py-3 lg:px-4 lg:shadow-custom lg:border lg:rounded-lg bg-white">
+                <div className="lg:absolute space-y-5 top-0 left-0 w-full h-auto p-4 lg:shadow-custom lg:border lg:rounded-lg bg-white">
                   <div className="flex justify-between items-center">
                     <p className="text-gray-600 text-[14px]">Subtotal:</p>
                     <p className="text-gray-700 font-semibold text-[16px]">
@@ -65,7 +65,7 @@ const Cart = () => {
             {/* shipping button */}
             <Link
               to="/products"
-              className="border border-primary-600 text-primary-600 hover:text-secondary-500 hover:border-secondary-600 duration-300 px-3 py-2 flex items-center justify-center gap-1 w-[200px] mt-4"
+              className="border border-primary-600 text-primary-600 hover:text-secondary-500 hover:border-secondary-600 duration-300 px-3 py-2 flex items-center justify-center gap-1 w-[200px] ml-4 md:ml-0 mt-4"
             >
               <span> Continue Shopping</span> <BsArrowRight />
             </Link>

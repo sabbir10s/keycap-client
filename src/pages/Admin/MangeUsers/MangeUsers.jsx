@@ -26,7 +26,7 @@ const MangeUsers = () => {
         <div className="align-middle inline-block min-w-full">
           <div className="shadow overflow-hidden border-b border-gray-200 ">
             <table className="min-w-full divide-y divide-gray-200 ">
-              <thead className="bg-primary-600 ">
+              <thead className="bg-gray-400 ">
                 <tr>
                   {title.map((item, idx) => (
                     <th

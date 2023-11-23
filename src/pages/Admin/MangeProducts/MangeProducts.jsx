@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from "react";
 import ProductRow from "./ProductRow";
-import { AiOutlinePlus } from "react-icons/ai";
+import { FiPlus } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import Loading from "../../../components/Loading";
 import Search from "../../../components/Search";
 import Pagination from "../../../shared/Pagination";
-
+const title = [
+  " Product",
+  "Category",
+  "Price",
+  "Sale Price",
+  "Stock",
+  "Status",
+  "Publish",
+  "Action",
+];
 const MangeProducts = () => {
   const [products, setProducts] = useState([]);
   const [reload, setIsReload] = useState(true);
@@ -35,72 +44,34 @@ const MangeProducts = () => {
   }
 
   return (
-    <div className="mt-4">
-      <div className="mb-4 flex items-center justify-between">
+    <div className="mt-4 lg:mt-0 px-2 lg:px-0">
+      <div className="mb-4 flex gap-4 items-center justify-between bg-white p-3">
         <Search />
         <Link
           to="addNewProduct"
-          className="flex items-center gap-2 bg-primary-600 px-4 py-3 md:p-2 rounded-md text-white"
+          className="flex items-center gap-2 bg-secondary-400 px-4 py-2 text-white"
         >
-          <AiOutlinePlus />
+          <FiPlus />
           <span className="hidden md:block">Add Product</span>
+          <span className="block md:hidden">New</span>
         </Link>
       </div>
-      <div className="bg-white border-[1px] border-gray-200/80  rounded-[10px] shadow-custom">
+      <div className="bg-white border-[1px] border-gray-200/80">
         <div className="overflow-x-auto">
           <div className="align-middle inline-block min-w-full">
-            <div className="shadow overflow-hidden border-b border-gray-200  sm:rounded-lg">
+            <div className="shadow overflow-hidden border-b border-gray-200">
               <table className="min-w-full divide-y divide-gray-200 ">
                 <thead className="bg-gray-50 ">
                   <tr>
-                    <th
-                      scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase tracking-wider"
-                    >
-                      Product
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase tracking-wider"
-                    >
-                      Category
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase tracking-wider"
-                    >
-                      Price
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase tracking-wider"
-                    >
-                      Sale Price
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase tracking-wider"
-                    >
-                      Stock
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase tracking-wider"
-                    >
-                      Status
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase tracking-wider"
-                    >
-                      Published
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase tracking-wider"
-                    >
-                      Action
-                    </th>
+                    {title.map((item, idx) => (
+                      <th
+                        key={idx}
+                        scope="col"
+                        className="px-6 py-3 text-left text-xs font-medium text-white bg-primary-600  uppercase tracking-wider"
+                      >
+                        {item}
+                      </th>
+                    ))}
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 ">
@@ -119,7 +90,7 @@ const MangeProducts = () => {
             </div>
           </div>
         </div>
-        <div className="text-gray-900 flex flex-col md:flex-row gap-6 justify-between items-center w-full pl-[15px] pr-[30px] py-6 text-sm">
+        <div className="text-gray-700 flex flex-col md:flex-row gap-6 justify-between items-center w-full pl-[15px] pr-[30px] py-6 text-sm">
           <p className="uppercase font-semibold">
             showing ({itemsOffset + 1}- {itemsOffset + currentItems.length}) of{" "}
             {products.length}

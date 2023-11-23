@@ -11,7 +11,7 @@ const Sort = () => {
     updateFilterValue,
   } = useFilterContext();
   return (
-    <div className="flex items-center justify-between w-full bg-white p-3 shadow-sm">
+    <div className="flex items-center justify-between gap-4 w-full bg-white p-3 shadow-sm">
       <div className="space-x-4 hidden md:block">
         <button
           onClick={setGridView}
@@ -37,7 +37,7 @@ const Sort = () => {
           name="text"
           value={text}
           onChange={updateFilterValue}
-          className="block w-full lg:w-64 border-[1px] border-gray-300   py-1.5 pl-3  bg-gray-100/50  focus:bg-white placeholder:text-gray-400 sm:text-sm outline-none duration-300"
+          className="block w-full lg:w-64 border-[1px] border-gray-300   py-1.5 md:py-2 pl-3  bg-gray-100/50  focus:bg-white placeholder:text-gray-400 sm:text-sm outline-none duration-300"
           placeholder="Search"
           autoComplete="off"
         />
@@ -50,7 +50,7 @@ const Sort = () => {
             onClick={sorting}
             name="sort"
             id="sort"
-            className="appearance-none block border-[1px] border-gray-400   px-3 py-1.5  bg-[#f4f5f7]  focus:bg-white placeholder:text-gray-400 text-xs outline-none duration-300 w-full"
+            className="appearance-none block border-[1px] border-gray-300   px-3 py-2.5  bg-[#f4f5f7]  focus:bg-white placeholder:text-gray-400 text-xs outline-none duration-300 w-full"
           >
             <option value="default">Default</option>
             <option value="lowest">Price (Low &lt; High)</option>

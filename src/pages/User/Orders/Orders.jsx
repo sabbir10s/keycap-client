@@ -40,14 +40,14 @@ const Orders = () => {
 
   return (
     <div className="bg-white border-[1px] border-gray-200/80">
-      <h2 className="p-4 font-semibold">ORDERS LIST</h2>
+      <h2 className="p-2 md:p-4 font-semibold">ORDERS LIST</h2>
       <div className="border-b"></div>
       {orders.length > 0 ? (
-        <div className="overflow-x-auto p-4">
+        <div className="overflow-x-auto p-2 md:p-4">
           <div className="align-middle inline-block min-w-full">
             <div className="shadow overflow-hidden border-b border-gray-200 ">
               <table className="min-w-full divide-y divide-gray-200 ">
-                <thead className="bg-primary-600 ">
+                <thead className="bg-gray-400 ">
                   <tr>
                     {title.map((item, idx) => (
                       <th

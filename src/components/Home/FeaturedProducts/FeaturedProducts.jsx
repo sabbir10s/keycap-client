@@ -23,12 +23,13 @@ const FeaturedProducts = () => {
         >
           Featured Products
         </h2>
-        <p className="tracking-wide text-gray-400 text-base pt-2 font-thin">
-          See our featured products below. Choose your needs <br /> from here
-          and get a special discount with free shipping.
+        <p className="tracking-wide text-gray-400 text-sm md:text-base pt-2 font-thin">
+          See our featured products below. Choose your needs{" "}
+          <br className="hidden md:block" /> from here and get a special
+          discount with free shipping.
         </p>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-10 mt-5">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-10 mt-5">
         {featureProducts.map((product) => (
           <ProductCard
             id="#new"

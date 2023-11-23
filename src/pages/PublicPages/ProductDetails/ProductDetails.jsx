@@ -60,7 +60,7 @@ const ProductDetails = () => {
   };
   return (
     <>
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 ">
+      <div className="max-w-screen-xl mx-auto px-2 sm:px-4 lg:px-8 ">
         <div className="my-6">
           <div className="grid lg:grid-cols-2 gap-3">
             <div className="flex justify-center items-center bg-white">
@@ -89,7 +89,7 @@ const ProductDetails = () => {
               <p className="text-secondary-500 text-2xl font-bold py-3">
                 ${price}
               </p>
-              <p className="text-sm">{description}</p>
+              <p className="text-sm mb-4">{description}</p>
               <CartAmountToggle
                 amount={amount}
                 setIncrease={setIncrease}
@@ -125,7 +125,7 @@ const ProductDetails = () => {
             </div>
           </div>
 
-          <div className="mt-3 p-6 bg-white">
+          <div className="mt-3 p-2 md:p-6 bg-white">
             <RelatedProducts category={category} />
           </div>
         </div>

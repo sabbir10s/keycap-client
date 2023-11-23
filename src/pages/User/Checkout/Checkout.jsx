@@ -98,7 +98,7 @@ const Checkout = () => {
   const { name, mobile, streetAddress, city, zip } = userData;
   return (
     <div>
-      <div className=" max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className=" max-w-screen-xl mx-auto px-2 sm:px-4 lg:px-8">
         <h2 className=" text-base md:text-xl lg:text-3xl font-semibold mt-6">
           Checkout
         </h2>

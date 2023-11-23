@@ -10,15 +10,28 @@ const images = [
 const Slider = () => {
     return (
         <div>
-            <SimpleImageSlider
-                bgColor='#0000'
-                width={440}
-                height={440}
-                images={images}
-                showBullets={true}
-                showNavs={false}
-                autoPlay={true}
-            />
+            <div className='block md:hidden'>
+                <SimpleImageSlider
+                    bgColor='#0000'
+                    width={300}
+                    height={300}
+                    images={images}
+                    showBullets={true}
+                    showNavs={false}
+                    autoPlay={true}
+                />
+            </div>
+            <div className='hidden md:block '>
+                <SimpleImageSlider
+                    bgColor='#0000'
+                    width={400}
+                    height={400}
+                    images={images}
+                    showBullets={true}
+                    showNavs={false}
+                    autoPlay={true}
+                />
+            </div>
         </div>
     );
 };

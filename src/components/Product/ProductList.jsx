@@ -8,7 +8,7 @@ const ProductList = () => {
   // Grid view product list
   if (grid_view) {
     return (
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-3 shadow-sm">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-3 shadow-sm px-3 sm:px-0 ">
         {filter_products.map((product) => (
           <ProductCard product={product} key={product._id} />
         ))}

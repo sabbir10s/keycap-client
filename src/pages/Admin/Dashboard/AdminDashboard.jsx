@@ -24,7 +24,7 @@ const adminPaths = [
 const AdminDashboard = () => {
   return (
     <div className="min-h-screen">
-      <div className="flex gap-4 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div className="flex gap-4 max-w-screen-xl mx-auto lg:px-8 lg:py-4">
         <div className="hidden lg:block w-64 shadow-sm border bg-white min-h-[520px] ">
           <Sidebar paths={adminPaths} />
         </div>

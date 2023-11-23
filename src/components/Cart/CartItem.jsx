@@ -9,7 +9,7 @@ const CartItem = ({ item }) => {
 
   return (
     <div>
-      <div className="flex justify-between lg:grid  grid-cols-7 lg:gap-2 items-center lg:m-[7px] bg-white">
+      <div className="flex justify-between items-center lg:grid  grid-cols-7 lg:gap-2 lg:m-[7px] bg-white">
         <div className="flex items-center lg:col-span-3">
           <div className="p-2">
             <div className="w-[80px] lg:w-[100px] h-[80px] lg:h-[100px] bg-gray-50  rounded-2xl">
@@ -34,19 +34,17 @@ const CartItem = ({ item }) => {
           </div>
         </div>
 
-        <div>
-          <CartAmountToggle
-            amount={amount}
-            setDecrease={() => setDecrease(_id)}
-            setIncrease={() => setIncrease(_id)}
-          />
-        </div>
+        <CartAmountToggle
+          amount={amount}
+          setDecrease={() => setDecrease(_id)}
+          setIncrease={() => setIncrease(_id)}
+        />
         <h2 className=" font-semibold text-primary-600 hidden lg:block mx-auto">
           <FormatePrice price={price * amount} />
         </h2>
         <button
           onClick={() => removeItem(_id)}
-          className="lg:mx-auto p-2 lg:p-4"
+          className="lg:mx-auto pr-2 lg:pr-4"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

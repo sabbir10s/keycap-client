@@ -67,12 +67,12 @@ const Navbar = () => {
   return (
     <>
       <header className="bg-primary-600 z-50 fixed top-0 w-full py-4">
-        <div className="flex items-center justify-center gap-8 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-center gap-8 max-w-screen-xl mx-auto px-4 sm:px-4 lg:px-8">
           <div className="lg:hidden absolute left-0 lg:static">
             {(pathname.includes("adminDashboard") ||
               pathname.includes("userDashboard")) && (
               <button onClick={() => setMobileSidebar(true)}>
-                <span className="text-3xl">
+                <span className="text-3xl text-gray-300">
                   <BiMenuAltLeft />
                 </span>
               </button>
@@ -125,11 +125,11 @@ const Navbar = () => {
                 )}
               </div>
 
-              <div className="block lg:hidden p-2.5 text-gray-600 transition hover:text-gray-600/75 ">
+              <div className="block lg:hidden pl-2 transition">
                 <div className="relative" ref={dropdownRef}>
                   <button
                     type="button"
-                    className=" p-2 text-gray-600 transition hover:text-gray-600/75"
+                    className=" py-2 text-gray-200 transition"
                     onClick={toggleDropdown}
                   >
                     <svg
