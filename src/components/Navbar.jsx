@@ -69,14 +69,8 @@ const Navbar = () => {
       <header className="bg-primary-600 z-50 fixed top-0 w-full py-4">
         <div className="flex items-center justify-center gap-8 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:hidden absolute left-0 lg:static">
-            {pathname === "/userDashboard" && (
-              <button onClick={() => setMobileSidebar(true)}>
-                <span className="text-3xl">
-                  <BiMenuAltLeft />
-                </span>
-              </button>
-            )}
-            {pathname === "/adminDashboard" && (
+            {(pathname.includes("adminDashboard") ||
+              pathname.includes("userDashboard")) && (
               <button onClick={() => setMobileSidebar(true)}>
                 <span className="text-3xl">
                   <BiMenuAltLeft />

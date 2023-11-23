@@ -42,7 +42,6 @@ const MobileSidebar = ({ visible, handleMobileSidebar }) => {
   const { loading, logOut } = useAuthContext();
   const [isAdmin] = useAdmin();
   const { clearCart } = useCartContext();
-  console.log(isAdmin);
   const handleCloseModal = (e) => {
     if (e.target.id === "containers") handleMobileSidebar();
   };
@@ -76,7 +75,7 @@ const MobileSidebar = ({ visible, handleMobileSidebar }) => {
               {adminPaths.map((item, index) => (
                 <li key={index} className="pt-3 block text-left">
                   <SecondaryCustomLink
-                    to={item.path}
+                    to={`adminDashboard/${item.path}`}
                     handleMobileSidebar={handleMobileSidebar}
                   >
                     {item.label}
@@ -90,7 +89,7 @@ const MobileSidebar = ({ visible, handleMobileSidebar }) => {
                 <li key={index} className="pt-3 block text-left">
                   <SecondaryCustomLink
                     handleMobileSidebar={handleMobileSidebar}
-                    to={item.path}
+                    to={`userDashboard/${item.path}`}
                   >
                     {item.label}
                   </SecondaryCustomLink>
