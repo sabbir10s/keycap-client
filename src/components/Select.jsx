@@ -5,7 +5,7 @@ const Select = ({ options, value, onChange, className, _id }) => {
     <div className="relative inline-block ">
       <select
         onChange={onChange}
-        className={`appearance-none block rounded-md border px-4 py-1 dark:text-white dark:bg-[#24262d] placeholder:text-gray-400 text-sm leading-6 outline-none duration-300 ${className}`}
+        className={`appearance-none block rounded-md border px-4 py-1 placeholder:text-gray-400 text-sm leading-6 outline-none duration-300 ${className}`}
       >
         {options.map((option) => (
           <option key={option.value} value={option.value}>
@@ -20,7 +20,7 @@ const Select = ({ options, value, onChange, className, _id }) => {
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          className="w-4 h-4 text-gray-600 dark:text-white"
+          className="w-4 h-4 text-gray-600 "
         >
           <path
             strokeLinecap="round"

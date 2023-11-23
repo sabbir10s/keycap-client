@@ -72,14 +72,14 @@ const AddProduct = () => {
           </div>
           <div className="bg-white shadow-sm border p-6 w-full">
             <div className=" w-full">
-              <label className="block text-sm font-medium leading-6 text-gray-700 dark:text-white">
+              <label className="block text-sm font-medium leading-6 text-gray-700 ">
                 <span>Company</span>
               </label>
               <input
                 autoComplete="off"
                 type="text"
                 placeholder="Company Name"
-                className="block w-full rounded-md border-[1px] border-gray-100 dark:border-gray-700 dark:focus:border-gray-300 p-3 dark:text-white bg-[#f4f5f7] dark:bg-[#24262d] focus:bg-white placeholder:text-gray-400 sm:text-sm sm:leading-6 outline-none duration-300"
+                className="block w-full rounded-md border-[1px] border-gray-100   p-3  bg-[#f4f5f7]  focus:bg-white placeholder:text-gray-400 sm:text-sm sm:leading-6 outline-none duration-300"
                 {...register("company", {
                   required: {
                     value: true,
@@ -87,7 +87,7 @@ const AddProduct = () => {
                   },
                 })}
               />
-              <label className="block text-sm font-medium leading-6 text-gray-700 dark:text-white">
+              <label className="block text-sm font-medium leading-6 text-gray-700 ">
                 {errors.company?.type === "required" && (
                   <span className="text-xs text-red-400">
                     {errors.company.message}
@@ -127,7 +127,7 @@ const AddProduct = () => {
             </div>
             <div className="flex items-center">
               <p>Publish</p>
-              <div className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 capitalize">
+              <div className="px-6 py-4 whitespace-nowrap text-sm text-gray-500  capitalize">
                 <button
                   type="button"
                   className={`relative inline-flex items-center h-4 rounded-full w-8 focus:outline-none ${

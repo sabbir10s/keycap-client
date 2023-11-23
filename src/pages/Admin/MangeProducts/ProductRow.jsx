@@ -58,11 +58,8 @@ const ProductRow = ({ setProducts, product, setIsReload, reload }) => {
 
   return (
     <>
-      <tr
-        key={product._id}
-        className="hover:bg-gray-50 dark:hover:bg-gray-600/50"
-      >
-        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-300 flex items-center gap-2">
+      <tr key={product._id} className="hover:bg-gray-50">
+        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 flex items-center gap-2">
           <img
             className="w-8 h-8 rounded-full hidden md:block"
             src={product.image}
@@ -72,19 +69,19 @@ const ProductRow = ({ setProducts, product, setIsReload, reload }) => {
             {product.name}
           </button>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 capitalize">
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500  capitalize">
           {product.category}
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 capitalize">
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500  capitalize">
           ${product.price}
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-300 capitalize font-semibold">
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 capitalize font-semibold">
           ${product.sellingPrice}
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-300 capitalize font-semibold">
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 capitalize font-semibold">
           {product.stock}
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 capitalize">
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500  capitalize">
           {product.published && (
             <span className="bg-green-100 text-green-500 text-[14px] px-[6px] py-[2px] rounded-full">
               Published

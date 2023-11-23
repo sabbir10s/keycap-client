@@ -76,7 +76,7 @@ const ProductFilters = () => {
             onClick={updateFilterValue}
             name="company"
             id="company"
-            className="appearance-none block border-[1px] border-gray-400 dark:border-gray-700 dark:focus:border-gray-300 px-3 py-1 dark:text-white bg-[#f4f5f7] dark:bg-[#24262d] focus:bg-white placeholder:text-gray-400 text-sm leading-6 outline-none duration-300 w-full"
+            className="appearance-none block border-[1px] border-gray-400   px-3 py-1  bg-[#f4f5f7]  focus:bg-white placeholder:text-gray-400 text-sm leading-6 outline-none duration-300 w-full"
           >
             {companyNames.map((curElm, idx) => {
               return (
@@ -93,7 +93,7 @@ const ProductFilters = () => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="w-4 h-4 text-gray-700 dark:text-white"
+              className="w-4 h-4 text-gray-700 "
             >
               <path
                 strokeLinecap="round"

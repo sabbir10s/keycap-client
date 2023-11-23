@@ -31,10 +31,10 @@ const PaymentModal = ({
             id="paymentContainer"
             className="absolute inset-0 bg-black opacity-50"
           ></div>
-          <div className="bg-white rounded-lg dark:bg-gray-800 p-4 w-full md:w-1/2 lg:w-1/3 z-10 overflow-auto relative">
+          <div className="bg-white rounded-lg p-4 w-full md:w-1/2 lg:w-1/3 z-10 overflow-auto relative">
             <button
               type="button"
-              className="absolute right-1 top-1 text-white bg-gray-400 rounded-full dark:text-gray-300 p-2 z-50"
+              className="absolute right-1 top-1 text-white bg-gray-400 rounded-full p-2 z-50"
               onClick={onClose}
             >
               <svg

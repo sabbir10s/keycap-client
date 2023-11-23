@@ -77,7 +77,7 @@ const HandleOrderStatus = ({ status, orderId }) => {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="w-4 h-4 text-gray-600 dark:text-white"
+            className="w-4 h-4 text-gray-600 "
           >
             <path
               strokeLinecap="round"

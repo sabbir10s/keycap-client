@@ -107,8 +107,8 @@ const OrderDetails = () => {
           )}
         </div>
         <div className="relative overflow-x-auto py-4">
-          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+          <table className="w-full text-sm text-left text-gray-500 ">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-100  ">
               <tr>
                 <th scope="col" className="px-6 py-3 rounded-l-lg">
                   Product
@@ -130,7 +130,7 @@ const OrderDetails = () => {
               ))}
             </tbody>
             <tfoot>
-              <tr className="font-semibold text-gray-900 dark:text-white">
+              <tr className="font-semibold text-gray-900 ">
                 <td className="px-6 py-3">{}</td>
                 <td className="px-6 py-3">{}</td>
                 <th scope="row" className="px-6 py-3 text-base">

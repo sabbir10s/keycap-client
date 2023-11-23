@@ -129,7 +129,7 @@ const Navbar = () => {
                 <div className="relative" ref={dropdownRef}>
                   <button
                     type="button"
-                    className=" p-2 text-gray-600 dark:text-gray-200 transition hover:text-gray-600/75"
+                    className=" p-2 text-gray-600 transition hover:text-gray-600/75"
                     onClick={toggleDropdown}
                   >
                     <svg
@@ -149,7 +149,7 @@ const Navbar = () => {
                   </button>
 
                   {isOpen && (
-                    <div className="absolute right-0 z-10 mt-1 w-48 py-2 text-left text-sm text-gray-700 dark:text-gray-200 bg-white rounded-lg shadow dark:bg-gray-700">
+                    <div className="absolute right-0 z-10 mt-1 w-48 py-2 text-left text-sm text-gray-700 bg-white rounded-lg shadow ">
                       <div className="py-1 flex flex-col gap-6 pl-4">
                         {user && (
                           <button onClick={handleOptionClick}>

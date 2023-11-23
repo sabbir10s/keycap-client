@@ -46,64 +46,64 @@ const MangeProducts = () => {
           <span className="hidden md:block">Add Product</span>
         </Link>
       </div>
-      <div className="bg-white dark:bg-gray-700 border-[1px] border-gray-200/80 dark:border-gray-600 rounded-[10px] shadow-custom">
+      <div className="bg-white border-[1px] border-gray-200/80  rounded-[10px] shadow-custom">
         <div className="overflow-x-auto">
           <div className="align-middle inline-block min-w-full">
-            <div className="shadow overflow-hidden border-b border-gray-200 dark:border-gray-600 sm:rounded-lg">
-              <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-500">
-                <thead className="bg-gray-50 dark:bg-gray-900 dark:text-gray-300">
+            <div className="shadow overflow-hidden border-b border-gray-200  sm:rounded-lg">
+              <table className="min-w-full divide-y divide-gray-200 ">
+                <thead className="bg-gray-50 ">
                   <tr>
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase tracking-wider"
                     >
                       Product
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase tracking-wider"
                     >
                       Category
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase tracking-wider"
                     >
                       Price
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase tracking-wider"
                     >
                       Sale Price
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase tracking-wider"
                     >
                       Stock
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase tracking-wider"
                     >
                       Status
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase tracking-wider"
                     >
                       Published
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase tracking-wider"
                     >
                       Action
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-200 dark:divide-gray-500">
+                <tbody className="divide-y divide-gray-200 ">
                   {currentItems.map((product, index) => (
                     <ProductRow
                       index={index}
@@ -119,7 +119,7 @@ const MangeProducts = () => {
             </div>
           </div>
         </div>
-        <div className="text-gray-900 dark:text-gray-300 flex flex-col md:flex-row gap-6 justify-between items-center w-full pl-[15px] pr-[30px] py-6 text-sm">
+        <div className="text-gray-900 flex flex-col md:flex-row gap-6 justify-between items-center w-full pl-[15px] pr-[30px] py-6 text-sm">
           <p className="uppercase font-semibold">
             showing ({itemsOffset + 1}- {itemsOffset + currentItems.length}) of{" "}
             {products.length}

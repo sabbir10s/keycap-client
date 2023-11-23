@@ -45,9 +45,9 @@ const Orders = () => {
       {orders.length > 0 ? (
         <div className="overflow-x-auto p-4">
           <div className="align-middle inline-block min-w-full">
-            <div className="shadow overflow-hidden border-b border-gray-200 dark:border-gray-600">
-              <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-500">
-                <thead className="bg-primary-600 dark:bg-gray-900 dark:text-gray-300">
+            <div className="shadow overflow-hidden border-b border-gray-200 ">
+              <table className="min-w-full divide-y divide-gray-200 ">
+                <thead className="bg-primary-600 ">
                   <tr>
                     {title.map((item, idx) => (
                       <th
@@ -60,7 +60,7 @@ const Orders = () => {
                     ))}
                   </tr>
                 </thead>
-                <tbody className=" divide-y divide-gray-200 dark:divide-gray-600">
+                <tbody className=" divide-y divide-gray-200 ">
                   {orders.map((order, index) => (
                     <OrderRow order={order} index={index} key={order._id} />
                   ))}

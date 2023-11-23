@@ -21,7 +21,7 @@ const OrderRow = ({ order, index }) => {
   const fieldStyle = "px-6 py-4 whitespace-nowrap text-sm  capitalize ";
   return (
     <>
-      <tr className="text-gray-500 hover:bg-gray-100 duration-200  dark:text-gray-400 dark:hover:bg-gray-600/50 even:bg-white-100 odd:bg-gray-100/30">
+      <tr className="text-gray-500 hover:bg-gray-100 duration-200   even:bg-white-100 odd:bg-gray-100/30">
         <td className={fieldStyle}>#{_id.slice(0, 4)}</td>
         <td className={fieldStyle}>{date}</td>
         <td className={fieldStyle}>{payment.method}</td>

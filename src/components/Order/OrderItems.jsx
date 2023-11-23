@@ -4,10 +4,10 @@ import FormatePrice from "../../helper/FormatePrice";
 const OrderItems = ({ item }) => {
   const { name, image, amount, price } = item;
   return (
-    <tr className="bg-white dark:bg-gray-800">
+    <tr className="bg-white">
       <th
         scope="row"
-        className="flex items-center gap-1 px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+        className="flex items-center gap-1 px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
       >
         <div className="border rounded-full w-[30px] h-[30px]">
           <img className="w-full" src={image} alt="" />
