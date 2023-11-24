@@ -152,11 +152,11 @@ const ProductRow = ({ setProducts, product, setIsReload, reload }) => {
 
       <DeleteModal isDeleteModal={isDeleteModal} onClose={closeDeleteModal}>
         <div className="max-w-[500px] py-2 text-left">
-          <h3 className="text-lg font-semibold">
+          <h3 className="text-base md:text-lg font-semibold">
             Are you sure you wanna delete this product?
           </h3>
 
-          <p className="text-gray-400 text-sm pt-2">
+          <p className="text-gray-400 text-xs md:text-sm pt-2">
             This will delete the product permanently. You cannot undo this
             action.
           </p>
