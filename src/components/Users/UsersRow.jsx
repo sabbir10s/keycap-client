@@ -1,12 +1,13 @@
-import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
 import DeleteModal from "../../shared/DeleteModal";
+import { useDeleteModalContext } from "../../context/DeleteModalContext";
 const fieldStyle = "px-6 py-4 whitespace-nowrap text-sm  capitalize ";
 
 const UsersRow = ({ user, refetch, index }) => {
-  const [isDeleteModal, setDeleteModal] = useState(false);
+  const { isDeleteModal, openDeleteModal, closeDeleteModal } =
+    useDeleteModalContext();
   const { logOut } = useAuthContext();
   const { name, email, role, _id } = user;
   const navigate = useNavigate();
@@ -55,14 +56,6 @@ const UsersRow = ({ user, refetch, index }) => {
           refetch();
         }
       });
-  };
-
-  const openDeleteModal = () => {
-    setDeleteModal(true);
-  };
-
-  const closeDeleteModal = () => {
-    setDeleteModal(false);
   };
 
   return (

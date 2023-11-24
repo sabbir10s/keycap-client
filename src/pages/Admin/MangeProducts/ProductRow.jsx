@@ -4,10 +4,12 @@ import { MdOutlineEditNote } from "react-icons/md";
 import Modal from "../../../shared/Modal";
 import ProductQuickDetails from "../../../components/ProductQuickDetails";
 import DeleteModal from "../../../shared/DeleteModal";
+import { useDeleteModalContext } from "../../../context/DeleteModalContext";
 
 const ProductRow = ({ setProducts, product, setIsReload, reload }) => {
+  const { isDeleteModal, openDeleteModal, closeDeleteModal } =
+    useDeleteModalContext();
   const [isOpen, setIsOpen] = useState(false);
-  const [isDeleteModal, setDeleteModal] = useState(false);
 
   const toggle = (productIdToToggle) => {
     setProducts((prevState) =>
@@ -47,13 +49,6 @@ const ProductRow = ({ setProducts, product, setIsReload, reload }) => {
 
   const closeModal = () => {
     setIsOpen(false);
-  };
-  const openDeleteModal = () => {
-    setDeleteModal(true);
-  };
-
-  const closeDeleteModal = () => {
-    setDeleteModal(false);
   };
 
   return (

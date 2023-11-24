@@ -28,7 +28,7 @@ const DeleteModal = ({ children, isDeleteModal, onClose }) => {
           <div className="fixed flex items-center justify-center inset-0 z-50">
             <div
               id="deleteModalContainer"
-              className="absolute inset-0 bg-black opacity-50"
+              className="absolute inset-0 bg-black/10"
             ></div>
             <div className="bg-white rounded-lg mx-3 p-4 lg:p-8 h-auto max-w-sm md:max-w-2xl lg:max-w-5xl z-10 overflow-auto relative">
               <div>{children}</div>

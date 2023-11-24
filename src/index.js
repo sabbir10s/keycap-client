@@ -14,6 +14,7 @@ import { CartProvider } from './context/CartContext';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import { AuthProvider } from './context/AuthContext';
+import { DeleteModalProvider } from './context/DeleteModalContext';
 // import AuthProvider from './context/AuthContext';
 const queryClient = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -24,17 +25,19 @@ root.render(
   <BrowserRouter>
     <QueryClientProvider client={queryClient}>
       <React.Fragment>
-        <AuthProvider>
-          <AppProvider>
-            <FilterContextProvider>
-              <CartProvider>
-                <Elements stripe={stripePromise}>
-                  <App />
-                </Elements>
-              </CartProvider>
-            </FilterContextProvider>
-          </AppProvider>
-        </AuthProvider>
+        <DeleteModalProvider>
+          <AuthProvider>
+            <AppProvider>
+              <FilterContextProvider>
+                <CartProvider>
+                  <Elements stripe={stripePromise}>
+                    <App />
+                  </Elements>
+                </CartProvider>
+              </FilterContextProvider>
+            </AppProvider>
+          </AuthProvider>
+        </DeleteModalProvider>
       </React.Fragment>
     </QueryClientProvider>
   </BrowserRouter>
