@@ -163,7 +163,7 @@ const ProductRow = ({ setProducts, product, setIsReload, reload }) => {
           <div className="flex justify-end mt-6">
             <button
               className="text-gray-400 px-4 py-1 rounded"
-              onClick={closeModal}
+              onClick={closeDeleteModal}
             >
               Cancel
             </button>

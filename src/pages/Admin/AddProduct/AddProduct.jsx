@@ -61,12 +61,15 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="">
+    <div className="mx-2 lg:mx-0">
       <p className="text-lg font-bold text-primary-700 text-left py-2">
         Add Product
       </p>
-      <div className="">
-        <form className="flex gap-4" onSubmit={handleSubmit(onSubmit)}>
+      <div>
+        <form
+          className="flex flex-col md:flex-row gap-4"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div className="bg-white shadow-sm border p-6 w-full">
             <InputFields register={register} errors={errors} />
           </div>

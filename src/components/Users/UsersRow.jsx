@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
+import DeleteModal from "../../shared/DeleteModal";
 const fieldStyle = "px-6 py-4 whitespace-nowrap text-sm  capitalize ";
 
 const UsersRow = ({ user, refetch, index }) => {
+  const [isDeleteModal, setDeleteModal] = useState(false);
   const { logOut } = useAuthContext();
   const { name, email, role, _id } = user;
   const navigate = useNavigate();
@@ -36,6 +38,7 @@ const UsersRow = ({ user, refetch, index }) => {
       });
   };
 
+  // Delete User
   const handleDelete = () => {
     const url = `https://nexiq-server.vercel.app/user/${_id}`;
     fetch(url, {
@@ -52,6 +55,14 @@ const UsersRow = ({ user, refetch, index }) => {
           refetch();
         }
       });
+  };
+
+  const openDeleteModal = () => {
+    setDeleteModal(true);
+  };
+
+  const closeDeleteModal = () => {
+    setDeleteModal(false);
   };
 
   return (
@@ -80,13 +91,41 @@ const UsersRow = ({ user, refetch, index }) => {
       <td className={fieldStyle}>
         {role !== "admin" && (
           <button
-            onClick={() => handleDelete(_id)}
+            // onClick={() => handleDelete(_id)}
+            onClick={openDeleteModal}
             className="bg-orange-400/10 text-[11px] lg:text-sm  text-yellow-600 px-3 py-1 rounded-md leading-none font-medium text-end"
           >
             Delete
           </button>
         )}
       </td>
+
+      <DeleteModal isDeleteModal={isDeleteModal} onClose={closeDeleteModal}>
+        <div className="max-w-[500px] py-2 text-left">
+          <h3 className="text-base md:text-lg font-semibold">
+            Are you sure you wanna delete this user?
+          </h3>
+
+          <p className="text-gray-400 text-xs md:text-sm pt-2">
+            This will delete user information permanently. You cannot undo this
+            action.
+          </p>
+          <div className="flex justify-end mt-6">
+            <button
+              className="text-gray-400 px-4 py-1 rounded"
+              onClick={closeDeleteModal}
+            >
+              Cancel
+            </button>
+            <button
+              className="bg-red-500 text-white px-4 py-1 rounded"
+              onClick={() => handleDelete(_id)}
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </DeleteModal>
     </tr>
   );
 };
