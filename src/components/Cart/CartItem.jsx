@@ -2,11 +2,18 @@ import React from "react";
 import { useCartContext } from "../../context/CartContext";
 import FormatePrice from "../../helper/FormatePrice";
 import CartAmountToggle from "./CartAmountToggle";
+import { useDeleteModalContext } from "../../context/DeleteModalContext";
+import DeleteModal from "../../shared/DeleteModal";
 
 const CartItem = ({ item }) => {
+  const { isDeleteModal, openDeleteModal, closeDeleteModal } =
+    useDeleteModalContext();
   const { removeItem, setIncrease, setDecrease } = useCartContext();
   const { _id, name, image, price, amount } = item;
-
+  const handleRemoveCartItem = () => {
+    removeItem(_id);
+    closeDeleteModal();
+  };
   return (
     <div>
       <div className="flex justify-between items-center lg:grid  grid-cols-7 lg:gap-2 lg:m-[7px] bg-white">
@@ -42,10 +49,7 @@ const CartItem = ({ item }) => {
         <h2 className=" font-semibold text-primary-600 hidden lg:block mx-auto">
           <FormatePrice price={price * amount} />
         </h2>
-        <button
-          onClick={() => removeItem(_id)}
-          className="lg:mx-auto pr-2 lg:pr-4"
-        >
+        <button onClick={openDeleteModal} className="lg:mx-auto pr-2 lg:pr-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -62,6 +66,33 @@ const CartItem = ({ item }) => {
           </svg>
         </button>
       </div>
+
+      <DeleteModal isDeleteModal={isDeleteModal} onClose={closeDeleteModal}>
+        <div className="max-w-[500px] py-2 text-left">
+          <h3 className="text-base md:text-lg font-semibold">
+            Are you sure you want to remove this item?
+          </h3>
+
+          <p className="text-gray-400 text-xs md:text-sm pt-2">
+            This action will permanently remove the selected item from your
+            cart. Please note that this action cannot be undone.
+          </p>
+          <div className="flex justify-end mt-6">
+            <button
+              className="text-gray-400 px-4 py-1 rounded"
+              onClick={closeDeleteModal}
+            >
+              Cancel
+            </button>
+            <button
+              className="bg-red-500 text-white px-4 py-1 rounded"
+              onClick={handleRemoveCartItem}
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </DeleteModal>
     </div>
   );
 };

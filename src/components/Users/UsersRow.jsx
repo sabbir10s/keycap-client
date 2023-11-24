@@ -1,13 +1,12 @@
+import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
 import DeleteModal from "../../shared/DeleteModal";
-import { useDeleteModalContext } from "../../context/DeleteModalContext";
 const fieldStyle = "px-6 py-4 whitespace-nowrap text-sm  capitalize ";
 
 const UsersRow = ({ user, refetch, index }) => {
-  const { isDeleteModal, openDeleteModal, closeDeleteModal } =
-    useDeleteModalContext();
+  const [isDeleteModal, setDeleteModal] = useState(false);
   const { logOut } = useAuthContext();
   const { name, email, role, _id } = user;
   const navigate = useNavigate();
@@ -54,8 +53,17 @@ const UsersRow = ({ user, refetch, index }) => {
         if (data.deletedCount) {
           toast.success("Successfully Deleted");
           refetch();
+          setDeleteModal(false);
         }
       });
+  };
+
+  const openDeleteModal = () => {
+    setDeleteModal(true);
+  };
+
+  const closeDeleteModal = () => {
+    setDeleteModal(false);
   };
 
   return (
@@ -73,10 +81,7 @@ const UsersRow = ({ user, refetch, index }) => {
           </button>
         )}
         {role === "admin" && (
-          <button
-            onClick={() => handleMakeAdmin(user)}
-            className="uppercase bg-green-400/10 text-[11px] lg:text-sm  text-green-500 px-3 py-1 rounded-md leading-none font-medium text-end"
-          >
+          <button className="uppercase bg-green-400/10 text-[11px] lg:text-sm  text-green-500 px-3 py-1 rounded-md leading-none font-medium text-end">
             Admin
           </button>
         )}
@@ -84,7 +89,6 @@ const UsersRow = ({ user, refetch, index }) => {
       <td className={fieldStyle}>
         {role !== "admin" && (
           <button
-            // onClick={() => handleDelete(_id)}
             onClick={openDeleteModal}
             className="bg-orange-400/10 text-[11px] lg:text-sm  text-yellow-600 px-3 py-1 rounded-md leading-none font-medium text-end"
           >
