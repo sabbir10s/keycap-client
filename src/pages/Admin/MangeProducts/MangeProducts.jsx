@@ -3,7 +3,6 @@ import ProductRow from "./ProductRow";
 import { FiPlus } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import Loading from "../../../components/Loading";
-import Search from "../../../components/Search";
 import Pagination from "../../../shared/Pagination";
 const title = [
   " Product",
@@ -18,7 +17,6 @@ const title = [
 const MangeProducts = () => {
   const [products, setProducts] = useState([]);
   const [reload, setIsReload] = useState(true);
-  // console.log(reload);
   useEffect(() => {
     const url = "https://nexiq-server.vercel.app/product";
     fetch(url, {
@@ -45,8 +43,8 @@ const MangeProducts = () => {
 
   return (
     <div className="mt-4 lg:mt-0 px-2 lg:px-0">
-      <div className="mb-4 flex gap-4 items-center justify-between bg-white p-3">
-        <Search />
+      <div className="mb-4 flex gap-4 items-center justify-end bg-white p-3">
+        {/* <Search /> */}
         <Link
           to="addNewProduct"
           className="flex items-center gap-2 bg-secondary-400 px-4 py-2 text-white"

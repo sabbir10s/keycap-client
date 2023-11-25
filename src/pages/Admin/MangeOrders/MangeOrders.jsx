@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MangeOrderRow from "./MangeOrderRow";
 import Loading from "../../../components/Loading";
+import Pagination from "../../../shared/Pagination";
 const title = [
   " Order Id",
   "Customer",
@@ -27,7 +28,11 @@ const MangeOrders = () => {
         setOrders(data);
       });
   }, [reload]);
-  console.log(orders);
+  const [currentItems, setCurrentItems] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemsOffset, setItemsOffset] = useState(0);
+  const itemsPerPage = 5;
+
   if (orders.length === 0) {
     return <Loading />;
   }
@@ -53,7 +58,7 @@ const MangeOrders = () => {
                 </tr>
               </thead>
               <tbody className=" divide-y divide-gray-200 ">
-                {orders.map((order, index) => (
+                {currentItems.map((order, index) => (
                   <MangeOrderRow
                     order={order}
                     index={index}
@@ -66,6 +71,22 @@ const MangeOrders = () => {
             </table>
           </div>
         </div>
+      </div>
+
+      <div className="text-gray-700 flex flex-col md:flex-row gap-6 justify-between items-center w-full pl-[15px] pr-[30px] py-6 text-sm">
+        <p className="uppercase font-semibold">
+          showing ({itemsOffset + 1}- {itemsOffset + currentItems.length}) of{" "}
+          {orders.length}
+        </p>
+        <Pagination
+          pageCount={pageCount}
+          setPageCount={setPageCount}
+          itemsOffset={itemsOffset}
+          setItemsOffset={setItemsOffset}
+          setCurrentItems={setCurrentItems}
+          itemsPerPage={itemsPerPage}
+          items={orders}
+        />
       </div>
     </div>
   );

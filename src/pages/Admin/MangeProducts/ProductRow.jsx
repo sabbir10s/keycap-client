@@ -36,7 +36,7 @@ const ProductRow = ({ setProducts, product, setIsReload, reload }) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount) {
-          setIsOpen(false);
+          closeDeleteModal();
           toast.success("Successfully Deleted");
           setIsReload(!reload);
         }
@@ -103,7 +103,7 @@ const ProductRow = ({ setProducts, product, setIsReload, reload }) => {
           </button>
         </td>
         <td className="px-6 py-4 whitespace-nowrap text-sm  flex items-start gap-2">
-          <button className="relative flex flex-col items-center group text-gray-400">
+          <button className="hidden relative flex-col items-center group text-gray-400">
             <MdOutlineEditNote className="text-xl" />
             <div className="absolute bottom-0 flex-col items-center hidden mb-6 group-hover:flex">
               <span className="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">
