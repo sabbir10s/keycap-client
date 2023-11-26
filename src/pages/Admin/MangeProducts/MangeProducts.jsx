@@ -10,8 +10,8 @@ const title = [
   "Price",
   "Sale Price",
   "Stock",
-  "Status",
-  "Publish",
+  // "Status",
+  // "Publish",
   "Action",
 ];
 const MangeProducts = () => {

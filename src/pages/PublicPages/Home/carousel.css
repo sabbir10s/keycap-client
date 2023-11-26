@@ -1,0 +1,26 @@
+/* Carousel.css */
+.carousel {
+  width: 100%;
+  display: flex;
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}

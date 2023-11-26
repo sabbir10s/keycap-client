@@ -22,8 +22,10 @@
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
     "react-simple-image-slider": "^2.4.1",
+    "react-slick": "^0.29.0",
     "react-stars": "^2.2.5",
     "react-toastify": "^9.0.1",
+    "react-transition-group": "^4.4.5",
     "sweetalert": "^2.1.2",
     "web-vitals": "^2.1.4"
   },

@@ -11,6 +11,36 @@ const ProductRow = ({ setProducts, product, setIsReload, reload }) => {
     useDeleteModalContext();
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleProductStatus = (product) => {
+    const url = `https://nexiq-server.vercel.app/user/admin/${product._id}`;
+    fetch(url, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("access-token")}`,
+      },
+      body: JSON.stringify({
+        email: "hello@reactcom",
+        first_name: "react",
+      }),
+    })
+      .then((res) => {
+        console.log("res for all users", res);
+        if (res.status === 403) {
+          toast.error("Failed to make an admin");
+          localStorage.removeItem("access-token");
+          // logOut();
+          // navigate("/");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          // refetch();
+          toast.success("Successfully Updated");
+        }
+      });
+  };
   const toggle = (productIdToToggle) => {
     setProducts((prevState) =>
       prevState.map((product) => {
@@ -76,7 +106,7 @@ const ProductRow = ({ setProducts, product, setIsReload, reload }) => {
         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 capitalize font-semibold">
           {product.stock}
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500  capitalize">
+        <td className="hidden px-6 py-4 whitespace-nowrap text-sm text-gray-500  capitalize">
           {product.published && (
             <span className="bg-green-100 text-green-500 text-[14px] px-[6px] py-[2px] rounded-full">
               Published
@@ -88,7 +118,7 @@ const ProductRow = ({ setProducts, product, setIsReload, reload }) => {
             </span>
           )}
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm">
+        <td className="px-6 py-4 whitespace-nowrap text-sm hidden">
           <button
             className={`relative inline-flex items-center h-4 rounded-full w-8 focus:outline-none ${
               product.published ? "bg-primary-500" : "bg-gray-300"

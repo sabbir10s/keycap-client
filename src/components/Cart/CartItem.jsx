@@ -88,7 +88,7 @@ const CartItem = ({ item }) => {
               className="bg-red-500 text-white px-4 py-1 rounded"
               onClick={handleRemoveCartItem}
             >
-              Delete
+              Remove
             </button>
           </div>
         </div>
