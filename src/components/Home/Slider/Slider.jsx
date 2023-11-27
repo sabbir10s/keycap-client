@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import "./Slider.css"; // Create a CSS file for transitions
-
+import "./Slider.css";
+import sliderImgOne from "../../../images/slider img one.png";
+import sliderImgTwo from "../../../images/slider img two.png";
+import { Link } from "react-router-dom";
 const slides = [
   {
-    image:
-      "https://haltico.myshopify.com/cdn/shop/files/slider_02_v2.png?v=1613764671",
+    image: sliderImgOne,
     headline: "Revolutionizing Technology",
     details: "Explore the latest innovations and advancements in technology.",
-    buttonLabel: "Learn More",
-    buttonLink: "/technology",
+    buttonLabel: "Shop Now",
+    buttonLink: "/products",
   },
   {
-    image:
-      "https://electsoho-codezeel.myshopify.com/cdn/shop/files/cms-banner-1.jpg?v=1665664719",
+    image: sliderImgTwo,
     headline: "Discover Cutting-Edge Solutions",
     details: "Unlock possibilities with state-of-the-art technology solutions.",
     buttonLabel: "Shop Now",
-    buttonLink: "/technology",
+    buttonLink: "/products",
   },
 ];
 
@@ -36,7 +36,7 @@ const Slider = () => {
   const startAutoplay = () => {
     return setInterval(() => {
       nextSlide();
-    }, 3000);
+    }, 5000);
   };
 
   useEffect(() => {
@@ -45,10 +45,11 @@ const Slider = () => {
     return () => {
       clearInterval(intervalId);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <div className="relative overflow-hidden bg-secondary-100/50">
+    <div className="relative overflow-hidden bg-white">
       <div className="w-full h-64 md:h-96 lg:h-[82vh]">
         <TransitionGroup
           component="div"
@@ -69,12 +70,12 @@ const Slider = () => {
                   <p className="text-base md:text-lg lg:text-xl mb-4 text-primary-600 details">
                     {slides[currentSlide].details}
                   </p>
-                  <a
-                    href={slides[currentSlide].buttonLink}
-                    className="text-white px-4 py-2.5 hover:bg-gray-800 transition duration-300 text-sm sm:text-base bg-primary-600 button"
+                  <Link
+                    to={slides[currentSlide].buttonLink}
+                    className="text-white px-4 py-2.5 hover:bg-primary-700 transition duration-300 text-sm sm:text-base bg-primary-600 button"
                   >
                     {slides[currentSlide].buttonLabel}
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -83,13 +84,13 @@ const Slider = () => {
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
           <button
             onClick={prevSlide}
-            className="bg-transparent text-white rounded-full p-2 hover:bg-gray-800 transition duration-300"
+            className="bg-transparent text-gray-400 hover:text-primary-600 transition duration-300"
           >
             <IoIosArrowBack size={24} />
           </button>
           <button
             onClick={nextSlide}
-            className="bg-transparent text-white rounded-full p-2 hover:bg-gray-800 transition duration-300"
+            className="bg-transparent text-gray-400 hover:text-primary-600 transition duration-300"
           >
             <IoIosArrowForward size={24} />
           </button>
