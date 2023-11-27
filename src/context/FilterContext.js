@@ -44,6 +44,9 @@ export const FilterContextProvider = ({ children }) => {
     const updateFilterValue = (e) => {
         let name = e.target.name;
         let value = e.target.value;
+        if (name === "company") {
+            return dispatch({ type: "UPDATE_COMPANY_FILTER", payload: value });
+        }
         return dispatch({ type: "UPDATE_FILTERS_VALUE", payload: { name, value } })
     }
     // To clear the filters value 

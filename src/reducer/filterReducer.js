@@ -48,7 +48,14 @@ const filterReducer = (state, action) => {
                 ...state,
                 filter_products: newSortData
             }
-
+        case "UPDATE_COMPANY_FILTER":
+            return {
+                ...state,
+                filters: {
+                    ...state.filters,
+                    company: action.payload,
+                },
+            };
         case "UPDATE_FILTERS_VALUE":
             const { name, value } = action.payload
             return {
