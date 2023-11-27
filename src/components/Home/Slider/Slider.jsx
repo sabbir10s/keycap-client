@@ -8,15 +8,17 @@ import { Link } from "react-router-dom";
 const slides = [
   {
     image: sliderImgOne,
-    headline: "Revolutionizing Technology",
-    details: "Explore the latest innovations and advancements in technology.",
+    headline: "Your Ultimate Smartphone Destination!",
+    details:
+      "Discover cutting-edge technology and unbeatable deals in our smartphone haven.",
     buttonLabel: "Shop Now",
     buttonLink: "/products",
   },
   {
     image: sliderImgTwo,
-    headline: "Discover Cutting-Edge Solutions",
-    details: "Unlock possibilities with state-of-the-art technology solutions.",
+    headline: "Unmatched Headphone Excellence!",
+    details:
+      "Immerse Yourself in Unrivaled Sound Quality with Our Premium Selection of Headphones.",
     buttonLabel: "Shop Now",
     buttonLink: "/products",
   },
@@ -50,7 +52,7 @@ const Slider = () => {
 
   return (
     <div className="relative overflow-hidden bg-white">
-      <div className="w-full h-64 md:h-96 lg:h-[82vh]">
+      <div className="w-full h-64 md:h-96 lg:min-h-[480px]">
         <TransitionGroup
           component="div"
           className="flex transition-transform duration-300 ease-in-out h-full"
@@ -63,13 +65,13 @@ const Slider = () => {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 flex flex-col items-start justify-center text-white pl-4 lg:pl-8 py-4 bg-white/80 md:bg-transparent">
-                <div className="w-full md:w-1/2">
-                  <p className="text-xl md:text-3xl lg:text-4xl font-bold mb-2 text-primary-600 headline">
+                <div className="w-full md:w-[450px]">
+                  <h1 className="text-xl md:text-3xl font-bold mb-2 text-primary-600 headline">
                     {slides[currentSlide].headline}
-                  </p>
-                  <p className="text-base md:text-lg lg:text-xl mb-4 text-primary-600 details">
+                  </h1>
+                  <h5 className="text-base md:text-lg mb-4 text-primary-600 details">
                     {slides[currentSlide].details}
-                  </p>
+                  </h5>
                   <Link
                     to={slides[currentSlide].buttonLink}
                     className="text-white px-4 py-2.5 hover:bg-primary-700 transition duration-300 text-sm sm:text-base bg-primary-600 button"

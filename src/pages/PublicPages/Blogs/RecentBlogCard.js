@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const RecentBlog = ({ blog }) => {
+const RecentBlogCard = ({ blog }) => {
     const { _id, date, title, img } = blog
 
     const navigate = useNavigate()
@@ -21,4 +21,4 @@ const RecentBlog = ({ blog }) => {
     );
 };
 
-export default RecentBlog;
+export default RecentBlogCard;

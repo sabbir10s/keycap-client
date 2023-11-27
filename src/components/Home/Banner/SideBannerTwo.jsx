@@ -7,7 +7,7 @@ const SideBannerTwo = () => {
       className="bg-white w-full flex flex-col h-full relative overflow-hidden group"
     >
       <div className="z-50 p-6">
-        <h2 className="text-sm font-bold text-secondary-600">
+        <h2 className="text-sm font-bold text-secondary-400 tracking-wide">
           Full HD Display
         </h2>
         <h2 className="text-base lg:text-lg text-gray-700 mt-1">

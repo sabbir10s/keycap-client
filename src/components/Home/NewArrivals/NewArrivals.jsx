@@ -4,8 +4,8 @@ import { useProductContext } from "../../../context/ProductContext";
 import Loading from "../../Loading";
 import ProductCard from "../../Product/ProductCard/ProductCard";
 
-const FeaturedProducts = () => {
-  const { isLoading, featureProducts } = useProductContext();
+const NewArrivals = () => {
+  const { isLoading, products } = useProductContext();
   const navigate = useNavigate();
   const handleButton = () => {
     navigate("/products");
@@ -21,7 +21,7 @@ const FeaturedProducts = () => {
             id="products"
             className="text-gray-700 text-lg md:text-xl lg:text-2xl font-semibold border-b-2 border-primary-600 inline-block tracking-wider pb-[8px]"
           >
-            Featured Products
+            New Arrivals
           </h2>
           <button
             className="flex items-center gap-1 text-gray-500 hover:text-primary-600"
@@ -35,7 +35,7 @@ const FeaturedProducts = () => {
         <div className="border-t-[2px]"></div>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-10 mt-5">
-        {featureProducts.map((product) => (
+        {products.slice(0, 4).map((product) => (
           <ProductCard
             id="#new"
             key={product._id}
@@ -47,4 +47,4 @@ const FeaturedProducts = () => {
   );
 };
 
-export default FeaturedProducts;
+export default NewArrivals;
