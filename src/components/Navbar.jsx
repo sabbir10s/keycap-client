@@ -66,7 +66,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="bg-primary-600 z-50 fixed top-0 w-full py-4">
+      <header className="bg-primary-600 w-full fixed top-0 z-50 py-4">
         <div className="flex items-center justify-center gap-8 max-w-screen-xl mx-auto px-4 sm:px-4 lg:px-8">
           <div className="lg:hidden absolute left-0 lg:static">
             {(pathname.includes("adminDashboard") ||
@@ -92,6 +92,18 @@ const Navbar = () => {
                     <CustomLink to={items.link}>{items.name}</CustomLink>
                   </li>
                 ))}
+
+                {user && !isAdmin && (
+                  <div className="flex items-center justify-center gap-1 text-gray-100  italic">
+                    <p>Note: click here for</p>
+                    <Link
+                      className="underline text-secondary-300 tracking-wider"
+                      to="/adminDashboard"
+                    >
+                      Admin View
+                    </Link>
+                  </div>
+                )}
               </ul>
             </nav>
 

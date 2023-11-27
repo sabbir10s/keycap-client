@@ -6,7 +6,7 @@ import SideBannerOne from "./SideBannerOne";
 
 const Banner = () => {
   return (
-    <div className=" max-w-screen-xl mx-auto px-2 sm:px-6 lg:px-8 gap-5 grid grid-cols-1 lg:grid-cols-3 mt-2 md:mt-3 lg:mt-5">
+    <div className=" max-w-screen-xl mx-auto px-2 sm:px-6 lg:px-8 gap-5 grid grid-cols-1 lg:grid-cols-3 pt-2 md:pt-3 lg:pt-5">
       <div className=" col-span-1 lg:col-span-2">
         <Slider />
       </div>

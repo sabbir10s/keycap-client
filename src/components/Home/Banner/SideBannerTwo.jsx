@@ -6,7 +6,7 @@ const SideBannerTwo = () => {
       to="/products"
       className="bg-white w-full flex flex-col h-full relative overflow-hidden group"
     >
-      <div className="z-50 p-6">
+      <div className="z-40 p-6">
         <h2 className="text-sm font-bold text-secondary-400 tracking-wide">
           Full HD Display
         </h2>
