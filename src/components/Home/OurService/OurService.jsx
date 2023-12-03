@@ -1,8 +1,7 @@
 import React from "react";
-// import icon from "../../../../images/cons/icon.png";
-import icon from "../../../images/Icons/icon.png";
-import icon1 from "../../../images/Icons/icon2.png";
-import icon2 from "../../../images/Icons/icon3.png";
+import icon from "../../../assets/Icons/icon.png";
+import icon1 from "../../../assets/Icons/icon2.png";
+import icon2 from "../../../assets/Icons/icon3.png";
 const OurService = () => {
   return (
     <div className="bg-primary-700 py-20">

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import router from "../../../images/router.png";
+import router from "../../../assets/images/slider img one.png";
 const SideBannerOne = () => {
   return (
     <Link

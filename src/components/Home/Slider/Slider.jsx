@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import "./Slider.css";
-import sliderImgOne from "../../../images/slider img one.png";
-import sliderImgTwo from "../../../images/slider img two.png";
+import sliderImgOne from "../../../assets/images/slider img one.png";
+import sliderImgTwo from "../../../assets/images/slider img two.png";
 import { Link } from "react-router-dom";
 const slides = [
   {
