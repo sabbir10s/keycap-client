@@ -10,6 +10,8 @@ import { useAuthContext } from "../context/AuthContext";
 import useAdmin from "../hooks/useAdmin";
 import { HiUser } from "react-icons/hi";
 
+import logo from "../assets/images/logo.png";
+
 const navItems = [
   {
     name: "Home",
@@ -66,7 +68,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="bg-primary-600 w-full fixed top-0 z-50 py-4">
+      <header className="bg-white w-full fixed top-0 z-50 py-4">
         <div className="flex items-center justify-center gap-8 max-w-screen-xl mx-auto px-4 sm:px-4 lg:px-8">
           <div className="lg:hidden absolute left-0 lg:static">
             {(pathname.includes("adminDashboard") ||
@@ -80,7 +82,8 @@ const Navbar = () => {
           </div>
           <div>
             <Link className="block text-white" to="/">
-              <div className="text-center text-2xl font-bold ">NEXIQ</div>
+              {/* <div className="text-center text-2xl font-bold ">NEXIQ</div> */}
+              <img className="w-[120px]" src={logo} alt="" />
             </Link>
           </div>
 
@@ -113,7 +116,7 @@ const Navbar = () => {
                 className="relative flex items-center md:pr-5"
                 type="button"
               >
-                <AiOutlineShoppingCart className="text-[24px] text-white" />
+                <AiOutlineShoppingCart className="text-[24px] text-primary-600" />
                 <span className="absolute top-[-10px] left-[18px] text-[11px] text-white bg-secondary-600 rounded-full h-[20px] w-[18px] flex items-center justify-center">
                   {total_item}
                 </span>
@@ -122,14 +125,14 @@ const Navbar = () => {
                 {user ? (
                   <Link
                     to={isAdmin ? "/adminDashboard" : "/userDashboard"}
-                    className="text-white text-base uppercase font-bold border-2 border-white w-8 h-8 rounded-full flex justify-center items-center"
+                    className="text-primary-600 text-base uppercase font-bold border-2 border-white w-8 h-8 rounded-full flex justify-center items-center"
                   >
                     {/* {loading ? ".." : user?.displayName.slice(0, 1)} */}
-                    <HiUser className="text-white" />
+                    <HiUser className="text-primary-600" />
                   </Link>
                 ) : (
                   <Link
-                    className="border border-white rounded px-5 py-1.5 text-sm font-medium text-white"
+                    className="border border-primary-600 rounded px-5 py-1.5 text-sm font-medium text-primary-600"
                     to="/SignIn"
                   >
                     Sign In
