@@ -28,6 +28,7 @@ import MangeUsers from './pages/Admin/MangeUsers/MangeUsers';
 import PrivateRoute from './hooks/PrivateRoute';
 import UserDashboard from './pages/User/Dashboard/UserDashboard';
 import WishList from './pages/User/WishList/WishList';
+import FAQ from './pages/PublicPages/FAQ/FAQ';
 
 
 
@@ -53,6 +54,7 @@ function App() {
             <Route path='/products' element={<Products />} />
             <Route path='/blogs' element={<Blogs />} />
             <Route path='/blog/:blogID' element={<BlogDetails />} />
+            <Route path='/faq' element={<FAQ />} />
             <Route path='/signIn' element={<SignIn />} />
             <Route path='/signUp' element={<SignUp />} />
 

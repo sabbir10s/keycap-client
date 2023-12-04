@@ -1,0 +1,22 @@
+[
+  {
+    "_id": 1,
+    "question": "Is it possible to pick up my order?",
+    "answer": "Yes. Please write us a message and we can arrange a time slot and refund the shipping costs. Pick up is only possible in Dahak, Bangladesh."
+  },
+  {
+    "_id": 2,
+    "question": "Are all products which you offer in stock?    ",
+    "answer": "Yes. All products which you can put in your cart and buy are in stock and will be shipped as soon as possible. If a product is not in stock it will be marked as 'Sold Out', 'Coming Soon'."
+  },
+  {
+    "_id": 3,
+    "question": "If I pay in another currency how will it change the price?",
+    "answer": "First of all, we would like to point out that we recommend that you always pay in Taka.Payments in other currencies are converted based on exchange rates and include conversion charges from website which we can not change or remove."
+  },
+  {
+    "_id": 4,
+    "question": "Website response taking time, how to improve?",
+    "answer": "At first, Please check your internet connection . We also have some online video tutorials regarding this issue . If the problem remains, Please Open a ticket in the support forum."
+  }
+]

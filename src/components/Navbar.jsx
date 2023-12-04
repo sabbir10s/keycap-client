@@ -25,6 +25,10 @@ const navItems = [
     name: "Blogs",
     link: "/blogs",
   },
+  {
+    name: "FAQ",
+    link: "/faq",
+  },
 ];
 const Navbar = () => {
   const { user } = useAuthContext();
@@ -74,7 +78,7 @@ const Navbar = () => {
             {(pathname.includes("adminDashboard") ||
               pathname.includes("userDashboard")) && (
               <button onClick={() => setMobileSidebar(true)}>
-                <span className="text-3xl text-gray-300">
+                <span className="text-3xl text-gray-500">
                   <BiMenuAltLeft />
                 </span>
               </button>
@@ -82,7 +86,6 @@ const Navbar = () => {
           </div>
           <div>
             <Link className="block text-white" to="/">
-              {/* <div className="text-center text-2xl font-bold ">NEXIQ</div> */}
               <img className="w-[120px]" src={logo} alt="" />
             </Link>
           </div>
@@ -144,7 +147,7 @@ const Navbar = () => {
                 <div className="relative" ref={dropdownRef}>
                   <button
                     type="button"
-                    className=" py-2 text-gray-200 transition"
+                    className=" py-2 text-gray-500 transition"
                     onClick={toggleDropdown}
                   >
                     <svg

@@ -6,7 +6,7 @@ const ProductFilters = () => {
   const {
     all_products,
     updateFilterValue,
-    filters: { company, category, price, maxPrice, minPrice },
+    filters: { category, price, maxPrice, minPrice },
     clearFilters,
   } = useFilterContext();
 
@@ -70,20 +70,38 @@ const ProductFilters = () => {
         <h2 className="text-base text-primary-700 font-semibold xl:border-l-2 border-primary-700 xl:pl-2  mb-3">
           Company
         </h2>
-        <div>
-          {companyNames.map((curElm, idx) => (
-            <label key={idx} className="flex items-center pb-3 capitalize">
-              <input
-                type="checkbox"
-                name="company"
-                value={curElm}
-                onChange={updateFilterValue}
-                checked={curElm === company}
+        <form className="relative block w-36" action="#">
+          <select
+            onClick={updateFilterValue}
+            name="company"
+            id="company"
+            className="appearance-none block border-[1px] border-gray-400 dark:border-gray-700 dark:focus:border-gray-300 px-3 py-1 dark:text-white bg-[#f4f5f7] dark:bg-[#24262d] focus:bg-white placeholder:text-gray-400 text-sm leading-6 outline-none duration-300 w-full"
+          >
+            {companyNames.map((curElm, idx) => {
+              return (
+                <option key={idx} value={curElm} name="company">
+                  {curElm}
+                </option>
+              );
+            })}
+          </select>
+          <div className="pointer-events-none absolute inset-y-0 right-1 flex items-center px-1 md:px-2 ">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="w-4 h-4 text-gray-700 dark:text-white"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
               />
-              <span className="ml-2">{curElm}</span>
-            </label>
-          ))}
-        </div>
+            </svg>
+          </div>
+        </form>
       </div>
       <button
         className=" bg-secondary-500 text-white py-2 px-4"
