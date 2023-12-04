@@ -10,7 +10,6 @@ const RecentBlog = () => {
       method: "GET",
     }).then((res) => res.json())
   );
-  console.log(blogs);
 
   const navigate = useNavigate();
   const handleButton = () => {

@@ -50,6 +50,7 @@ const MobileSidebar = ({ visible, handleMobileSidebar }) => {
 
   const handleSignOut = () => {
     logOut();
+
     handleMobileSidebar();
     navigate("/");
     clearCart();

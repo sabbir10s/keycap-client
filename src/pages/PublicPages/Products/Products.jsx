@@ -2,7 +2,6 @@ import Footer from "../../../components/Footer";
 import ProductFilters from "../../../components/Product/ProductFilters";
 import ProductList from "../../../components/Product/ProductList";
 import Sort from "../../../components/Product/Sort";
-import ProcessingSteps from "../../../shared/ProcessingSteps/ProcessingSteps";
 
 const Products = () => {
   return (
@@ -16,7 +15,7 @@ const Products = () => {
           </div>
         </div>
       </div>
-      <ProcessingSteps />
+
       <Footer />
     </>
   );

@@ -8,7 +8,7 @@ const ProcessingSteps = () => {
   return (
     <div className="border-t border-t-gray-300 py-8 bg-slate-50 mt-8 lg:mt-16">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-4 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="text-center flex flex-col items-center">
             <FaCreditCard className="text-primary-600 text-4xl" />
             <h5 className="mt-2 mb-1 font-semibold text-sm md:text-base">

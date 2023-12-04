@@ -2,12 +2,14 @@ import React from "react";
 import { useAuthContext } from "../context/AuthContext";
 import useAdmin from "../hooks/useAdmin";
 import { Link } from "react-router-dom";
+import ProcessingSteps from "../shared/ProcessingSteps/ProcessingSteps";
 
 const Footer = () => {
   const { user } = useAuthContext();
   const [isAdmin] = useAdmin();
   return (
     <>
+      <ProcessingSteps />
       <footer className="bg-gray-900 text-white pt-12 pb-8 px-4">
         <div className="container overflow-hidden flex flex-col lg:flex-row justify-between mx-auto px-4">
           <div>

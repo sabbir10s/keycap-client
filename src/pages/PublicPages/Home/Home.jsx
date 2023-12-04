@@ -5,7 +5,6 @@ import OurService from "../../../components/Home/OurService/OurService";
 import Footer from "../../../components/Footer";
 import NewArrivals from "../../../components/Home/NewArrivals/NewArrivals";
 import RecentBlog from "../../../components/Home/RecentBlog/RecentBlog";
-import ProcessingSteps from "../../../shared/ProcessingSteps/ProcessingSteps";
 
 const Home = () => {
   return (
@@ -23,9 +22,6 @@ const Home = () => {
       {/* <ContactFrom /> */}
       <div className="max-w-screen-xl mx-auto px-2 sm:px-4 lg:px-8 mt-8 lg:mt-16">
         <RecentBlog />
-      </div>
-      <div>
-        <ProcessingSteps />
       </div>
       <Footer />
     </div>
