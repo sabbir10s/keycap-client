@@ -12,7 +12,7 @@ import { useCartContext } from "../../../context/CartContext";
 import RelatedProducts from "../../../components/Product/RelatedProducts/RelatedProducts";
 import Footer from "../../../components/Footer";
 
-const API = "https://nexiq-server.vercel.app/product";
+const API = "https://keycap-server.vercel.app/product";
 
 const ProductDetails = () => {
   const { getSingleProduct, isSingleLoading, singleProduct } =

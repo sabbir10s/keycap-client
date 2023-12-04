@@ -1,7 +1,7 @@
 import React from "react";
 import { useFilterContext } from "../../context/FilterContext";
 import ProductCard from "./ProductCard/ProductCard";
-import ProductCartFullWidth from "./ProductCard/FullWidthCard";
+import ProductCardFullWidth from "./ProductCard/ProductCardFullWidth";
 
 const ProductList = () => {
   const { filter_products, grid_view } = useFilterContext();
@@ -20,7 +20,7 @@ const ProductList = () => {
     return (
       <div className="mt-3 shadow-sm">
         {filter_products.map((product) => (
-          <ProductCartFullWidth product={product} key={product._id} />
+          <ProductCardFullWidth product={product} key={product._id} />
         ))}
       </div>
     );

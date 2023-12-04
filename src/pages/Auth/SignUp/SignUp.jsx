@@ -24,7 +24,7 @@ const SignUp = () => {
         console.log(loggedUser);
         updateUserProfile(data.name).then(() => {
           const userInfo = { name: data.name, email: data.email };
-          fetch("https://nexiq-server.vercel.app/user", {
+          fetch("https://keycap-server.vercel.app/user", {
             method: "POST",
             headers: {
               "content-type": "application/json",

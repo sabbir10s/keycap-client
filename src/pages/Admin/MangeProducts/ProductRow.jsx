@@ -12,7 +12,7 @@ const ProductRow = ({ setProducts, product, setIsReload, reload }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleProductStatus = (product) => {
-    const url = `https://nexiq-server.vercel.app/user/admin/${product._id}`;
+    const url = `https://keycap-server.vercel.app/user/admin/${product._id}`;
     fetch(url, {
       method: "PATCH",
       headers: {
@@ -55,7 +55,7 @@ const ProductRow = ({ setProducts, product, setIsReload, reload }) => {
   };
 
   const handleDelete = () => {
-    const url = `https://nexiq-server.vercel.app/product/${product._id}`;
+    const url = `https://keycap-server.vercel.app/product/${product._id}`;
     fetch(url, {
       method: "DELETE",
       headers: {

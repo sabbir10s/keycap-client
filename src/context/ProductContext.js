@@ -6,7 +6,7 @@ import reducer from "../reducer/productReducer";
 import { actionType } from "../helper/ActionTypes";
 
 const AppContext = createContext();
-const API = 'https://nexiq-server.vercel.app/product';
+const API = 'https://keycap-server.vercel.app/product';
 const initialState = {
     isLoading: false,
     isError: false,

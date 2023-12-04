@@ -7,7 +7,7 @@
 //         const currentUser = { email: email }
 
 //         if (user) {
-//             fetch(`https://nexiq-server.vercel.app/user/${email}`, {
+//             fetch(`https://keycap-server.vercel.app/user/${email}`, {
 //                 method: 'PUT',
 //                 headers: {
 //                     'content-type': 'application/json'

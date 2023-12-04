@@ -18,7 +18,7 @@ const title = [
 const Orders = () => {
   const { user, loading, logOut } = useAuthContext();
   const navigate = useNavigate();
-  const url = `https://nexiq-server.vercel.app/user/order/${user.email}`;
+  const url = `https://keycap-server.vercel.app/user/order/${user.email}`;
 
   const { isLoading, data: orders } = useQuery("order", () =>
     fetch(url, {

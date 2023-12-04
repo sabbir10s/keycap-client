@@ -15,7 +15,7 @@ const GoogleSignIn = () => {
       const logInUser = result.user;
       console.log(logInUser);
       const userInfo = { name: logInUser.displayName, email: logInUser.email };
-      fetch("https://nexiq-server.vercel.app/user", {
+      fetch("https://keycap-server.vercel.app/user", {
         method: "POST",
         headers: {
           "content-type": "application/json",

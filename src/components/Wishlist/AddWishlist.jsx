@@ -17,7 +17,7 @@ const AddWishlist = ({ _id }) => {
   const handleWishlist = (event) => {
     event.preventDefault();
 
-    const url = `https://nexiq-server.vercel.app/user/${email}`;
+    const url = `https://keycap-server.vercel.app/user/${email}`;
     const wishlist = singleProduct._id;
     fetch(url, {
       method: "PUT",

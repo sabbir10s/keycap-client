@@ -12,7 +12,7 @@ const UsersRow = ({ user, refetch, index }) => {
   const navigate = useNavigate();
 
   const handleMakeAdmin = (user) => {
-    const url = `https://nexiq-server.vercel.app/user/admin/${user._id}`;
+    const url = `https://keycap-server.vercel.app/user/admin/${user._id}`;
     fetch(url, {
       method: "PATCH",
       headers: {
@@ -40,7 +40,7 @@ const UsersRow = ({ user, refetch, index }) => {
 
   // Delete User
   const handleDelete = () => {
-    const url = `https://nexiq-server.vercel.app/user/${_id}`;
+    const url = `https://keycap-server.vercel.app/user/${_id}`;
     fetch(url, {
       method: "DELETE",
       headers: {

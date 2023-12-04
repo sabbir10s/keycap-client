@@ -24,7 +24,7 @@ const AddReview = () => {
       userImage,
     };
 
-    const url = `https://nexiq-server.vercel.app/review`;
+    const url = `https://keycap-server.vercel.app/review`;
 
     fetch(url, {
       method: "POST",

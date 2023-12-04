@@ -18,7 +18,7 @@ const MangeProducts = () => {
   const [products, setProducts] = useState([]);
   const [reload, setIsReload] = useState(true);
   useEffect(() => {
-    const url = "https://nexiq-server.vercel.app/product";
+    const url = "https://keycap-server.vercel.app/product";
     fetch(url, {
       method: "GET",
       headers: {

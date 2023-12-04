@@ -1,6 +1,6 @@
 
   const handleDelete = () => {
-    const url = `https://nexiq-server.vercel.app/order/${orderId}`;
+    const url = `https://keycap-server.vercel.app/order/${orderId}`;
     fetch(url, {
       method: "DELETE",
       headers: {

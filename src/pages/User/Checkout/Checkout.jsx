@@ -29,7 +29,7 @@ const Checkout = () => {
   const formattedDate = currentDate.toLocaleDateString(undefined, options);
 
   const { isLoading, data: userData } = useQuery(["user", email], () =>
-    fetch(`https://nexiq-server.vercel.app/user/${email}`, {
+    fetch(`https://keycap-server.vercel.app/user/${email}`, {
       method: "GET",
       headers: {
         "content-type": "application/json",
@@ -67,7 +67,7 @@ const Checkout = () => {
       date: formattedDate,
     };
 
-    const url = `https://nexiq-server.vercel.app/user/order`;
+    const url = `https://keycap-server.vercel.app/user/order`;
 
     fetch(url, {
       method: "POST",

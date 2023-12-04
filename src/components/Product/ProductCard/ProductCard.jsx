@@ -31,7 +31,7 @@ const ProductCard = ({ product }) => {
     if (!alreadyAdded) {
       addToCart(_id, amount, product);
       toast.success("Successfully Added to Cart", {
-        position: toast.POSITION.TOP_CENTER,
+        position: toast.POSITION.TOP_RIGHT,
       });
     } else {
       navigate("/cart");

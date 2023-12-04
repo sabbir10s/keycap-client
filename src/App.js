@@ -45,7 +45,7 @@ function App() {
     <div>
       <Wrapper>
         <Navbar />
-        <ToastContainer />
+        <ToastContainer autoClose={1500} />
         <div className='pt-16 bg-[#f0f0fa]'>
           <Routes>
             <Route path='/' element={<Home />} />

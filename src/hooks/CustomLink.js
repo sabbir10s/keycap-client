@@ -8,7 +8,7 @@ function CustomLink({ children, to, ...props }) {
     return (
         <div>
             <Link
-                className={match ? 'text-secondary-500 font-bold border-b-2 pb-[23px] border-secondary-500 px-8' : "text-primary-600 px-8 border-b-0 pb-[23px]"}
+                className={match ? 'text-primary-600 font-bold border-b-2 pb-[23px] border-primary-600 px-8' : "text-gray-600 px-8 border-b-0 pb-[23px]"}
                 to={to}
                 {...props}
             >

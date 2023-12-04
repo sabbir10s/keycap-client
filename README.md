@@ -1,4 +1,4 @@
-# Project Name: NEXIQ
+# Project Name: Keycap
 
 ## [Live Link](https://nexiq-1199a.web.app/)
 

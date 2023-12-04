@@ -97,7 +97,7 @@ const Navbar = () => {
                 ))}
 
                 {user && !isAdmin && (
-                  <div className="flex items-center justify-center gap-1 text-gray-100  italic">
+                  <div className="flex items-center justify-center gap-1 text-gray-400  italic">
                     <p>Note: click here for</p>
                     <Link
                       className="underline text-secondary-300 tracking-wider"
@@ -125,7 +125,7 @@ const Navbar = () => {
                 {user ? (
                   <Link
                     to={isAdmin ? "/adminDashboard" : "/userDashboard"}
-                    className="text-primary-600 text-base uppercase font-bold border-2 border-white w-8 h-8 rounded-full flex justify-center items-center"
+                    className="text-primary-600 text-base uppercase font-bold border-2 border-primary-600 w-8 h-8 rounded-full flex justify-center items-center"
                   >
                     {/* {loading ? ".." : user?.displayName.slice(0, 1)} */}
                     <HiUser className="text-primary-600" />

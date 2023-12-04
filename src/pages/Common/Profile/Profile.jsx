@@ -18,7 +18,7 @@ const Profile = () => {
     data: userData,
     refetch,
   } = useQuery(["user", email], () =>
-    fetch(`https://nexiq-server.vercel.app/user/${email}`, {
+    fetch(`https://keycap-server.vercel.app/user/${email}`, {
       method: "GET",
       headers: {
         "content-type": "application/json",
@@ -48,7 +48,7 @@ const Profile = () => {
 
     // console.log(userInfo)
 
-    const url = `https://nexiq-server.vercel.app/user/${email}`;
+    const url = `https://keycap-server.vercel.app/user/${email}`;
 
     fetch(url, {
       method: "PUT",

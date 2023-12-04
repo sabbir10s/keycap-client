@@ -20,7 +20,7 @@ const HandleOrderStatus = ({ status, orderId }) => {
     e.preventDefault();
     console.log(statusValue);
     const json = JSON.stringify({ status: statusValue });
-    const url = `https://nexiq-server.vercel.app/admin/order/${orderId}`;
+    const url = `https://keycap-server.vercel.app/admin/order/${orderId}`;
 
     fetch(url, {
       method: "PUT",

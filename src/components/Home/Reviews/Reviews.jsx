@@ -5,7 +5,7 @@ import ReviewCard from "./ReviewCard";
 
 const Reviews = () => {
   const { data: reviews, isLoading } = useQuery(["reviews"], () =>
-    fetch("https://nexiq-server.vercel.app/review", {
+    fetch("https://keycap-server.vercel.app/review", {
       method: "GET",
     }).then((res) => res.json())
   );

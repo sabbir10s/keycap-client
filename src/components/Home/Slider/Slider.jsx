@@ -69,7 +69,7 @@ const Slider = () => {
                   <h1 className="text-xl md:text-3xl font-bold mb-2 text-primary-600 headline">
                     {slides[currentSlide].headline}
                   </h1>
-                  <h5 className="text-base md:text-lg mb-4 text-primary-600 details">
+                  <h5 className="text-base md:text-lg mb-4 text-gray-600 details">
                     {slides[currentSlide].details}
                   </h5>
                   <Link
