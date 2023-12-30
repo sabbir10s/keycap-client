@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import InputFields from "./InputFields";
 import { RiImageAddFill } from "react-icons/ri";
 import { useState } from "react";
+import Extra from "./Extra";
 
 const AddProduct = () => {
   const {
@@ -98,7 +99,7 @@ const AddProduct = () => {
                 )}
               </label>
             </div>
-            <div className="flex flex-col gap-4">
+            {/* <div className="flex flex-col gap-4">
               <div className=" w-full cursor-pointer">
                 <div className=" cursor-pointer flex items-center justify-center gap-2 border border-primary-700 bg-slate-100 rounded-lg py-1 mt-2">
                   <label className="label cursor-pointer pt-0" htmlFor="image">
@@ -109,6 +110,7 @@ const AddProduct = () => {
                   <input
                     type="file"
                     id="image"
+                    multiple
                     className="text-base-300 lg:w-[250px] cursor-pointer"
                     {...register("image", {
                       required: {
@@ -127,7 +129,8 @@ const AddProduct = () => {
                   )}
                 </label>
               </div>
-            </div>
+            </div> */}
+            <Extra />
             <div className="flex items-center">
               <p>Publish</p>
               <div className="px-6 py-4 whitespace-nowrap text-sm text-gray-500  capitalize">
